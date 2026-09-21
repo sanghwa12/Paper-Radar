@@ -1,0 +1,206 @@
+[
+  {
+    "candidateId": "dd6010ad6b2843cd956439aeb5e43554",
+    "ratings": [
+      {
+        "id": "novelty",
+        "level": 2,
+        "reason": "2D 그래프와 3D 특징을 결합해 자세·신뢰도를 예측하는 구성을 기존 도킹 방법과 구분하고, benchmark와 ablation으로 설계 기여를 제시한다.",
+        "checkIds": ["n1", "n2", "n3", "n4"]
+      },
+      {
+        "id": "evidence",
+        "level": 3,
+        "reason": "실험 구조와의 자세 오차를 정량화하고 학습 시기와 분리된 PoseBusters 및 구조적으로 분리한 DockGen에서 성능을 교차 확인한다. 생화학 효능을 검증했다는 뜻은 아니다.",
+        "checkIds": ["d4", "e1", "e2", "e4"]
+      },
+      {
+        "id": "reproducibility",
+        "level": 2,
+        "reason": "모델 구조·loss·계산식·입력 정의와 benchmark 자원을 연결해 구현 경로를 파악할 수 있다. 세부 학습·실행 설정까지 재현 가능하다고 확인한 것은 아니다.",
+        "checkIds": ["r1", "r2", "r4"]
+      },
+      {
+        "id": "utility",
+        "level": 3,
+        "reason": "여러 benchmark와 120만 개 이상 화합물 탐색, pocket 크기·유연성 조건에서 적용을 시험하고 추론 시간·정확도·후처리 비용을 제공한다.",
+        "checkIds": ["u1", "u2", "u3", "u4"]
+      }
+    ],
+    "reproducibilityAdjustment": {
+      "status": "none",
+      "reason": "명시적인 코드·데이터 비공개는 확인되지 않았다. 공개 benchmark 경로가 있으며 코드·가중치·SI 실행 설정은 미확인이다. 미확보를 비공개로 간주하지 않는다.",
+      "checkIds": ["r1", "r3", "r4"]
+    }
+  },
+  {
+    "candidateId": "196c61d3c3ed44c6baa4e201eda0799d",
+    "ratings": [
+      {
+        "id": "novelty",
+        "level": 2,
+        "reason": "최소 최적화 조건에서 구조 출처의 영향을 비교해 전체 RMSD만으로 FEP 입력 적합성을 판단하기 어렵다는 구체적 적용 지식을 확장한다.",
+        "checkIds": ["n1", "n2", "n3", "n4"]
+      },
+      {
+        "id": "evidence",
+        "level": 2,
+        "reason": "133개 화합물의 실험 활성과 여러 구조 출처의 FEP를 공통 조건에서 비교하며 RMSE·오차와 반복 ML 분할의 신뢰구간을 제시한다.",
+        "checkIds": ["d2", "d3", "e1", "e2", "e3"]
+      },
+      {
+        "id": "reproducibility",
+        "level": 2,
+        "reason": "단백질·ligand 준비, 용매·force field, 계산 시간·버전과 입력 구조를 구체화해 방법 구현 경로를 제시한다. SI workflow와 입력·출력의 완결성은 실행 검증하지 않았다.",
+        "checkIds": ["r1", "r2", "r4"]
+      },
+      {
+        "id": "utility",
+        "level": 2,
+        "reason": "세 scaffold와 여러 구조·분류 조건의 성능을 연결해 FEP 입력 구조 선택과 최소 최적화 워크플로의 도입 판단을 돕는다.",
+        "checkIds": ["u1", "u2", "u4", "n3"]
+      }
+    ],
+    "reproducibilityAdjustment": {
+      "status": "none",
+      "reason": "SI에 활성·입력 구조·계산 출력과 KNIME workflow 접근 경로를 제공한다고 명시한다. 비공개로 인한 차단 근거는 없으며 파일 전체의 독립 재계산은 수행하지 않았다.",
+      "checkIds": ["r3", "r4"]
+    }
+  },
+  {
+    "candidateId": "62c2bdb4c9d4412f9b9685cb2d7ba408",
+    "ratings": [
+      {
+        "id": "novelty",
+        "level": 2,
+        "reason": "KRAS macrocycle의 두 bioisostere 치환 전략을 구분하고 glucuronidation·노출·활성 변화와 연결한 구체적 설계 기여를 제시한다.",
+        "checkIds": ["n1", "n2", "n3", "n4"]
+      },
+      {
+        "id": "evidence",
+        "level": 3,
+        "reason": "결합 결정 구조와 세포·동물 측정을 연결하며 대사 개선을 hepatocyte MetID와 UDPGA 유무 S9 실험으로 교차 확인한다.",
+        "checkIds": ["d2", "e1", "e2", "e4"]
+      },
+      {
+        "id": "reproducibility",
+        "level": 2,
+        "reason": "상세 합성·동물 절차, 화합물·세포·구조 식별 정보와 종양 반응 계산식을 연결해 주요 실험의 구현 경로를 제시한다. SI의 HTRF·대사체 절차 완결성은 미확인이다.",
+        "checkIds": ["r1", "r2", "r4"]
+      },
+      {
+        "id": "utility",
+        "level": 3,
+        "reason": "여러 KRAS 변이·nucleotide 상태, 두 종양 모델과 여러 종의 ADME·PK를 시험하고 노출 개선과 세포 활성 손실의 상충 관계를 정량화한다.",
+        "checkIds": ["u1", "u2", "u3", "u4"]
+      }
+    ],
+    "reproducibilityAdjustment": {
+      "status": "none",
+      "reason": "구조 기탁과 molecular data CSV·SI 경로가 있으며 명시적인 비공개는 확인되지 않았다. SI 미검토와 전체 PK 원자료 미확보만으로 감점하지 않는다.",
+      "checkIds": ["r1", "r3", "r4"]
+    }
+  },
+  {
+    "candidateId": "0f6663d4752b4459855dfd8b133db44f",
+    "ratings": [
+      {
+        "id": "novelty",
+        "level": 2,
+        "reason": "KI-696에서 구조 치환·배좌 선호·흡입 지향 물성을 함께 최적화한 설계 기여를 이전 비공유결합 억제제와 구분한다.",
+        "checkIds": ["n1", "n2", "n3", "n4"]
+      },
+      {
+        "id": "evidence",
+        "level": 3,
+        "reason": "정량 결합·세포·폐 반응에 더해 결정 구조·용액 NMR·AEC·TPP가 결합과 선택성 해석을 서로 다른 측정 원리로 지지한다.",
+        "checkIds": ["d2", "e1", "e2", "e4"]
+      },
+      {
+        "id": "reproducibility",
+        "level": 3,
+        "reason": "합성·정제부터 NMR·세포·PK·동물 투여 조건까지 자원 식별 정보와 연결하고 NMR 처리·qPCR·assay 피팅·PK 분석 절차를 제시한다. 실제 재실험을 완료했다는 의미는 아니다.",
+        "checkIds": ["r1", "r2", "r4"]
+      },
+      {
+        "id": "utility",
+        "level": 3,
+        "reason": "여러 유도체·세포 평가계와 IV·기관내 투여를 시험하고 효능·투과성·efflux·제거율·용해도·off-target을 연결해 폐 국소 전달 후보 선택을 뒷받침한다.",
+        "checkIds": ["u1", "u2", "u3", "u4"]
+      }
+    ],
+    "reproducibilityAdjustment": {
+      "status": "none",
+      "reason": "PDB·CCDC 및 구조·SPR·NMR·분자 데이터 SI 경로가 있다. 전체 동물 개별 원자료의 공개 범위는 미확인이며, 명시적인 비공개로 인한 재현 차단 근거는 없다.",
+      "checkIds": ["r1", "r3", "r4"]
+    }
+  },
+  {
+    "candidateId": "3303517f651d4cd5b59a8b62c3f4ffb6",
+    "ratings": [
+      {
+        "id": "novelty",
+        "level": 2,
+        "reason": "새 NCS-1 subpocket hit 계열과 조반응액을 직접 검증하는 fragment-to-hit 통합 사이클을 제시해 기존 접근의 적용 범위를 구체적으로 확장한다.",
+        "checkIds": ["n1", "n2", "n4"]
+      },
+      {
+        "id": "evidence",
+        "level": 3,
+        "reason": "GCI와 결정학으로 결합을 확인하고 E14의 세포 PPI 효과를 co-IP·PLA로 교차 확인한다. 각 측정의 대조 조건도 제시한다.",
+        "checkIds": ["d2", "d3", "e1", "e2", "e4"]
+      },
+      {
+        "id": "reproducibility",
+        "level": 3,
+        "reason": "검토한 SI의 결정화·계산 선택·로봇 합성·GCI·세포 분석 조건을 자원 ID 및 HIPPO 역사 버전·선택 입력·출력과 연결해 재구현 경로를 제시한다. 저장소 전체를 실행한 것은 아니다.",
+        "checkIds": ["r1", "r2", "r4"]
+      },
+      {
+        "id": "utility",
+        "level": 3,
+        "reason": "여러 scaffold·subpocket에서 적용을 시험하고 3개월 사이클, 시약·합성·구매 비용과 처리량·hit rate를 제시해 도입에 필요한 자원과 성능을 판단할 수 있게 한다.",
+        "checkIds": ["u1", "u2", "u3", "u4"]
+      }
+    ],
+    "reproducibilityAdjustment": {
+      "status": "none",
+      "reason": "PDB 구조·Zenodo 원시/처리 데이터와 역사 버전·입력/출력을 포함한 공개 코드 경로를 명시한다. 비공개에 따른 조정 사유는 확인되지 않았으며 사용자 환경에서 실행 검증한 것은 아니다.",
+      "checkIds": ["r3", "r4"]
+    }
+  },
+  {
+    "candidateId": "c3a5f89a860d4488b09a0a3630f51617",
+    "ratings": [
+      {
+        "id": "novelty",
+        "level": 2,
+        "reason": "다른 chromene 골격의 T. cruzi 적용과 첫 TcLysRS 결정 구조를 통해 단일 chemotype 중심의 기존 표적 검증을 확장한다.",
+        "checkIds": ["d1", "n1", "n2", "n4"]
+      },
+      {
+        "id": "evidence",
+        "level": 3,
+        "reason": "대조·반복을 갖춘 효소 억제에 DSF·결정 구조·세포·동물 결과를 연결해 주장을 교차 지지한다. 인용한 선행 유전학 실험을 새 검증으로 가산하지 않는다.",
+        "checkIds": ["d2", "d3", "e1", "e2", "e3", "e4"]
+      },
+      {
+        "id": "reproducibility",
+        "level": 3,
+        "reason": "감염·노출·농도·단백질·결정화 조건과 자원 ID를 제공하고 효소 IC50 피팅·PK NCA·qPCR 표준곡선·분석 도구를 연결한다. 전체 원자료 재계산은 수행하지 않았다.",
+        "checkIds": ["r1", "r2", "r4"]
+      },
+      {
+        "id": "utility",
+        "level": 2,
+        "reason": "급성 감염 모델의 경구 제형·용량과 숙주 세포 독성·선택성·경구 노출을 함께 제시해 해당 표적·화합물의 후속 평가 조건을 구체화한다.",
+        "checkIds": ["u1", "u3", "u4"]
+      }
+    ],
+    "reproducibilityAdjustment": {
+      "status": "none",
+      "reason": "PDB 구조와 manuscript·SI에 자료를 제공하고 추가 원자료는 요청 경로를 안내한다. 요청 시 제공을 비공개로 단정하지 않으며 전체 개별 원자료 확보·독립 재현은 미실시다.",
+      "checkIds": ["r1", "r3", "r4"]
+    }
+  }
+]

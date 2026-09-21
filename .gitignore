@@ -1,0 +1,8 @@
+__pycache__/
+data/*.sqlite3*
+.runtime/
+tmp/
+*.py[cod]
+.env
+.env.*
+!.env.example

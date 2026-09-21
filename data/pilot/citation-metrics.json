@@ -1,0 +1,227 @@
+{
+  "dd6010ad6b2843cd956439aeb5e43554": {
+    "citations": {
+      "count": 3,
+      "normalizedPercentile": 92.78,
+      "fwci": 5.4486,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W4404401793",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "196c61d3c3ed44c6baa4e201eda0799d": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 70.9,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7203779284",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "0f6663d4752b4459855dfd8b133db44f": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 69.46,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7203486502",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "62c2bdb4c9d4412f9b9685cb2d7ba408": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 74.92,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7204834128",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "3303517f651d4cd5b59a8b62c3f4ffb6": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": null,
+      "source": "OpenAlex",
+      "sourceUrl": "https://api.openalex.org/works?filter=doi%3Ahttps%3A%2F%2Fdoi.org%2F10.1039%2Fd6sc02031c",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "ambiguous_records",
+      "records": [
+        {
+          "id": "https://openalex.org/W7205015117",
+          "count": 0,
+          "publicationDate": "2026-01-01",
+          "normalizedPercentile": {
+            "value": 0.75746349,
+            "is_in_top_1_percent": false,
+            "is_in_top_10_percent": false
+          }
+        },
+        {
+          "id": "https://openalex.org/W7213416131",
+          "count": 0,
+          "publicationDate": "2026-09-02",
+          "normalizedPercentile": {
+            "value": 0.90812581,
+            "is_in_top_1_percent": false,
+            "is_in_top_10_percent": true
+          }
+        }
+      ],
+      "reason": "동일 DOI가 OpenAlex에서 2건으로 조회되었습니다. 두 기록의 인용수는 0회로 같지만 보정 백분위가 달라 백분위와 인용 점수는 확정하지 않았습니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "c3a5f89a860d4488b09a0a3630f51617": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 76.45,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7202383913",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "f575f73dd8934f93bc61c574e7fdd5a5": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 81.82,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7213548350",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "18561cf87e6e4e7e8d09f713d34b13c3": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 72.17,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7204079384",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "39a312b9f37c4602bbd4c5c00953e02a": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 80.61,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7204887587",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "f73c383248d54b4e8c4b0f76337ffc96": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 74.37,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7204082735",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "6f209faaaaf1425198eac5375fd141ba": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 81.58,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7207515198",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  },
+  "b6585588759e4eee883f24d82603f2b1": {
+    "citations": {
+      "count": 0,
+      "normalizedPercentile": 85.06,
+      "fwci": 0.0,
+      "source": "OpenAlex",
+      "sourceUrl": "https://openalex.org/W7208740440",
+      "fetchedAt": "2026-09-21T08:14:06.304298+00:00",
+      "status": "citation_accumulating",
+      "reason": "이번 표본은 발행 직후 원저로 인용 축적 전입니다. 실제 수치는 표시하되 인용 20점의 순위 평가는 유예합니다."
+    },
+    "momentum": {
+      "increase": null,
+      "status": "no_baseline",
+      "reason": "첫 관측입니다. 동일 출처의 이전 관측값이 없어 최근 인용 증가 10점은 미평가입니다."
+    }
+  }
+}

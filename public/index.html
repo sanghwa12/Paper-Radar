@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#194e47">
+  <title>Paper Radar</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23194e47'/%3E%3Ccircle cx='20' cy='20' r='12' fill='none' stroke='%23e4eece'/%3E%3Cpath d='M20 8v12l8-8' fill='none' stroke='%23e4eece' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <aside class="sidebar">
+    <a class="brand" href="#/" aria-label="Paper Radar 전체 논문"><span class="radar-mark" aria-hidden="true"><i></i></span><span>Paper Radar</span></a>
+    <nav id="discovery-nav" aria-label="논문 탐색"><a id="discover-link" class="nav-item" href="#/discover">새 논문 수집</a><a id="evaluation-link" class="nav-item" href="#/evaluation">시범 평가</a></nav>
+    <div class="sidebar-label">LIBRARY</div>
+    <nav id="collection-nav" aria-label="라이브러리"></nav>
+    <div class="sidebar-label field-label">RESEARCH AREAS <button type="button" class="area-guide-link" data-area-help="" aria-haspopup="dialog">설명</button></div>
+    <nav id="area-nav" aria-label="연구 분야"></nav>
+  </aside>
+  <div class="workspace">
+    <main id="main" tabindex="-1"><div class="loading">논문 라이브러리를 불러오고 있습니다…</div></main>
+  </div>
+  <dialog id="viewer" aria-labelledby="viewer-title"><div class="viewer-toolbar"><strong id="viewer-title"></strong><div id="page-controls" hidden><button type="button" id="page-previous" aria-label="이전 페이지">←</button><input type="number" id="page-number" min="1" aria-label="원문 페이지 번호"><span id="page-total"></span><button type="button" id="page-next" aria-label="다음 페이지">→</button></div><div><button type="button" id="zoom-toggle">원본 크기</button><a id="viewer-original" target="_blank" rel="noopener">원본 이미지 ↗</a><button type="button" id="viewer-close" aria-label="자료 닫기">닫기 ×</button></div></div><div id="viewer-body"></div></dialog>
+  <dialog id="area-guide" aria-labelledby="area-guide-title"><div class="area-guide-header"><h2 id="area-guide-title">연구 분야 안내</h2><button type="button" id="area-guide-close" aria-label="분야 설명 닫기">닫기 ×</button></div><div id="area-guide-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

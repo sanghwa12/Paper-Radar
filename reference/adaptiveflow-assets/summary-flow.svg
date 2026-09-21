@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+<title id="title">AdaptiveFlow: screening에서 실험 검증까지</title><desc id="desc">Prepared library를 tranche로 분할하고 대표 ligand를 docking해 primary screen을 선정한다. FSP1은 33개 시험에서 2개 hit, PARP1은 160개 시험에서 7개 inhibitor를 얻었다. Optional ML은 별도 benchmark에서 평가했으며 FSP1 발굴에는 사용하지 않았다.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#43877f" stroke-width="1.5"/></marker></defs>
+<rect width="1000" height="460" rx="16" fill="#f5f8f5"/>
+<g font-family="Malgun Gothic,Arial,sans-serif" fill="#183e42">
+<g fill="#fff" stroke="#b9d3c9" stroke-width="1.5"><rect x="24" y="28" width="286" height="130" rx="12"/><rect x="357" y="28" width="286" height="130" rx="12"/><rect x="690" y="28" width="286" height="130" rx="12"/></g>
+<g text-anchor="middle"><text x="167" y="62" font-size="21" font-weight="700">Library</text><text x="167" y="97" font-size="17">68.7 billion prepared entries</text><text x="167" y="127" font-size="16">18개 property → tranche 배정</text>
+<text x="500" y="62" font-size="21" font-weight="700">Representative docking</text><text x="500" y="97" font-size="17">Tranche별 대표 ligand 평가</text><text x="500" y="127" font-size="16">Docking score로 구역 선택</text>
+<text x="833" y="62" font-size="21" font-weight="700">Primary screen</text><text x="833" y="97" font-size="17">선택한 구역의 ligand docking</text><text x="833" y="127" font-size="16">Property filter · clustering</text></g>
+<g fill="none" stroke="#43877f" stroke-width="2" marker-end="url(#arrow)"><path d="M315 93H347"/><path d="M648 93H680"/><path d="M833 164V231H263V261"/><path d="M833 231H742V261"/></g>
+<rect x="24" y="179" width="665" height="39" rx="8" fill="#e8edea"/><text x="40" y="204" font-size="15">Optional ML: 별도 benchmark에서 평가 · FSP1 hit 발굴에는 미사용</text>
+<g fill="#e4f0eb" stroke="#b9d3c9"><rect x="24" y="269" width="471" height="160" rx="12"/><rect x="514" y="269" width="462" height="160" rx="12"/></g>
+<text x="46" y="301" font-size="21" font-weight="700">FSP1</text><text x="46" y="333" font-size="18">33개 시험 → 2개 hit</text><text x="46" y="365" font-size="16">Thermal shift + enzyme inhibition</text><text x="46" y="394" font-size="16">CETSA · Jurkat rescue · co-crystal</text>
+<text x="538" y="301" font-size="21" font-weight="700">PARP1</text><text x="538" y="333" font-size="18">160개 시험 → 7개 inhibitor</text><text x="538" y="365" font-size="16">Enzyme assay → NMR · co-crystal</text><text x="538" y="394" font-size="16">Clonogenic assay · hydrolysis 확인</text>
+</g></svg>
