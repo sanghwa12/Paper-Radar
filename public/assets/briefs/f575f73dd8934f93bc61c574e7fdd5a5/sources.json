@@ -1,0 +1,113 @@
+{
+  "candidateId": "f575f73dd8934f93bc61c574e7fdd5a5",
+  "pmcid": "PMC13588176",
+  "title": "Ubiquitin receptor–mediated, ubiquitin-independent targeted protein degradation via 26S proteasomes",
+  "doi": "10.1126/sciadv.aeh0227",
+  "license": "CC BY-NC",
+  "licenseText": "This is an open-access article distributed under the terms of the Creative Commons Attribution-NonCommercial license, which permits use, distribution, and reproduction in any medium, so long as the resultant use is not for commercial advantage and provided the original work is properly cited.",
+  "figures": [
+    {
+      "figureId": "F1",
+      "label": "Fig. 1.",
+      "caption": "The Protea-Tac system enables engineered degradation of target proteins through direct proteasome engagement.(A) Schematic illustration of TPD by Protea-Tac. (B) A549 cells were transfected with c-Fos and PSMD4-scFv(c-Fos) or LacZV5 for 64 hours; WCLs were analyzed by SDS-PAGE/IB and total protein staining. Total plasmid DNA amounts and volumes remained constant across all experimental conditions. Left: Representative IBs from three independent experiments. Right: c-Fos quantification. Protein quantification was normalized to total protein unless indicated otherwise. N = 3, means ± SD, ****P < 0.0001; one-way ANOVA with Tukey’s post hoc test. (C) c-Fos mRNA was measured by qRT-PCR and normalized to GAPDH. N = 4, means ± SD, n.s., not significant; one-way ANOVA with Tukey’s post hoc test. (D) Cycloheximide (CHX) chase after transfection as in (B), with c-Fos normalized to 0 hours in each group. MCL1 served as a physiological proteasome substrate. N = 3, means ± SD, *P < 0.05, **P < 0.01; two-way ANOVA with Sidak’s post hoc test. (E to G) scFv(c-Fos)-ADRM1 was evaluated as in (B) to (D). (H) Proteasome subunit–based chimeras were transiently expressed in A549 cells and analyzed by IB. (I) Hexahistidine-biotin (HB)–tagged PSMD4-scFv(c-Fos) was purified by streptavidin affinity purification and analyzed by native PAGE, in-gel suc-LLVY-AMC hydrolysis, and IB; 0.02% SDS activated 20S proteasomes. (J) Endogenous c-Fos and cyclin D1 proteins were compared in MCF7 cells stably expressing EGFP or scFv(c-Fos)-ADRM1. (K) c-Fos and cyclin D1 mRNAs were measured by qRT-PCR and normalized to GAPDH. N = 3, means ± SD, ***P < 0.001, n.s.; two-tailed Student’s t test. (L and M) Transient scFv(c-Fos)-ADRM1 expression in MCF7 cells was assessed by IB and qRT-PCR. N = 3, means ± SD, ****P < 0.0001, n.s.; two-tailed Student’s t test. See fig. S1.",
+      "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/figure-1.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/sciadv.aeh0227-f1.webp?md5=54bbe805d88fc6ad2e982936ceffcda5",
+      "sha256": "b61f4651d6fbdd580370c3fb6609954a0dee7cad26b33710a86ceabfe64c6145",
+      "bytes": 188934,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1745,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "F2",
+      "label": "Fig. 2.",
+      "caption": "Protea-Tac degraders require both UbR and tAb modules.(A and B) A549 cells were transfected with c-Fos and PSMD4- or ADRM1-based components expressed either separately or as UbR–scFv(c-Fos) fusions; WCLs harvested at 64 hours were analyzed by SDS-PAGE/IB and total protein staining. Protein quantification was normalized to total protein unless indicated otherwise. (C) Bicistronic and tricistronic constructs encoding scFv(c-Fos)-ADRM1 without or with a T2A sequence at the tAb-UbR junction, followed by P2A-mCherry, were expressed in HEK293T cells stably expressing EGFP–c-Fos and analyzed by flow cytometry. Histograms show EGFP–c-Fos fluorescence in mCherry-positive cells. (D) EGFP mean fluorescence intensity (MFI) in mCherry-positive cells. N = 3, means ± SD, ****P < 0.0001; two-tailed Student’s t test. (E) HEK293 cells stably expressing HB-tagged PSMB2 were transfected as in (A) with untagged PSMD4-scFv(c-Fos) and PSMD4H to assess competitive proteasome incorporation and target degradation. Affinity-purified proteasomes and WCLs were analyzed by denaturing SDS-PAGE/IB for c-Fos and proteasome subunits. (F) PSMD4-scFv(c-Fos) was coexpressed with noncognate ADRM1 and assessed for c-Fos degradation. (G to I) Lower-affinity T206K and higher-affinity T206E scFv(c-Fos) variants were evaluated in ADRM1-based degraders. (G) Representative IBs from three independent experiments. (H) c-Fos protein quantification. N = 3, means ± SD, **P < 0.01, ***P < 0.001, ****P < 0.0001; one-way ANOVA with Tukey’s multiple comparison test. (I) c-Fos mRNA measured by qRT-PCR and normalized to GAPDH. N = 4, means ± SD, n.s.; one-way ANOVA with Tukey’s post hoc test. See fig. S2.",
+      "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/figure-2.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/sciadv.aeh0227-f2.webp?md5=96f96634547296bcfedd6fd366b2271f",
+      "sha256": "f20faf78aee025cc3186fb83494f551f45c78fb27d71fe398c6e8a1849c84d0b",
+      "bytes": 98112,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1002,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "F3",
+      "label": "Fig. 3.",
+      "caption": "The Protea-Tac system enables Ub-independent and proteasome-mediated TPD.(A) scFv(c-Fos)-ADRM1–mediated c-Fos degradation was examined in the presence of dimethyl sulfoxide (DMSO), the proteasome inhibitor MG132 (10 μM), the vacuolar type H+-ATPase inhibitor bafilomycin A1 (BafA1; 200 nM), or the E1 Ub-activating enzyme inhibitor MLN7243 (1 μM) for 6 hours. (B) The steady-state levels of c-Fos detected across conditions in (A) were quantified and normalized to total protein. Each bar indicates the means ± SD (N = 3). ****P < 0.0001 (one-way ANOVA followed by Tukey’s multiple comparison test). (C and D) As in (A) and (B), except that VHH(GFP)-ADRM1 was used as a degrader and GFP-ODC was a neo-substrate. (E) Chase experiments were performed to track the degradation kinetics of EGFP-tagged version of c-Fos (EGFP–c-Fos) in the presence of DMSO or MLN7243. (F) Quantification of EGFP–c-Fos band intensities in (E), normalized to those of total protein and to the values at 0 hours post–CHX treatment (set as 100%), under DMSO (top) or MLN7243 (bottom) treatment conditions. Average percentages of remaining EGFP–c-Fos (means ± SD) from three independent experiments (N = 3); *P < 0.05, ****P < 0.0001 (two-way ANOVA followed by Sidak’s post hoc test). (G and H) Chase experiments and quantification using EGFP–c-Fos as in (E) and (F) except that they were performed in the presence of either DMSO or MG132. Data represent the means ± SD from three independent experiments (N = 3). ***P < 0.001 (two-way ANOVA followed by Sidak’s post hoc test). n.s., not significant. See fig. S3.",
+      "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/figure-3.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/sciadv.aeh0227-f3.webp?md5=6292e2d4e972e7c181fcbaba952e0cf3",
+      "sha256": "ec0d6a99126ab50885667dfc28f76dcf9290bbea763a0080b64eb451b3eecf93",
+      "bytes": 119614,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1167,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "F4",
+      "label": "Fig. 4.",
+      "caption": "Protea-Tac–mediated degradation is highly selective and modular via UbR and tAb exchanges.(A) Schematic of Protea-Tac modularity through interchangeable tAb units. (B to I) A549 cells transiently expressing FlagTDP43, HAtau, GFPODC, or endogenous BRD4 were treated with cognate Protea-Tac degraders or controls and analyzed by SDS-PAGE/IB, total protein staining, and qRT-PCR. Protein quantification was normalized to total protein unless indicated otherwise; qRT-PCR values were normalized to GAPDH. (B and C) PSMD4-scFv(Flag) degraded FlagTDP43 without reducing TDP43 mRNA. Protein: N = 3, means ± SD, ****P < 0.0001; mRNA: N = 4, n.s.; two-tailed Student’s t test. (D and E) scFv(HA)-ADRM1 degraded HAtau without reducing tau mRNA. Protein: N = 3, means ± SD, ****P < 0.0001; mRNA: N = 4, n.s.; two-tailed Student’s t test. (F and G) PSMD4-VHH(GFP) degraded GFP-tagged ODC without reducing GFP mRNA. Protein: N = 3, means ± SD, ***P < 0.001; mRNA: N = 4, n.s.; two-tailed Student’s t test. (H and I) Lentiviral ADRM1-scFv(BRD4) reduced endogenous BRD4 protein but not BRD4 mRNA. Protein and mRNA: N = 3, means ± SD, ***P < 0.001 or ns; two-tailed Student’s t test. (J and K) Mismatched c-Fos–targeting Protea-Tac did not degrade FlagTDP43 or HAtau. (L) TMT-LC-MS/MS global proteome profiling compared A549 stably overexpressing c-Fos cells transfected by scFv(c-Fos)-ADRM1 or ADRM1 plus scFv(c-Fos) controls. Among 6295 quantified proteins, 16 differentially expressed proteins (DEPs) were identified using |log2FC| > 0.263 and adjusted P value < 0.05. (M) Volcano plot of differentially expressed proteins, with c-Fos and ADRM1 highlighted in red. (N) Native PAGE analysis of 26S proteasomes by in-gel suc-LLVY-AMC hydrolysis and IB; 0.02% SDS activated 20S proteasomes. (O) Endogenous protein levels in HCT116_EGFP and HCT116_scFv(c-Fos)-ADRM1 stable cells were analyzed by IB. See fig. S4.",
+      "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/figure-4.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/sciadv.aeh0227-f4.webp?md5=38814caf70f40e0a0e7a9de74ff89c1e",
+      "sha256": "cd1cb58ba330f8c9c12a0e6b3dfcee3dc8630e4383ad65843dbdaf74cbafe5dc",
+      "bytes": 171140,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1712,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "F5",
+      "label": "Fig. 5.",
+      "caption": "Protea-Tac–induced c-Fos degradation leads to antitumor efficacy in vivo.(A) MCF7 cells stably expressing EGFP or scFv(c-Fos)-ADRM1 were subcutaneously inoculated into 6-week-old male NSG mice, and tumor volumes were measured twice weekly for ∼5 weeks. Data are means ± SEM, N = 8 per group, ****P < 0.0001; Mann-Whitney U test. Insets show tumors harvested on day 32. (B) Tumors harvested on day 50 from HCT116_EGFP or HCT116_scFv(c-Fos)-ADRM1 xenografts established as in (A). (C) Body weight changes during the HCT116 xenograft experiment. (D) IB analysis of tumor lysates. (E) Quantification of c-Fos and cyclin D1 proteins, normalized to total protein signals. Data are means ± SD, N = 8, ****P < 0.0001; two-tailed Student’s t test. (F) qRT-PCR analysis of c-Fos and cyclin D1 mRNAs, normalized to GAPDH. Data are means ± SEM, N = 8, ***P < 0.001, n.s.; two-tailed Student’s t test. (G) Cell cycle distribution of MCF7 stable cells used for xenograft assays, analyzed by DAPI staining and flow cytometry. N = 3, ***P < 0.001, ****P < 0.0001, n.s.; two-way ANOVA with Sidak’s post hoc test. (H) MCF7-xenografted NSG mice were intratumorally injected three times per week with PBS, AAV2-EGFP, or AAV2-scFv(c-Fos)-ADRM1, and tumor growth was measured three times per week for 50 days. Data are means ± SEM, N = 6 per group, ****P < 0.0001; two-way ANOVA with Sidak’s post hoc test. (I) Body weight changes during the AAV2-delivery experiment. (J) IB analysis of tumor lysates. (K) c-Fos protein quantification. Data are means ± SD, N = 6, ***P < 0.001, n.s.; one-way ANOVA with Tukey’s post hoc test. (L) qRT-PCR analysis of c-Fos and cyclin D1 mRNAs. Data are means ± SEM, N = 5, **P < 0.01; one-way ANOVA with Tukey’s post hoc test. See figs. S5 and S6.",
+      "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/figure-5.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/sciadv.aeh0227-f5.webp?md5=2e9dda0110654cf69b8405421325e01a",
+      "sha256": "ec789a07bb567545128e99b8592e3e05d96d0898451d853934f168db0344c837",
+      "bytes": 166280,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1702,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "F6",
+      "label": "Fig. 6.",
+      "caption": "mRNA-LNP–mediated Protea-Tac expression inhibits tumor growth in vivo.(A) A549-xenografted 6-week-old female BALB/cAnN-Foxn1nu/Crl mice received subcutaneous (sc) injections of PBS or LNP formulations containing mRNA encoding EGFP, scFv(c-Fos), or PSMD4-scFv(c-Fos). Representative image of tumors harvested is shown. (B) Tumor volumes were measured twice a week for 21 days. LNP formulations were administered subcutaneously every 5 days for a total of three doses. Each formulation contained 40 μg of mRNA per dose. Data are presented as means ± SEM (N = 6 per group); two-way ANOVA followed by Sidak’s post hoc test (****P < 0.0001). (C) IB analysis of whole-tumor lysates with indicated antibodies. (D) Quantification of c-Fos (left) and cyclin D1 (right) protein levels, normalized to total protein signals. Bars represent the means ± SD (N = 3). n.s., not significant, *P < 0.05 (one-way ANOVA with Tukey’s post hoc test). (E) As in (D), but mRNA levels of c-Fos and cyclin D1 were determined using qRT-PCR and normalized to GAPDH. Bars represent the means ± SEM (N = 3). n.s., not significant, **P < 0.01 (one-way ANOVA with Tukey’s post hoc test).",
+      "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/figure-6.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/sciadv.aeh0227-f6.webp?md5=c96975cfc9624705b53d127fde6b1aae",
+      "sha256": "8593892311a1714b37b86f46f4401750790a397bb6c67865c35ef53e9d79e594",
+      "bytes": 108896,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1235,
+      "format": "WEBP"
+    }
+  ],
+  "pdfUrl": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/paper.pdf",
+  "pdf": {
+    "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/paper.pdf",
+    "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/PMC13588176.1.pdf?md5=2f683e677dfdae47c810843adc72d28c",
+    "sha256": "311db98ee7b2e511e59ec98a42371116b13a5034356a869278769116fcf8b11f",
+    "bytes": 3352830,
+    "sourceMd5Verified": true
+  },
+  "supplements": [
+    {
+      "filename": "sciadv.aeh0227_sm.pdf",
+      "label": "",
+      "caption": "Figs. S1 to S7Table S1Legend for data S1",
+      "path": "/assets/briefs/f575f73dd8934f93bc61c574e7fdd5a5/supplement.pdf",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/sciadv.aeh0227_sm.pdf?md5=d7e64876052cd689c20b9a65a7599aad",
+      "sha256": "a01e42834cdfed0e10401a9600eb34eaf2441e4f77b5b5db8cabd32d3eec9cff",
+      "bytes": 1987055,
+      "sourceMd5Verified": true
+    }
+  ],
+  "source": "NIH NLM NCBI PMC Article Datasets",
+  "metadataUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/PMC13588176.1.json",
+  "xmlUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13588176.1/PMC13588176.1.xml?md5=6f265590d578c7998731d9bdcb70980b",
+  "retrievedAt": "2026-09-23T00:52:38.968195+00:00",
+  "errors": []
+}

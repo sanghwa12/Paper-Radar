@@ -1,0 +1,621 @@
+{
+  "id": "binding-energy-kinetics-2024",
+  "title": "Understanding the impact of binding free energy and kinetics calculations in modern drug discovery",
+  "titleKo": "현대 신약개발에서 결합 자유에너지 및 결합 동역학 계산의 영향 이해",
+  "doi": "10.1080/17460441.2024.2349149",
+  "pmid": "38722032",
+  "pmcid": "PMC11108734",
+  "date": "2024-05-09",
+  "journal": "Expert Opinion on Drug Discovery",
+  "authors": "Victor A. Adediwura, Kushal Koirala, Hung N. Do, Jinan Wang, Yinglong Miao",
+  "areas": [
+    "CADD·AI"
+  ],
+  "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11108734/",
+  "selectionReason": "친화도 계산과 결합 속도 예측을 함께 비교하며 계산법의 가정까지 배울 수 있는 입문용 시범 리뷰다. 분야 전체의 순위로 선정한 것은 아니다.",
+  "summary": {
+    "scope": "결합 세기와 결합·해리 속도를 예측하는 계산법의 원리, 활용 사례와 한계를 비교한 방법론 리뷰.",
+    "takeaways": [
+      "ΔG로 보는 결합 세기와 kon·koff로 보는 속도는 서로 다른 판단 축이다.",
+      "MM/PBSA·MM/GBSA는 계산 비용을 줄이지만 물과 엔트로피의 근사가 결과를 좌우한다.",
+      "FEP·TI의 상대 결합 자유에너지 계산과 FEP의 절대 결합 자유에너지 응용을 소개한다. 힘장과 충분한 샘플링이 정확도의 전제다.",
+      "강화 샘플링은 드문 결합·해리 사건을 탐색한다. 속도 예측에는 편향 처리 등 방법별 가정이 따른다.",
+      "저자는 샘플링·힘장 개선과 AI 결합을 전망한다. 모든 표적에서 확립된 성능이라는 뜻은 아니다."
+    ],
+    "limitations": [
+      "선정 기준을 제시한 체계적 리뷰가 아니므로 방법 간 종합 순위를 판단하기는 어렵다.",
+      "모델계의 사례를 새 표적에 일반화하려면 별도 검증이 필요하다. 연결 원저의 데이터는 아직 검토하지 않았다."
+    ]
+  },
+  "readingScope": {
+    "abstract": "checked",
+    "fullText": "checked",
+    "figures": "checked",
+    "supplements": "unverified",
+    "originalPapers": "metadata_only",
+    "note": "NSF 공개 저자 원고의 본문 1–4절과 참고문헌을 읽었고 Figure 1은 실제 이미지로 확인했다. 출판사 최종판 전체 대조와 보충자료 검토는 하지 않았다. 연결 원저 3편은 서지·초록을 확인했으며 LiGaMD2는 Figure 2 캡션 텍스트도 대조했다. 이 3편의 본문 전체와 실제 그림 이미지는 미검토다. 상세 해설의 보조 출처는 각 항목에 읽은 절·초록·공식 문서 범위를 따로 표시했다. 최근 3년 조건은 리뷰 발행일에 적용했고 연결 원저에는 이전의 기초 연구도 포함했다."
+  },
+  "originals": [
+    {
+      "title": "Accurate and Reliable Prediction of Relative Ligand Binding Potency in Prospective Drug Discovery by Way of a Modern Free-Energy Calculation Protocol and Force Field",
+      "doi": "10.1021/ja512751q",
+      "year": 2015,
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/25625324/",
+      "role": "FEP의 예측력 검증에서 실제 신약개발 적용으로 이어지는 사례.",
+      "referenceLabel": "참고문헌 65",
+      "referenceLocation": "2.2 Alchemical free energy perturbation; NSF 공개 원고 본문 p.10, 참고문헌 p.33",
+      "verification": "citation_metadata",
+      "note": "Europe PMC의 DOI·제목·2015년·Journal Article 및 신규 검증 연구 초록을 확인했다. 원저 본문·그림·데이터는 미검토."
+    },
+    {
+      "title": "From Metadynamics to Dynamics",
+      "doi": "10.1103/PhysRevLett.111.230602",
+      "year": 2013,
+      "sourceUrl": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.111.230602",
+      "role": "메타다이내믹스를 전이 속도 계산으로 확장한 개념적 출발점.",
+      "referenceLabel": "참고문헌 93",
+      "referenceLocation": "3.1 Metadynamics (MetaD); NSF 공개 원고 본문 p.15, 참고문헌 p.36",
+      "verification": "citation_metadata",
+      "note": "APS와 Europe PMC에서 DOI·제목·2013년 및 새로운 방법을 검증한 원저임을 확인했다. 원저 본문·그림·데이터는 미검토."
+    },
+    {
+      "title": "Ligand Gaussian Accelerated Molecular Dynamics 2 (LiGaMD2): Improved Calculations of Ligand Binding Thermodynamics and Kinetics with Closed Protein Pocket",
+      "doi": "10.1021/acs.jctc.2c01194",
+      "year": 2023,
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/36706316/",
+      "role": "닫힌 결합 포켓의 움직임까지 다루려는 샘플링 방법의 확장 사례.",
+      "referenceLabel": "참고문헌 6",
+      "referenceLocation": "3.2 Ligand Gaussian Accelerated Molecular Dynamics (LiGaMD); NSF 공개 원고 본문 pp.17–18, 참고문헌 p.26",
+      "verification": "citation_metadata",
+      "note": "Europe PMC의 DOI·제목·2023년·research-article 및 방법 검증 초록을 확인했다. PubMed의 Figure 2 캡션 텍스트에서 반복 수·모델계·SD 정의를 추가 확인했다. 원저 본문 전체·그림 이미지·원자료는 미검토."
+    }
+  ],
+  "citations": {
+    "count": 29,
+    "observedAt": "2026-09-23T08:07:15.294486+00:00",
+    "sourceUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A%2210.1080%2F17460441.2024.2349149%22&format=json&resultType=core&pageSize=5"
+  },
+  "journalMetric": {
+    "jif": null,
+    "year": null,
+    "status": "unverified"
+  },
+  "provenance": [
+    {
+      "label": "Europe PMC 리뷰 서지·초록·인용수",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A%2210.1080%2F17460441.2024.2349149%22&format=json&resultType=core&pageSize=5",
+      "checkedAt": "2026-09-23T08:07:15.294486+00:00",
+      "scope": "Review 유형, DOI, PMID, PMCID, 최초 발행일 2024-05-09, 서지·초록 및 citedByCount 29 확인. JIF는 확인하지 않음."
+    },
+    {
+      "label": "NSF 공개 저자 원고",
+      "url": "https://par.nsf.gov/servlets/purl/10541438",
+      "checkedAt": "2026-09-23T08:09:21+00:00",
+      "scope": "40쪽 PDF 확보. 초록 pp.1–2, 본문 1–4절 pp.3–25, 참고문헌 pp.26–39 텍스트 검토. 요점 1은 초록·1절, 2는 2.1절, 3은 2.2–2.3절, 4는 3.1–3.5절, 5는 4절에 근거. 2026-09-23 상세 보강 때 Figure 1(p.40)을 실제 이미지로 추가 검토했다. 보충자료 미확인."
+    },
+    {
+      "label": "Europe PMC 원저 65 서지·초록",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A%2210.1021%2Fja512751q%22&format=json&resultType=core&pageSize=5",
+      "checkedAt": "2026-09-23T08:07:17.548519+00:00",
+      "scope": "제목·DOI·연도·Journal Article 유형 및 신규 연구 성격 확인. 원저 본문 미검토."
+    },
+    {
+      "label": "Europe PMC 원저 93 서지·초록",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A%2210.1103%2FPhysRevLett.111.230602%22&format=json&resultType=core&pageSize=5",
+      "checkedAt": "2026-09-23T08:07:18.703820+00:00",
+      "scope": "제목·DOI·연도·Journal Article 유형 및 신규 방법 연구 성격 확인. APS 출판사 초록과도 대조. 원저 본문 미검토."
+    },
+    {
+      "label": "Europe PMC 원저 6 서지·초록",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A%2210.1021%2Facs.jctc.2c01194%22&format=json&resultType=core&pageSize=5",
+      "checkedAt": "2026-09-23T08:07:20.037288+00:00",
+      "scope": "제목·DOI·연도·research-article 유형 및 신규 방법 연구 성격 확인. 원저 본문 미검토."
+    }
+  ],
+  "summaryStatus": "partial_review",
+  "briefing": {
+    "version": 1,
+    "updatedAt": "2026-09-23T08:56:14.149785+00:00",
+    "sources": [
+      {
+        "id": "review-text",
+        "label": "Adediwura et al. (2024) · 공개 저자 원고",
+        "url": "https://par.nsf.gov/servlets/purl/10541438",
+        "location": "초록 pp.1–2; 1–4절 pp.3–25; 참고문헌 pp.26–39",
+        "scope": "리뷰 본문과 참고문헌 텍스트 전체를 읽음. 출판사 최종판 전체 대조·보충자료 검토는 하지 않음."
+      },
+      {
+        "id": "review-figure",
+        "kind": "review_figure",
+        "label": "리뷰 Figure 1 · 실제 이미지 확인",
+        "url": "https://par.nsf.gov/servlets/purl/10541438#page=40",
+        "location": "NSF 공개 원고 p.40, Figure 1",
+        "scope": "2026-09-23 실제 이미지의 P/L/PL, 속도상수, 에너지 축·장벽과 인쇄된 식을 시각 확인. 원저의 정량 결과 그림이 아님."
+      },
+      {
+        "id": "iupac-equilibrium",
+        "label": "IUPAC Gold Book · 표준 평형상수",
+        "url": "https://goldbook.iupac.org/terms/view/S05915",
+        "location": "Standard equilibrium constant, 정의식",
+        "scope": "공식 용어 정의 K°=exp(−ΔrG°/RT)를 읽고 표준 자유에너지 부호를 대조함."
+      },
+      {
+        "id": "fep-wang",
+        "label": "Wang et al. (2015) · FEP 검증 원저",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25625324/",
+        "location": "초록; 리뷰 참고문헌 65, 2.2절",
+        "scope": "PubMed 및 ACS 초록 확인. 본문 전체·SI·원자료 미검토. 200 ligands의 후향 검증과 전향 적용 주장을 구분함."
+      },
+      {
+        "id": "metad-tiwary",
+        "label": "Tiwary & Parrinello (2013) · Metadynamics",
+        "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.111.230602",
+        "location": "출판사 초록; 리뷰 참고문헌 93, 3.1절",
+        "scope": "APS 초록 확인. 원저 본문·그림·수치 오차 분석 미검토."
+      },
+      {
+        "id": "ligamd2-wang",
+        "label": "Wang & Miao (2023) · LiGaMD2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36706316/",
+        "location": "초록과 Figure 2 캡션 텍스트; 리뷰 참고문헌 6, 3.2절",
+        "scope": "초록과 PubMed에 실린 Figure 2 캡션 텍스트 확인. 원저 이미지·본문 전체·원자료 미검토."
+      },
+      {
+        "id": "mm-benchmark",
+        "label": "Wang et al. (2022) · MM/PB(GB)SA benchmark",
+        "url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2022.1018351/full",
+        "location": "Abstract; Introduction; Preparation of complexes; MM/PB(GB)SA calculations; Results 일부",
+        "scope": "출판사 본문에서 원리, 대상 수, 기준값과 MAE 산출 방식을 선별 검토. 표 전체·그림·SI·코드 실행은 미검토."
+      },
+      {
+        "id": "ties-bhati",
+        "label": "Bhati et al. (2017) · Ensemble TI",
+        "url": "https://discovery.ucl.ac.uk/id/eprint/1534399/1/Bhati_final_article.pdf",
+        "location": "UCL 공개 PDF 2절 pp.2–3; 3.3절 p.5; 4절 pp.7–8",
+        "scope": "방법·오차 정의·Results 해당 문단의 PDF 추출 텍스트를 읽음. PDF 전체·그림 이미지·SI는 미검토."
+      },
+      {
+        "id": "ramd-kokh",
+        "label": "Kokh et al. (2018) · τRAMD",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29768913/",
+        "location": "초록; 리뷰 참고문헌 28/103, 3.3절",
+        "scope": "PubMed 초록 확인. 상대 residence time의 평가 대상과 성능 범위를 확인했으며 원저 본문·그림·SI는 미검토."
+      },
+      {
+        "id": "dctmd-wolf",
+        "label": "Wolf et al. (2020) · dcTMD와 Langevin 모델",
+        "url": "https://www.nature.com/articles/s41467-020-16655-1",
+        "location": "Abstract; Introduction; Results의 Dissipation-corrected targeted molecular dynamics; Discussion",
+        "scope": "공식 출판사 원문의 위 절을 선별 검토. 자유에너지·마찰장 모형과 가정을 확인. 전체 Methods·SI·원자료는 미검토."
+      },
+      {
+        "id": "seekr-official",
+        "label": "SEEKR2 공식 문서 · 방법 개요",
+        "url": "https://seekr2.readthedocs.io/en/latest/",
+        "location": "도입부, 지원 milestoning 이론, Cite SEEKR2",
+        "scope": "개발팀 공식 문서의 MD/BD 역할과 milestoning 설명을 읽음. 원저 전체·실행 예제·코드 실행은 미검토. 현재 문서의 기능을 2022년 논문 실험 결과로 간주하지 않음."
+      }
+    ],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "요약",
+        "lead": "좋은 결합 점수만으로는 약물이 얼마나 빨리 붙고 얼마나 늦게 떨어지는지 알 수 없다. 이 브리핑은 예측하려는 양부터 구분해 리뷰와 핵심 원저를 읽는다.",
+        "blocks": [
+          {
+            "heading": "리뷰의 질문: 결합 세기에서 시간 특성까지",
+            "kind": "review_claim",
+            "paragraphs": [
+              "저자들은 결합 자유에너지 계산과 결합·해리 속도 예측을 함께 검토한다. 여기서는 방법의 이름보다 출력, 가정, 검증 기준을 중심으로 읽는다."
+            ],
+            "sourceIds": [
+              "review-text"
+            ]
+          },
+          {
+            "heading": "열역학과 동역학은 무엇이 다른가",
+            "kind": "background",
+            "paragraphs": [
+              "평형의 결합 세기는 결합 상태와 비결합 상태가 얼마나 선호되는지의 차이다. 표준 결합 자유에너지 ΔG°는 표준 평형상수와 연결되며, 로그에 들어가는 상수는 표준상태를 반영한 무차원 양이어야 한다. 결합한 구조 하나의 상호작용 에너지만으로 같은 의미가 되지는 않는다.",
+              "속도는 두 상태 사이를 얼마나 빨리 오가는지 묻는다. 자유에너지 곡선의 두 바닥 높이 차이와 그 사이 장벽은 구분해야 한다. dcTMD처럼 경로의 마찰까지 다루는 모형이 있는 이유도, 평형 분포만으로 시간 척도가 모두 결정되지는 않기 때문이다."
+            ],
+            "sourceIds": [
+              "iupac-equilibrium",
+              "dctmd-wolf"
+            ]
+          },
+          {
+            "heading": "같은 Kd, 다른 머무는 시간: 계산으로 보는 가상 예시",
+            "kind": "interpretation",
+            "paragraphs": [
+              "단순한 가역 1:1 결합 모형에서 Kd=koff/kon이고, 한 번 결합한 상태의 평균 수명은 τ=1/koff다. 학습용으로 A의 kon=10⁶ M⁻¹s⁻¹, koff=0.01 s⁻¹, B의 kon=10⁵ M⁻¹s⁻¹, koff=0.001 s⁻¹을 놓으면 둘 다 Kd=10 nM이지만 τ는 각각 100초와 1,000초다.",
+              "이는 논문 실측값이 아닌 산술 예시다. 같은 친화도에서도 결합과 해리의 시간 특성이 달라질 수 있음을 보여준다. 다단계 결합·구조 전환·재결합이 중요한 계에서 관측되는 체류시간을 이 단순식 하나로 해석해서는 안 되며, 긴 τ만으로 세포 효능이나 안전성을 판단할 수도 없다."
+            ],
+            "sourceIds": []
+          },
+          {
+            "heading": "이 브리핑에서 얻을 수 있는 판단",
+            "kind": "interpretation",
+            "paragraphs": [
+              "첫째, 후보의 평형 친화도 순서를 묻는지 시간 특성을 묻는지 정한다. 둘째, 해당 방법이 내놓는 양이 실험의 어떤 관측값과 대응하는지 확인한다. 셋째, 좋은 평균 성능이 어떤 표적·리간드·예외 처리에서 얻어졌는지 읽는다. 이 구분을 하면 계산 기법이 발전했다는 주장과 내 연구에 유효하다는 결론 사이의 간격이 보인다."
+            ],
+            "sourceIds": []
+          }
+        ],
+        "flow": [
+          {
+            "title": "질문 구분",
+            "text": "친화도 차이인가, 결합·해리 속도인가?"
+          },
+          {
+            "title": "출력 확인",
+            "text": "ΔG·ΔΔG·kon·koff·상대 τ를 구분한다."
+          },
+          {
+            "title": "가정 확인",
+            "text": "샘플링·편향·기준상태·비교 범위를 읽는다."
+          },
+          {
+            "title": "근거 연결",
+            "text": "평균 성능과 개별 예측의 불확실성을 따로 판단한다."
+          }
+        ]
+      },
+      {
+        "id": "methods",
+        "title": "방법 비교",
+        "lead": "같은 입력 구조를 사용해도 계산하는 양과 근사는 다르다. 아래 비교는 실행 순서가 아니라 각 방법이 답하는 질문을 정리한 것이다.",
+        "blocks": [
+          {
+            "heading": "MM/PBSA·MM/GBSA: 끝 상태의 에너지 차이를 빠르게 근사",
+            "kind": "background",
+            "paragraphs": [
+              "복합체와 분리된 단백질·리간드의 에너지 항을 비교하고, 분자역학 에너지에 연속체 용매의 극성·비극성 기여 등을 합친다. PB와 GB는 용매의 정전기 효과를 근사하는 방식이 다르다. 미시적인 결합 경로를 따라 시간을 측정하는 방법은 아니다.",
+              "비용을 줄이는 대신 용매·엔트로피·구조 재배열의 표현을 따져야 한다. 2022년 benchmark도 계마다 적합한 설정이 달랐다고 보고한다. 따라서 큰 음의 점수 하나보다, 같은 비교 계 안에서 실험 친화도와 어떻게 대응하는지가 중요하다."
+            ],
+            "sourceIds": [
+              "mm-benchmark"
+            ]
+          },
+          {
+            "heading": "FEP: 구조 변경의 이득을 상대 자유에너지로 묻기",
+            "kind": "background",
+            "paragraphs": [
+              "상대 FEP는 물속과 결합 환경에서 A→B 변화의 차이로 ΔΔG를 구한다. Alchemical 경로는 실제 합성 반응이나 약물이 이동하는 경로가 아니다.",
+              "Wang 등의 원저가 보여주는 가치는 상대 친화도 예측을 넓은 리간드 집합과 전향적 연구에 연결했다는 점이다. 그러나 그 성공이 모든 큰 구조 변화·모든 결합 자세에서 자동으로 같은 정확도를 낸다는 뜻은 아니다."
+            ],
+            "sourceIds": [
+              "ties-bhati",
+              "fep-wang"
+            ]
+          },
+          {
+            "heading": "TI와 TIES: 평균값과 반복 간 불확실성을 함께 보기",
+            "kind": "background",
+            "paragraphs": [
+              "TI는 변환 변수 λ에 대한 에너지 변화율의 평균을 적분한다. TIES는 독립 반복을 이용해 평균과 불확실성을 평가한다.",
+              "핵심은 반복을 바꿔도 같은 결론이 유지되는지, 오차가 최종 ΔΔG에 어떻게 전달되는지다. 반복 정밀도가 높아도 힘장이나 기준 실험값의 체계적 오차가 함께 사라지지는 않는다."
+            ],
+            "sourceIds": [
+              "ties-bhati"
+            ]
+          },
+          {
+            "heading": "Infrequent metadynamics: 빠르게 관찰한 시간을 그대로 믿지 않기",
+            "kind": "background",
+            "paragraphs": [
+              "Metadynamics는 이미 방문한 영역에 편향을 더해 드문 상태 변화를 관찰하게 한다. 속도를 구하려면 편향된 궤적의 경과 시간을 실제 시간과 구분해야 한다. Tiwary–Parrinello의 연구는 이 문제를 전이 속도 계산으로 확장했다.",
+              "원저 초록은 안정 상태들을 구별하는 collective variable(CV)이 필요하다고 명시한다. 전이 상태를 미리 모두 알 필요가 없다는 설명을, 어떤 CV를 골라도 된다는 뜻으로 읽으면 안 된다. 자유에너지 탐색에 유용한 좌표와 속도 추정에 충분한 좌표가 같은지 확인해야 한다."
+            ],
+            "sourceIds": [
+              "metad-tiwary"
+            ]
+          },
+          {
+            "heading": "LiGaMD2: 리간드뿐 아니라 포켓의 움직임도 다루기",
+            "kind": "background",
+            "paragraphs": [
+              "LiGaMD2는 리간드와 결합 포켓 잔기의 에너지에 선택적 boost를 적용해 포켓 열림과 결합·해리 표본화를 돕는다. 미리 정한 해리 경로를 따라가는 접근과 구별된다.",
+              "닫힌 포켓이 해리를 막는 경우, 리간드만 움직이기 쉽게 해서는 중요한 단백질 움직임을 놓칠 수 있다는 문제의식이다. 다만 가속된 궤적을 얻는 것과 원래 계의 자유에너지·속도를 정확히 복원하는 것은 별도의 검증 문제다."
+            ],
+            "sourceIds": [
+              "ligamd2-wang"
+            ]
+          },
+          {
+            "heading": "τRAMD: 상대 residence time과 해리 경로의 비교",
+            "kind": "background",
+            "paragraphs": [
+              "τRAMD 원저의 목표는 후보들을 상대적인 머무는 시간으로 비교하고 해리를 지연시키는 경로상의 특징을 해석하는 것이다. 원저 초록은 일시적 극성 상호작용과 입체적 방해가 해리에 영향을 줄 수 있다고 설명한다.",
+              "이 결과를 읽을 때 가속된 계산에서의 시간, 실험에 맞춘 상대 순위, 절대 koff를 구분해야 한다. 같은 표적의 유사 화합물 비교에서 유용한 결과가 다른 표적의 절대 시간을 곧바로 보장하지는 않는다."
+            ],
+            "sourceIds": [
+              "ramd-kokh"
+            ]
+          },
+          {
+            "heading": "dcTMD: 에너지 장벽에 마찰 정보를 더하기",
+            "kind": "background",
+            "paragraphs": [
+              "dcTMD 연구는 비평형 궤적으로부터 자유에너지와 위치에 따른 마찰을 추정하고, 이를 Langevin 모형으로 연결한다. 에너지 바닥의 깊이만이 아니라 이동 과정에서의 저항도 시간 특성에 반영하는 접근이다.",
+              "중요한 가정은 선택한 반응좌표의 운동을 기억 효과가 없는 모형으로 충분히 표현할 수 있다는 것이다. 저자들도 단순화한 용매 표현과 마찰 추정의 근사를 논의한다. 따라서 얻은 시간 척도에는 이 축약 모형의 타당성까지 포함된다."
+            ],
+            "sourceIds": [
+              "dctmd-wolf"
+            ]
+          },
+          {
+            "heading": "SEEKR·milestoning: 짧은 구간의 전이를 연결해 긴 시간을 추정",
+            "kind": "background",
+            "paragraphs": [
+              "Milestoning은 상태 공간을 구간으로 나누고 구간 사이의 전이 정보를 연결한다. SEEKR2 공식 설명에서는 가까운 상호작용 영역에 원자 수준 MD를, 멀리 떨어진 영역에 더 단순한 Brownian dynamics(BD)를 사용해 계산 부담을 나눈다.",
+              "한 번의 연속된 장시간 궤적을 얻는 것과는 다른 전략이다. 구간 경계와 전이 통계가 전체 속도를 충분히 나타내는지 살펴야 한다. 현재 공식 문서의 지원 기능은 방법 이해에 사용했으며, 이를 2022년 원저에서 모두 실증한 결과로 취급하지 않았다."
+            ],
+            "sourceIds": [
+              "seekr-official"
+            ]
+          }
+        ],
+        "table": {
+          "caption": "출력과 해석을 위한 비교. 계산 비용·정확도의 종합 순위표가 아니다.",
+          "columns": [
+            "접근",
+            "주로 묻는 양",
+            "읽을 때 확인할 점"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "MM/PB(GB)SA",
+                "끝 상태의 결합 에너지 근사·상대 경향",
+                "용매·엔트로피 근사, 계별 보정"
+              ],
+              "sourceIds": [
+                "mm-benchmark"
+              ]
+            },
+            {
+              "cells": [
+                "FEP / TI",
+                "ΔG 또는 리간드 간 ΔΔG",
+                "어떤 변환·환경·기준값을 비교했는가"
+              ],
+              "sourceIds": [
+                "fep-wang",
+                "ties-bhati"
+              ]
+            },
+            {
+              "cells": [
+                "Infrequent MetaD",
+                "전이 속도",
+                "CV의 상태 구별 능력과 편향 처리"
+              ],
+              "sourceIds": [
+                "metad-tiwary"
+              ]
+            },
+            {
+              "cells": [
+                "LiGaMD2",
+                "결합 열역학·동역학",
+                "포켓 움직임, 반복 표본과 복원 타당성"
+              ],
+              "sourceIds": [
+                "ligamd2-wang"
+              ]
+            },
+            {
+              "cells": [
+                "τRAMD",
+                "상대 residence time·해리 경로",
+                "평가 대상과 적용 범위"
+              ],
+              "sourceIds": [
+                "ramd-kokh"
+              ]
+            },
+            {
+              "cells": [
+                "dcTMD",
+                "자유에너지·마찰 기반 시간 척도",
+                "반응좌표와 축약 모형의 가정"
+              ],
+              "sourceIds": [
+                "dctmd-wolf"
+              ]
+            },
+            {
+              "cells": [
+                "SEEKR",
+                "구간 전이를 연결한 속도·열역학",
+                "MD/BD 분담과 경계·전이 통계"
+              ],
+              "sourceIds": [
+                "seekr-official"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "evidence",
+        "title": "근거와 원저",
+        "lead": "숫자는 무엇을 몇 번 비교했는지와 함께 읽는다. 아래 다섯 사례의 확인 수준은 서로 다르며, 같은 benchmark의 성능표처럼 비교할 수 없다.",
+        "blocks": [
+          {
+            "heading": "FEP: 200개 리간드의 후향 검증과 전향 적용",
+            "kind": "evidence",
+            "paragraphs": [
+              "Wang et al.의 초록은 여러 표적·구조 변화에 걸친 200개 리간드의 후향 검증을 보고한다. 전향적 신약개발에서는 활성이 높을 것으로 예측해 합성한 화합물의 false positive가 줄었다고 저자들이 주장한다. 과거 데이터를 맞춘 결과와 미래 합성 후보 선택의 결과를 구분해서 볼 사례다.",
+              "초록의 약 5배 친화도 차이는 lead optimization에 필요한 정확도 수준의 맥락이며, 달성한 평균 오차가 아니다. 이번 확인 범위로는 전향 평가의 상세 분모·대조군 구성·신뢰구간을 제시할 수 없다."
+            ],
+            "sourceIds": [
+              "fep-wang"
+            ]
+          },
+          {
+            "heading": "Metadynamics: 3개 문제에서 비편향 MD와 비교",
+            "kind": "evidence",
+            "paragraphs": [
+              "Tiwary–Parrinello 원저 초록은 3개의 서로 다른 문제에서 긴 비편향 MD를 기준으로 탈출 속도와 상태 간 전이 순서를 비교했다고 보고한다. 이는 가속 방법에서 원래 동역학을 복원할 수 있는지에 대한 검증이다.",
+              "3개는 약물 후보 수나 임상 표적 수가 아니다. 초록의 일치 주장을 모든 약물계에서의 정량 정확도로 확장하지 않으며, 상세 오차·통계는 원저 본문을 읽은 뒤 판단해야 한다."
+            ],
+            "sourceIds": [
+              "metad-tiwary"
+            ]
+          },
+          {
+            "heading": "LiGaMD2: 네 모델계, 각 3회의 독립 1 μs 계산",
+            "kind": "evidence",
+            "paragraphs": [
+              "초록과 Figure 2 캡션은 benzene–T4L의 L99A/F104A/M102A 세 조합과 indole–L99A 한 조합을 다룬다. 각 모델계에 독립적인 1 μs 계산 3회가 사용됐다. 이 분모는 네 약물개발 프로젝트가 아니라 모델계 네 조합이다.",
+              "Figure 2의 PMF 오차막대는 세 반복의 표준편차(SD)다. 신뢰구간이나 p값으로 읽지 않는다. 저자는 이용 가능한 실험값과 기존 계산에 대한 일치를 보고하지만, 이번에는 캡션 텍스트만 확인했으므로 그래프 모양이나 개별 속도값을 독립 검증했다고 하지 않는다."
+            ],
+            "sourceIds": [
+              "ligamd2-wang"
+            ]
+          },
+          {
+            "heading": "TIES: 55개 변환의 정확도와 반복 정밀도",
+            "kind": "evidence",
+            "paragraphs": [
+              "UCL 공개 PDF의 Results는 5개 표적의 55개 리간드 간 변환에서 MAE 0.7, RMSE 0.9 kcal/mol을 보고한다. 55는 독립 리간드 수가 아니며 같은 리간드를 공유하는 변환을 포함한다.",
+              "실험과의 오차와 계산 반복의 불확실성은 다르다. 본문은 기준 실험의 오차막대가 없다고 밝힌다. 따라서 불일치의 원인을 계산 모델로만 돌릴 수는 없다."
+            ],
+            "sourceIds": [
+              "ties-bhati"
+            ]
+          },
+          {
+            "heading": "τRAMD: HSP90α 70개 화합물의 상대 체류시간",
+            "kind": "evidence",
+            "paragraphs": [
+              "Kokh et al.은 HSP90α N말단 도메인에 결합하는 70개 화합물로 상대 residence time을 평가했다. 초록에서 저자가 보고한 정확도(accuracy)는 전체 화합물의 78%에서 약 2.3τ, 유사 구조 계열 안에서는 2.0τ 미만이다. 여기서 τ 표기는 원문의 표현을 유지했다.",
+              "전체 70개가 같은 성능을 보였다는 뜻은 아니다. 정확도 지표의 상세 계산식과 예외 처리 기준은 원저 본문 미확인으로 남긴다. 이 결과를 다른 표적의 절대 koff까지 검증한 것으로 읽지 않는다."
+            ],
+            "sourceIds": [
+              "ramd-kokh"
+            ]
+          },
+          {
+            "heading": "왜 이 세 원저를 먼저 연결했나",
+            "kind": "interpretation",
+            "paragraphs": [
+              "아래 원저 카드는 FEP의 검증 규모와 전향 적용, 편향된 계산에서 속도를 추정하는 개념, 포켓 움직임을 포함한 모델계 확장의 세 관점을 연결한다. 읽는 순서는 학습 목적의 구성이다. 오래된 기초 원저를 포함하며 인용수나 발행연도로 우열을 정한 것이 아니다."
+            ],
+            "sourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": "그림·한계",
+        "lead": "에너지 도식은 개념을 설명하고, 정량 검증은 별도의 자료가 맡는다. 아래 그림은 분석자가 다시 구성한 학습용 도식이다.",
+        "figure": {
+          "src": "/assets/review-radar/binding-energy-kinetics-2024/kinetics-map.svg",
+          "alt": "평형 결합 세기와 결합·해리 속도 장벽을 구분하는 개념도",
+          "caption": "분석자가 다시 구성한 개념도. 원문 Figure 1의 복제나 실측 곡선이 아니며, ΔG°는 표준 결합 자유에너지의 부호 관례를 따른다.",
+          "sourceIds": [
+            "review-figure",
+            "iupac-equilibrium"
+          ]
+        },
+        "blocks": [
+          {
+            "heading": "원문 Figure 1에서 실제로 확인한 것",
+            "kind": "evidence",
+            "paragraphs": [
+              "원문은 P+L⇄PL과 kon·koff, 두 상태의 에너지와 장벽을 그린 도식이다. 수치 눈금·실험점·오차막대가 없어 특정 약물의 친화도나 속도 차이를 읽을 수는 없다. 캡션의 P/R 표기와 도식의 P/L 표기도 일치하지 않는다."
+            ],
+            "sourceIds": [
+              "review-figure"
+            ]
+          },
+          {
+            "heading": "수식의 부호는 임의로 넘기지 않았다",
+            "kind": "limitation",
+            "paragraphs": [
+              "원문 그림의 ΔG=RT ln Ka 표기는, 결합 반응의 표준 자유에너지와 표준 평형상수에 적용하는 IUPAC 관계 ΔG°=−RT ln K°와 부호가 다르다. 원문에서 정의를 확정하기 전에는 그 인쇄식을 수치 계산에 사용하지 않는다. 위 새 도식은 표준 부호 관례를 따르며 원문을 그대로 옮긴 그림이 아니다."
+            ],
+            "sourceIds": [
+              "review-figure",
+              "iupac-equilibrium"
+            ]
+          },
+          {
+            "heading": "상관, 오차, 불확실성은 다른 질문이다",
+            "kind": "interpretation",
+            "paragraphs": [
+              "학습용 예로 모든 예측이 실험값보다 일정하게 2 kcal/mol 높다면, 선형 상관은 완벽해도 절대 오차는 남는다. 그래서 R 또는 R²가 높다는 문장만으로 개별 후보의 오차가 작다고 결론 내리지 않는다. 순위를 잘 나누는지, 값 자체를 맞추는지, 어느 후보에서 실패하는지를 각각 읽어야 한다.",
+              "SD는 반복 결과의 퍼짐, 신뢰구간은 정해진 추정 절차에 따른 불확실성 범위다. 여러 λ 상태·여러 궤적·여러 리간드는 서로 다른 반복 단위다. 저자가 어떤 단위를 사용했는지 모르면 임의로 n을 합치거나 p값을 보충하지 않는다."
+            ],
+            "sourceIds": []
+          },
+          {
+            "heading": "보정된 성능과 새 계에서의 성능을 구분",
+            "kind": "limitation",
+            "paragraphs": [
+              "MM/PB(GB)SA benchmark는 140개 리간드/6개 수용성 표적과 37개/3개 막 표적을 다루며, MAE 계산 전에 선형 적합으로 값을 변환했다고 명시한다. 따라서 그 MAE를 보정 없는 원시 점수의 오차로 읽으면 안 된다. 이미 아는 계에서 잘 맞는 설정을 얻었다는 사실과 새로운 계에서의 일반화는 다른 검증이다."
+            ],
+            "sourceIds": [
+              "mm-benchmark"
+            ]
+          },
+          {
+            "heading": "이번 확인 범위와 남은 판단",
+            "kind": "limitation",
+            "paragraphs": [
+              "리뷰의 공개 저자 원고 본문과 Figure 1은 확인했다. 연결 원저 3편은 초록 중심이며 LiGaMD2의 반복·오차 정의는 Figure 2 캡션 텍스트까지 확인했다. 보조 문헌은 각 출처에 표시한 절만 읽었다. 전체 원저·SI·코드·원자료를 모두 검토하거나 계산을 재현한 브리핑은 아니다.",
+              "이 리뷰는 방법을 배우는 출발점이다. 같은 데이터·계산 자원·판정 규칙으로 모든 방법을 비교한 종합 시험으로 취급하지 않는다."
+            ],
+            "sourceIds": [
+              "review-text",
+              "fep-wang",
+              "metad-tiwary",
+              "ligamd2-wang",
+              "ties-bhati",
+              "mm-benchmark",
+              "dctmd-wolf",
+              "seekr-official"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "application",
+        "title": "연구 적용",
+        "lead": "다음은 논문의 추가 결과나 실행용 프로토콜이 아니라, 내 연구 질문과 비교 기준을 정하기 위한 분석자의 제안이다.",
+        "blocks": [
+          {
+            "heading": "내가 설명하려는 차이는 무엇인가",
+            "kind": "interpretation",
+            "paragraphs": [
+              "유사 화합물의 친화도 순서가 질문이라면 ΔΔG의 부호와 크기가 판단 대상이다. 친화도는 비슷한데 반응 시간 특성이 다르다면 kon·koff 또는 더 복잡한 결합 모형을 따로 살펴야 한다. 하나의 점수로 서로 다른 현상을 모두 설명하려고 하면, 계산을 더 정교하게 해도 질문이 어긋날 수 있다.",
+              "먼저 논문에서 예측한 양과 내 관측값의 이름을 나란히 적어 보자. 결합 친화도, 효소 억제 IC50, 세포 반응, 체류시간은 같은 값이 아니다. 서로 바꾸어 해석하려면 어떤 가정이나 연결 근거가 필요한지 질문하는 것이 출발점이다."
+            ],
+            "sourceIds": []
+          },
+          {
+            "heading": "어떤 근거가 나오면 현재 해석을 바꿀 것인가",
+            "kind": "interpretation",
+            "paragraphs": [
+              "평균 오차가 작더라도 관심 계열에서 부호가 자주 뒤집힌다면 후보 간 우선순위를 확신하기 어렵다. 전체 상관은 높지만 특정 결합 자세나 화학 계열에서만 실패한다면 그 범위를 구분해야 한다. 계산 결과와 맞지 않는 사례는 별도 목록으로 읽어, 방법의 적용 한계를 설명하는지 확인한다.",
+              "비교 논문을 읽을 때는 동일 표적 여부, 후향·전향 구분, 기준 실험의 오차, 제외된 사례, 예측 당시 이용 가능한 정보가 같았는지를 질문하자. 이는 새 실험 조건을 제안하는 절차가 아니라 성능 주장의 범위를 판단하는 기준이다."
+            ],
+            "sourceIds": []
+          },
+          {
+            "heading": "다음 원저에서 확인할 질문 세 가지",
+            "kind": "interpretation",
+            "paragraphs": [
+              "Wang 2015에서는 전향 후보 선정의 분모와 비교군을 확인하고 싶다. Tiwary 2013에서는 세 문제의 성격과 편향 처리 가정이 어디까지 검증됐는지 읽고 싶다. LiGaMD2에서는 네 모델계별 결과와 반복 간 변동이 전체 결론을 얼마나 일관되게 지지하는지 확인하고 싶다.",
+              "이 질문을 해결하기 전에는 원저 검토 완료로 올리지 않는다. 현재 카드는 읽을 원저를 고르는 데 쓰고, 상세 수치·그림·SI 대조는 선택한 논문부터 이어가는 것이 이 자료의 용도다."
+            ],
+            "sourceIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -6,3 +6,5 @@ tmp/
 .env
 .env.*
 !.env.example
+.venv/
+public/assets/prepared/

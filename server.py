@@ -1,4 +1,4 @@
-"""Paper Radar: local server and durable reading state, using Python stdlib only."""
+"""Paper Radar: local server, durable reading state, and original-material preparation."""
 import argparse
 import json
 import mimetypes
@@ -11,7 +11,14 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from collector import Collector
+from acquisition import Acquisition
+from cards import load_cards
 from evaluation import EvaluationDataError, load_evaluation
+from generation import load_runs
+from generated import load_generated
+from preparation import Preparation
+from rounds import RoundDataError, load_rounds
+from review_radar import ReviewRadarError, load_radar, search_reviews
 
 ROOT = Path(__file__).resolve().parent
 
@@ -76,18 +83,88 @@ class Handler(BaseHTTPRequestHandler):
             return self.json_response(200, {"papers": papers})
         if path == "/api/health":
             return self.json_response(200, {"status": "ok", "papers": len(self.server.papers)})
+        if path == "/api/review-radar":
+            try:
+                return self.json_response(200, load_radar())
+            except ReviewRadarError as error:
+                return self.json_response(503, {"error": str(error)})
+        if path == "/api/rounds":
+            try:
+                rounds = load_rounds(self.server.collector.candidates(), self.server.preparation.summaries(), self.server.papers)
+                return self.json_response(200, {"rounds": rounds})
+            except (RoundDataError, sqlite3.Error) as error:
+                return self.json_response(503, {"error": str(error)})
+        if path == "/api/generation-pilot":
+            try:
+                return self.json_response(200, {"runs": load_runs()})
+            except (ValueError, OSError, KeyError, TypeError):
+                return self.json_response(503, {"error": "시범 생성 자료의 입력·출처·검증 기록을 확인해 주세요."})
         if path == "/api/collection":
             return self.json_response(200, self.server.collector.status())
         if path == "/api/candidates":
-            return self.json_response(200, {"candidates": self.server.collector.candidates()})
+            summaries = self.server.acquisition.summaries()
+            prepared = self.server.preparation.summaries()
+            candidates = self.server.collector.candidates()
+            for candidate in candidates:
+                paper = self.server.papers.get(candidate["id"])
+                if paper and paper.get("generationOrigin"):
+                    candidate["generatedCard"] = {
+                        "paperId": paper["id"], "reviewStatus": paper["briefOrigin"]["review"]["status"],
+                        "publishedAt": paper["generationOrigin"]["publishedAt"],
+                    }
+                document = summaries.get(candidate["id"])
+                candidate["preparation"] = prepared.get(candidate["id"])
+                if candidate["preparation"] and (not document or document["status"] != "fulltext"):
+                    material = self.server.preparation.text_document(candidate["id"])
+                    if material:
+                        document = {key: material[key] for key in ("status", "provider", "sourceUrl", "fetchedAt", "reason", "format", "license", "sectionCount", "textLength")}
+                candidate["sourceDocument"] = document
+                candidate["fullTextStatus"] = document["status"] if document else "not_retrieved"
+            return self.json_response(200, {"candidates": candidates})
+        if path == "/api/acquisition":
+            return self.json_response(200, self.server.acquisition.status())
+        if path == "/api/preparation":
+            return self.json_response(200, self.server.preparation.status())
+        if path.startswith(("/api/preparations/", "/api/preparation-input/")):
+            prefix = "/api/preparation-input/" if path.startswith("/api/preparation-input/") else "/api/preparations/"
+            candidate_id = path.removeprefix(prefix)
+            if not re.fullmatch(r"[A-Za-z0-9_-]{1,80}", candidate_id):
+                return self.json_response(404, {"error": "논문을 찾을 수 없습니다."})
+            try:
+                if path.startswith("/api/preparation-input/"):
+                    return self.json_response(200, self.server.preparation.input(candidate_id))
+                document = self.server.preparation.get(candidate_id)
+                if document is None:
+                    raise KeyError(candidate_id)
+                return self.json_response(200, {"preparation": document})
+            except KeyError:
+                return self.json_response(404, {"error": "아직 준비된 자료가 없습니다."})
+            except (ValueError, OSError) as error:
+                return self.json_response(409, {"error": str(error)})
+        if path.startswith("/api/sources/"):
+            candidate_id = path.removeprefix("/api/sources/")
+            if not re.fullmatch(r"[A-Za-z0-9_-]{1,80}", candidate_id):
+                return self.json_response(404, {"error": "논문을 찾을 수 없습니다."})
+            try:
+                document = self.server.acquisition.get(candidate_id)
+                if not document or document["status"] != "fulltext":
+                    document = self.server.preparation.text_document(candidate_id) or document
+            except KeyError:
+                document = None
+            if document is None:
+                return self.json_response(404, {"error": "아직 가져온 원문이 없습니다."})
+            return self.json_response(200, {"source": document})
         if path == "/api/evaluation":
             try:
                 return self.json_response(200, load_evaluation())
             except EvaluationDataError as error:
                 return self.json_response(503, {"error": str(error)})
-        if path in ("/", "/index.html", "/app.js", "/styles.css"):
+        if path in ("/", "/index.html", "/app.js", "/review-radar.js", "/styles.css"):
             file_path = ROOT / "public" / ("index.html" if path == "/" else path[1:])
             allowed_root = ROOT / "public"
+        elif path.startswith("/assets/prepared/"):
+            file_path = self.server.preparation.asset_root / path.removeprefix("/assets/prepared/")
+            allowed_root = self.server.preparation.asset_root
         elif path.startswith("/assets/"):
             file_path = ROOT / "public" / path[1:]
             allowed_root = ROOT / "public" / "assets"
@@ -113,7 +190,10 @@ class Handler(BaseHTTPRequestHandler):
                 return self.invalid_range(size)
             status = 206
         content_type = mimetypes.guess_type(file_path)[0] or "application/octet-stream"
-        if file_path.suffix == ".js":
+        prepared_attachment = path.startswith("/assets/prepared/") and file_path.suffix.lower() not in (".pdf", ".png", ".jpg", ".jpeg", ".gif", ".webp")
+        if prepared_attachment:
+            content_type = "application/octet-stream"
+        elif file_path.suffix == ".js":
             content_type = "text/javascript"
         self.send_response(status)
         self.send_header("Content-Type", content_type)
@@ -125,6 +205,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
         if file_path.suffix == ".pdf":
             self.send_header("Content-Disposition", "inline")
+        elif prepared_attachment:
+            self.send_header("Content-Disposition", "attachment")
         self.end_headers()
         if self.command != "HEAD":
             try:
@@ -156,14 +238,21 @@ class Handler(BaseHTTPRequestHandler):
         if not self.local_write_allowed():
             return self.json_response(403, {"error": "로컬 앱에서만 수집할 수 있습니다."})
         path = urlsplit(self.path).path
-        if path not in ("/api/collection", "/api/collection/retry"):
+        if path not in ("/api/collection", "/api/collection/retry", "/api/acquisition", "/api/preparation", "/api/review-radar/search"):
             return self.json_response(404, {"error": "요청을 찾을 수 없습니다."})
         try:
             length = int(self.headers.get("Content-Length", "0"))
             if not 0 < length <= 2048 or self.headers.get_content_type() != "application/json":
                 raise ValueError("올바르지 않은 수집 요청입니다.")
             data = json.loads(self.rfile.read(length))
-            if path == "/api/collection/retry":
+            if path == "/api/review-radar/search":
+                return self.json_response(200, search_reviews(data))
+            elif path in ("/api/acquisition", "/api/preparation"):
+                if not isinstance(data, dict) or set(data) != {"candidateIds"}:
+                    raise ValueError("원문을 가져올 논문을 선택해 주세요.")
+                worker = self.server.preparation if path == "/api/preparation" else self.server.acquisition
+                run = worker.start(data["candidateIds"])
+            elif path == "/api/collection/retry":
                 if not isinstance(data, dict) or set(data) != {"runId"} or not isinstance(data["runId"], str):
                     raise ValueError("다시 시도할 수집 기록을 확인해 주세요.")
                 run = self.server.collector.retry(data["runId"])
@@ -171,10 +260,14 @@ class Handler(BaseHTTPRequestHandler):
                 if not isinstance(data, dict) or set(data) != {"from", "to"}:
                     raise ValueError("수집할 발행일 시작과 종료를 입력해 주세요.")
                 run = self.server.collector.start(data["from"], data["to"])
+        except ReviewRadarError as error:
+            return self.json_response(503, {"error": str(error)})
         except (ValueError, UnicodeDecodeError) as error:
             return self.json_response(400, {"error": str(error)})
         except RuntimeError as error:
             return self.json_response(409, {"error": str(error)})
+        except KeyError:
+            return self.json_response(404, {"error": "선택한 논문을 찾을 수 없습니다."})
         except sqlite3.Error:
             return self.json_response(500, {"error": "수집 기록을 저장하지 못했습니다."})
         return self.json_response(202, {"run": run})
@@ -221,7 +314,11 @@ def create_server(port=8765, db_path=None):
     server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     server.db_path = db_path
     server.papers = load_papers()
+    server.papers.update(load_cards())
+    server.papers.update(load_generated(existing_ids=server.papers))
     server.collector = Collector(db_path, server.papers)
+    server.acquisition = Acquisition(db_path)
+    server.preparation = Preparation(db_path, server.acquisition)
     return server
 
 

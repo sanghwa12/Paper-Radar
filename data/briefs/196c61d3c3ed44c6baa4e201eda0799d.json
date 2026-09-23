@@ -1,0 +1,599 @@
+{
+  "candidateId": "196c61d3c3ed44c6baa4e201eda0799d",
+  "evidenceStatus": "fulltext",
+  "evidenceNote": "과거 교내 본문 검토 기록을 보유한다. 이번 로컬 검증에서는 초록과 확보된 Fig.1/2/3/5를 직접 검토했다. 본문 Methods·SI 파일 및 원문 figure captions는 현재 미확보이며 해당 기록을 재대조한 것으로 표시하지 않았다.",
+  "tabs": {
+    "summary": [
+      {
+        "title": "연구 질문",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "결정 구조 대신 ML predicted structure를 FEP 입력으로 넣을 때 <b>구조가 그럴듯해 보이는 것과 실험 활성 차이를 맞히는 것</b>은 같은가? 이 논문은 cSrc의 133개 화합물, 세 관련 scaffold, 1,400회 이상의 FEP를 통해 최소 최적화 조건에서 구조 출처의 영향을 비교했다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Abstract; Results ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "연구 흐름",
+        "blocks": [
+          {
+            "type": "image",
+            "src": "/assets/briefs/196c61d3c3ed44c6baa4e201eda0799d/flow.svg",
+            "alt": "입력 구조의 출처와 FEP/후속 ML 성능 비교",
+            "caption": "입력 구조의 출처와 FEP/후속 ML 성능 비교 · 과거 본문 검토 기록을 재구성한 도식"
+          }
+        ]
+      },
+      {
+        "title": "핵심 비교",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "입력 구조",
+              "전체 RMSE (kcal/mol)",
+              "비교 결과"
+            ],
+            "rows": [
+              [
+                "Crystal 3EN4",
+                "1.66 ± 0.11",
+                "비교의 실험 구조 기준"
+              ],
+              [
+                "Crystal 3EN5",
+                "1.90 ± 0.16",
+                "실험 구조끼리도 성능이 다름"
+              ],
+              [
+                "FYN homology",
+                "1.41 ± 0.10",
+                "단순히 실험/예측 출처가 성능을 결정하지 않음"
+              ],
+              [
+                "AF3-apo",
+                "3.18 ± 0.27",
+                "동일 AF3의 holo 조건보다 큰 오차"
+              ],
+              [
+                "AF3-holo",
+                "1.82 ± 0.13",
+                "Ligand와 함께 예측한 입력에서는 다른 결과"
+              ],
+              [
+                "Boltz-2",
+                "3.05 ± 0.18",
+                "이 표적·관련 scaffold·준비 조건에서 부진"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Fig.3B 원본 그림의 All RMSE 6개와 kcal/mol 단위를 대조했다. RMSE의 ± 통계 정의는 원문 caption 미확인으로 확정하지 않았으며 SD·SEM·95% CI로 바꾸어 부르지 않는다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Fig.3; Results · FEP Calculations and Performance ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "적용할 판단",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "입력 구조를 “결정인가 예측인가”만으로 고르기보다, 내 화합물 계열의 알려진 활성으로 작은 사전 검증을 하고 결합부위의 micro/macro conformation을 확인하는 것이 논문의 실용적 메시지다. 단일 cSrc와 관련 scaffold의 결과이므로 모든 새 target에 적용되는 모델 순위표로 쓰기는 어렵다."
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "1 · 비교를 어떻게 구성했나?",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "단계",
+              "연구 설계",
+              "통제 범위"
+            ],
+            "rows": [
+              [
+                "구조 출처",
+                "Crystal 3EN4·3EN5; FYN 2DQ7 homology (82% identity); AF3 apo/holo; Boltz-2.",
+                "6개 구조 조건. 구조 출처와 ligand 존재 조건을 함께 구분."
+              ],
+              [
+                "대표 ligand",
+                "Scaffold 1/2/3에 PP56·PP121·PP102, 총 18개 starting complex.",
+                "Methods의 Positioning 절에는 PP103 표기도 있어 아래에 불일치 표시."
+              ],
+              [
+                "공통 계산",
+                "공통 단백질 준비, 1.2 ns frame 선택, 5 ns FEP.",
+                "최소 최적화 조건. Docking과 cofolding의 ligand placement 예외 및 시각적 판단은 남음."
+              ],
+              [
+                "평가 범위",
+                "133 compounds의 실험 활성 대비 1,400회 이상 FEP.",
+                "새 표적에서의 prospective 실험과 구분."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Fig.1에서 PP56·PP121·PP102 및 1.2 ns frame 흐름을 확인했다. 이 표의 identity·5 ns 조건 및 상세 준비 내용은 과거 검토 기록값 · 이번 원문 미대조. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Table 1; Methods; SI S3 ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "2 · 구조 유사도와 FEP 정확도가 갈라지는 지점",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "Global RMSD의 한계",
+                "text": "전체 좌표가 비슷해도 ligand 주변 side-chain·pocket·단백질 macrostate가 달라질 수 있다. 이 연구에서는 AF3-apo의 FEP 오차가 커 global RMSD만으로 시작 구조를 고르기 어렵다는 결과를 보였다."
+              },
+              {
+                "label": "Apo와 holo",
+                "text": "같은 AF3 계열이라도 ligand 없이 예측한 구조와 ligand를 포함한 cofolding은 출발 상태가 다르다. AF3 모델 자체의 일괄적인 성공·실패로 정리하면 중요한 비교를 놓친다."
+              },
+              {
+                "label": "Crystal도 정답 하나가 아님",
+                "text": "3EN4와3EN5를 별도 입력으로 둔 이유는 실험 구조도 다른 결합 상태를 담기 때문이다. 구조 출처보다 실제 입력 complex의 적합성을 검증해야 한다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "<a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Fig.2–3; Discussion ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "3 · FEP augmentation은 입력 구조의 품질을 따라간다",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "자료 수·분할 횟수·31/240 nM 조건은 과거 검토 기록값 · 이번 원문 미대조. 11개의 고정된 실험 활성 control에 72개 compound의 FEP 값을 더해 83개 학습 자료를 만들고 49개 test compound를 평가했다. 100회 split을 반복했고 decision threshold는 31·50·240 nM였다. 실험 활성 83개로 학습한 조건도 함께 비교했다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Data Augmentation and ML Performance ↗</a>"
+          },
+          {
+            "type": "table",
+            "headers": [
+              "학습 자료",
+              "ROC AUC (50 nM 기준, 평균 ± SD)",
+              "읽을 점"
+            ],
+            "rows": [
+              [
+                "실험 control 11개 (3EN4 비교 묶음 대표값)",
+                "0.798 ± 0.093",
+                "소수 실험값만 사용한 기준"
+              ],
+              [
+                "실험 자료 83개 (3EN4 비교 묶음 대표값)",
+                "0.917 ± 0.037",
+                "증강값 대신 실제 활성이 있는 비교 조건"
+              ],
+              [
+                "11 controls + 3EN4 FEP",
+                "0.883 ± 0.044",
+                "소수 control 기준보다 높음"
+              ],
+              [
+                "11 controls + 3EN5 FEP",
+                "0.684 ± 0.079",
+                "같은 crystal 출처라도 증강 효과가 다름"
+              ],
+              [
+                "11 controls + homology FEP",
+                "0.876 ± 0.058",
+                "유용한 FEP 입력은 augmentation에서도 좋은 결과"
+              ],
+              [
+                "11 controls + AF3-apo FEP",
+                "0.657 ± 0.086",
+                "부정확한 계산 자료를 추가하면 오히려 부진"
+              ],
+              [
+                "11 controls + AF3-holo FEP",
+                "0.893 ± 0.044",
+                "Apo와 holo를 구분해야 할 이유"
+              ],
+              [
+                "11 controls + Boltz-2 FEP",
+                "0.589 ± 0.115",
+                "자료의 수만 늘리는 것으로 개선되지 않음"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Fig.5B에서 직접 확인한 분류 기준 50 nM의 평균 ± 표준편차다. 구조별 실험/control baseline은 원본 표에서 별도 제시되며 값도 조금씩 다르다. 위 첫 두 행은 3EN4 비교 묶음의 대표값이다. 곡선의 음영과 표의 ±를 같은 통계량으로 읽지 않으며, 음영의 통계 정의는 원문 caption 미확인이다. Threshold별 결과를 합산하거나 AUC를 실제 실험 hit rate로 바꾸어 읽지 않는다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Fig.5 ↗</a>"
+          },
+          {
+            "type": "callout",
+            "text": "자료 수 주의: 초록의 전체 데이터셋 133개는 확인했다. 83 training + 49 test = 132개라는 분할 설명은 과거 검토 기록값 · 이번 원문 미대조. 차이가 발생한 이유는 추정하지 않았다."
+          }
+        ]
+      },
+      {
+        "title": "논문을 적용할 때의 순서",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "① 소규모 검증",
+                "text": "내 target·congeneric series의 알려진 실험 활성으로 후보 input complex를 나란히 비교한다."
+              },
+              {
+                "label": "② 상태 점검",
+                "text": "전체 RMSD뿐 아니라 pocket/ligand orientation 및 준비 절차의 차이를 확인한다."
+              },
+              {
+                "label": "③ Prediction 사용",
+                "text": "검증에 사용하지 않은 후속 compound에서 prediction을 시험하고, 새 scaffold 또는 target으로 옮길 때 다시 검증한다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "위 세 단계는 본문 비교에서 도출한 적용 제안이며, 논문이 수행한 추가 prospective 실험으로 제시한 것이 아니다."
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "Software와 입력 자료",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "프로그램·자료",
+              "실제 사용 내용",
+              "출처"
+            ],
+            "rows": [
+              [
+                "Maestro 2024-3 / Protein Preparation Wizard",
+                "Protein preparation; Prime missing side chains, Epik, PROPKA, OPLS4.",
+                "Methods · Protein Preparation"
+              ],
+              [
+                "LigPrep / OPLS4",
+                "Ligand preparation, pH 7 ± 2; 명시되지 않은 stereocenter는 수동 열거.",
+                "Methods · Ligand Preparation"
+              ],
+              [
+                "Glide SP 2024-3",
+                "Flexible ligand docking, ligand당 1–5 poses.",
+                "Methods · Positioning of Ligands"
+              ],
+              [
+                "Desmond 2024-3",
+                "MD System Builder; 10 ns 또는 100 ns trajectory에서 1.2 ns frame 선택.",
+                "Methods · Molecular Dynamics"
+              ],
+              [
+                "Academic Desmond 2023-4",
+                "Ligand FEP, star-map, REST sampling.",
+                "Methods · FEP Protocol"
+              ],
+              [
+                "KNIME 5.2.0 / Random forest",
+                "100회 split의 분류 및 FEP augmentation workflows.",
+                "Methods · Machine Learning"
+              ],
+              [
+                "3EN4 / 3EN5 / FYN 2DQ7",
+                "Crystal input 2종, homology template 2DQ7 (82% identity).",
+                "Table 1; Methods"
+              ],
+              [
+                "PP56 / PP121 / PP102",
+                "Scaffold 1/2/3의 대표 ligand로 6 × 3 = 18개 complex.",
+                "SI S3; 본문의 PP103 표기와 불일치"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "이 절의 상세 본문 설정·자료 수는 과거 검토 기록값 · 이번 원문 미대조. Fig.1의 대표 ligand/1.2 ns 흐름과 Fig.5B의 50 nM ROC 표에 한해 원본 그림을 대조했다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Methods; Supporting Information ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "단백질·리간드 준비",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "단계",
+              "조건",
+              "재현 시 주의"
+            ],
+            "rows": [
+              [
+                "Protein Preparation Wizard",
+                "Epik pH 7 ± 2; ligand에서 5 Å를 넘는 waters 제거; Prime으로 누락 side chain; PROPKA pH 7.",
+                "원문 절차를 따르며 모든 구조의 protonation이 자동으로 정답이라고 가정하지 않는다."
+              ],
+              [
+                "Minimization",
+                "Hydrogen 우선, 이후 all-atom OPLS4 minimization; RMSD convergence 0.3 Å.",
+                "아래 MD force field OPLS2005와 서로 다르다."
+              ],
+              [
+                "3EN4 D404 rotamer",
+                "동일 occupancy의 대안 rotamer 중 첫 번째를 시각적으로 선택.",
+                "전부 자동으로 표준화된 파이프라인이라는 해석을 제한하는 수동 선택."
+              ],
+              [
+                "LigPrep",
+                "OPLS4, pH 7 ± 2. Unspecified stereocenters 수동 열거.",
+                "화합물 identifier만으로 preparation을 생략할 수 없다."
+              ],
+              [
+                "Glide placement",
+                "SP flexible, 1–5 poses; receptor vdW scaling 0.8; MCS core constraint 0.4–0.7 Å.",
+                "실패한 경우 MCS alignment와 visual overlap으로 배치. Cofolding 출발 ligand와 동일 경로는 아니다."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "이 절의 상세 본문 설정·자료 수는 과거 검토 기록값 · 이번 원문 미대조. Fig.1의 대표 ligand/1.2 ns 흐름과 Fig.5B의 50 nM ROC 표에 한해 원본 그림을 대조했다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Methods · Protein Preparation, Ligand Preparation, Positioning of Ligands ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "MD와 FEP의 실제 실행 순서",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "단계",
+              "설정",
+              "목적"
+            ],
+            "rows": [
+              [
+                "MD system",
+                "Desmond 2024-3, SPC water, orthorhombic box 10 Å buffer, 0.15 M NaCl + neutralization.",
+                "공통 용매계 준비"
+              ],
+              [
+                "MD production",
+                "OPLS2005, NPT 300 K/1.01325 bar, 10 또는 100 ns; 1.2 ns frame 사용.",
+                "준비 단계의 OPLS4와 혼동하지 않음"
+              ],
+              [
+                "FEP 초기 relaxation",
+                "100 ps Brownian NVT with restraints; 12 ps 10 K NVT.",
+                "Academic Desmond 2023-4 Ligand FEP protocol"
+              ],
+              [
+                "FEP relaxation 후반",
+                "24 + 240 ps, 273 K NPT, unrestrained Langevin.",
+                "원문 시간·온도를 일반적인 MD 값으로 바꿔 쓰지 않음"
+              ],
+              [
+                "FEP production",
+                "5 ns REST, star-map.",
+                "공통 최소 최적화 조건에서 비교"
+              ],
+              [
+                "SC1 orientation",
+                "A/B의 두 orientation을 별도로 계산하고 Boltzmann weighting.",
+                "단일 pose의 에너지를 전체 결과와 동일시하지 않음"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "이 절의 상세 본문 설정·자료 수는 과거 검토 기록값 · 이번 원문 미대조. Fig.1의 대표 ligand/1.2 ns 흐름과 Fig.5B의 50 nM ROC 표에 한해 원본 그림을 대조했다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Methods · Molecular Dynamics; FEP Protocol ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "후속 ML·데이터 분리",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "조건",
+              "해석"
+            ],
+            "rows": [
+              [
+                "Training/test",
+                "고정 11 experimental controls + 72 augmented = 83 training; 49 test.",
+                "전체 133 compounds와 합계 132의 차이는 원문 표기대로 보존."
+              ],
+              [
+                "Classifier",
+                "Random forest, KNIME 5.2.0, 100 split 반복.",
+                "분할의 평균 성능과 독립 target 외부 검증은 다름."
+              ],
+              [
+                "Decision threshold",
+                "31, 50, 240 nM.",
+                "세 threshold를 하나의 결과로 합산하지 않음."
+              ],
+              [
+                "Boltz-2 affinity",
+                "이미 학습 자료에 포함된 활성으로 얻은 결과를 독립 성능 근거에서 제외.",
+                "구조/유사 compound 자체의 사전 노출은 별도 한계."
+              ],
+              [
+                "보고",
+                "Fig.5B ROC AUC: 50 nM 기준 평균 ± 표준편차. 구조별 FEP RMSE는 Fig.3B와 대조.",
+                "ROC 표의 표준편차와 곡선 음영을 구분한다. RMSE ± 및 ROC 음영의 통계 정의는 원문 caption 미확인."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "이 절의 상세 본문 설정·자료 수는 과거 검토 기록값 · 이번 원문 미대조. Fig.1의 대표 ligand/1.2 ns 흐름과 Fig.5B의 50 nM ROC 표에 한해 원본 그림을 대조했다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Data Augmentation and ML Performance; Methods · Machine Learning ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "원문 표기와 공개 재현 자료",
+        "blocks": [
+          {
+            "type": "callout",
+            "text": "과거 검토 메모의 원문 표기 차이: PP102와 Methods Positioning 절의 PP103이 함께 기록돼 있다(과거 검토 기록값 · 이번 원문 미대조). 확보된 Fig.1은 PP102를 표시하지만 본문·SI의 실제 표기와 차이의 원인은 이번에 재대조하지 못했다."
+          },
+          {
+            "type": "table",
+            "headers": [
+              "SI",
+              "제공 항목",
+              "검토 범위"
+            ],
+            "rows": [
+              [
+                "S1",
+                "구조별 FEP 6 spreadsheets, SMILES, pose energy, Boltzmann averages, KNIME weighting workflows.",
+                "목록 확인; 개별 결과 독립 재계산은 수행하지 않음."
+              ],
+              [
+                "S2",
+                "추가 Q1(31 nM), Q2(240 nM) ML 결과.",
+                "목록 확인."
+              ],
+              [
+                "S3",
+                "18 starting protein–ligand complexes.",
+                "목록 확인; 좌표를 독립 준비·재계산하지 않음."
+              ],
+              [
+                "S4",
+                "KNIME FEP augmentation workflows와 input/output.",
+                "목록 확인; 독립 실행하지 않음."
+              ],
+              [
+                "S5",
+                "전체 compound ID·SMILES·IC50(nM).",
+                "목록 확인; 전체 매핑을 재분석하지 않음."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "이 SI 목록은 과거 검토 기록값 · 이번 원문 미대조. SI S1–S5 파일 자체는 현재 로컬 미확보이며 독립 실행·재계산을 수행하지 않았다. <a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">Supporting Information ↗</a>"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "원문 그림에서 확인하는 비교",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "원문 위치",
+              "핵심 질문",
+              "확인 범위"
+            ],
+            "rows": [
+              [
+                "Fig.2–3",
+                "Input의 구조 차이와 FEP error가 같은 방향으로 움직이는가?",
+                "Fig.2/3 시각 검토 및 6개 RMSE 대조. 상세 Methods 원문은 이번 미확보."
+              ],
+              [
+                "Fig.4–5",
+                "FEP augmentation이 실험 control보다 좋아지는 구조는 무엇인가?",
+                "Fig.5의 50 nM ROC AUC/SD 대조. Fig.4와 원문 captions는 미확보."
+              ],
+              [
+                "Methods / SI S3",
+                "대표 ligand·자료 수가 일관되게 기재됐는가?",
+                "PP102/103 및 133 vs 132 차이 설명은 과거 검토 기록값 · 이번 원문 미대조."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "<a href=\"https://doi.org/10.1021/acs.jcim.6c01024\">출판사 본문·Figure·Supporting Information ↗</a>"
+          },
+          {
+            "type": "figure",
+            "title": "입력 구조별 FEP 오차 비교",
+            "eyebrow": "Figure 3",
+            "image": "/assets/briefs/196c61d3c3ed44c6baa4e201eda0799d/figure-3.png",
+            "alt": "Figure 3: 입력 구조별 FEP 오차 비교",
+            "explanation": [
+              {
+                "label": "A · 예측과 실험",
+                "text": "실험 ΔG와 예측 ΔG를 kcal/mol 단위로 비교한다. 색은 scaffold를 구분한다."
+              },
+              {
+                "label": "B · 오차 표",
+                "text": "All RMSE 6개는 요약의 수치와 일치한다. RMSE ±의 통계 정의는 원문 caption 미확인으로 남긴다."
+              }
+            ],
+            "caption": "원문 caption 미확인. 설명은 확보된 원본 이미지의 시각 검토에 근거한다.",
+            "source": {
+              "label": "출판사 원본 이미지 · Figure 3",
+              "url": "https://doi.org/10.1021/acs.jcim.6c01024"
+            }
+          },
+          {
+            "type": "figure",
+            "title": "50 nM 분류 기준의 FEP 증강 비교",
+            "eyebrow": "Figure 5",
+            "image": "/assets/briefs/196c61d3c3ed44c6baa4e201eda0799d/figure-5.png",
+            "alt": "Figure 5: 50 nM 분류 기준의 FEP 증강 비교",
+            "explanation": [
+              {
+                "label": "A · ROC",
+                "text": "여섯 구조 조건에서 FEP 증강, 실험 자료, control의 ROC 곡선을 비교한다."
+              },
+              {
+                "label": "B · 수치 정의",
+                "text": "표는 DV=50 nM, Mean ± Std Dev를 명시한다. 구조별 실험/control 비교값이 따로 있으므로 3EN4의 대표 baseline을 모든 구조의 공통값으로 간주하지 않는다."
+              }
+            ],
+            "caption": "원문 caption 미확인. 설명은 확보된 원본 이미지의 시각 검토에 근거한다.",
+            "source": {
+              "label": "출판사 원본 이미지 · Figure 5",
+              "url": "https://doi.org/10.1021/acs.jcim.6c01024"
+            }
+          }
+        ]
+      },
+      {
+        "title": "해석의 경계",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "평가 조건",
+                "text": "최소 optimization 결과는 모든 구조를 충분히 다듬었을 때의 최고 성능 순위가 아니다."
+              },
+              {
+                "label": "일반화",
+                "text": "cSrc와관련scaffold는이미 ML training에 노출됐다. 이 결과를 미지 target의독립적인 generalization 시험으로 부르지 않는다."
+              },
+              {
+                "label": "준비의 공통성",
+                "text": "같은 준비 protocol을 써도 docking/cofolding 및일부 전문가 판단 차이는 남는다."
+              },
+              {
+                "label": "비용",
+                "text": "FEP→ML의 비용 절감 가능성은 논의하지만 실제벽시계시간·자원비를 현재검토자료에서확인하지못했다."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

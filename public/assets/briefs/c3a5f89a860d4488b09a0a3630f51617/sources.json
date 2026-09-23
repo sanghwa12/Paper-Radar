@@ -1,0 +1,87 @@
+{
+  "candidateId": "c3a5f89a860d4488b09a0a3630f51617",
+  "pmcid": "PMC13576447",
+  "title": "In Vivo Efficacy and Biochemical Target Engagement of a Chromene-Based Inhibitor of Trypanosoma cruzi Lysyl-tRNA Synthetase",
+  "doi": "10.1021/acs.jmedchem.6c00764",
+  "license": "CC BY",
+  "licenseText": "https://creativecommons.org/licenses/by/4.0/This article is licensed under CC-BY 4.0",
+  "figures": [
+    {
+      "figureId": "fig1",
+      "label": "1",
+      "caption": "Antiparasitic effects of compound 5 on Trypanosoma cruzi. (A) Chemical formula of compound 5. (B) Concentration–response curves illustrating the impact of compound 5 on H9c2 cardiomyoblasts infected with T. cruzi. The total counts of host cells (black) and infected cells (blue) were measured after 72 h of exposure to compound 5. (C) Fluorescence microscopy images of H9c2 cells harboring intracellular amastigotes following 72 h of compound 5 treatment. Representative microscopy image of untreated infected cells (UIC, 0.4% dimethyl sulfoxide, DMSO) and compound 5-treated cells (12 μM) is shown. Host cell nuclei and parasite kinetoplasts were stained using Hoechst 33342. Data are presented as means ± standard deviations (SD) from three independent experiments, each with three technical replicates.",
+      "path": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/figure-1.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/jm6c00764_0001.webp?md5=ffc815ce44b3fc96334b3fac11bd8f17",
+      "sha256": "8e85b996cf4a047c8f781e5d0c7a02b1ec40727fdfaa8bd6311326452fe2d3d5",
+      "bytes": 81702,
+      "sourceMd5Verified": true,
+      "width": 1263,
+      "height": 1043,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig2",
+      "label": "2",
+      "caption": "In vivo efficacy of compound 5 in a mouse model of acute Trypanosoma cruzi infection. (A) Pharmacokinetic profile of compound 5 following administration in BALB/c mice. IV (intravenous administration; in venam), PO (oral administration; per os). (B) Scheme of experimental design. Female BALB/c mice were infected intraperitoneally with 1 × 105 trypomastigotes of the T. cruzi Dm28c strain. (C) Parasitemia curves of animals randomly assigned to groups (n = 5): UUI (untreated, uninfected), UTI (untreated, infected), BNZ (infected, treated with benznidazole, 50 mg·kg–1, SID, semel in die), PO, compound 5 (infected treated with compound 5, 20 mg·kg–1 SID, PO). (D) Tissue parasite burden assessed by quantitative real-time PCR (qPCR) in heart, spleen, and colon from infected mice at 20 days postinfection (dpi). Bars represent mean ± standard deviation (SD). Statistical analysis was performed using one-way ANOVA followed by Dunnett’s multiple comparison test. Adjusted p-values are indicated by asterisks (****p ≤ 0.0001). (E) Representative hematoxylin and eosin-stained tissue (heart) sections collected after euthanasia. Black arrows indicate inflammatory foci, while red arrows highlight nests of intracellular amastigotes. Images were captured using a bright-field microscope, and the magnifications are indicated in the figure.",
+      "path": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/figure-2.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/jm6c00764_0002.webp?md5=df21b7bb4a1933a6349dbd3e4d7d88a8",
+      "sha256": "61b6690fa5fcecd13942a3559e11ebffc8cf3214dfca8a225d1e2c0f2a2cc137",
+      "bytes": 123304,
+      "sourceMd5Verified": true,
+      "width": 1599,
+      "height": 1076,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig3",
+      "label": "3",
+      "caption": "Kinetic properties of Trypanosoma cruzi LysRScyt and validation of enzyme interaction with compound 5. Michaelis–Menten curves obtained for substrates l-lysine (A) and ATP (B), without tRNA in the reaction mixture. The kinetics parameters K M, K 1/2, h, and V max were calculated by nonlinear regression of the data. Concentration–response assay with TcLysRScyt confirmed the inhibitory effect of compound 5 over the enzyme activity (C). Crystallographic structures TcLysRScyt depicting the interactions (yellow dash) and Fo-Fc OMIT maps (blue meshes) for l-lysine alone (D) or in combination with compound 5 (E). Ligands are shown as sticks, with carbons colored green. OMIT maps were prepared without ligands in the model and a sigma level of 3 for l-lysine and 2 sigma level for compound 5. Structures were deposited in the protein data bank, under the accession codes 9YJN and 9YJR.",
+      "path": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/figure-3.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/jm6c00764_0003.webp?md5=162452631189836bb31fa4b7bcac79ba",
+      "sha256": "7b9a6bd5ad3a0001996c8f34ca8b858ab6eaae76c37dedcff380ed38f675bbd0",
+      "bytes": 88912,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 951,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig4",
+      "label": "4",
+      "caption": "Structural comparison of LysRS complexes with inhibitors. (A) Structural alignment of the LysRS–compound 5–lysine complex from T. cruzi (gray with ligands in green; this work) with that from P. falciparum (magenta; PDB 6HCU) and C. parvum (blue; PDB 6HCW). (B) Comparison of TcLysRScyt–compound 5–lysine (gray with ligands in green, this work) with PfLysRS–cladosporin–lysine complexes (magenta; PDB 4PG3). (C) TcLysRScyt–compound 5–lysine complex (this work) aligned with the CpLysRS–DMU371–lysine complex (yellow; PDB 8S0V). (D) Structural alignment of human (orange; PDB 4YCU) and T. cruzi LysRScyt (gray; this work), in complex with cladosporin (orange) and compound 5 (green) respectively, showing the conservation of the compound 5/ATP binding pockets.",
+      "path": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/figure-4.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/jm6c00764_0004.webp?md5=a42608add4b114a23a8725471a0d5974",
+      "sha256": "06d71a3265f92aba98ae15a9a8664da449ca3cd0acef611e6df7f87171165b39",
+      "bytes": 145158,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1384,
+      "format": "WEBP"
+    }
+  ],
+  "pdfUrl": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/paper.pdf",
+  "pdf": {
+    "path": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/paper.pdf",
+    "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/PMC13576447.1.pdf?md5=2936de8021fec262f3692d5499ae98f6",
+    "sha256": "f9dd064a4922582dd63104a9de008a28c77151a27b0ffe1f503afa918e816e04",
+    "bytes": 7627066,
+    "sourceMd5Verified": true
+  },
+  "supplements": [
+    {
+      "filename": "jm6c00764_si_001.pdf",
+      "label": "",
+      "caption": "",
+      "path": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/supplement.pdf",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/jm6c00764_si_001.pdf?md5=68c5dda5148fb1af8d45d3a01385d119",
+      "sha256": "0ef23a5a37a6e694172bfa883cc4b8f27f82aed1cf3957d8a350ae0f73ac41a9",
+      "bytes": 806095,
+      "sourceMd5Verified": true
+    }
+  ],
+  "source": "NIH NLM NCBI PMC Article Datasets",
+  "metadataUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/PMC13576447.1.json",
+  "xmlUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576447.1/PMC13576447.1.xml?md5=72ff0e0ca034393ed36e50740cf5ab0f",
+  "retrievedAt": "2026-09-23T00:52:28.115522+00:00",
+  "errors": []
+}

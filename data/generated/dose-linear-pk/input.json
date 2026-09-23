@@ -1,0 +1,947 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "af29478c263640e79982af9325c90e4a",
+  "metadata": {
+    "title": "Machine Learning-Driven Prediction of Dose-Linear Pharmacokinetics: Utilizing Molecular Descriptors to Guide Formulation Strategy.",
+    "doi": "10.1021/acsomega.6c05839",
+    "pmid": "42730098",
+    "pmcid": "PMC13563595",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/",
+    "version": 1,
+    "manuscript": false,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/ This article is licensed under CC-BY-NC-ND 4.0",
+    "authors": "Levy ES, Samy KE, Anelli A, Leung DH.",
+    "journal": "ACS omega",
+    "date": "2026-08-26",
+    "categories": [
+      "CADD·AI",
+      "ADME·PK/PD·개발 전환"
+    ]
+  },
+  "sources": [
+    {
+      "id": "abstract-1",
+      "kind": "abstract",
+      "label": "초록",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/",
+      "text": "Early stage preclinical drug formulation development can be impacted by limited materials and time, especially when making rapid, data-driven decisions is critical. An important parameter to consider is dose linearity, as this can guide the selection between determining if a conventional or enabled formulation strategy is necessary to achieve the expected target exposure as the dose is escalated. This work explores the application of machine learning models to predict dose linearity for compounds administered to the mouse species based on the molecular properties. We utilize a diverse set of models, including Random Forest, XGBoost, LASSO, Neural Networks, and TabPFN, using two distinct data sets for training: a full data set including measured and calculated descriptors and a more accessible data set containing only the RDKit descriptors. Cross-validation was applied with random and scaffold splits, and model performance was evaluated based on a test data set containing 10% of the full data set that was held out during training. Our analysis indicated that the ML models trained with the full descriptors were comparable to the SMILES-only derived descriptors with RDKit. Additionally, while most models achieved comparable performance, LASSO was prioritized due to the interpretability, feature selection, and resistance to overfitting smaller data sets. With a random split and RDKit-only descriptors, the LASSO model resulted in 90.9% precision in the test set and 88.0% accuracy. Precision was optimized to minimize false positives, as incorrectly determining that a compound would not be less-than-dose proportional, where a conventional vehicle would be sufficient, has a higher cost than false negatives. To further evaluate the model’s capacity to apply to novel chemical compounds, a scaffold split was tested. A gap in performance was seen with a precision of 89.3% in training and 80.9% in testing, highlighting the challenges in predicting outcomes with new, chemically unique architectures. A significant finding of this work is the robust performance of the models trained solely on accessible RDKit descriptors, demonstrating that a tool can be developed without more resource-intensive measured data. Overall, this research focuses on a data-driven approach based on dose linearity prediction for whether a conventional, nonsolubilizing vehicle is sufficient or if an enabled formulation would be required to achieve the target exposures. The application to forecast a compound’s dose linearity risk with only the chemical structures provides a valuable tool to guide early formulation strategy and accelerate compound evaluation and preclinical development during the drug discovery phase.",
+      "sha256": "0ec3d31bb53aa99bf7823089678551ea9305adfc0a2f09cfa941d99aa9d0f1f8"
+    },
+    {
+      "id": "body-1",
+      "kind": "body",
+      "label": "Introduction",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec1",
+      "text": "1\n\nThe development of small-molecule drugs has increased in complexity, time, and resources over the past several years. An important reason for the escalating complexity is the interplay of many factors that are required to achieve optimal drug performance in the body. One hurdle is achieving the target properties of a drug candidate, which include desirable pharmacokinetics (PK) and a high bioavailability ( F ). PK describes how the body affects a drug, and achieving the right PK profile is crucial for a sufficient concentration of a drug to reach the target site and have a desired effect. F refers to the amount of drug that enters circulation and is active and can have an effect. F a is the fraction absorbed in the gastrointestinal lumen into the enterocytes and is an important parameter in the absorption of drug molecules. An important aspect to optimize F a is the solubility of the molecules. Effective drug dissolution is critical for efficient absorption into the systemic circulation. Formulation strategies have been utilized to overcome solubility challenges and significantly improve drug exposure. Some of these strategies include enabled formulation strategies such as particle size reduction, amorphous solid dispersions, lipid-based formulations, and salts. − By strategically leveraging and identifying when these enabled formulation strategies can be useful for a compound to improve its PK profile, we can unlock the therapeutic potential of promising drug candidates that would otherwise fail due to solubility limitations.\n\nPreclinical formulation development plays a pivotal role in the success of drug candidates, especially those with inherent challenges such as poor solubility. During the investigational compound stage, the objective is to achieve the necessary systemic exposures to ensure we have robust data for the various studies. Among the key studies are the safety toxicity studies, where the goal is to maximize drug exposure to establish sufficient safety margins before human trials. For compounds with limited solubility, achieving these high exposures can be difficult with conventional formulations, necessitating the development of enabled formulation strategies. , These can be utilized to overcome inherent limitations in getting a drug into solution and absorbed into the bloodstream. Solubilizing agents can be utilized such as cosolvents, surfactants, or cyclodextrins to enhance the solubility and dissolution of the drug. , Forming in situ salts is another strategy that takes advantage of the compound’s p K a and ionization state to improve the solubility. , Additional strategies include amorphous solid dispersions (ASD), where a crystalline drug is converted to a higher energy amorphous state and stabilized with a polymer to improve the solubility and dissolution, and nanosuspensions, where the drug particle size is reduced, increasing surface area and improving dissolution. , Lastly, lipid emulsions can be utilized for highly lipophilic molecules where the drug is solubilized in a lipid carrier, improving the solubility. , While these enabled formulation strategies are powerful to enhance the solubility and dissolution of drugs, they also are time- and resource-intensive to optimize. This trade-off highlights the importance of strategic formulation selection in the preclinical formulation development phase. It is important to understand when these strategies would be required or when a simpler conventional nonsolubilizing vehicle would be sufficient to achieve the desired exposures for the study.\n\nTo optimize formulation strategies, it is important to understand their impact on drug absorption and PK. There are models and strategies developed by Gordon Amidon to have a better understanding of correlating in vitro compound dissolution and permeability to estimate in vivo drug absorption. The tool utilizes critical physicochemical properties of the drug, such as solubility and permeability, and aspects of different formulation strategies, such as ASDs and nanosuspensions, to predict the potential F a .\n\nAnother concept utilized commonly in formulation and PK assessment is the dose number ( D o ) ( eq ), where the dose is the target dose of the compound, C s is the aqueous solubility of the compound, and V sol is the volume of fluid in the GI tract where the compound can dissolve. 1 D o = D o s e C s × V s o l\n\nDose number is a parameter that gives insight into the potential for a drug’s solubility to limit the absorption at a given dose. , When the dose number is low (<1), this will indicate that the drug will be fully solubilized in the GI fluid volume. If exposure is limited, it likely would not be due to solubility but to other factors. If D o is high (>1), then the administered dose exceeds the solubility limit of the drug in the GI fluid, indicating that solubility is likely to be one factor that may be limiting absorption, although it may not be the only factor. Other aspects, such as low permeability, may limit absorption, while high first-pass metabolism may limit overall systemic exposure. Addressing solubility via the use of an enabled formulation may be a necessary but insufficient solution to limited absorption. Therefore, research teams should consider drug absorption holistically. While theoretical values define solubility limitations at D o > 1, high dose escalations in mouse discovery studies routinely generate dose numbers orders of magnitude higher. Consequently, evaluating preclinical exposures proportionality risk requires stratified analysis across wide ranges spanning from 100 to over 100,000.\n\nAssessing dose number and the solubility risk will help to inform whether the drug is expected to exhibit dose-linear behaviors. Dose linearity is when the systemic exposure (area under the curve of a pharmacokinetic plot or AUC) of a drug increases proportionally with the dose. If the compound exhibits linear behaviors, then as the dose is doubled, the exposure or AUC will also double ( Figure ). However, when intrinsic properties of the drug (e.g., solubility, efflux, permeability, stability) limit absorption, absorption can be saturated, resulting in nonlinear behaviors where the dose increases but the AUC does not increase proportionally.\n\nTo gain a better understanding of dose linearity, we first looked at its correlation with dose number. Additionally, we then utilized a data-driven machine learning (ML) approach with diverse descriptors. Machine learning techniques have been utilized to predict different aspects of PK profiles. Utilizing ML to predict these parameters can be impactful in gaining insight into PK parameters without having to run numerous animal studies. Many of the models also include mechanistic integration. − While hybrid approaches combining physiologically based pharmacokinetics with machine learning have shown success with the prediction of drug disposition, often these models rely on measured solubility and intrinsic clearance parameters. In the very early discovery phases, this data is not always available; our study looks to fill this gap by utilizing a pure machine learning approach, assessing the feasibility of utilizing only descriptors derived from the SMILES string. Importantly, while this framework is validated with preclinical pharmacokinetic targets, the dual-criteria applicability domain (AD) and feature selection process developed herein serve as a generalizable template for early-stage “structure-to-property” predictive tasks when measured in vitro characterization data is limited.\n\nML model selection is a critical step in developing predictive tools, especially for early-stage drug development, where there can be data limitations. The model choice consists of a balance of predictive performance, computational efficiency, and suitability based on the specific data set parameters. To address these different aspects, our work utilizes both traditional and modern ML approaches to build predictive models, including Random Forest (RF), eXtreme Gradient Boosting (XGBoost), Least Absolute Shrinkage and Selection Operator (LASSO), Tabular Prior-data Fitted Network (TabPFN), and Neural Networks (NN). RF and XGBoost are decision tree-based models that utilize an ensemble method. RF utilizes a “bagging” approach consisting of independent decision trees from bootstrapped data, averaging the predictions to minimize variance. XGBoost utilizes an advanced “boosting” method that sequentially builds the decision trees to correct for errors. LASSO is a linear regression-based model that utilizes automated feature selection, shrinking less important variables to zero. The output of LASSO models is highly interpretable, resulting in facile identification of the most influential data parameters. On the other hand, NN are nonlinear models and are beneficial with large data sets with complex relationships. The last model we utilize is TabPFN, a more recent innovative model for smaller data sets that employs Bayesian inference to provide high-quality predictions. In addition to the different models, random and scaffold splitting were evaluated to determine the predictive stability of the models across different chemical spaces. While random splitting can assess the model consistency within the same chemical space seen in the training and the test data set, scaffold splitting provides a more rigorous testing with the focus on developing models that can generalize novel chemical structures, which can be beneficial for early stage optimization.\n\nUtilizing descriptors from physicochemical properties, in vitro data, and in vivo preclinical data across the diverse models allows for comprehensive and robust analysis, ensuring an accurate and well-suited predictive tool. ML is utilized to highlight the specific combination of descriptors that drive exposure proportionality predictions to guide when a conventional nonsolubilizing vehicle is sufficient, or when nonlinear behaviors are predicted and there would be value in exploring a more enabled formulation strategy. Our goal is to develop a model to act as a prioritization filter, not a pharmacokinetic simulator, to assist in lead selection. This tool is designed as a first-pass screening approach to flag compounds that may be at risk for less-than-dose proportional exposures. Once such compounds are identified, additional datasuch as in vitro efflux transporter assays, hepatocyte clearance, and other ADME propertiesare considered to better understand the likely drivers of nonlinearity. These follow-up assessments inform whether formulation screening is warranted or whether it is appropriate to proceed directly to in vivo PK studies. The focus of this work is the development of the exposure proportionality model tool. This integration of utilizing quantitative tools such as dose number, fundamental concepts, and cutting-edge data science enables more efficient, informed, and in the end successful development of complex small-molecule drugs.",
+      "sha256": "fed0be8cc8e3e5c9354bd22dbcd77eacb5aaa83cdaa05fafba3ae934d9d29f69"
+    },
+    {
+      "id": "body-2",
+      "kind": "body",
+      "label": "Materials & Methods",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec2",
+      "text": "2",
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "id": "body-3",
+      "kind": "body",
+      "label": "Data",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec2.1",
+      "text": "2.1\n\nData from an internal database was used for the training, model development, and testing data sets. The data set was filtered for studies where compounds were dosed in a conventional nonsolubilizing vehicle at multiple different doses. A total of 120 unique compounds exist with 279 exposure proportionality data points. Individual compounds were tested across multiple dose escalations. As a result, a single compound can generate multiple unique data points. The majority of the compounds were dosed at a standard 5 mg/kg dose and at higher doses ranging from 6 to 300 mg/kg. Exposure proportionality is calculated by taking the AUC higher dose /AUC lowest dose and normalizing to the doses. The target variable is classified as less-than-dose proportional when the ratio is ≤0.75 (negative) and not less-than-dose proportional when >0.75 (positive). A cutoff was used for exposure proportionality, where values greater than 5 were excluded, resulting in 248 data points. Molecular input descriptor parameters were derived from multiple sources. Descriptors were extracted from the database for measured parameters, calculated parameters, and SMILES strings. A total of 225 descriptors were included, comprising 11 measured parameters and 214 calculated parameters. Measured parameters include permeability, efflux ratio, solubility in PBS, solubility in FaSSIF, dose number in FaSSIF, and dose number in PBS. Mouse-specific measurements such as liver microsome and hepatocyte stability were also included. Included in the calculated features were 208 descriptors extracted from RDKit (such as fr_oxazole, SlogP_VSA2, NumHAcceptors, NumAliphaticCarbocycles) and 6 additional in silico calculated parameters. Two data sets were compared, one with the measured parameters and the RDKit-derived, and the other data set with only the RDKit-derived parameters. Information on the distribution of the descriptors is shown in Supplementary Table 1 .",
+      "sha256": "183d0474beb20076156d4cca48b1c8c4007279ba9f248e1ecbdbc750cea7e0ad"
+    },
+    {
+      "id": "body-4",
+      "kind": "body",
+      "label": "Model Framework",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec2.2",
+      "text": "2.2\n\nThe workflow shown in Scheme below indicates the model framework. The RDKit package (2023.9.1) in Python (3.11.12) was used to generate the 208 descriptors. Other packages for model development were NumPy (1.24.4), Pandas (2.0.3), pichemist (0.1.0), scikit-learn (1.5.2), SciPy (1.16.0), TensorFlow (2.17.0), PyTorch (2.7.0), XGBboost (3.0.1), and xlrd (2.0.1).",
+      "sha256": "12cb343f6dddcaa4c5dc7bcb94557e5a903bc58029379a77b02b11528b772cd8"
+    },
+    {
+      "id": "body-5",
+      "kind": "body",
+      "label": "Machine Learning Methodology and Feature Selection",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec2.3",
+      "text": "2.3\n\nTo build the ML models, the data set was split into train and test sets using two different methods: a 90/10 random split and a scaffold split. Five ML models were developed to predict the exposure proportionality. RF, LASSO, XGBoost, TabPFN, and NN were evaluated to determine the predictive capacity based on the data set. Confusion matrix, accuracy, precision, and recall parameters were determined across the models for comparisons. Model performance was assessed on the training set using K-Fold Stratified Cross-Validation ( K = 5), where the accuracy, precision, and recall are represented as mean ± standard deviation across the 5 folds. The optimal classification threshold was selected by maximizing precision on the cross-validation set, subject to a constraint that recall did not fall below 75%, ensuring the model retained a practical capacity to identify true not less-than-dose proportional instances. The optimal threshold was determined from the cross-validation and applied to the full training set to generate the model that was applied to the test data set.",
+      "sha256": "52be942999c634b5478a4d8c69aec53d0d45a0a8ce8939a2ea10ea4e0170f6d7"
+    },
+    {
+      "id": "body-6",
+      "kind": "body",
+      "label": "Defined Applicability Domain (AD)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec2.4",
+      "text": "2.4\n\nA dual-criteria applicability domain was established to determine the reliability of the model for novel chemical molecules. The AD acts as a strict confidence filter to flag when a lead compound resides in an unrepresented or highly unique chemical space, resulting in unreliable model extrapolation. In-domain is identified as in the physicochemical descriptor space and structural space. Physicochemical descriptor space is calculated as Euclidean distance to the kth nearest training neighbor in the selected RDKit descriptor model with a 95th percentile cutoff of leave-one-out kNN distances from the training data set. Structural space is defined by the maximum Morgan Tanimoto similarity compared to any compound that is in the training data set, where a threshold of greater than or equal to 0.35 is required to be included.",
+      "sha256": "f57123a24be18921bca022e58910ae4d22582cd1cd0edf10d887a75885f2725d"
+    },
+    {
+      "id": "body-7",
+      "kind": "body",
+      "label": "Animal Studies",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec2.5",
+      "text": "2.5\n\nAll individuals participating in animal care and use are required to undergo training by the institution’s veterinary staff. Any procedures, including handling, dosing, and sample collection, mandate training and validation of proficiency under the direction of the veterinary staff prior to performing procedures in experimental in vivo studies. All animals were dosed and monitored according to guidelines from the Institutional Animal Care and Use Committee (IACUC) on study protocols approved by WuXi’s IACUC, and its facilities are accredited by the AAALAC. Studies were done at WuXi, and WuXi employees were aware of group allocation at all stages. Animals were kept on a light–dark cycle and had access to food and water ad libitum. Animals’ conditions and behavior were monitored by the veterinarian staff throughout the experiment for signs of distress or pain.",
+      "sha256": "bff44b395bc9b45127183c881c3d13a35bd4103a137b14efb1f5c7a9b82e7ad3"
+    },
+    {
+      "id": "body-8",
+      "kind": "body",
+      "label": "Pharmacokinetics Studies",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec2.6",
+      "text": "2.6\n\nMouse pharmacokinetics were evaluated following a single oral dose (PO) of 5 to 300 mg/kg. Female CD-1 mice ranging from 15 to 25 g were obtained from Lingchang/Vital River Laboratory Animal Co., Ltd. (Beijing, China). The PO groups consisted of 3 animals each.\n\nAnimals were not fasted before dosing. Serial blood samples (10 μL per mouse per time point) were collected via tail nick at 0.25, 0.5, 1, 2, 4, 6, 8, and 24 h post dose, and were immediately placed into tubes containing 40 μL of 1.7 mg/mL potassium (K2) EDTA in water. Diluted blood samples were mixed and then stored at −70 °C or lower until bioanalysis. The concentration of test compound in each blood sample was determined by a nonvalidated LC-MS/MS assay at WuXi AppTech, Inc. Pharmacokinetic analysis was performed at Genentech using noncompartmental analysis (NCA) with Phoenix WinNonlin version 6.4.",
+      "sha256": "32dbdf9b24f1f3c9e67bdf59579d5c5e6f9e059bcc74d66b2fc406852cecf8d9"
+    },
+    {
+      "id": "body-9",
+      "kind": "body",
+      "label": "Results and Discussion",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec3",
+      "text": "3",
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    {
+      "id": "body-10",
+      "kind": "body",
+      "label": "Data Visualization",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec3.1",
+      "text": "3.1\n\nTo visualize the variability in the response variable, exposure proportionality, we analyzed the frequency distribution of exposure proportionality across the data set ( Figure A). To generate models with the goal focused on formulation-driven outcomes, we focused on the exposure proportionality range of 0 to 5, which also consisted of the majority of the data (88.9% of the data). Values greater than 5.0, indicating superproportional increases likely due to clearance saturation, were excluded. From this distribution, we define the cutoff for the target exposure variable to a categorical output. We establish a cutoff of 0.75, where values less than or equal to 0.75 are classified as “less-than-dose proportional” and values greater than 0.75 are classified as “not less-than-dose proportional”. In addition to the visual inspection of the data distribution, we establish the 0.75 dose linearity cutoff by considering both the acceptable range of experimental error and the model performance. For the PK results, a 2-fold deviation in our studies is accepted as falling within error. Consequently, 0.75 falls within this acceptable range. In practice, the not less-than-proportional category encompasses both strictly dose-proportional profiles (∼1) and supra-proportional exposures (>1.25) driven by clearance or efflux transporter saturation. From an early formulation screening perspective, grouping these behaviors together is operationally justified, as neither category would require an enabled formulation strategy to reach the target exposures. Data points with ratios greater than 5.0 were excluded as extreme outliers, where complete metabolic or transport saturation could introduce significant biological noise in the models. The data set remains skewed with more compounds showing a not less-than-dose-proportional behavior than a less-than-dose-proportional behavior ( Figure B). Classification threshold sensitivity was assessed at 0.70, 0.75, and 0.80 on the selected model, where accuracy and precision change only slightly across this range ( Supporting Information Figure 1 ).\n\nThe output of this exposure proportionality parameter is critical to guiding the early formulation design. Our analysis specifically focuses on compounds in the data set that are formulated in conventional, nonsolubilized vehicles. As a result, if a compound exhibits exposure proportionality, then the model would suggest that further complex formulation screening may not be necessary, and a conventional vehicle would be sufficient to achieve the desired exposures in PK studies. On the other hand, if a compound is predicted to have less-than-dose-proportional behaviors, then this would indicate a need to further invest in more advanced and enabling formulation strategies to achieve the desired exposures.",
+      "sha256": "01212176c4045349430d44a0a97866d35d3614c1f69947d79054a3884c78b75a"
+    },
+    {
+      "id": "body-11",
+      "kind": "body",
+      "label": "Preclinical Dose Number",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec3.2",
+      "text": "3.2\n\nOur initial focus was to investigate preclinical dose number as a predictor for exposure proportionality within our data set. We visualize the frequency of not less-than-dose proportional and less-than-dose proportional compounds across the various preclinical dose number ranges: 0–100, 100–1,000, 1,000–10,000, and 10,000–100,000. Across the data, a notable trend emerged where, as the preclinical dose number increased, particularly from the 1,000–10,000 to 10,000–100,000 range, we observed an increase in compounds that exhibit behaviors that are less-than-dose proportional ( Figure ). This suggests that compounds with preclinical dose numbers that are greater than 10,000 are considered to have a high risk of being less-than-dose proportional, resulting in the need for a more complex and enabling formulation strategy. On the other hand, for compounds with a preclinical dose number below 10,000, conventional, nonsolubilizing formulations would likely be sufficient to achieve the desired pharmacokinetic exposures. Although a trend of increasing compounds that are less-than-dose proportional emerged with the increasing preclinical dose number, we sought to move beyond this descriptive analysis. To further investigate, our work focused on providing a more robust and quantitative model for assessing exposure proportionality and assessing the risk of compounds that are less-than-dose proportional for early preclinical development.",
+      "sha256": "3a7f28d4f2d8377a9937159767a3b2b7d83ec49d78a0aa70d8fbdb91d4cd9ad8"
+    },
+    {
+      "id": "body-12",
+      "kind": "body",
+      "label": "Model Development and Performance",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec3.3",
+      "text": "3.3\n\nExpanding on the preclinical dose number, we investigated whether additional chemical properties of the compounds (utilizing a set of 226 descriptors) would improve exposure proportionality predictions. The model focuses on measured and predicted compound properties. Four models were built to understand the optimal parameter space for predicting dose linearity. The models utilized are LASSO, RF, XGBoost, and TabPFN. A multilayer Dense Neural Network (DNN) was tested, but the predictions were not meaningful, likely due to the disproportionate ratio of the model parameters compared to the training samples (data not shown). Although deep neural networks benefit from the capabilities to model nonlinear relationships, the performance is bound by data availability. A drawback of the DNN architecture is the lack of inductive bias that can be found in more specialized models, such as TabPFN. To determine the optimal threshold for each model, ROC curves were generated for the train data set for each model, highlighting the relationship between precision and recall, LASSO example shown in Supporting Information Figure 2 .\n\nIn this work, we prioritize precision in determining the optimal threshold for the model. In this context, a false positive occurs when the model predicts a compound to be not less-than-dose proportional, when it is actually less-than-dose proportional based on the measured data. Minimizing these false positives is critical for this work. If a compound is incorrectly predicted from the model as not less-than-dose proportional, then no further formulation work would be performed, potentially leading to suboptimal drug performance in the PK studies. As a result, to avoid the costly oversight of neglecting essential formulation work, we emphasize the importance of accurately identifying true not less-than-dose proportional compounds. This focus on reducing false positives results in a trade-off that we have accepted, which is an increase in false negatives. In this work, a false negative occurs when the model predicts a compound to be less-than-dose proportional when it is actually not less-than-dose proportional. While this could lead to unnecessary additional formulation work and a potential loss in time, we consider this to be the lesser risk for this work. The value of ensuring accurate, not less-than-dose proportional predictions for critical PK studies to achieve the target exposure outweighs the occasional expenditure of unneeded formulation efforts. It should be noted that our tolerance for false negatives is tied directly to an operational workflow where a negative prediction simply triggers downstream formulation development. If this predictive model were instead utilized as a primary gate to discard or deprioritize assets entirely, then in that case, the operational cost of a false negative could become not acceptable, as viable candidates would not be considered.\n\nThe thresholds along with the resulting accuracy, precision, and recall were determined across the different models and data splitting techniques, which are represented in Tables – . The range in the accuracy, precision, and recall in the tables for the train data set were derived from the cross-validation analysis performed. The optimal threshold was then identified by maximizing precision on the training data set, subject to a constraint that recall did not fall below 75%. The optimized models were then run on the test data set to evaluate model performance. In addition to the model described above, another model was trained using a data set consisting of only RDKit descriptors ( Tables – ).\n\nAn assessment of feature importance across the coefficient values of the model was performed. To further optimize model performance, we employed two independent strategies: removing any zero-coefficient descriptors and removing parameters with low coefficients. However, with both strategies, model performance decreased. When removing zero-coefficient descriptors, the adjusted regularization penalty shifted, causing the model to compensate by shrinking other structurally informative coefficients to zero. Consequently, we conclude that the model’s inherent feature selection functions were robust, effectively capable of optimizing the descriptor relevance. As a result, the models were further analyzed and compared in their original configurations.\n\nOur analysis indicated that the models built on the cross-validated training data set with the random or scaffold split when trained on the full descriptors and RDKit-only descriptors were not significantly different based on t test and one-way ANOVA analysis ( Tables – ). First, focusing on the RDKit descriptors vs the full descriptor data set, no significant difference was seen across all of the models. This indicates that an exposure proportionality model can be developed without the required measured data. This is an important finding, as obtaining measured data can be a hurdle, especially in early development when time and material can be limiting. Utilizing the readily available SMILES string to convert with RDKit to the calculated descriptors can allow for more rapid and efficient optimization and development of an exposure proportionality predictive model, providing a valuable early-stage screening tool. When further investigating the different models with a focus on the precision parameter, the analysis indicated that for the train data set, there also was no significant difference, based on a Student’s t test and one-way ANOVA analysis, when implementing a random or scaffold split. For random split, the model learns to optimize the precision when the folds consist of similarly structured molecules, while for scaffold split, the high precision was achieved even though the training folds are different scaffolds. This high and comparable performance during the training data set across the random and scaffold split indicated that the physicochemical descriptors have strong predictive power for exposure proportionality. Although no significant differences were observed in the training data set, in the LASSO model, a drop in the precision performance was seen on the test data set from random split to scaffold split, with a drop from 89.5 to 76.2% for the full data set and 90.9 to 80.9% for the RDKit-only descriptor data set ( Table ). Due to how scaffold split works, this is feasible to occur due to the requirement for the model to generalize to a novel chemical space. While optimization of local rules can occur within the training folds, the decrease in precision highlights a moderate scaffold dependency for achieving the high precision. The decision to focus on random or scaffold split would be dependent on future molecules and whether they are expected to be similar or diverse compared to the training data set.\n\nOverall, for the different models tested, XGBoost, TabPFN, RF, and LASSO, there was no significant difference, based on a Student’s t test and one-way ANOVA analysis, across the training data set with models in terms of the performance with a focus on precision. As a result, we focus the latter analysis on the LASSO model. Focusing on the random split since the model performance was superior in terms of the training and test data set, the LASSO model had a precision with the test data set at 89.5% (LASSO) with the full feature set. Thus, when screening compounds structurally similar to the compounds in the training data set, the model’s positive predictions would correctly predict exposure proportionality about 90% of the time. Between the different models, LASSO is the more efficient and interpretable model compared to Random Forest. In general, the TabPFN model represents a highly advanced architecture capable of modeling complex nonlinear interactions on small data sets, but the complexity is not necessary in this case since all of the models performed similarly. Ensembling was not pursued due to the weakened interpretability without a clear, robust accuracy gain. Recursive feature elimination ( k = 100) was also tested due to the large number of molecular descriptors and relatively smaller data set. Although the descriptors were reduced, the testing accuracy, precision, and recall, and ROC-AUC relative to the full descriptor set were lower, indicating that informative signals remained in the features that were removed ( Supporting Information Figure 3 ). As a result, the full descriptor set was retained for final reporting of the data.\n\nTo further analyze the model performance, the LASSO model was rerun at the optimal thresholds to generate the training and test confusion matrices ( Tables and ). The confusion matrix provides an analysis of all of the outcomes: true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). The goal of the model developed was to minimize FP, where the model predicts as not less-than-dose proportional when in fact the compound is less-than-dose proportional. This outcome is costly in the context of our research since it would indicate that a conventional, nonsolubilizing formulation would be sufficient, leading the team to bypass important formulation work. Our strategic focus to maximize precision reflects that priority, and in our model, the false positives were 4 and 2 in the train and test data sets, respectively, when the full descriptors and random split were utilized in the LASSO model development (Table 2). When the LASSO model was developed with only the RDKit descriptors, the false positives were 8 in the training set and 2 in the test set. The confusion matrix analysis validated our model development approach, highlighting that the chosen metric guided the optimization toward a model that is both accurate and appropriately conservative.",
+      "sha256": "fa9896848452f0962dfd29dcd42ee57b686cc350cb0c2ecedb05a528da295578"
+    },
+    {
+      "id": "body-13",
+      "kind": "body",
+      "label": "Model Feature Importance",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec3.4",
+      "text": "3.4\n\nWith the final LASSO model, we establish a dual-criteria applicability domain (AD) to determine the reliability of the predictive framework for novel chemical entities. For the training data set, 94.6% of the compounds were inside the applicability domain. For the test data set, 22/25 were classified as in domain (88%), and the remaining 3 violated the AD due to either higher extrapolation in descriptor space, structure space, or both spaces. Within the dual-criteria AD, the LASSO model achieved a robust accuracy of 0.864. Although the accuracy of the three that were out of the domain was 1.00, this subset is statistically insufficient to support a claim that the model would maintain a higher accuracy in the off-domain space. Rather, the results suggest that for this specific split, the AD boundaries do not strictly coincide with the points of predictive failure. This finding highlights the importance of using AD in early discovery, as it allows researchers to identify when a new chemical entity is sufficiently represented by the training data set, to then trust the 90.9% precision reported in the primary analysis.\n\nAdditionally, the top 10 descriptors’ importance is shown for LASSO in Table for the full data set and RDKit-only descriptors. Analysis of some of the top LASSO predictors indicated that the model performance for predicting exposure proportionality was driven by specific structural fragments, atomic charge distributions, and molecular lipophilicity. Analysis of the top 10 descriptors highlights the importance of hydrogen bonding capacity and electrostatic interactions with respect to exposure proportionality. Specifically, the structural fragments fr_Ar_NH, fr_Al_OH_noTert, and charged partitioned surface area descriptors PEOE_VSA indicated that these features may facilitate better aqueous interactions or membrane permeability profiles. VSA_EState and PEOE_VSA descriptors additionally show that spatial heterogeneity of charge distribution is a key factor for the model. Both of the data sets consist of fr_lactone and fr_urea, which were both negatively correlated with exposure proportionality. Both of these, from a biopharmaceutical perspective, could lead to nonlinear behaviors. Lactones are cyclic esters that tend to be prone to hydrolysis within the gastrointestinal tract, resulting in chemical instabilities that can limit the amount of intact drug available for absorption. Additionally, urea functional groups can engage in the formation of intermolecular hydrogen bonding networks, resulting in strong crystal lattice energy. This drives elevated melting points and high thermodynamic barriers to solubility. − Identification of these structural moieties with higher risk in the early discovery stage can enable focused intervention; for example, utilizing enabled formulation strategies to stabilize lactones or improve the solubility or dissolution rates of urea-containing compounds can assist to improve exposures. Lastly, in the full descriptor data set, unique descriptors were present, such as cLog P , which do not reside in the RDKit-based descriptor data set. cLog P positively correlates with exposure proportionality, suggesting that some lipophilicity was needed for membrane permeability. While these findings can provide guidance on an in silico first framework for formulation selection, future studies would be important to increase the data set to further refine the complex interplay between the structural parameters and exposure proportionality. Additionally, the model’s operational domain is validated for preclinical doses between 5 and 300 mg/kg. Below 5 mg/kg, solubility constraints are rarely active in vivo, and the models should not be utilized to forecast nonlinearity in the ultralow dose regimes.",
+      "sha256": "a4e7012cb5b122cf2cbc6d74791346afca72633aedffe87cccc504127460a006"
+    },
+    {
+      "id": "body-14",
+      "kind": "body",
+      "label": "Pharmacokinetic Analysis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec3.5",
+      "text": "3.5\n\nPK data from two compounds, selected directly from the test data set, is shown in Table to illustrate the real-world predictive utility of the LASSO model. The model correctly predicted that compound A would not be less-than-dose proportional, which was confirmed by the proportional increase in AUC inf from 5 to 30 mg/kg. The model also correctly predicted less-than-dose-proportional behavior with compound B between 5, 100, and 300 mg/kg. The LASSO random split model, with the high precision ∼90% in the test set ( Table ), can be utilized as a part of the decision for preclinical formulation development. The model assists to filter out compounds where complex solubilizing formulation strategies were not required. By correctly identifying compound A as not less-than-dose proportional, the model supports that when conventional vehicles were sufficient to generate linearity, informing the need for further formulation screening would not be required. The model accurately predicted less-than-dose-proportional behavior for compound B, indicating that a conventional vehicle was not sufficient and exploration of a more complex formulation strategy could be beneficial to achieve higher exposures at higher doses.",
+      "sha256": "eb72deeb6ad05c5d4b8a45ffa187d7d8a559048fa1b637907b034183fa375935"
+    },
+    {
+      "id": "body-15",
+      "kind": "body",
+      "label": "Conclusion",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sec4",
+      "text": "4\n\nIn this work, we have developed and validated different machine learning models to predict exposure proportionality for mouse species in the early preclinical space, an important parameter in guiding the formulation strategy. By identifying some of the physicochemical molecular properties that impact exposure, we have established a first-pass screening tool to flag compounds with a risk for less-than-dose-proportional behavior. This predictive framework facilitates decision-making for the formulation selection, assisting in determining when conventional vehicles are sufficient or when more resource-intensive solubilizing formulation strategies are required. Our analysis demonstrated that models trained on a data set containing all of the descriptors with both measured and calculated descriptors, compared to only RDKit descriptors, resulted in similar performance. Among the four models evaluated, RF, LASSO, TabPFN, and XGBoost, the performance was similar. Based on the different model properties, we focused on LASSO due to its built-in feature selection, high interpretability, resistance to overfitting on smaller data sets, and computational efficiency. The LASSO model achieved high precision on the test data set with 89.5 and 90.9% precision when employing a random split across the full data set descriptors and RDKit-only descriptors, respectively. Although not prioritized due to the goal of optimizing precision, the accuracy remained robust with 76.0% for the full data set and 88.0% for RDKit descriptors. Precision was optimized to reduce false positives, as we determined that the cost of predicting a drug would not be less-than-dose proportional when it actually was less-than-dose proportional was higher than a false negative. For scaffold split, while the models achieved high performance with precisions of 89.4 and 89.3% across the full data set descriptors and RDKit-only descriptors, respectively, on the train data set, the test data set showed a drop in precision with 76.2 and 80.9% across the full and RDKit-only data set, respectively. This gap in translation is a challenge with scaffold split, where the training data set captures the patterns within the chemical scaffolds, but the test phase requires model prediction on novel molecular compounds. Random split would be a more realistic performance if the new data resides within similar chemical matter. By creating models where molecular descriptors are connected to the predictive performance of exposure proportionality and dose linearity, this machine-learning workflow enables a cost-effective method to facilitate chemical matter optimization and formulation decisions to ensure optimal systemic exposure in discovery pipelines.",
+      "sha256": "b301e73a4e3418ae5e75cfba9249b84a56a3d95ebac992155e0863c5fc4cce43"
+    },
+    {
+      "id": "body-16",
+      "kind": "body",
+      "label": "본문 부록·주석",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/",
+      "text": "The authors would like to thank William Fox (Georgia Tech) for discussions on advanced machine learning experimental design and integration.\n\nThe Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acsomega.6c05839 . Sensitivity sweep of exposure proportionality thresholds on model accuracy and precision; ROC curves for the LASSO model across random and scaffold splits with full and RDKit-only descriptor sets; comparison of LASSO model performance metrics before and after recursive feature elimination; and full physicochemical property and descriptor distribution metrics across the data set variables ( PDF )\n\nConceptualization: D.H.L., E.S.L., and K.E.S.; Methodology: E.S.L., A.A.; Validation: K.E.S., E.S.L., and A.A.; Formal analysis: E.S.L.; Investigation: E.S.L.; Data curation: E.S.L., K.E.S.; Writingoriginal draft preparation: E.S.L.; and Writingreview and editing: E.S.L., K.E.S., A.A., and D.H.L. All authors have read and agreed to the published version of the manuscript.\n\nThe authors declare the following competing financial interest(s): The authors declare the following financial interests/personal relationships which may be considered as potential competing interests: the authors declare that E.L, K.S, A.A, D.L are employees of Genentech/Roche. The company had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results.",
+      "sha256": "2706abd9cd094ae37b9d5b87578e781e3339e36788563b9b8e3565ce148699a5"
+    },
+    {
+      "id": "table-1",
+      "kind": "body",
+      "label": "1",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl1",
+      "text": "Accuracy, Precision, and Recall for the XGBoost Cross-Validated Models at the Optimized Threshold for the Train Data Set, Including Full Data Set Descriptors and Only RDKit Descriptors with Random and Scaffold Split\n[표 행·열]\nFeature Set | Data Split | Accuracy | Precision | Recall | Threshold\nFull | Random | 82.9 ± 2.7 | 88.9 ± 2.5 | 89.8 ± 3.9 | 0.75\nRDKit-Only | Random | 84.3 ± 4.1 | 90.8 ± 2.3 | 89.2 ± 3.4 | 0.70\nFull | Scaffold | 78.2 ± 11.4 | 81.5 ± 11.4 | 94.0 ± 7.5 | 0.50\nRDKit-Only | Scaffold | 80.0 ± 11.1 | 82.2 ± 10.9 | 94.8 ± 6.6 | 0.60",
+      "sha256": "78a88b9e0463e2938897a70b1b34db8c29646ef0aedede13af748a71f14981b3",
+      "role": "table",
+      "rows": [
+        [
+          "Feature Set",
+          "Data Split",
+          "Accuracy",
+          "Precision",
+          "Recall",
+          "Threshold"
+        ],
+        [
+          "Full",
+          "Random",
+          "82.9 ± 2.7",
+          "88.9 ± 2.5",
+          "89.8 ± 3.9",
+          "0.75"
+        ],
+        [
+          "RDKit-Only",
+          "Random",
+          "84.3 ± 4.1",
+          "90.8 ± 2.3",
+          "89.2 ± 3.4",
+          "0.70"
+        ],
+        [
+          "Full",
+          "Scaffold",
+          "78.2 ± 11.4",
+          "81.5 ± 11.4",
+          "94.0 ± 7.5",
+          "0.50"
+        ],
+        [
+          "RDKit-Only",
+          "Scaffold",
+          "80.0 ± 11.1",
+          "82.2 ± 10.9",
+          "94.8 ± 6.6",
+          "0.60"
+        ]
+      ],
+      "expandedSpans": false
+    },
+    {
+      "id": "table-2",
+      "kind": "body",
+      "label": "2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl2",
+      "text": "Accuracy, Precision, and Recall for the LASSO Cross-Validated Models at the Optimized Threshold for the Train Data Set, Including Full Data Set and Only RDKit Descriptors with Random and Scaffold Split\n[표 행·열]\nFeature Set | Data Split | Accuracy | Precision | Recall | Threshold\nFull | Random | 81.6 ± 4.6 | 89.7 ± 2.7 | 87.0 ± 6.0 | 0.70\nRDKit-Only | Random | 84.7 ± 5.3 | 91.9 ± 2.0 | 88.7 ± 6.33 | 0.65\nFull | Scaffold | 76.0 ± 9.1 | 89.4 ± 9.0 | 81.8 ± 10.7 | 0.60\nRDKit-Only | Scaffold | 72.4 ± 14.6 | 89.3 ± 7.0 | 75.3 ± 15.9 | 0.75",
+      "sha256": "277a22b889cc49b438af086a924773bc258d1b3545d51584de240210c1ad59fa",
+      "role": "table",
+      "rows": [
+        [
+          "Feature Set",
+          "Data Split",
+          "Accuracy",
+          "Precision",
+          "Recall",
+          "Threshold"
+        ],
+        [
+          "Full",
+          "Random",
+          "81.6 ± 4.6",
+          "89.7 ± 2.7",
+          "87.0 ± 6.0",
+          "0.70"
+        ],
+        [
+          "RDKit-Only",
+          "Random",
+          "84.7 ± 5.3",
+          "91.9 ± 2.0",
+          "88.7 ± 6.33",
+          "0.65"
+        ],
+        [
+          "Full",
+          "Scaffold",
+          "76.0 ± 9.1",
+          "89.4 ± 9.0",
+          "81.8 ± 10.7",
+          "0.60"
+        ],
+        [
+          "RDKit-Only",
+          "Scaffold",
+          "72.4 ± 14.6",
+          "89.3 ± 7.0",
+          "75.3 ± 15.9",
+          "0.75"
+        ]
+      ],
+      "expandedSpans": false
+    },
+    {
+      "id": "table-3",
+      "kind": "body",
+      "label": "3",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl3",
+      "text": "Accuracy, Precision, and Recall for the Random Forest Cross-Validated Models at the Optimized Threshold for the Train Data Set, Including Full Data Set and Only RDKit Descriptors with Random and Scaffold Split\n[표 행·열]\nFeature Set | Data Split | Accuracy | Precision | Recall | Threshold\nFull | Random | 81.1 ± 3.2 | 89.2 ± 2.2 | 87.0 ± 6.7 | 0.70\nRDKit-Only | Random | 82.0 ± 4.2 | 93.2 ± 2.4 | 83.6 ± 6.6 | 0.75\nFull | Scaffold | 73.3 ± 14.3 | 82.5 ± 11.2 | 85.6 ± 16.1 | 0.65\nRDKit-Only | Scaffold | 71.1 ± 15.2 | 87.2 ± 11.6 | 75.4 ± 17.1 | 0.70",
+      "sha256": "0c11740bda68ac07e61c16ad04d07eda6ea7e7960239496ba207f9a67ee49ef5",
+      "role": "table",
+      "rows": [
+        [
+          "Feature Set",
+          "Data Split",
+          "Accuracy",
+          "Precision",
+          "Recall",
+          "Threshold"
+        ],
+        [
+          "Full",
+          "Random",
+          "81.1 ± 3.2",
+          "89.2 ± 2.2",
+          "87.0 ± 6.7",
+          "0.70"
+        ],
+        [
+          "RDKit-Only",
+          "Random",
+          "82.0 ± 4.2",
+          "93.2 ± 2.4",
+          "83.6 ± 6.6",
+          "0.75"
+        ],
+        [
+          "Full",
+          "Scaffold",
+          "73.3 ± 14.3",
+          "82.5 ± 11.2",
+          "85.6 ± 16.1",
+          "0.65"
+        ],
+        [
+          "RDKit-Only",
+          "Scaffold",
+          "71.1 ± 15.2",
+          "87.2 ± 11.6",
+          "75.4 ± 17.1",
+          "0.70"
+        ]
+      ],
+      "expandedSpans": false
+    },
+    {
+      "id": "table-4",
+      "kind": "body",
+      "label": "4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl4",
+      "text": "Accuracy, Precision, and Recall for the TabPFN Cross-Validated Models at the Optimized Threshold for the Train Data Set, Including Full Data Set and Only RDKit Descriptors with Random and Scaffold Split\n[표 행·열]\nFeature Set | Data Split | Accuracy | Precision | Recall | Threshold\nFull | Random | 83.8 ± 5.8 | 89.4 ± 3.7 | 90.4 ± 3.9 | 0.70\nRDKit-Only | Random | 84.7 ± 5.3 | 89.5 ± 3.5 | 91.5 ± 3.6 | 0.65\nFull | Scaffold | 72.0 ± 13.3 | 87.4 ± 10.5 | 75.5 ± 16.4 | 0.70\nRDKit-Only | Scaffold | 74.7 ± 14.0 | 87.0 ± 10.4 | 79.0 ± 16.6 | 0.60",
+      "sha256": "4129d35cc7cf431f5a2ec14499a7e0f75f407986f606f0547b6a7ca8d3e84804",
+      "role": "table",
+      "rows": [
+        [
+          "Feature Set",
+          "Data Split",
+          "Accuracy",
+          "Precision",
+          "Recall",
+          "Threshold"
+        ],
+        [
+          "Full",
+          "Random",
+          "83.8 ± 5.8",
+          "89.4 ± 3.7",
+          "90.4 ± 3.9",
+          "0.70"
+        ],
+        [
+          "RDKit-Only",
+          "Random",
+          "84.7 ± 5.3",
+          "89.5 ± 3.5",
+          "91.5 ± 3.6",
+          "0.65"
+        ],
+        [
+          "Full",
+          "Scaffold",
+          "72.0 ± 13.3",
+          "87.4 ± 10.5",
+          "75.5 ± 16.4",
+          "0.70"
+        ],
+        [
+          "RDKit-Only",
+          "Scaffold",
+          "74.7 ± 14.0",
+          "87.0 ± 10.4",
+          "79.0 ± 16.6",
+          "0.60"
+        ]
+      ],
+      "expandedSpans": false
+    },
+    {
+      "id": "table-5",
+      "kind": "body",
+      "label": "5",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl5",
+      "text": "Accuracy, Precision, and Recall for the LASSO Model at the Optimized Threshold for the Test Data Set, Including Full Data Set and Only RDKit Descriptors with Random and Scaffold Split\n[표 행·열]\nFeature Set | Data Split | Accuracy | Precision | Recall | Threshold\nFull | Random | 76.0 | 89.5 | 80.9 | 0.70\nRDKit-Only | Random | 88.0 | 90.9 | 95.2 | 0.65\nFull | Scaffold | 69.6 | 76.2 | 88.9 | 0.60\nRDKit-Only | Scaffold | 78.3 | 80.9 | 94.4 | 0.75",
+      "sha256": "cad6ddf5be6fea12465eee0598999a3e671939ffc3bbdb7ee6bec8bb5ffb1e9a",
+      "role": "table",
+      "rows": [
+        [
+          "Feature Set",
+          "Data Split",
+          "Accuracy",
+          "Precision",
+          "Recall",
+          "Threshold"
+        ],
+        [
+          "Full",
+          "Random",
+          "76.0",
+          "89.5",
+          "80.9",
+          "0.70"
+        ],
+        [
+          "RDKit-Only",
+          "Random",
+          "88.0",
+          "90.9",
+          "95.2",
+          "0.65"
+        ],
+        [
+          "Full",
+          "Scaffold",
+          "69.6",
+          "76.2",
+          "88.9",
+          "0.60"
+        ],
+        [
+          "RDKit-Only",
+          "Scaffold",
+          "78.3",
+          "80.9",
+          "94.4",
+          "0.75"
+        ]
+      ],
+      "expandedSpans": false
+    },
+    {
+      "id": "table-6",
+      "kind": "body",
+      "label": "6",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl6",
+      "text": "Confusion Matrix with the Full Data Set and Random Split for the Finalized LASSO Model for the Train and Test Data Sets\n[표 행·열 / 병합 셀은 해당 위치에 반복]\n | Train | Train | Test | Test\n | Actual Less-Than-Proportional | Actual Not Less-Than-Proportional | Actual Less-Than-Proportional | Actual Not Less-Than-Proportional\nPredicted Less-Than-Proportional | 41 | 9 | 2 | 4\nPredicted Not Less-Than-Proportional | 4 | 169 | 2 | 17",
+      "sha256": "db83bebe87050a20d74bdc5f10f8ff660d62bdf6697a01f6cc30c01825c1200a",
+      "role": "table",
+      "rows": [
+        [
+          "",
+          "Train",
+          "Train",
+          "Test",
+          "Test"
+        ],
+        [
+          "",
+          "Actual Less-Than-Proportional",
+          "Actual Not Less-Than-Proportional",
+          "Actual Less-Than-Proportional",
+          "Actual Not Less-Than-Proportional"
+        ],
+        [
+          "Predicted Less-Than-Proportional",
+          "41",
+          "9",
+          "2",
+          "4"
+        ],
+        [
+          "Predicted Not Less-Than-Proportional",
+          "4",
+          "169",
+          "2",
+          "17"
+        ]
+      ],
+      "expandedSpans": true
+    },
+    {
+      "id": "table-7",
+      "kind": "body",
+      "label": "7",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl7",
+      "text": "Confusion Matrix with Only RDKit Extracted Descriptors and Random Split Assessing for the Finalized LASSO Model for the Train and Test Data Sets\n[표 행·열 / 병합 셀은 해당 위치에 반복]\n | Train | Train | Test | Test\n | Actual Less-Than-Proportional | Actual Not Less-Than-Proportional | Actual Less-Than-Proportional | Actual Not Less-Than-Proportional\nPredicted Less-Than-Proportional | 37 | 8 | 2 | 1\nPredicted Not Less-Than-Proportional | 8 | 170 | 2 | 20",
+      "sha256": "74c38eba809dc5906c6bc61361116bf89facb66b71ce3d775f5f3b5ff7bdc7e1",
+      "role": "table",
+      "rows": [
+        [
+          "",
+          "Train",
+          "Train",
+          "Test",
+          "Test"
+        ],
+        [
+          "",
+          "Actual Less-Than-Proportional",
+          "Actual Not Less-Than-Proportional",
+          "Actual Less-Than-Proportional",
+          "Actual Not Less-Than-Proportional"
+        ],
+        [
+          "Predicted Less-Than-Proportional",
+          "37",
+          "8",
+          "2",
+          "1"
+        ],
+        [
+          "Predicted Not Less-Than-Proportional",
+          "8",
+          "170",
+          "2",
+          "20"
+        ]
+      ],
+      "expandedSpans": true
+    },
+    {
+      "id": "table-8",
+      "kind": "body",
+      "label": "8",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl8",
+      "text": "Top 10 Descriptors with Feature Importance for the Full Data Set and RDKit-Only Descriptors for the LASSO Model\n[표 행·열]\nFull data set descriptors | Feature Importance Full descriptor | RDKit-based descriptors | Feature Importance RDKit-based descriptors\nVSA_EState3 | –0.183 | VSA_EState3 | –0.1920\nfr_NH1 | 0.110 | fr_Al_OH_noTert | 0.140\nProperties cLog P | 0.102 | fr_NH1 | 0.109\nSlogP_VSA6 | –0.100 | fr_Ar_NH | 0.0927\nfr_Al_OH_noTert | 0.0965 | SlogP_VSA6 | –0.0750\nHepatocyte Stability CLhep [mL/min/kg] Mouse | –0.0920 | fr_priamide | 0.0750\nfr_lactone | –0.0825 | Num Aliphatic Carbocycles | –0.0731\nfr_priamide | 0.0753 | fr_lactone | –0.0691\nPEOE_VSA11 | –0.0689 | PEOE_VSA11 | –0.0641\nfr_urea | –0.0668 | PEOE_VSA14 | –0.0613",
+      "sha256": "3024439870d57c7f8ec6ff290d4ee39176be168f6d9c99ce19834cafd7511011",
+      "role": "table",
+      "rows": [
+        [
+          "Full data set descriptors",
+          "Feature Importance Full descriptor",
+          "RDKit-based descriptors",
+          "Feature Importance RDKit-based descriptors"
+        ],
+        [
+          "VSA_EState3",
+          "–0.183",
+          "VSA_EState3",
+          "–0.1920"
+        ],
+        [
+          "fr_NH1",
+          "0.110",
+          "fr_Al_OH_noTert",
+          "0.140"
+        ],
+        [
+          "Properties cLog P",
+          "0.102",
+          "fr_NH1",
+          "0.109"
+        ],
+        [
+          "SlogP_VSA6",
+          "–0.100",
+          "fr_Ar_NH",
+          "0.0927"
+        ],
+        [
+          "fr_Al_OH_noTert",
+          "0.0965",
+          "SlogP_VSA6",
+          "–0.0750"
+        ],
+        [
+          "Hepatocyte Stability CLhep [mL/min/kg] Mouse",
+          "–0.0920",
+          "fr_priamide",
+          "0.0750"
+        ],
+        [
+          "fr_lactone",
+          "–0.0825",
+          "Num Aliphatic Carbocycles",
+          "–0.0731"
+        ],
+        [
+          "fr_priamide",
+          "0.0753",
+          "fr_lactone",
+          "–0.0691"
+        ],
+        [
+          "PEOE_VSA11",
+          "–0.0689",
+          "PEOE_VSA11",
+          "–0.0641"
+        ],
+        [
+          "fr_urea",
+          "–0.0668",
+          "PEOE_VSA14",
+          "–0.0613"
+        ]
+      ],
+      "expandedSpans": false
+    },
+    {
+      "id": "table-9",
+      "kind": "body",
+      "label": "9",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl9",
+      "text": "PK Data from the Test Data Set Highlighting the Prediction of a Compound with Linear and Nonlinear Behaviors (NM: Not Measured)\n[표 행·열]\nCompound | Target Dose 1 (mg/kg) | AUC inf 1 (h* μM) | Target Dose 2 (mg/kg) | AUC inf 2 (h* μM) | Target Dose 3 (mg/kg) | AUC inf 3 (h* μM) | Observed Behavior | LASSO Prediction\nA | 5 | 0.86 | 30 | 5.7 | NM | NM | Linear | Linear\nB | 5 | 3.0 | 100 | 12.8 | 300 | 75.4 | Nonlinear | Nonlinear",
+      "sha256": "0e8f1168dee6ab4b4cdcb1440aa30517ba0eb8bc808396c2adbe02fc5bf44fba",
+      "role": "table",
+      "rows": [
+        [
+          "Compound",
+          "Target Dose 1 (mg/kg)",
+          "AUC inf 1 (h* μM)",
+          "Target Dose 2 (mg/kg)",
+          "AUC inf 2 (h* μM)",
+          "Target Dose 3 (mg/kg)",
+          "AUC inf 3 (h* μM)",
+          "Observed Behavior",
+          "LASSO Prediction"
+        ],
+        [
+          "A",
+          "5",
+          "0.86",
+          "30",
+          "5.7",
+          "NM",
+          "NM",
+          "Linear",
+          "Linear"
+        ],
+        [
+          "B",
+          "5",
+          "3.0",
+          "100",
+          "12.8",
+          "300",
+          "75.4",
+          "Nonlinear",
+          "Nonlinear"
+        ]
+      ],
+      "expandedSpans": false
+    },
+    {
+      "id": "figure-1-1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#fig1",
+      "text": "Representative PK profile demonstrating dose linear and nonlinear exposures. Comparison of systemic AUC exposure across an increasing dose range from 10 to 200 mg/kg in mice. Compound A (circles) demonstrates dose-linear behavior with an increase in AUC proportional to dose. Compound B (squares) demonstrates nonlinear behavior where the exposure curve flattens at higher doses, indicating a solubility or absorption limit has been reached.",
+      "sha256": "3b33418d4b01130dad9b401b74912815d1cfdef5f5aaa241b54b13e74ced62b6",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-1-1.webp",
+      "assetSha256": "0dd713a53ccdf4ed2cf4a747dedba04cb205090e24255f4233b1ab4fbbc2d1e3"
+    },
+    {
+      "id": "figure-2-1",
+      "kind": "figure",
+      "label": "Scheme 1",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sch1",
+      "text": "Modeling Workflow for Predicting PK Exposure Proportionality",
+      "sha256": "0214a658585281260d06afe27d9de86f672e207c53e9668369ee8eaff6254b8e",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-2-1.webp",
+      "assetSha256": "e84b79216991f299d6e502495006468b47bf61d3c979df5ddfa88895bba969e0"
+    },
+    {
+      "id": "figure-3-1",
+      "kind": "figure",
+      "label": "Figure 2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#fig2",
+      "text": "Data distribution (A) data across the exposure proportionality up to 5.0 shown (B) data after setting the 0.75 exposure proportionality cutoff, where >0.75 is not less-than-dose proportional and ≤0.75 is less-than-dose proportional.",
+      "sha256": "546368ed9d6515954076860c013531f8746358a1c7f2f7e6717b99fff4731dc0",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-3-1.webp",
+      "assetSha256": "44f237bbffc6fddc23274d2713b8b6fc9ed38581205f67b13900bc47e08f859e"
+    },
+    {
+      "id": "figure-4-1",
+      "kind": "figure",
+      "label": "Figure 3",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#fig3",
+      "text": "Normalized dose number analysis of the frequency of compounds that are not less-than-dose proportional and less-than-dose proportional in the respective preclinical dose number cutoffs.",
+      "sha256": "9bc1256b2d67b631e7cbd59a2ce86e3e0489a83b6e60b307555725ebea6c1319",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-4-1.webp",
+      "assetSha256": "8d9bb3ead46c1eecb038c72602a2fcce9206a9c0718a769b61855d806a71881c"
+    },
+    {
+      "id": "formula-3",
+      "kind": "body",
+      "label": "본문 수식 1",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#eq1",
+      "text": "D o = D o s e C s × V s o l",
+      "sha256": "2cce962641956700728a38de4192c8dbd025002928fa78200a788021c812f9cc",
+      "role": "formula",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/inline-3.webp",
+      "assetSha256": "80a665ed6687d1ae4be727eead9ed180d46be1d4b4c68f88d4901597b4251a2b",
+      "originalMarkup": "<ns0:math xmlns:ns0=\"http://www.w3.org/1998/Math/MathML\" id=\"d1e422\" display=\"block\"><ns0:msub><ns0:mi>D</ns0:mi><ns0:mi>o</ns0:mi></ns0:msub><ns0:mo>=</ns0:mo><ns0:mfrac><ns0:mrow><ns0:mi mathvariant=\"normal\">D</ns0:mi><ns0:mi mathvariant=\"normal\">o</ns0:mi><ns0:mi mathvariant=\"normal\">s</ns0:mi><ns0:mi mathvariant=\"normal\">e</ns0:mi></ns0:mrow><ns0:mrow><ns0:msub><ns0:mi>C</ns0:mi><ns0:mi mathvariant=\"normal\">s</ns0:mi></ns0:msub><ns0:mo>×</ns0:mo><ns0:msub><ns0:mi>V</ns0:mi><ns0:mrow><ns0:mi mathvariant=\"normal\">s</ns0:mi><ns0:mi mathvariant=\"normal\">o</ns0:mi><ns0:mi mathvariant=\"normal\">l</ns0:mi></ns0:mrow></ns0:msub></ns0:mrow></ns0:mfrac></ns0:math>"
+    },
+    {
+      "id": "supplement-1-page-1",
+      "kind": "supplement",
+      "label": "보충자료 · 1쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=1",
+      "text": " \nSupporting Information \n \nMachine Learning-Driven Prediction of Dose-Linear Pharmacokinetics: Utilizing \nMolecular Descriptors to Guide Formulation Strategy \n \nElizabeth S. Levy a, Karen E. Samy b, Andrea Anelli c, Dennis H. Leunga, * \n \n \n \n \n \n \n \na Department of Synthetic Molecule Pharmaceutical Sciences, Genentech Inc, South San Francisco, CA, 94080, USA \nb Department of Drug Metabolism and Pharmacokinetics, Genentech Inc, South San Francisco, CA, 94080, USA \nc Roche Pharma Research and Early Development, Therapeutic Modalities, Roche Innovation Center Basel, F. \nHoffmann-La Roche Ltd., Basel, Switzerland \n \n \n \n \n \n \n \n* Correspondence: leung.dennis@gene.com \n \n \n \n \n \n \n \n ",
+      "sha256": "4aae3a8669aacb3c4332aab0c4547b1804db7a2a01f6eb6fc16c6c16bd730c3e",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-2",
+      "kind": "supplement",
+      "label": "보충자료 · 2쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=2",
+      "text": " \n \nSupplementary Figure 1: Model performance of the training and test datasets measured by \nAccuracy (left y-axis) and Precision (right y-axis) across three potential exposure proportionality \nthresholds (0.70, 0.75, and 0.80) \n \nSupplementary Figure 2: ROC curves for LASSO model for (A) Random Split full descriptors (B) \nRandom Split RDKit descriptors (C) Scaffold Split full descriptors (D) Scaffold Split RDKit \ndescriptors  \n \n",
+      "sha256": "62dc750623684f7c3b5802b07569f86291b949a4f2dd4a5e7bbdd15ea631d70c",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-3",
+      "kind": "supplement",
+      "label": "보충자료 · 3쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=3",
+      "text": " \n \nSupplementary Figure 3: Comparison model performance metrics (Accuracy, Precision, Recall, \nand ROC-AUC) calculated for the LASSO model with the full feature set and the optimized \nfeatures after recursive feature elimination (RFE) \n \n \nSupplementary Table 1: Physicochemical property distribution of the dataset \ndescriptor min q1 median q3 max \nMolWt 275.74 391.73 457.11 508.52 736.12 \nMolLogP 0.76 2.48 3.46 4.14 7.27 \nTPSA 36.10 75.46 95.86 110.52 141.43 \nNumHDonors 0 1 2 2 4 \nNumHAcceptors 2 5.75 7 8 12 \nNumRotatableBonds 2 4 5 6 12 \nNumAromaticRings 1 2 3 3.25 6 \nMolMR 72.10 102.77 120.41 133.25 175.24 \nHeavyAtomCount 19 28 32 35 51 \nRingCount 2 4 5 5 8 \nNumHeteroatoms 3 8 10 11 18 \nFractionCSP3 0.04 0.26 0.42 0.50 0.62 \nProperties cLogP 0.89 2.27 2.80 3.62 6.50 \nProperties Charge 0 0 0 1 2 \nProperties Rings 2 3 3 4 7 \nProperties AromaticRings 1 2 3 3.25 6 \nProperties H_polar 0 2 2 3 7 \n",
+      "sha256": "36b35e9508b0c2243278b24c41db529be8a26297194664a959820a236787acee",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-4",
+      "kind": "supplement",
+      "label": "보충자료 · 4쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=4",
+      "text": " \nProperties N+O 3 6 8 9 13 \nProperties NH+OH 0 1 2 3 5 \nTPSA_x 36 74.75 95 110.25 141 \nTPSA_y 36.10 75.46 95.86 110.52 141.43 \nRotBonds 2 4 5 6 12 \nPredicted LogSolubility 0.91 6.94 25.78 67.17 152.92 \nPredicted LogSolubility FaSSIF 12.10 41.11 75.06 112.43 156.72 \nSolubility [ug/mL] FaSSIF 7 15.25 48.75 76 102 \nPBS Solubility [ug/mL] 0.45 2 18.50 42.25 104 \nDose Number_FaSSIF 51.55 454.55 1100.92 1756.73 20000 \nDose Number_PBS 48.08 811.00 2683.78 21279.76 200000 \nHepatocyte Stability T1/2 [min] \nMouse \n6 137 401.75 540 18909 \nLiver Microsome Stability \nCLint [ml/min/kg] Mouse \n17 53 89 205 2370 \nLiver Microsome Stability T1/2 \n[min] Mouse \n2.65 34 73 165 969 \nPermeability Papp (A to B) \n[10E-06 cm/s] gMDCKI \n0.26 1.65 3.80 9.65 26 \nPermeability Papp (A to B) \n[10E-06 cm/s] gMDCKI-MDR1 \n0.01 0.07 0.39 2.45 21 \nPermeability Papp Ratio [10E-\n06 cm/s] gMDCKI-MDR1 \n0.59 7.88 42 206.75 1982 \nHepatocyte Stability CLhep \n[ml/min/kg] Mouse \n4.30 21 25.25 49 87 \nBalabanJ 1.08 1.36 1.57 1.77 2.27 \nBertzCT 615.04 974.38 1131.88 1319.65 2104.85 \nChi0 13.46 19.83 22.62 24.84 36.25 \nChi0n 10.24 15.51 18.10 20.17 27.42 \nChi0v 10.99 16.05 18.57 21.05 28.18 \nChi1 9.08 13.37 15.27 16.99 24.06 \nChi1n 5.90 8.75 10.70 12.33 16.34 \nChi1v 6.28 9.53 11.33 13.03 16.71 \nChi2n 4.58 6.80 8.33 10.19 13.93 \nChi2v 4.99 7.80 8.99 10.92 14.31 \nChi3n 3.18 4.49 5.91 7.62 10.82 \nChi3v 3.59 5.33 6.48 8.06 11.18 \nChi4n 1.90 3.06 4.21 5.69 8.31 \nChi4v 2.35 3.55 4.69 6.05 8.63 ",
+      "sha256": "b1f888ef97938af4d2c06754289639b0cff743a1dd0be4e95d136ada6e5ef914",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-5",
+      "kind": "supplement",
+      "label": "보충자료 · 5쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=5",
+      "text": " \nEState_VSA1 0 5.60 11.54 23.71 66.37 \nEState_VSA10 0 5.11 11.61 17.97 32.35 \nEState_VSA11 0 0 0 0 4.39 \nEState_VSA2 0 11.15 17.64 29.24 79.31 \nEState_VSA3 0 12.92 24.60 37.65 74.19 \nEState_VSA4 0 12.43 27.46 43.64 65.22 \nEState_VSA5 0 0 11.13 18.66 74.12 \nEState_VSA6 0 6.07 12.26 22.95 68.50 \nEState_VSA7 0 4.90 12.99 28.25 64.34 \nEState_VSA8 4.98 17.31 21.14 30.06 69.02 \nEState_VSA9 0 4.74 11.53 15.95 42.26 \nFpDensityMorgan1 0.88 1.09 1.18 1.27 1.40 \nFpDensityMorgan2 1.52 1.86 1.94 2.04 2.24 \nFpDensityMorgan3 2.14 2.52 2.63 2.76 3 \nHallKierAlpha -5.12 -3.38 -2.91 -2.43 -1.58 \nHeavyAtomMolWt 261.62 373.30 432.33 485.46 703.87 \nIpc 3.11 E+4 2.24 E+6 1.88 E+7 1.36 E+7 1.57 E+11 \nKappa1 12.05 18.74 21.60 23.86 33.75 \nKappa2 4.28 7.35 8.32 9.41 13.67 \nKappa3 1.86 3.44 4.15 4.81 7.03 \nLabuteASA 114.08 162.33 186.72 210.54 291.86 \nMaxAbsEStateIndex 4.85 12.19 13.22 14.37 17.06 \nMaxAbsPartialCharge 0.31 0.38 0.39 0.48 0.57 \nMaxEStateIndex 4.85 12.19 13.22 14.37 17.06 \nMaxPartialCharge 0.13 0.23 0.26 0.39 0.57 \nMinAbsEStateIndex 0.00 0.03 0.07 0.16 0.53 \nMinAbsPartialCharge 0.13 0.23 0.26 0.34 0.49 \nMinEStateIndex -4.96 -4.10 -0.82 -0.45 0.42 \nMinPartialCharge -0.50 -0.46 -0.39 -0.38 -0.28 \nNHOHCount 0 1 2 3 5 \nNOCount 3 6 8 9 13 \nNumAliphaticCarbocycles 0 0 0 1 4 \nNumAliphaticHeterocycles 0 0 1 2 3 \nNumAliphaticRings 0 1 2 3 6 \nNumAromaticCarbocycles 0 1 1 1 3 \nNumAromaticHeterocycles 0 1 2 2 4 \nNumRadicalElectrons 0 0 0 0 0 \nNumSaturatedCarbocycles 0 0 0 1 4 \nNumSaturatedHeterocycles 0 0 1 2 3 \nNumSaturatedRings 0 0 1 2 5 \nNumValenceElectrons 98 146 170 188 270 \nPEOE_VSA1 0 10.46 15.29 20.23 30.58 ",
+      "sha256": "a48e3e321d8ef0c626b21bc54f50431985fcfc764d21e2afc3f396f41323f91e",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-6",
+      "kind": "supplement",
+      "label": "보충자료 · 6쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=6",
+      "text": " \nPEOE_VSA10 0 6.09 12.08 19.31 47.05 \nPEOE_VSA11 0 0 5.14 10.83 23.07 \nPEOE_VSA12 0 0 5.91 5.95 17.72 \nPEOE_VSA13 0 0 0 5.91 21.36 \nPEOE_VSA14 0 0 0 6.11 12.27 \nPEOE_VSA2 0 4.79 4.94 9.81 24.68 \nPEOE_VSA3 0 8.78 13.40 15.59 37.13 \nPEOE_VSA4 0 0 4.64 10.20 23.14 \nPEOE_VSA5 0 0 0 1.27 24.51 \nPEOE_VSA6 0 5.84 12.13 23.73 60.93 \nPEOE_VSA7 6.07 31.19 42.42 51.16 85.90 \nPEOE_VSA8 0 24.46 35.21 47.90 68.79 \nPEOE_VSA9 0 12.11 22.19 31.15 54.22 \nSMR_VSA1 0 9.57 14.51 22.66 41.48 \nSMR_VSA10 0 17.65 27.56 35.14 66.28 \nSMR_VSA2 0 0 0 0 5.26 \nSMR_VSA3 0 14.78 20.01 24.40 38.87 \nSMR_VSA4 0 0 0 5.73 12.97 \nSMR_VSA5 0 18.99 32.95 57.22 75.92 \nSMR_VSA6 0 7.09 18.91 37.11 89.59 \nSMR_VSA7 16.08 36.33 51.91 58.90 105.77 \nSMR_VSA8 0 0 0 0 0 \nSMR_VSA9 0 0 11.13 11.96 39.78 \nSlogP_VSA1 0 10.05 10.47 15.20 25.84 \nSlogP_VSA10 0 5.82 11.77 22.28 43.80 \nSlogP_VSA11 0 0 0 5.75 23.00 \nSlogP_VSA12 0 0 11.34 11.60 27.53 \nSlogP_VSA2 15.88 34.21 47.72 63.64 130.61 \nSlogP_VSA3 0 6.42 10.97 16.21 36.47 \nSlogP_VSA4 0 0 5.82 11.41 25.48 \nSlogP_VSA5 4.88 18.64 32.62 55.68 83.38 \nSlogP_VSA6 5.38 24.40 30.59 42.99 71.85 \nSlogP_VSA7 0 0 0 5.02 10.18 \nSlogP_VSA8 0 0 11.15 22.03 38.88 \nSlogP_VSA9 0 0 0 0 0 \nVSA_EState1 0 6.77 16.20 42.77 101.80 \nVSA_EState10 0 0 1.12 6.12 12.55 \nVSA_EState2 3.98 16.82 21.62 27.15 58.03 \nVSA_EState3 -0.51 3.07 6.56 13.74 27.47 \nVSA_EState4 -1.84 1.32 2.92 6.21 12.90 \nVSA_EState5 -4.64 -0.64 0 1.13 2.96 \nVSA_EState6 -1.51 4.01 6.88 8.33 24.24 ",
+      "sha256": "e6300a68ee36a6e83868f22974c2fb558b1b701bb68f977b7bf17c6a13b81035",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-7",
+      "kind": "supplement",
+      "label": "보충자료 · 7쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=7",
+      "text": " \nVSA_EState7 -4.80 0.30 3.05 4.52 9.31 \nVSA_EState8 -1.00 1.87 3.84 6.82 10.94 \nVSA_EState9 -4.41 0 0 0 6.58 \nfr_Al_COO 0 0 0 0 0 \nfr_Al_OH 0 0 0 1 2 \nfr_Al_OH_noTert 0 0 0 0 2 \nfr_ArN 0 0 0 0 2 \nfr_Ar_COO 0 0 0 0 1 \nfr_Ar_N 0 2 2 4 7 \nfr_Ar_NH 0 0 0 0 1 \nfr_Ar_OH 0 0 0 0 1 \nfr_COO 0 0 0 0 1 \nfr_COO2 0 0 0 0 1 \nfr_C_O 0 0 1 1 4 \nfr_C_O_noCOO 0 0 1 1 4 \nfr_C_S 0 0 0 0 0 \nfr_HOCCN 0 0 0 0 1 \nfr_Imine 0 0 0 0 1 \nfr_NH0 0 2 4 5 10 \nfr_NH1 0 0.75 1 2 3 \nfr_NH2 0 0 0 0.25 2 \nfr_N_O 0 0 0 0 1 \nfr_Ndealkylation1 0 0 0 0 1 \nfr_Ndealkylation2 0 0 0 0 1 \nfr_Nhpyrrole 0 0 0 0 1 \nfr_SH 0 0 0 0 0 \nfr_aldehyde 0 0 0 0 0 \nfr_alkyl_carbamate 0 0 0 0 1 \nfr_alkyl_halide 0 0 0 2.25 5 \nfr_allylic_oxid 0 0 0 0 2 \nfr_amide 0 0 1 1 4 \nfr_amidine 0 0 0 0 0 \nfr_aniline 0 1 1 2 6 \nfr_aryl_methyl 0 0 0 1 2 \nfr_azide 0 0 0 0 0 \nfr_azo 0 0 0 0 0 \nfr_barbitur 0 0 0 0 0 \nfr_benzene 0 1 1 1 3 \nfr_benzodiazepine 0 0 0 0 0 \nfr_bicyclic 0 1 1 2 5 \nfr_diazo 0 0 0 0 0 \nfr_dihydropyridine 0 0 0 0 0 ",
+      "sha256": "9f8dfe3d42fa7a84400fb6b3c112e2acf7a771ce2d0588f7b231a2052129a21f",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-8",
+      "kind": "supplement",
+      "label": "보충자료 · 8쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=8",
+      "text": " \nfr_epoxide 0 0 0 0 0 \nfr_ester 0 0 0 0 0 \nfr_ether 0 0 1 1 4 \nfr_furan 0 0 0 0 0 \nfr_guanido 0 0 0 0 0 \nfr_halogen 0 0 1 3 7 \nfr_hdrzine 0 0 0 0 0 \nfr_hdrzone 0 0 0 0 0 \nfr_imidazole 0 0 0 0 2 \nfr_imide 0 0 0 0 1 \nfr_isocyan 0 0 0 0 0 \nfr_isothiocyan 0 0 0 0 0 \nfr_ketone 0 0 0 0 0 \nfr_ketone_Topliss 0 0 0 0 0 \nfr_lactam 0 0 0 0 0 \nfr_lactone 0 0 0 0 1 \nfr_methoxy 0 0 0 0 1 \nfr_morpholine 0 0 0 0 2 \nfr_nitrile 0 0 0 0 1 \nfr_nitro 0 0 0 0 0 \nfr_nitro_arom 0 0 0 0 0 \nfr_nitro_arom_nonortho 0 0 0 0 0 \nfr_nitroso 0 0 0 0 0 \nfr_oxazole 0 0 0 0 1 \nfr_oxime 0 0 0 0 0 \nfr_para_hydroxylation 0 0 0 0 2 \nfr_phenol 0 0 0 0 1 \nfr_phenol_noOrthoHbond 0 0 0 0 1 \nfr_phos_acid 0 0 0 0 0 \nfr_phos_ester 0 0 0 0 0 \nfr_piperdine 0 0 0 0 2 \nfr_piperzine 0 0 0 0 1 \nfr_priamide 0 0 0 0 1 \nfr_prisulfonamd 0 0 0 0 0 \nfr_pyridine 0 0 0 1 3 \nfr_quatN 0 0 0 0 0 \nfr_sulfide 0 0 0 0 0 \nfr_sulfonamd 0 0 0 0 1 \nfr_sulfone 0 0 0 0 1 \nfr_term_acetylene 0 0 0 0 0 \nfr_tetrazole 0 0 0 0 0 \nfr_thiazole 0 0 0 0 2 ",
+      "sha256": "d1fe0a4498b8466ab8da4d8fd2f7656f99f635ebaf632af148872ef01f1ca8d6",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    },
+    {
+      "id": "supplement-1-page-9",
+      "kind": "supplement",
+      "label": "보충자료 · 9쪽",
+      "url": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf#page=9",
+      "text": " \nfr_thiocyan 0 0 0 0 0 \nfr_thiophene 0 0 0 0 1 \nfr_unbrch_alkane 0 0 0 0 1 \nfr_urea 0 0 0 0 1 \nqed 0.15 0.46 0.57 0.71 0.92 \nLiver Microsome Stability \nCLhep [ml/min/kg] Mouse \n9.90 23 43.67 60 86.50 \nHepatocyte Stability CLint \n[ml/min/kg] Mouse \n27 27 45.25 119 2420 \nRO5 0 0 0 1 3 \n \n ",
+      "sha256": "80d4b6d77e77f93fa06881b61c577b3261e198766064ac63a777c1c4462225d0",
+      "asset": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "assetSha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda"
+    }
+  ],
+  "assets": [
+    {
+      "id": "figure-1-1",
+      "kind": "figure",
+      "label": "Figure 1",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_0001.webp?md5=7ad9af1ff4e11d5bd04c647fe6677e79",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-1-1.webp",
+      "sha256": "0dd713a53ccdf4ed2cf4a747dedba04cb205090e24255f4233b1ab4fbbc2d1e3",
+      "bytes": 32876,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "width": 1500,
+      "height": 1325,
+      "format": "WEBP"
+    },
+    {
+      "id": "figure-2-1",
+      "kind": "figure",
+      "label": "Scheme 1",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_0004.webp?md5=515546f0310bc1a83ad1527346bf1663",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-2-1.webp",
+      "sha256": "e84b79216991f299d6e502495006468b47bf61d3c979df5ddfa88895bba969e0",
+      "bytes": 32826,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "width": 1600,
+      "height": 731,
+      "format": "WEBP"
+    },
+    {
+      "id": "figure-3-1",
+      "kind": "figure",
+      "label": "Figure 2",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_0002.webp?md5=95e9ecfb813128d7665765871ce2d415",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-3-1.webp",
+      "sha256": "44f237bbffc6fddc23274d2713b8b6fc9ed38581205f67b13900bc47e08f859e",
+      "bytes": 12190,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "width": 1600,
+      "height": 455,
+      "format": "WEBP"
+    },
+    {
+      "id": "figure-4-1",
+      "kind": "figure",
+      "label": "Figure 3",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_0003.webp?md5=d2e22cede712402b534f0e5e01d97c78",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-4-1.webp",
+      "sha256": "8d9bb3ead46c1eecb038c72602a2fcce9206a9c0718a769b61855d806a71881c",
+      "bytes": 17482,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "width": 1500,
+      "height": 742,
+      "format": "WEBP"
+    },
+    {
+      "id": "inline-1",
+      "kind": "figure",
+      "label": "그래픽 초록",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_0007.webp?md5=cb2ec39c1d9601b9122b07cb7964ea4b",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/inline-1.webp",
+      "sha256": "5b4ddab7a014e23ff8c194b1f19438e2ab213df809e98d67b6eac0de9e3ff7fa",
+      "bytes": 44786,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "width": 992,
+      "height": 465,
+      "format": "WEBP",
+      "role": "graphical",
+      "captionStatus": "not_declared"
+    },
+    {
+      "id": "inline-2",
+      "kind": "figure",
+      "label": "목차 그래픽",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_0005.webp?md5=cb2ec39c1d9601b9122b07cb7964ea4b",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/inline-2.webp",
+      "sha256": "5b4ddab7a014e23ff8c194b1f19438e2ab213df809e98d67b6eac0de9e3ff7fa",
+      "bytes": 44786,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "width": 992,
+      "height": 465,
+      "format": "WEBP",
+      "role": "toc-graphic",
+      "captionStatus": "not_declared"
+    },
+    {
+      "id": "inline-3",
+      "kind": "figure",
+      "label": "본문 수식 1",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_m001.webp?md5=88329e0d05d12c8d70e0985d02ff7e48",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/inline-3.webp",
+      "sha256": "80a665ed6687d1ae4be727eead9ed180d46be1d4b4c68f88d4901597b4251a2b",
+      "bytes": 754,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "width": 72,
+      "height": 32,
+      "format": "WEBP",
+      "role": "formula",
+      "captionStatus": "not_declared"
+    },
+    {
+      "id": "supplement-1",
+      "kind": "supplement",
+      "label": "보충자료",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/ao6c05839_si_001.pdf?md5=63a0f101a4de26a79751ef9fe3de4337",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/supplement-1.pdf",
+      "sha256": "a2f271b349600fe6b23eaf346e0184d7f4701d44aea3e2f9866a5ba76eeb3cda",
+      "bytes": 562898,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "pageCount": 9,
+      "extractedPageCount": 9
+    },
+    {
+      "id": "paper",
+      "kind": "paper",
+      "label": "논문 PDF",
+      "sourceUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13563595.1/PMC13563595.1.pdf?md5=32e32b02e73c3b0bc2542b242c04c64b",
+      "localUrl": "/assets/briefs/af29478c263640e79982af9325c90e4a/paper.pdf",
+      "sha256": "fd9e334771f44c5643918ef7b2f2e70a0e66c4d90486c33ba66458bd446211e4",
+      "bytes": 2516893,
+      "sourceMd5Verified": true,
+      "usable": true,
+      "pageCount": 10
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "body",
+      "label": "본문",
+      "expected": 1,
+      "acquired": 1,
+      "usable": 1,
+      "state": "complete",
+      "note": "원문 XML의 본문·부록 16개 구간 추출. 읽기·내용 검토는 미실시."
+    },
+    {
+      "kind": "tables",
+      "label": "표",
+      "expected": 9,
+      "acquired": 9,
+      "usable": 9,
+      "state": "complete",
+      "note": "행·열 및 병합 셀 구조 추출. 표 수치의 과학적 검토는 미실시."
+    },
+    {
+      "kind": "figures",
+      "label": "그림",
+      "expected": 4,
+      "acquired": 4,
+      "usable": 4,
+      "state": "complete",
+      "note": "파일·이미지 형식·원문 캡션 연결 확인. 시각적 검토는 미실시."
+    },
+    {
+      "kind": "inline",
+      "label": "본문 이미지",
+      "expected": 3,
+      "acquired": 3,
+      "usable": 3,
+      "state": "complete",
+      "note": "그래픽 초록·목차 그래픽·수식 파일을 XML 위치와 연결했습니다. 원문에 없는 캡션은 생성하지 않았으며 시각적 검토는 필요합니다."
+    },
+    {
+      "kind": "supplements",
+      "label": "보충자료",
+      "expected": 1,
+      "acquired": 1,
+      "usable": 1,
+      "state": "complete",
+      "note": "PDF는 쪽별 텍스트 추출만 수행. 그림·표의 시각적 검토와 내용 검증은 미실시."
+    }
+  ],
+  "provenance": {
+    "preparedInputSha256": "c43678ebf093ba1f6229dacaa8b778b5075d050d037d4ff5f354c5554b4123bc",
+    "snapshotAt": "2026-09-23T05:18:26.855347+00:00",
+    "note": "원자료·파일 내용은 보존하고 앱 게시용 원본 사본 경로와 수집 메타데이터를 연결함."
+  }
+}

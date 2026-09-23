@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img"><title>Site-specific ADC의 결합·기능·종양효능·PK를 분리 검증</title><rect width="1200" height="280" rx="20" fill="#f6f4f0"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#93847b"/></marker></defs><g font-family="Malgun Gothic, sans-serif">
+<text x="30" y="39" font-size="19" font-weight="700" fill="#43382f">Site-specific ADC의 결합·기능·종양효능·PK를 분리 검증</text>
+<path d="M298 139 L317 139" stroke="#93847b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="28" y="71" width="268" height="167" rx="12" fill="#fff" stroke="#e0d6cc"/><text x="46" y="101" font-size="14" fill="#a45d38">01</text><text x="46" y="135" font-size="19" font-weight="700" fill="#2f2823">Q294 conjugation</text>
+<text x="46" y="165" font-size="15" fill="#675d55">mTGase·MMAE linker</text>
+<text x="46" y="189" font-size="15" fill="#675d55">Mean DAR2</text>
+<path d="M592 139 L611 139" stroke="#93847b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="322" y="71" width="268" height="167" rx="12" fill="#fff" stroke="#e0d6cc"/><text x="340" y="101" font-size="14" fill="#a45d38">02</text><text x="340" y="135" font-size="19" font-weight="700" fill="#2f2823">결합·세포작용</text>
+<text x="340" y="165" font-size="15" fill="#675d55">Nectin-4/BLI·flow</text>
+<text x="340" y="189" font-size="15" fill="#675d55">Internalization·MMAE</text>
+<path d="M886 139 L905 139" stroke="#93847b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="616" y="71" width="268" height="167" rx="12" fill="#fff" stroke="#e0d6cc"/><text x="634" y="101" font-size="14" fill="#a45d38">03</text><text x="634" y="135" font-size="19" font-weight="700" fill="#2f2823">종양 모델 비교</text>
+<text x="634" y="165" font-size="15" fill="#675d55">CDX3개·PDX1개</text>
+<text x="634" y="189" font-size="15" fill="#675d55">EV dose별 비교</text>
+<rect x="910" y="71" width="268" height="167" rx="12" fill="#fff" stroke="#e0d6cc"/><text x="928" y="101" font-size="14" fill="#a45d38">04</text><text x="928" y="135" font-size="19" font-weight="700" fill="#2f2823">PK·독성 비교</text>
+<text x="928" y="165" font-size="15" fill="#675d55">ADC/tAb/free MMAE</text>
+<text x="928" y="189" font-size="15" fill="#675d55">Rat·monkey 반복독성</text>
+</g></svg>

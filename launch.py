@@ -14,6 +14,7 @@ HOST = "127.0.0.1"
 PORT = 8765
 URL = f"http://{HOST}:{PORT}"
 LOG_PATH = ROOT / ".runtime" / "launcher-server.log"
+VENV_PYTHON = ROOT / ".venv" / "Scripts" / "python.exe"
 HTTP = build_opener(ProxyHandler({}))
 
 
@@ -46,7 +47,7 @@ def ensure_server():
         log.write(f"\n--- Starting Paper Radar: {time.strftime('%Y-%m-%d %H:%M:%S')} ---\n")
         log.flush()
         process = subprocess.Popen(
-            [sys.executable, str(ROOT / "server.py"), "--port", str(PORT)],
+            [str(VENV_PYTHON) if VENV_PYTHON.is_file() else sys.executable, str(ROOT / "server.py"), "--port", str(PORT)],
             cwd=ROOT, stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
             creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP,
         )

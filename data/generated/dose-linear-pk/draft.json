@@ -1,0 +1,1080 @@
+{
+  "candidateId": "af29478c263640e79982af9325c90e4a",
+  "card": {
+    "titleKo": "용량 선형 약동학의 머신러닝 기반 예측: 제형 전략을 위한 분자 기술자 활용",
+    "purpose": "초기 후보물질에서 복잡한 제형 개발이 필요한지 판단하기 위해, SMILES 기반 분자 특성만으로 마우스의 용량 대비 노출 증가가 부족할 위험을 분류했다.",
+    "significance": "RDKit 특성만 쓴 LASSO가 무작위 시험셋에서 정밀도 90.9%, 정확도 88.0%를 보였다. 실측 물성이 적은 시기에 제형 검토의 우선순위를 정하는 접근이다.",
+    "application": "배울 점은 최고 성능의 모델보다 의사결정 비용에 맞는 지표를 고르는 방식이다. 새 골격에서는 정밀도가 80.9%로 낮아져, 화학적 유사성과 적용 범위를 함께 봐야 한다.",
+    "limits": "회사 내부 120개 화합물에서 얻은 반복 관측 자료이며 무작위 시험셋은 25건이다. ‘노출 증가 부족 아님’은 엄밀한 선형성이 아니라 노출 비율 >0.75를 뜻하며, 외부 검증·독립 재현은 확인되지 않았다.",
+    "flow": [
+      "용량 증가 전후 AUC를 비교해 노출 부족 여부 정의",
+      "실측 포함 특성군과 RDKit 구조 특성군 비교",
+      "무작위·골격 분할로 LASSO 등 평가",
+      "정밀도와 적용 범위로 제형 검토 판단 보조"
+    ],
+    "pairs": [
+      {
+        "label": "구조 정보만으로 가능한가",
+        "method": "120개 화합물의 자료에서 최종 248건의 용량 비교를 구성하고, RDKit 특성만으로 LASSO를 학습했다.",
+        "result": "무작위 시험셋 25건에서 ‘노출 증가가 부족하지 않다’고 예측한 22건 중 20건이 맞았다(정밀도 90.9%).",
+        "sourceIds": [
+          "body-3",
+          "table-5",
+          "table-7"
+        ],
+        "source": {
+          "label": "Table 7 · RDKit 모델 혼동행렬",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl7"
+        }
+      },
+      {
+        "label": "새로운 화학 골격에서도 유지되는가",
+        "method": "무작위 분할과 화학 골격을 기준으로 나눈 분할을 비교했다.",
+        "result": "RDKit 모델의 시험 정밀도는 90.9%에서 80.9%로 낮아졌다. 유사한 화합물에서의 성능을 새 골격에 그대로 적용하기 어렵다.",
+        "sourceIds": [
+          "body-12",
+          "table-5"
+        ],
+        "source": {
+          "label": "Table 5 · 분할 방식별 성능",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl5"
+        }
+      },
+      {
+        "label": "오류가 실제로 뜻하는 것",
+        "method": "거짓 양성 때문에 필요한 제형 검토를 건너뛰는 비용을 크게 보고 정밀도를 우선했다.",
+        "result": "RDKit 무작위 시험셋에도 거짓 양성 2건이 남았다. 예측을 후보 폐기나 제형 필요성의 확정 판정으로 쓰기보다 후속 판단의 보조 근거로 읽어야 한다.",
+        "sourceIds": [
+          "body-12",
+          "table-7"
+        ],
+        "source": {
+          "label": "Table 7 · RDKit 모델 혼동행렬",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#tbl7"
+        }
+      }
+    ],
+    "sourceIds": [
+      "abstract-1",
+      "body-3",
+      "body-12",
+      "body-13",
+      "table-5",
+      "table-7"
+    ]
+  },
+  "abstract": {
+    "paragraphs": [
+      "초기 전임상 단계의 약물 제형 개발은 물질과 시간의 제약을 받을 수 있으며, 신속하게 데이터에 근거한 결정을 내려야 할 때 이러한 제약은 더욱 중요하다. 고려해야 할 중요한 지표 중 하나는 용량 선형성이다. 이 지표는 용량을 높일 때 기대하는 목표 노출을 달성하기 위해 일반적인 제형 전략으로 충분한지, 아니면 노출을 개선하는 제형 전략이 필요한지를 판단하는 데 도움이 된다. 이 연구는 분자 특성을 바탕으로 마우스에 투여한 화합물의 용량 선형성을 예측하는 기계학습 모델의 활용을 탐색했다.",
+      "Random Forest, XGBoost, LASSO, 신경망, TabPFN 등 여러 모델을 사용했으며, 실측 및 계산 특성을 포함한 전체 특성 자료와 더 쉽게 구할 수 있는 RDKit 특성만으로 이루어진 자료라는 두 가지 학습 자료를 비교했다. 무작위 분할과 골격 분할에 교차검증을 적용했으며, 학습 중 제외해 둔 전체 자료의 10%에 해당하는 시험 자료로 모델 성능을 평가했다. 전체 특성으로 학습한 모델은 SMILES에서 RDKit으로 산출한 특성만을 이용한 모델과 비슷한 성능을 보였다. 대부분의 모델이 유사한 성능을 냈지만, 해석 가능성, 특성 선택 기능, 작은 자료셋에서의 과적합 저항성을 고려해 LASSO를 우선했다.",
+      "무작위 분할과 RDKit 특성만을 사용한 LASSO의 시험셋 정밀도는 90.9%, 정확도는 88.0%였다. 실제로는 용량 증가에 못 미치는 노출을 보이는 화합물을 그렇지 않다고 잘못 판단하여 일반적인 투여 매체로 충분하다고 결정하는 거짓 양성의 비용이 거짓 음성보다 크므로, 거짓 양성을 줄이기 위해 정밀도를 최적화했다. 새로운 화합물에 대한 모델의 적용 능력을 추가로 평가하기 위해 골격 분할도 시험했다. 정밀도가 학습에서 89.3%, 시험에서 80.9%로 떨어지는 차이가 나타났으며, 이는 새로운 화학 구조의 결과를 예측하기 어렵다는 점을 보여 준다.",
+      "이 연구의 중요한 결과는 쉽게 얻을 수 있는 RDKit 특성만으로 학습한 모델도 견고한 성능을 보였다는 점이다. 이는 더 많은 자원을 요구하는 실측 자료 없이도 도구를 개발할 수 있음을 시사한다. 전체적으로 이 연구는 용량 선형성 예측을 활용하여 일반적인 비용해성 투여 매체로 충분한지, 아니면 목표 노출에 도달하기 위해 노출 개선 제형이 필요한지를 판단하는 데이터 기반 접근에 초점을 맞춘다. 저자들은 화학 구조만으로 화합물의 용량 선형성 위험을 예상하는 접근이 초기 제형 전략을 안내하고 신약 탐색 단계의 화합물 평가와 전임상 개발을 앞당기는 유용한 도구가 될 수 있다고 제안한다."
+    ],
+    "source": {
+      "label": "원문 초록",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/"
+    }
+  },
+  "tabs": {
+    "summary": [
+      {
+        "title": "이 논문이 답하려는 질문",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "초기에 실측 용해도나 청소율 자료가 충분하지 않아도, 구조 정보만으로 ‘용량을 올렸을 때 노출이 기대만큼 증가하지 않을 화합물’을 미리 가려낼 수 있을까? 저자들은 이를 일반 제형과 더 복잡한 제형 개발 사이의 우선순위를 정하는 문제로 바꾸었다. PK 곡선 전체나 필요한 제형 조성을 예측하는 모델은 아니다.",
+            "sourceIds": [
+              "body-1",
+              "body-15"
+            ]
+          },
+          {
+            "type": "callout",
+            "text": "읽을 때 가장 중요한 구분: 이 논문의 양성은 노출 비율 >0.75인 ‘용량 증가에 못 미치는 노출이 아닌 경우’다. 엄밀한 선형성만을 뜻하지 않으며, 초비례적으로 노출이 증가하는 경우도 포함한다.",
+            "sourceIds": [
+              "body-3",
+              "body-10"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "핵심 결과 세 가지",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "비교",
+              "실제 결과",
+              "이 결과로 말할 수 있는 범위"
+            ],
+            "rows": [
+              [
+                "구조 정보만 사용",
+                "RDKit-LASSO 무작위 시험: 정확도 88.0%, 정밀도 90.9%, 재현율 95.2%",
+                "이번 내부 시험 자료에서는 실측 물성 없이도 분류 신호가 있었다."
+              ],
+              [
+                "새 골격으로 이동",
+                "RDKit-LASSO 골격 시험: 정확도 78.3%, 정밀도 80.9%, 재현율 94.4%",
+                "학습 화학 공간과의 차이가 커지면 긍정적 예측의 신뢰도가 낮아졌다."
+              ],
+              [
+                "작은 시험셋의 실제 오류",
+                "무작위 시험 25건: TP 20, FP 2, TN 2, FN 1",
+                "90.9%는 모든 화합물의 성공률이 아니라 양성으로 예측한 22건 중 20건의 비율이다."
+              ]
+            ],
+            "sourceIds": [
+              "table-5",
+              "table-7"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "저자의 주장과 데이터가 지지하는 결론",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "저자의 주장: 구조만으로 예측할 수 있는 도구가 제형 전략의 초기 판단을 돕고 개발 속도를 높일 수 있다.",
+              "데이터가 직접 지지하는 결론: 단일 회사 내부의 제한된 마우스 자료에서 RDKit-LASSO는 무작위 시험셋을 비교적 잘 분류했고, 골격 분할에서는 정밀도가 낮아졌다.",
+              "브리핑의 해석: 배울 가치는 ‘정밀도 90% 모델을 바로 가져다 쓴다’보다, 틀린 예측이 어떤 후속 결정을 바꾸는지 먼저 정하고 그 비용에 맞춰 평가한다는 설계에 있다.",
+              "아직 입증되지 않은 효과: 새로운 프로젝트에서 제형 개발 시간·동물 수·실패율을 실제로 줄였는지, 예측된 위험이 개선 제형으로 해결되는지는 이 결과만으로 확인할 수 없다."
+            ],
+            "sourceIds": [
+              "body-1",
+              "body-12",
+              "body-14",
+              "body-15",
+              "table-5"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "연구에 가져갈 질문",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "내가 필요한 것은 용량 선형성의 기전 설명인가, 제형 검토가 필요한 후보의 우선순위인가? 이 모델은 후자에 더 가깝다.",
+              "평가 단위는 독립 화합물인가, 동일 화합물의 반복 용량 비교인가? 반복 자료가 학습과 시험에 걸쳐 섞이지 않았는지 확인해야 성능을 해석할 수 있다.",
+              "새 후보의 구조가 학습 자료와 유사한가? 무작위 분할의 정밀도 90.9%보다 골격 분할의 80.9%가 현재 상황에 가까울 수 있다.",
+              "거짓 양성은 필요한 제형 검토를 놓치고, 거짓 음성은 추가 검토를 유발한다. 모델을 후보 폐기 기준으로 바꾸면 오류의 비용도 다시 정의해야 한다."
+            ],
+            "sourceIds": [
+              "body-3",
+              "body-5",
+              "body-6",
+              "body-12",
+              "table-5"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "자료 확인 수준과 남은 한계",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "이번 초안 작성에는 초록, 본문 16구간, 표 9개, 본문 그림 3개와 Scheme 1, 수식 1개, 보충자료 9쪽의 총 40개 입력 구간을 읽었다. 본문 그림·Scheme 4개와 보충자료 9쪽 및 수식 이미지를 시각 확인했다. 문장·표·그림의 비교 결과를 반영했지만, 원자료 재분석이나 모델 재학습을 수행한 것은 아니다.",
+            "sourceIds": [
+              "body-3",
+              "body-4",
+              "figure-1-1",
+              "figure-2-1",
+              "figure-3-1",
+              "figure-4-1",
+              "supplement-1-page-2",
+              "supplement-1-page-9"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "미확인: 개별 화합물의 구조·용량별 원자료, 분할 인덱스, 학습 코드와 전처리 설정이 입력 패키지에 없어 독립 재현과 분할 누수 여부를 검증하지 못했다. 안전상 보류한 항목은 없다. 본문의 수치와 표·그림 사이에서 확인한 불일치는 관련 절에 표시했다.",
+            "sourceIds": [
+              "body-3",
+              "body-4",
+              "body-5",
+              "body-16",
+              "supplement-1-page-3"
+            ]
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "배경: 용량을 올려도 노출이 따라오지 않는 문제",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "전임상에서는 약물 후보의 효과나 안전성 판단에 필요한 노출을 확보해야 한다. 용해·용출이 제한되면 용량을 높여도 AUC가 비례해서 증가하지 않을 수 있다. 노출 개선 제형은 도움이 될 수 있지만 개발에 물질과 시간이 더 든다. 저자들은 모든 후보에 복잡한 제형 작업을 적용하기 전에, 일반적인 비용해성 매체로 충분할 가능성을 가늠하려 했다.",
+            "sourceIds": [
+              "body-1"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "노출 부족의 원인을 용해도 하나로 확정해서는 안 된다. 투과성, 배출 수송, 안정성, 초회통과 대사도 관여할 수 있다. 구조 기반 분류 결과는 이러한 원인을 직접 분리하지 않으므로, 위험 신호와 제형으로 해결 가능한 원인은 서로 다른 판단이다.",
+            "sourceIds": [
+              "body-1",
+              "body-10",
+              "body-12"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "예측 대상: 무엇을 ‘선형’이라고 불렀는가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "노출 비율은 (높은 용량의 AUC / 가장 낮은 용량의 AUC) ÷ (높은 용량 / 가장 낮은 용량)으로 계산한다. 1이면 용량과 AUC가 같은 비율로 증가한다. 이 연구는 비율 ≤0.75를 음성(less-than-dose proportional), >0.75를 양성(not less-than-dose proportional)으로 정했다.",
+            "sourceIds": [
+              "body-3",
+              "body-10"
+            ]
+          },
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "연구에서의 의미",
+              "해석 시 주의"
+            ],
+            "rows": [
+              [
+                "0.75 경계",
+                "측정된 노출 비율에 부여하는 정답 범주 경계",
+                "모델 출력의 판정 임계값과 다르다."
+              ],
+              [
+                "양성 >0.75",
+                "용량 증가 대비 노출이 부족한 범주가 아님",
+                "약 1의 비례 증가와 >1.25의 초비례 증가를 함께 포함한다."
+              ],
+              [
+                "비율 >5 제외",
+                "극단적 초비례 증가를 분석에서 제거",
+                "청소율·수송체 포화 가능성은 저자의 설명이며 각 사례에서 원인이 입증된 것은 아니다."
+              ],
+              [
+                "모델 임계값 0.65",
+                "RDKit-LASSO 무작위 분할에서 사용한 출력 판정 기준",
+                "물리적 노출 비율 0.65나 보정된 임상 확률을 의미하지 않는다."
+              ]
+            ],
+            "sourceIds": [
+              "body-3",
+              "body-5",
+              "body-10",
+              "table-2",
+              "table-5"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "자료의 규모와 범위",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "원문 보고",
+              "왜 중요한가"
+            ],
+            "rows": [
+              [
+                "출처",
+                "회사 내부 데이터베이스; 일반적인 비용해성 매체에서 여러 용량을 비교한 연구",
+                "기관·화학 계열·제형 조건이 달라지면 성능도 달라질 수 있다."
+              ],
+              [
+                "서로 다른 화합물",
+                "초기 자료에 120개",
+                "279건 또는 248건을 독립 화합물 수로 읽으면 안 된다."
+              ],
+              [
+                "노출 비교 자료",
+                "279건 → 비율 >5 제외 후 248건",
+                "한 화합물에서 여러 용량 비교가 만들어진다. 제외 후 고유 화합물 수는 명확히 제시되지 않았다."
+              ],
+              [
+                "무작위 분할 자료",
+                "Table 7 합계: 학습 223건, 시험 25건",
+                "시험 한 건이 정확도 4%p에 해당하는 작은 표본이다."
+              ],
+              [
+                "물성 분포",
+                "분자량 중앙값 457.11, 범위 275.74–736.12; MolLogP 중앙값 3.46, 범위 0.76–7.27",
+                "SI의 주변 분포 정보이며 개별 구조나 적용 가능성 전체를 대체하지 않는다."
+              ]
+            ],
+            "sourceIds": [
+              "body-3",
+              "body-10",
+              "table-7",
+              "supplement-1-page-3"
+            ]
+          },
+          {
+            "type": "callout",
+            "text": "Methods는 전체 특성을 225개(실측 11 + 계산 214, 계산 중 RDKit 208 + 기타 6)라고 설명하지만 Results에는 226개라고 적혀 있다. 이 불일치를 임의로 통일하지 않았다. RDKit-only 조건은 본문에서 208개의 RDKit 특성을 생성했다고 설명한 조건으로 읽었다.",
+            "sourceIds": [
+              "body-3",
+              "body-4",
+              "body-12"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "기존 접근과 비교해 새로 보여 준 점",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "저자들이 설정한 비교 대상은 용해도·청소율 같은 측정값을 필요로 하는 기존 예측 접근과, dose number를 활용한 단순 위험 탐색이다. 이 논문의 실질적 기여는 같은 자료에서 ‘실측 포함’과 ‘구조에서 계산한 특성만’의 성능을 비교하고, 제형 판단의 오류 비용에 맞춰 정밀도를 우선했다는 점이다. 외부 문헌의 대표 모델과 동일 벤치마크로 직접 대결해 우월성을 입증한 연구는 아니다.",
+            "sourceIds": [
+              "body-1",
+              "body-11",
+              "body-12"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Dose number는 용량 / (용해도 × 용해 가능한 유체 부피)로 정의된다. Figure 3에서 큰 dose number 구간에 노출 증가 부족이 더 많았지만, 이 도식은 설명적 연관성이다. 단독 지표와 ML의 직접 성능 차이·추가 이득을 같은 시험셋에서 수치로 비교한 결과는 제시된 자료에서 확인되지 않았다.",
+            "sourceIds": [
+              "body-1",
+              "formula-3",
+              "body-11",
+              "figure-4-1"
+            ]
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "측정과 비교 설계",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "관측값은 마우스 경구 PK 연구에서 얻었다. 본문은 암컷 CD-1 마우스와 용량군당 3마리, 비금식 조건, 연구 범위 5–300 mg/kg를 보고한다. 혈중 농도는 저자가 ‘nonvalidated’로 표현한 LC-MS/MS 분석으로 측정했고, 비구획 분석으로 PK를 계산했다. 이 정보는 관측값의 범위와 불확실성을 이해하기 위한 것이다. 제형 개선의 효과를 무작위 대조시험으로 검증한 설계는 아니다.",
+            "sourceIds": [
+              "body-3",
+              "body-7",
+              "body-8"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "주요 비교는 두 가지다. 첫째, 실측·계산 전체 특성 대 RDKit-only 특성으로 측정값의 추가 가치가 있는지 비교했다. 둘째, 무작위 분할 대 골격 분할로 비슷한 화학 공간과 새로운 골격에서의 성능을 비교했다. 모델 간에는 LASSO, Random Forest, XGBoost, TabPFN을 평가했다. 신경망도 시도했지만 의미 있는 예측을 얻지 못했다고만 보고하며 상세 성능은 공개하지 않았다.",
+            "sourceIds": [
+              "body-3",
+              "body-5",
+              "body-12"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "학습·임계값·적용 범위의 논리",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "단계",
+              "논문에서 한 일",
+              "해석"
+            ],
+            "rows": [
+              [
+                "특성 생성",
+                "RDKit 2023.9.1/Python 3.11.12로 208개 특성 생성",
+                "SMILES에서 얻을 수 있는 접근성 높은 입력을 평가했다."
+              ],
+              [
+                "분할·교차검증",
+                "무작위 90/10 분할과 골격 분할; 학습에서 층화 5-fold 교차검증",
+                "표의 학습 평균±표준편차는 fold 간 변동이다. 독립 외부 검증이나 신뢰구간과 다르다."
+              ],
+              [
+                "판정 임계값",
+                "교차검증에서 재현율 ≥75%를 제약으로 두고 정밀도 최대화",
+                "양성으로 잘못 판단해 필요한 제형 검토를 놓치는 오류를 중시했다."
+              ],
+              [
+                "적용 범위 AD",
+                "특성 공간의 학습 kNN 거리 95백분위 기준 + 학습 화합물과 최대 Morgan Tanimoto 유사도 ≥0.35",
+                "두 기준을 함께 만족해야 학습 영역 안으로 간주한다. 정확도를 보증하는 장치는 아니다."
+              ]
+            ],
+            "sourceIds": [
+              "body-4",
+              "body-5",
+              "body-6",
+              "body-12"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Scheme 1은 Standard Scaler를 split 앞에 그린다. 하지만 도식만으로 실제 코드에서 시험 자료를 사용해 스케일러를 학습했다고 단정할 수 없다. fold별 전처리 적합 범위, 동일 화합물의 그룹 분리, scaffold 정의·분할 인덱스, AD의 k 값과 세부 설정은 확보한 본문·SI로 충분히 확인되지 않아 재현성의 미검증 항목으로 남긴다.",
+            "sourceIds": [
+              "body-3",
+              "body-5",
+              "body-6",
+              "figure-2-1",
+              "supplement-1-page-2"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "LASSO를 선택한 이유와 실제 성능",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "저자들은 학습 교차검증에서 모델·특성군 간 유의한 차이를 찾지 못했고 해석 가능성, 계산 효율, 특성 선택을 이유로 LASSO를 선택했다. t 검정과 일원분산분석을 언급하지만 구체적인 p 값·신뢰구간은 해당 표에 없다. ‘유의차를 찾지 못했다’는 결과를 모델들이 동등하다는 검증으로 바꾸어 해석하지 않았다.",
+            "sourceIds": [
+              "body-12",
+              "table-1",
+              "table-2",
+              "table-3",
+              "table-4"
+            ]
+          },
+          {
+            "type": "table",
+            "headers": [
+              "LASSO 조건",
+              "학습 CV 정밀도(%)",
+              "시험 정확도(%)",
+              "시험 정밀도(%)",
+              "시험 재현율(%)"
+            ],
+            "rows": [
+              [
+                "전체 특성·무작위",
+                "89.7 ± 2.7",
+                "76.0",
+                "89.5",
+                "80.9"
+              ],
+              [
+                "RDKit-only·무작위",
+                "91.9 ± 2.0",
+                "88.0",
+                "90.9",
+                "95.2"
+              ],
+              [
+                "전체 특성·골격",
+                "89.4 ± 9.0",
+                "69.6",
+                "76.2",
+                "88.9"
+              ],
+              [
+                "RDKit-only·골격",
+                "89.3 ± 7.0",
+                "78.3",
+                "80.9",
+                "94.4"
+              ]
+            ],
+            "sourceIds": [
+              "table-2",
+              "table-5"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "표에서 구조 특성만 사용해도 성능이 유지된 것은 이 자료의 실측 특성이 필수는 아니었음을 시사한다. 모든 프로젝트에서 측정 물성이 무가치하다는 결론은 아니다. 또한 RDKit 무작위 학습 CV 정밀도 91.9%와 최종 학습 혼동행렬의 170/(170+8)=95.5%는 서로 다른 평가 결과이므로 혼합하지 않아야 한다.",
+            "sourceIds": [
+              "body-12",
+              "table-2",
+              "table-7"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "90.9%를 혼동행렬로 다시 읽기",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "예측 / 실제",
+              "실제 노출 증가 부족(음성)",
+              "실제 노출 증가 부족 아님(양성)"
+            ],
+            "rows": [
+              [
+                "노출 증가 부족 예측",
+                "2 (TN)",
+                "1 (FN)"
+              ],
+              [
+                "노출 증가 부족 아님 예측",
+                "2 (FP)",
+                "20 (TP)"
+              ]
+            ],
+            "sourceIds": [
+              "table-7"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Table 7의 RDKit 무작위 시험셋에는 양성 21건과 음성 4건이 있다. 정밀도는 20/22=90.9%, 정확도는 22/25=88.0%, 양성 재현율은 20/21=95.2%다. 브리핑에서 표를 바탕으로 계산하면, 실제 노출 증가 부족 4건 중 2건만 음성으로 검출했다(50%). 필요한 제형 검토를 놓칠 위험이 완전히 제거된 모델은 아니다.",
+            "sourceIds": [
+              "table-7"
+            ]
+          },
+          {
+            "type": "callout",
+            "text": "비교를 위한 단순 계산: 시험 25건을 모두 양성으로 예측해도 정확도는 21/25=84.0%다. 보고 모델의 88.0%는 이 기준보다 한 건 더 맞춘 값이다. 이 기준선은 저자가 보고한 별도 모델 결과가 아니라 브리핑의 계산이며, 다수군이 많은 자료에서 정확도만으로 효과를 과대평가하지 않기 위해 제시했다. 원자료가 없어 반복 분할·신뢰구간을 새로 계산하지 않았다.",
+            "sourceIds": [
+              "table-7"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "계수와 적용 범위에서 읽을 수 있는 것",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "RDKit-LASSO의 상위 계수에는 VSA_EState3 −0.1920, fr_Al_OH_noTert +0.140, fr_NH1 +0.109, fr_Ar_NH +0.0927, fr_lactone −0.0691 등이 있다. 저자들은 전하 분포·수소결합·소수성과 노출 비례성의 연관성을 해석한다. 이는 이 모델 안의 상관적 기여이지, 해당 작용기를 바꾸면 노출이 같은 방향으로 개선된다는 인과적 SAR 증거는 아니다.",
+            "sourceIds": [
+              "table-8",
+              "body-13"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "본문은 두 특성군 모두에서 lactone과 urea를 강조하지만 Table 8의 RDKit 상위 10개에는 fr_urea가 없다. 전체 모델에 그 특성이 존재하지 않는다는 뜻은 아니며, 제공된 상위 10개 표로 ‘두 조건의 상위 예측인자에 urea가 있다’는 주장까지 뒷받침할 수는 없다.",
+            "sourceIds": [
+              "body-13",
+              "table-8"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "AD 안에 속한 시험 관측은 22/25건(88%)이고 이 집단의 정확도는 0.864였다. 바깥의 3건은 모두 맞았지만, 저자도 표본이 너무 작아 영역 밖 성능을 보장할 근거가 아니라고 밝혔다. 여기의 88%는 영역 안에 들어온 비율이며, 전체 시험 정확도 88.0%와 숫자가 같아도 의미는 다르다.",
+            "sourceIds": [
+              "body-13",
+              "table-5"
+            ]
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "Figure 1 · 용량과 AUC의 비례성",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 1 · 용량을 높였을 때 AUC가 따라오는가",
+            "image": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-1-1.webp",
+            "alt": "원형 A의 AUC는 용량에 비례해 증가하고 사각형 B의 AUC는 높은 용량에서 평탄해지는 산점도",
+            "description": "용량 선형성과 포화 양상을 설명하는 대표 PK 그림이다. 아래 Table 9의 실측 사례를 그대로 그린 것으로 취급하지 않았다.",
+            "explanation": [
+              {
+                "label": "축·표식",
+                "text": "x축은 Dose(mg/kg), y축은 AUC(h·ng/mL)다. 원은 Compound A, 사각형은 Compound B이다."
+              },
+              {
+                "label": "보이는 패턴",
+                "text": "A는 용량 증가에 따라 AUC가 거의 비례해 커지고, B는 높은 용량에서 증가 폭이 둔화된다. 단순히 AUC가 증가했는지가 아니라 용량 증가 비율에 맞게 증가했는지를 구분하게 해 준다."
+              },
+              {
+                "label": "추론의 경계",
+                "text": "Caption은 B의 용해 또는 흡수 제한을 설명하지만 곡선 모양 자체만으로 원인을 식별할 수는 없다. 오차막대·개별 관측 정보가 없는 대표 그림이며, Table 9는 용량 범위와 AUC 단위가 다른 별도 예시다."
+              }
+            ],
+            "caption": "Representative PK profile demonstrating dose linear and nonlinear exposures. Comparison of systemic AUC exposure across an increasing dose range from 10 to 200 mg/kg in mice. Compound A (circles) demonstrates dose-linear behavior with an increase in AUC proportional to dose. Compound B (squares) demonstrates nonlinear behavior where the exposure curve flattens at higher doses, indicating a solubility or absorption limit has been reached.",
+            "source": {
+              "label": "Figure 1",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#fig1"
+            },
+            "sourceIds": [
+              "figure-1-1",
+              "table-9"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Scheme 1 · 학습 문제로 바꾸는 과정",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Scheme 1 · 자료 선별에서 모델 비교까지",
+            "image": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-2-1.webp",
+            "alt": "SMILES·물성·노출 범주를 모아 mouse와 연구 조건으로 선별하고 스케일링·분할 뒤 다섯 모델로 보내는 흐름도",
+            "description": "구조·물성 정보를 입력으로, 노출 비율 범주를 출력으로 구성한 흐름을 보여 준다.",
+            "explanation": [
+              {
+                "label": "입력과 정답",
+                "text": "SMILES와 물리화학적 특성을 자료셋에 모으고, 관측 노출 비율 ≤0.75 또는 >0.75를 정답 범주로 둔다."
+              },
+              {
+                "label": "대상 제한",
+                "text": "Mouse와 일반 매체에서 동일 화합물을 여러 용량으로 비교한 연구를 filter로 표시한다. 그림은 모델 선택지를 다섯 개 나열하지만 신경망은 본문에서 유효한 성능을 얻지 못했다고 설명한다."
+              },
+              {
+                "label": "확인해야 할 구현",
+                "text": "Standard Scaler → Random or Scaffold Split 순서가 그려져 있다. 이 도식은 코드 수준의 전처리 적합 범위를 증명하지 않으므로 실제 데이터 누수 발생 여부는 미검증으로 남긴다."
+              }
+            ],
+            "caption": "Modeling Workflow for Predicting PK Exposure Proportionality",
+            "source": {
+              "label": "Scheme 1",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#sch1"
+            },
+            "sourceIds": [
+              "figure-2-1",
+              "body-12"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Figure 2 · 목표값 분포와 불균형",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 2 · 다수군을 고려해야 하는 이유",
+            "image": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-3-1.webp",
+            "alt": "A는 노출 비율 빈도 히스토그램, B는 양성 범주가 음성보다 많은 두 막대 그래프",
+            "description": "연속적인 노출 비율을 두 범주로 바꾸는 과정과 양성에 치우친 분포를 보여 준다.",
+            "explanation": [
+              {
+                "label": "패널 A",
+                "text": "x축은 Exposure Proportionality, y축은 Counts다. 원본 이미지의 가시 x축은 약 0–2 부근까지이며 1 부근에 관측이 많이 모여 있다."
+              },
+              {
+                "label": "패널 B",
+                "text": "x축 0은 ≤0.75인 노출 증가 부족, 1은 >0.75인 부족 아님이다. 막대는 1에 훨씬 많은 관측이 있음을 보여 준다. 정확한 전체 분모는 혼동행렬과 함께 읽는다."
+              },
+              {
+                "label": "원문 불일치",
+                "text": "Caption은 ‘up to 5.0 shown’이라고 하지만 표시된 A 패널의 축은 5까지 이어지지 않는다. 입력 이미지에서 0–5 전 범위가 모두 시각화되었다고 단정하지 않았으며, 정확한 막대별 값도 눈대중으로 복원하지 않았다."
+              }
+            ],
+            "caption": "Data distribution (A) data across the exposure proportionality up to 5.0 shown (B) data after setting the 0.75 exposure proportionality cutoff, where >0.75 is not less-than-dose proportional and ≤0.75 is less-than-dose proportional.",
+            "source": {
+              "label": "Figure 2",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#fig2"
+            },
+            "sourceIds": [
+              "figure-3-1",
+              "body-3"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Figure 3 · dose number가 주는 초기 단서",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 3 · dose number가 커질수록 높아지는 위험 비중",
+            "image": "/assets/briefs/af29478c263640e79982af9325c90e4a/figure-4-1.webp",
+            "alt": "네 dose number 구간의 100% 누적 막대에서 마지막 구간의 빨간 노출 부족 비율이 더 큰 그림",
+            "description": "각 dose number 구간 안에서 두 범주의 비율을 100%로 정규화한 그래프다. 화합물 전체 개수의 단순 증가 그래프가 아니다.",
+            "explanation": [
+              {
+                "label": "축·색상",
+                "text": "x축은 preclinical dose number 구간, y축은 Percentage다. 초록은 노출 증가 부족 아님, 빨강은 부족이다."
+              },
+              {
+                "label": "구간별 관측",
+                "text": "표시된 n은 0–100:13, 100–1,000:64, 1,000–10,000:64, 10,000–100,000:54이다. 마지막 구간의 빨강 비중이 약 40%로 앞선 구간보다 크다. 이 비율은 그림을 읽은 근삿값이다."
+              },
+              {
+                "label": "분모와 적용 한계",
+                "text": "표시 n 합은 195로 필터 후 전체 분석 자료 248건과 다르다. 이 차이의 이유나 빠진 관측의 처리는 그림·해당 본문만으로 확인되지 않았다. 10,000이라는 구간 경계를 보편적 제형 의사결정 기준으로 확정할 수 없다."
+              }
+            ],
+            "caption": "Normalized dose number analysis of the frequency of compounds that are not less-than-dose proportional and less-than-dose proportional in the respective preclinical dose number cutoffs.",
+            "source": {
+              "label": "Figure 3",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13563595/#fig3"
+            },
+            "sourceIds": [
+              "figure-4-1",
+              "body-3"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "보충자료 · 민감도·특성 제거를 어떻게 읽을까",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SI 2쪽 Figure S1은 노출 비율 정답 경계를 0.70, 0.75, 0.80으로 바꿨을 때 학습·시험 정확도와 정밀도를 그린다. 파랑은 왼쪽 정확도 축, 주황은 오른쪽 정밀도 축을 사용하며 전반적 변화는 크지 않아 보인다. 그래프의 정확한 점별 수치 표는 없으므로 임의의 소수값을 추정하지 않았다. 이 경계 민감도 분석은 모든 화학 공간이나 다른 PK 자료에서도 같은 경계가 타당하다는 증거는 아니다.",
+            "sourceIds": [
+              "body-10",
+              "supplement-1-page-2"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "같은 2쪽 Figure S2의 caption은 ‘ROC curves’라고 되어 있지만, 실제 x축은 Threshold이고 범례는 Recall·Accuracy·Precision이다. 따라서 일반적인 false positive rate–true positive rate ROC가 아니라 모델 출력 임계값에 따른 지표 변화 그림으로 읽었다. A/B는 무작위 전체/RDKit, C/D는 골격 전체/RDKit이며, 골격 조건에서 오차막대가 더 큰 경향을 시각적으로 확인했다.",
+            "sourceIds": [
+              "body-12",
+              "supplement-1-page-2"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "SI 3쪽 Figure S3은 full features와 RFE 후 특성을 비교하며, accuracy·precision·recall·ROC-AUC 막대가 모두 RFE 후 낮아진다. 본문은 RFE로 특성을 100개까지 줄이는 시도를 설명한다. 이 결과는 해당 선택 방식이 정보를 잃었을 가능성을 지지하지만, 모든 특성 축소가 불리하다는 뜻은 아니다. 본문의 ‘모두 유지’는 실측 특성을 반드시 추가해야 한다는 뜻과도 구분해야 한다.",
+            "sourceIds": [
+              "body-12",
+              "supplement-1-page-3"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "SI 3–9쪽의 Table S1은 특성의 최솟값·사분위수·중앙값·최댓값을 제공한다. 개별 화합물별 학습표나 학습 코드가 아니므로 이 표만으로 모델을 재현할 수는 없다. 원문 일부 열에서는 사분위수 순서가 맞지 않는 값도 보여, 분포 표의 모든 수치를 보정하거나 파생 계산에 사용하지 않았다.",
+            "sourceIds": [
+              "supplement-1-page-3",
+              "supplement-1-page-4",
+              "supplement-1-page-5",
+              "supplement-1-page-6",
+              "supplement-1-page-7",
+              "supplement-1-page-8",
+              "supplement-1-page-9"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Table 9 · 실제 시험 자료의 두 예시",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "사례",
+              "보고된 용량과 AUC∞",
+              "브리핑에서 계산한 노출 비율",
+              "논문의 관측 / 예측"
+            ],
+            "rows": [
+              [
+                "A",
+                "5 mg/kg:0.86 → 30 mg/kg:5.7 h·μM",
+                "(5.7/0.86)/(30/5) ≈1.10",
+                "Linear / Linear"
+              ],
+              [
+                "B: 첫 비교",
+                "5 mg/kg:3.0 → 100 mg/kg:12.8 h·μM",
+                "(12.8/3.0)/(100/5) ≈0.213",
+                "Nonlinear / Nonlinear"
+              ],
+              [
+                "B: 두 번째 비교",
+                "5 mg/kg:3.0 → 300 mg/kg:75.4 h·μM",
+                "(75.4/3.0)/(300/5) ≈0.419",
+                "Nonlinear / Nonlinear"
+              ]
+            ],
+            "sourceIds": [
+              "body-3",
+              "body-14",
+              "table-9"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "A는 용량을 6배 높였을 때 AUC가 약 6.63배 증가했다. B는 용량을 20배 또는 60배 높였지만 AUC 증가는 약 4.27배와 25.13배로, 두 비교 모두 ≤0.75 범주다. 이 계산은 본문 정의를 Table 9의 보고값에 적용한 것이다. 이 두 화합물은 기존 시험셋에서 선택한 예시이며, 새로 수집한 외부 자료나 전향적 검증은 아니다.",
+            "sourceIds": [
+              "body-3",
+              "body-14",
+              "table-9"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Table 9에는 개선 제형을 적용한 뒤 B의 노출을 회복시켰다는 대조 결과가 없다. 따라서 ‘이 모델이 비례성 범주를 맞혔다’와 ‘모델이 권한 제형 전략이 효과를 냈다’는 결론을 구분한다. 표에 개별 동물 값이나 오차막대가 없어 이 두 예시의 차이에 대한 통계적 유의성을 추가로 판단하지 않았다.",
+            "sourceIds": [
+              "body-8",
+              "body-14",
+              "table-9"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": "c01-data-unit",
+      "kind": "data",
+      "text": "초기120개 화합물에서279건을 구성했고 비율>5 제외 후248건을 분석했다.",
+      "support": [
+        {
+          "sourceId": "body-3",
+          "quote": "A total of 120 unique compounds exist with 279 exposure proportionality data points."
+        },
+        {
+          "sourceId": "body-3",
+          "quote": "values greater than 5 were excluded, resulting in 248 data points."
+        }
+      ]
+    },
+    {
+      "id": "c02-target",
+      "kind": "data",
+      "text": "양성은 노출 비율>0.75이며 엄밀한 비례성과 초비례를 함께 포함한다.",
+      "support": [
+        {
+          "sourceId": "body-10",
+          "quote": "the not less-than-proportional category encompasses both strictly dose-proportional profiles (∼1) and supra-proportional exposures (>1.25)"
+        }
+      ]
+    },
+    {
+      "id": "c03-priority",
+      "kind": "author",
+      "text": "저자는 필요한 제형 검토를 놓치는 거짓 양성 비용을 더 크게 보아 정밀도를 우선했다.",
+      "support": [
+        {
+          "sourceId": "body-12",
+          "quote": "to avoid the costly oversight of neglecting essential formulation work, we emphasize the importance of accurately identifying true not less-than-dose proportional compounds."
+        }
+      ]
+    },
+    {
+      "id": "c04-threshold",
+      "kind": "data",
+      "text": "학습 교차검증에서 재현율75% 이상 조건으로 정밀도를 최대화했다.",
+      "support": [
+        {
+          "sourceId": "body-5",
+          "quote": "maximizing precision on the cross-validation set, subject to a constraint that recall did not fall below 75%"
+        }
+      ]
+    },
+    {
+      "id": "c05-random",
+      "kind": "data",
+      "text": "RDKit-LASSO 무작위 시험 정확도88.0%, 정밀도90.9%, 재현율95.2%다.",
+      "support": [
+        {
+          "sourceId": "table-5",
+          "quote": "RDKit-Only | Random | 88.0 | 90.9 | 95.2 | 0.65"
+        }
+      ]
+    },
+    {
+      "id": "c06-scaffold",
+      "kind": "data",
+      "text": "RDKit-LASSO 골격 시험 정밀도80.9%, 정확도78.3%로 낮아졌다.",
+      "support": [
+        {
+          "sourceId": "table-5",
+          "quote": "RDKit-Only | Scaffold | 78.3 | 80.9 | 94.4 | 0.75"
+        }
+      ]
+    },
+    {
+      "id": "c07-counts",
+      "kind": "data",
+      "text": "RDKit 무작위 시험 혼동행렬은 TN2,FN1,FP2,TP20이며 총25건이다.",
+      "support": [
+        {
+          "sourceId": "table-7",
+          "quote": "Predicted Less-Than-Proportional | 37 | 8 | 2 | 1"
+        },
+        {
+          "sourceId": "table-7",
+          "quote": "Predicted Not Less-Than-Proportional | 8 | 170 | 2 | 20"
+        }
+      ]
+    },
+    {
+      "id": "c08-baseline",
+      "kind": "inference",
+      "text": "Table7에서 계산하면 모두 양성으로 예측하는 기준선 정확도는21/25=84%, 실제 음성 검출은2/4=50%다.",
+      "support": [
+        {
+          "sourceId": "table-7",
+          "quote": "Predicted Less-Than-Proportional | 37 | 8 | 2 | 1"
+        },
+        {
+          "sourceId": "table-7",
+          "quote": "Predicted Not Less-Than-Proportional | 8 | 170 | 2 | 20"
+        }
+      ]
+    },
+    {
+      "id": "c09-ad",
+      "kind": "data",
+      "text": "시험25건 중22건이 AD 안이며 영역 안 정확도0.864, 영역 밖3건의 정확도1.00은 일반화 근거로 부족하다.",
+      "support": [
+        {
+          "sourceId": "body-13",
+          "quote": "22/25 were classified as in domain (88%)"
+        },
+        {
+          "sourceId": "body-13",
+          "quote": "Within the dual-criteria AD, the LASSO model achieved a robust accuracy of 0.864."
+        },
+        {
+          "sourceId": "body-13",
+          "quote": "this subset is statistically insufficient to support a claim"
+        }
+      ]
+    },
+    {
+      "id": "c10-descriptors",
+      "kind": "data",
+      "text": "Methods225개와 Results226개라는 특성 수 불일치가 있다.",
+      "support": [
+        {
+          "sourceId": "body-3",
+          "quote": "A total of 225 descriptors were included"
+        },
+        {
+          "sourceId": "body-12",
+          "quote": "utilizing a set of 226 descriptors"
+        }
+      ]
+    },
+    {
+      "id": "c11-coefficient",
+      "kind": "inference",
+      "text": "상위계수의 상관적 기여를 작용기의 인과적 개선 효과로 해석할 수 없다.",
+      "support": [
+        {
+          "sourceId": "table-8",
+          "quote": "VSA_EState3 | –0.183 | VSA_EState3 | –0.1920"
+        },
+        {
+          "sourceId": "body-13",
+          "quote": "future studies would be important to increase the data set to further refine the complex interplay"
+        }
+      ]
+    },
+    {
+      "id": "c12-si-caption",
+      "kind": "data",
+      "text": "SI FigureS2 caption은 ROC라 표현하나 실제 시각 자료는 threshold에 따른 accuracy,precision,recall곡선이다.",
+      "support": [
+        {
+          "sourceId": "supplement-1-page-2",
+          "quote": "Supplementary Figure 2: ROC curves for LASSO model"
+        }
+      ]
+    },
+    {
+      "id": "c13-figure2-caption",
+      "kind": "data",
+      "text": "Figure2A caption은5.0까지라 하지만 확인한 원본 이미지 축은약0–2부근까지만 보인다.",
+      "support": [
+        {
+          "sourceId": "figure-3-1",
+          "quote": "data across the exposure proportionality up to 5.0 shown"
+        }
+      ]
+    },
+    {
+      "id": "c14-examples",
+      "kind": "inference",
+      "text": "Table9보고값으로 계산한 A노출비율은약1.10, B는약0.213과0.419다. 이들은 시험셋에서 고른 예시다.",
+      "support": [
+        {
+          "sourceId": "table-9",
+          "quote": "A | 5 | 0.86 | 30 | 5.7 | NM | NM | Linear | Linear"
+        },
+        {
+          "sourceId": "table-9",
+          "quote": "B | 5 | 3.0 | 100 | 12.8 | 300 | 75.4 | Nonlinear | Nonlinear"
+        },
+        {
+          "sourceId": "body-14",
+          "quote": "two compounds, selected directly from the test data set"
+        }
+      ]
+    },
+    {
+      "id": "c15-purpose",
+      "kind": "author",
+      "text": "저자는 모델을 PK 시뮬레이터가 아닌 초기 우선순위 필터로 제안했다.",
+      "support": [
+        {
+          "sourceId": "body-1",
+          "quote": "Our goal is to develop a model to act as a prioritization filter, not a pharmacokinetic simulator"
+        }
+      ]
+    }
+  ],
+  "readSourceIds": [
+    "abstract-1",
+    "body-1",
+    "body-2",
+    "body-3",
+    "body-4",
+    "body-5",
+    "body-6",
+    "body-7",
+    "body-8",
+    "body-9",
+    "body-10",
+    "body-11",
+    "body-12",
+    "body-13",
+    "body-14",
+    "body-15",
+    "body-16",
+    "table-1",
+    "table-2",
+    "table-3",
+    "table-4",
+    "table-5",
+    "table-6",
+    "table-7",
+    "table-8",
+    "table-9",
+    "figure-1-1",
+    "figure-2-1",
+    "figure-3-1",
+    "figure-4-1",
+    "formula-3",
+    "supplement-1-page-1",
+    "supplement-1-page-2",
+    "supplement-1-page-3",
+    "supplement-1-page-4",
+    "supplement-1-page-5",
+    "supplement-1-page-6",
+    "supplement-1-page-7",
+    "supplement-1-page-8",
+    "supplement-1-page-9"
+  ],
+  "viewedFigureIds": [
+    "figure-1-1",
+    "figure-2-1",
+    "figure-3-1",
+    "figure-4-1"
+  ],
+  "limitations": [
+    "본문·표·그림·SI를 읽고 교차 확인했으나 모델 코드·개별 화합물 원자료·분할 인덱스가 없어 재학습과 독립 재현은 하지 않았다.",
+    "동일 화합물의 반복 관측이 분할 간 분리되었는지와 전처리를 fold 안에서 학습했는지는 미검증이다. 누수 발생을 확정하지 않는다.",
+    "내부 마우스 자료의 최종248건은 서로 다른248개 화합물이 아니다. 무작위 시험은25건이며 클래스가 불균형하다.",
+    "엄밀한 용량 선형성과 이진 분류의 양성(노출 비율>0.75)을 구분했다. 제형 개선 효과나 비선형성 원인을 직접 검증한 모델이 아니다.",
+    "Methods225/Results226개 특성 수, Figure2A caption과 표시 축 범위, SI FigureS2의 ROC 명칭과 실제 축, urea 서술과 RDKit 상위10개 표 사이 불일치가 있다.",
+    "Figure3의 구간 n합195와 최종248건 사이 차이의 이유는 확인되지 않았다. 그래프 근삿값으로 정확한 원자료를 복원하지 않았다.",
+    "본문 Figure/Scheme4개, SI9쪽과 수식 이미지를 시각 확인했다. 논문 PDF의 모든 페이지를 별도로 시각 대조하거나 원자료를 재분석한 것은 아니다.",
+    "안전상 보류한 범위는 없다. 연구 적용은 판단 기준과 해석 한계로 한정했으며 새로운 실험 절차나 임상 투여 권고를 작성하지 않았다."
+  ]
+}

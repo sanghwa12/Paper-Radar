@@ -1,0 +1,295 @@
+{
+  "dd6010ad6b2843cd956439aeb5e43554": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": false,
+      "figures": true,
+      "supplement": false
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "unavailable",
+      "figures": "partial",
+      "supplement": "unavailable"
+    },
+    "note": "초록과 저자 연구실 도식을 확인했습니다. 출판본 본문·그림·보충자료는 미확보이며, 이전 검토 메모의 수치는 별도로 표시했습니다.",
+    "holds": [
+      {
+        "scope": "본문에서만 보고된 수치·비교 설정, 출판본 그림 번호 및 SI",
+        "reason": "source",
+        "note": "현재 로컬 원문 미확보. 과거 검토 메모는 직접 원문 재검증의 대체 근거로 사용하지 않았다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "196c61d3c3ed44c6baa4e201eda0799d": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": false,
+      "figures": true,
+      "supplement": false
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "unavailable",
+      "figures": "partial",
+      "supplement": "unavailable"
+    },
+    "note": "초록과 확보된 Figures 1·2·3·5를 확인했습니다. AUC의 통계 정의를 수정했으며, 본문·보충자료에만 있는 조건과 일부 수치는 이번에 재대조하지 못했습니다.",
+    "holds": [
+      {
+        "scope": "상세 Methods, SI S1–S5 내용과 원문 불일치의 원인",
+        "reason": "source",
+        "note": "로컬 원문·SI 없음. 실제 검토/독립 재계산과 과거 메모·목록 확인을 구분한다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "0f6663d4752b4459855dfd8b133db44f": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": true
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "reviewed",
+      "figures": "reviewed",
+      "supplement": "partial"
+    },
+    "note": "본문의 관련 절·표와 Figures 2–7을 대조했습니다. 보충자료는 Fig. S2와 Tables S12·S13만 확인했으며, 원문의 단위 불일치는 그대로 표시했습니다.",
+    "holds": [
+      {
+        "scope": "SI 전체 검토",
+        "reason": "source",
+        "note": "SI는 확보됨. 이번 검증에서 Fig.S2와 Tables S12/S13 외의 SI 전체 합성·스펙트럼·원자료는 검토하지 않았다. 원자료 독립 재분석도 수행하지 않았다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "62c2bdb4c9d4412f9b9685cb2d7ba408": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": false,
+      "figures": true,
+      "supplement": false
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "unavailable",
+      "figures": "partial",
+      "supplement": "unavailable"
+    },
+    "note": "초록, Figures 2–6과 Tables 1·3을 확인했습니다. 비교 화합물과 구조 그림의 번호를 수정했으며, 본문·보충자료에만 있는 PK 수치는 미검증으로 표시했습니다.",
+    "holds": [
+      {
+        "scope": "본문·SI, PK/MetID 전체 수치 및 조건, PDB와 compound 매핑의 독립 검증",
+        "reason": "source",
+        "note": "로컬 원문과 관련 표·SI·PDB 원자료가 없음. 확보된 이미지의 표기 이상으로 추정하지 않았다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "39a312b9f37c4602bbd4c5c00953e02a": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": false,
+      "figures": false,
+      "supplement": false
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "unavailable",
+      "figures": "unavailable",
+      "supplement": "unavailable"
+    },
+    "note": "초록의 주요 수치와 주장 범위를 확인했습니다. 본문·원문 그림·보충자료는 미확보이므로 상세 검증이 완료된 브리핑이 아닙니다.",
+    "holds": [
+      {
+        "scope": "본문·원문 Figure·SI에 근거한 상세 검증",
+        "reason": "source",
+        "note": "로컬 자료 미확보. 안전상 제한으로 분류하지 않는다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "f73c383248d54b4e8c4b0f76337ffc96": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": true
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "reviewed",
+      "figures": "reviewed",
+      "supplement": "unverified"
+    },
+    "note": "본문과 관련 그림을 대조해 그림 연결·패널 설명을 수정했습니다. 원문 내부의 수치·단위·통계 불일치를 표시했으며, 확보한 보충자료는 미검토입니다.",
+    "holds": [
+      {
+        "scope": "원문 내부 상충의 확정 해소 및 표시되지 않은 결과",
+        "reason": "source",
+        "note": "패널·단위·유의차·정규화의 불일치를 표시해 해석 오류는 수정했지만 원자료의 정답을 확정할 수 없다. Figure8 HCl·sulfuric acid 결과도 미확인."
+      },
+      {
+        "scope": "SI의 독립 검토",
+        "reason": "source",
+        "note": "확보되어 있지만 이번 작업에서 미검토. 안전 제한이 아니다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "6f209faaaaf1425198eac5375fd141ba": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": false
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "reviewed",
+      "figures": "reviewed",
+      "supplement": "unavailable"
+    },
+    "note": "본문의 주요 수치·표와 Figures 1–4를 확인했습니다. 집계 단위 차이를 표시했으며, 보충자료는 미확보입니다.",
+    "holds": [
+      {
+        "scope": "SI 진단그림·추가 모델 분석",
+        "reason": "source",
+        "note": "로컬 SI 미확보로 추가 검증 불가. 본문과 검토한 그림의 분석은 유지 가능."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "b6585588759e4eee883f24d82603f2b1": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": true
+    },
+    "checked": {
+      "abstract": "reviewed",
+      "body": "reviewed",
+      "figures": "reviewed",
+      "supplement": "unverified"
+    },
+    "note": "본문의 주요 표·수치와 Figures 1·3·4를 확인했습니다. 모델 조정과 검증을 구분했으며, 확보한 보충자료는 미검토입니다.",
+    "holds": [
+      {
+        "scope": "SI의 입력·시뮬레이션 결과 표 확인",
+        "reason": "source",
+        "note": "파일 확보와 실제 검토를 구분하여 미검토 상태 유지."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "3303517f651d4cd5b59a8b62c3f4ffb6": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": true
+    },
+    "checked": {
+      "abstract": "partial",
+      "body": "partial",
+      "figures": "reviewed",
+      "supplement": "unverified"
+    },
+    "note": "본문의 주요 결과와 원본 Figures 5·7·8을 대조했습니다. Methods·보충자료에만 있는 세부 수치는 이번 검증에서 모두 확인하지 못했습니다.",
+    "holds": [
+      {
+        "scope": "본문의 전체 Methods·세부 수치 및 보충자료",
+        "reason": "source",
+        "note": "관련 핵심 결과와 선택한 그림만 대조했습니다. 전체 세부 조건과 SI는 이번에 검토하지 않아 미검증으로 남깁니다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "c3a5f89a860d4488b09a0a3630f51617": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": true
+    },
+    "checked": {
+      "abstract": "partial",
+      "body": "partial",
+      "figures": "reviewed",
+      "supplement": "unverified"
+    },
+    "note": "주요 활성·PK 결과와 원본 Figures 1–3을 대조했습니다. 독성 관찰 농도를 CC50로 잘못 표시한 부분을 수정했으며, 전체 Methods·보충자료 검증은 미완료입니다.",
+    "holds": [
+      {
+        "scope": "본문의 전체 Methods·세부 수치 및 보충자료",
+        "reason": "source",
+        "note": "관련 핵심 결과와 선택한 그림만 대조했습니다. 전체 세부 조건과 SI는 이번에 검토하지 않아 미검증으로 남깁니다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "f575f73dd8934f93bc61c574e7fdd5a5": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": true
+    },
+    "checked": {
+      "abstract": "partial",
+      "body": "partial",
+      "figures": "reviewed",
+      "supplement": "unverified"
+    },
+    "note": "주요 결과와 원본 Figures 1·3·6을 대조하고 Figure 6A의 설명을 바로잡았습니다. 전체 Methods·보충자료와 모든 통계의 독립 재계산은 완료하지 않았습니다.",
+    "holds": [
+      {
+        "scope": "본문의 전체 Methods·세부 수치 및 보충자료",
+        "reason": "source",
+        "note": "관련 핵심 결과와 선택한 그림만 대조했습니다. 전체 세부 조건과 SI는 이번에 검토하지 않아 미검증으로 남깁니다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  },
+  "18561cf87e6e4e7e8d09f713d34b13c3": {
+    "status": "partial",
+    "acquired": {
+      "abstract": true,
+      "body": true,
+      "figures": true,
+      "supplement": true
+    },
+    "checked": {
+      "abstract": "partial",
+      "body": "partial",
+      "figures": "reviewed",
+      "supplement": "unverified"
+    },
+    "note": "주요 결합·PK·효능 수치와 원본 Figures 1·3·4를 대조했습니다. 원문의 단위·일정 표기 차이를 표시했으며, 보충자료 전체는 검토하지 않았습니다.",
+    "holds": [
+      {
+        "scope": "본문의 전체 Methods·세부 수치 및 보충자료",
+        "reason": "source",
+        "note": "관련 핵심 결과와 선택한 그림만 대조했습니다. 전체 세부 조건과 SI는 이번에 검토하지 않아 미검증으로 남깁니다."
+      }
+    ],
+    "checkedAt": "2026-09-23"
+  }
+}

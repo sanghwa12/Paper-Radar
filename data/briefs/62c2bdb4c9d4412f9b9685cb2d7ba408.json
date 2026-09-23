@@ -1,0 +1,452 @@
+{
+  "candidateId": "62c2bdb4c9d4412f9b9685cb2d7ba408",
+  "evidenceStatus": "partial",
+  "evidenceNote": "초록과 확보된 Fig.2–6, Tables1/3를 직접 검토했다. 본문은 과거 교내 검토 메모만 보유하며 SI와 Tables2/4/5는 현재 미확보다. PK·MetID의 전체 수치·조건 및 원문 figure/table captions는 이번에 재대조하지 못했다.",
+  "tabs": {
+    "summary": [
+      {
+        "title": "연구 질문",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "KRAS switch-II pocket macrocycle의 대사·노출 문제를 <b>bioisostere 치환으로 줄이면서 세포 활성도 유지할 수 있는가?</b> BRSD-143(1)의 2-fluoropyrrolizidine을 ABO로 바꾼 12와, naphthol을 indazole로 바꾼 21은 서로 다른 장단점을 보였다. “PK가 좋아졌다”와 “더 좋은 항종양 후보가 됐다”를 분리해 읽는 lead optimization 사례다. <a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">Introduction; Results ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "연구 흐름",
+        "blocks": [
+          {
+            "type": "image",
+            "src": "/assets/briefs/62c2bdb4c9d4412f9b9685cb2d7ba408/flow.svg",
+            "alt": "KRAS macrocycle의 bioisostere 치환과 활성·노출의 상충 관계",
+            "caption": "KRAS macrocycle의 bioisostere 치환과 활성·노출의 상충 관계 · 과거 본문 검토 기록을 재구성한 도식"
+          }
+        ]
+      },
+      {
+        "title": "핵심 결과",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "후속체",
+              "얻은 것",
+              "남은 문제"
+            ],
+            "rows": [
+              [
+                "12 · BRSD-212",
+                "ABO가 2-FP의 bioisostere로 작동하며 결합·세포·종양 모델 활성을 유지.",
+                "대사 문제가 남고 rat IV 투여는 침전 때문에 해석에 제한. Rat IV 침전 설명은 과거 검토 기록값 · 이번 원문 미대조."
+              ],
+              [
+                "21 · indazole",
+                "Glucuronidation 감소; oral AUC mouse 2660 / rat 3320 h·nM, F 77% / 41%. AUC·F 수치는 과거 검토 기록값 · 이번 원문 미대조.",
+                "12 대비 세포 pERK IC50가 RKN 약 38배, SW1990 약 45배 높다(표 수치의 비율 계산). RKN T/C 56.5는 과거 검토 기록값 · 이번 원문 미대조. 노출 개선이 효능 개선으로 바로 이어지지 않음."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "21의 AUC·F를 포함한 Tables2/4/5는 현재 로컬 미확보다. 종별 투여 조건을 재확인하지 못했으므로 종간 dose-normalized 비교로 사용하지 않는다. <a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">Tables2,4–5; Fig.4,6 ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "배울 점",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "치환 전략의 성공을 하나의 지표로 결정하면 21의 개선된 노출만 보게 된다. 이 논문은 대사 경로를 확인한 뒤 치환하고, 표적/세포 활성·노출·종양 반응을 다시 묶어 봐야 다음 최적화 질문이 드러나는 사례다."
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "1 · 두 bioisostere 전략을 분리해 읽기",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "설계 축",
+              "문제·의도",
+              "관찰"
+            ],
+            "rows": [
+              [
+                "2-fluoropyrrolizidine → (2-azabicyclo[4.2.0]octan-6-yl)methanol(ABO)",
+                "널리 쓰이는 2-FP를 대체하면서 panKRAS 억제 활성 유지.",
+                "12(BRSD-212)의 결합·세포·종양 활성이 유지돼 치환 가능성을 보였다."
+              ],
+              [
+                "Naphthol → indazole",
+                "Glucuronidation을 주요 제거 경로로 유도하는 phenolic 부분을 대체.",
+                "21의 대사/PK 개선과 세포 효력 손실이 함께 보고됐다. 확보된 Tables1/3 수치로 계산하면 12 대비 RKN pERK IC50는 약 38배, SW1990은 약 45배 높다."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "<a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">Results; Fig.3–5; Tables1–5 ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "2 · 대사 기전은 어떻게 확인했나?",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "Metabolite identification",
+                "text": "Hepatocyte에서 대사체를 분석해 glucuronidation 경로를 확인했다. 단순한 clearance 감소에서 원인을 추측한 것이 아니다."
+              },
+              {
+                "label": "S9 대조",
+                "text": "UDPGA가 있고 없는 조건을 비교해 glucuronidation 기여를 조사했다. Cofactor 의존성은 해당 경로와 total turnover를 연결하는 근거다."
+              },
+              {
+                "label": "구조 확인",
+                "text": "확보된 결합 그림은 Fig.3에 compound12, Fig.5에 compound20을 표시한다. Fig.5를 compound21의 직접 결정구조로 간주하지 않는다. PDB 12FG·12FF의 compound 매핑은 과거 기록 외에 원자료를 확보하지 못해 독립 재검증이 필요하다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "MetID·S9의 상세 본문 비교는 과거 검토 기록값 · 이번 원문 미대조. <a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">Fig.3,5; Table4 ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "3 · 좋아진 PK는 좋은 효능과 같은가?",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "지표",
+              "21의보고값",
+              "해석 조건"
+            ],
+            "rows": [
+              [
+                "Mouse oral AUC",
+                "2660 h·nM (과거 검토 기록값 · 이번 원문 미대조)",
+                "Total exposure. 현재 기록의 용량·채혈 구간이 불충분해 다른 종/화합물과 단독 비교하지 않음."
+              ],
+              [
+                "Rat oral AUC",
+                "3320 h·nM (과거 검토 기록값 · 이번 원문 미대조)",
+                "같은 이유로 mouse보다 흡수가 좋다는 결론으로 쓰지 않음."
+              ],
+              [
+                "Oral bioavailability",
+                "Mouse 77%, rat 41% (과거 검토 기록값 · 이번 원문 미대조)",
+                "IV/PO 조건과 제형·계산법을 함께 확인해야 함."
+              ],
+              [
+                "세포 활성",
+                "12 대비 RKN 약 38배, SW1990 약 45배 높은 pERK IC50 (표 수치의 비율 계산)",
+                "더 높은 total exposure가 free concentration/target coverage를 보상했는지는 별개."
+              ],
+              [
+                "RKN tumor response",
+                "T/C56.5 (과거 검토 기록값 · 이번 원문 미대조)",
+                "T/C는 treated/control 지표이며 regression 56.5% 또는 TGI 56.5%로 바꿔 표기하지 않음."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "<a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">Table5; Fig.6; Results ↗</a>"
+          },
+          {
+            "type": "callout",
+            "text": "과거 검토 기록값 · 이번 원문 미대조: 12의 rat IV dosing은 침전으로 신뢰할 만한 노출이 확보되지 않아 IP apparent PK로 보완했다. 이 값을 정상적인 IV PK와 같은 종류의 자료로 합쳐 비교하면 안 된다. <a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">Table2 footnotes ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "4 · 다음 최적화 질문",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "활성 회복",
+                "text": "Indazole로 얻은 metabolic 이점을 보존하면서 세포 효력을 되찾을 수 있는지 확인하는 것이 남은 질문이다."
+              },
+              {
+                "label": "유효 노출",
+                "text": "총 AUC뿐 아니라 unbound exposure·세포 효력·target coverage를 연결해야 노출 개선의 의미를 판단할 수 있다."
+              },
+              {
+                "label": "실험 우선순위",
+                "text": "동일 조건의 metabolism/세포 readout을 붙여 보고, 침전·제형·투여 경로가 효능 비교를 교란하는지 점검한다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "위 항목은 논문의 상충 관계에서 도출한 후속 연구 제안이며, 이 논문에서 이미 해결된 결과는 아니다."
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "확인한 실험 체계",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "단계",
+              "확인한 대상·조건",
+              "원문"
+            ],
+            "rows": [
+              [
+                "Biochemical binding",
+                "KRAS G12V·G12D, GDP/GMPPNP nucleotide 상태를 구분; TR-FRET readout.",
+                "Tables1–5"
+              ],
+              [
+                "Cell signaling",
+                "pERK readout; RKN·SW1990을 포함한 종양 세포계.",
+                "Results;In vivo efficacy studies"
+              ],
+              [
+                "Metabolism",
+                "Hepatocyte MetID 및 UDPGA ± S9 실험.",
+                "Table4"
+              ],
+              [
+                "Structural biology",
+                "Fig.3은 compound12, Fig.5는 compound20. PDB 12FG·12FF 매핑은 과거 기록 외 원자료 미확보.",
+                "Fig.3,5;Data Availability"
+              ],
+              [
+                "PK",
+                "여러 종에서 12·21 비교. Rat 12의 IV 침전 시 IP apparent PK 별도 표기.",
+                "Table2 footnotes;Table5"
+              ],
+              [
+                "Tumor efficacy",
+                "RKN·SW1990 종양 모델과 21의 차등 용량은 확보된 그림에서 확인. RKN n=6은 과거 검토 기록값 · 이번 원문 미대조.",
+                "Fig.4,6"
+              ],
+              [
+                "Statistics",
+                "종양 곡선의 mean ± SEM 표기는 그림에서 확인. ANOVA와 T/C·regression 계산식은 과거 검토 기록값 · 이번 원문 미대조.",
+                "Experimental Section"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "그림·표에서 직접 확인한 항목 외 본문 실험 조건은 과거 검토 기록값 · 이번 원문 미대조. <a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">원문 Results·Experimental Section ↗</a>"
+          }
+        ]
+      },
+      {
+        "title": "재현을 위해 아직 필요한 조건",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "현재 기록의 한계"
+            ],
+            "rows": [
+              [
+                "HTRF/TR-FRET·pERK",
+                "단백질/세포 농도, 처리 시간, compound range 및 control 조건은 SI protocol을 직접 열어 확인해야 한다."
+              ],
+              [
+                "MetID/S9",
+                "Hepatocyte source·세포수, incubation 시간, UDPGA 농도, LC-MS 조건 미확인."
+              ],
+              [
+                "PK",
+                "21의 용량·제형·sampling interval·반복 수·불확실성은 현재 축약 검토 기록에 없다."
+              ],
+              [
+                "Tumor",
+                "모델명·차등 용량은 그림에서 확인. n=6은 과거 검토 기록값 · 이번 원문 미대조. 상세 일정과 randomization/blinding은 재확인 필요."
+              ],
+              [
+                "구조 mapping",
+                "확보된 Fig.5 자체가 compound20을 표시한다. 과거 메모의 PDB12FF 표제도 20으로 기록돼 있으나 PDB 원자료는 이번 미확보. Fig.5를 21의 직접 구조로 간주하지 않음."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "원자료의 부재를 추정 protocol로 메우지 않았다. <a href=\"https://doi.org/10.1021/acs.jmedchem.6c01454\">Supporting Information ↗</a> · <a href=\"https://www.rcsb.org/structure/12FF\">RCSB12FF ↗</a>"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "원문 도판과 구조를 읽을 위치",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "위치",
+              "확인할 내용",
+              "자료 상태"
+            ],
+            "rows": [
+              [
+                "Fig.3/5",
+                "Compound12와20의 결합 그림; Fig.5를21의 구조로 간주하지 않음",
+                "원본 PNG 확보·시각 검토. 원문 captions 및 PDB 매핑은 이번 미확인"
+              ],
+              [
+                "Table4",
+                "MetID/S9 경로별 비교",
+                "Table4 미확보. MetID/S9 설계·방향은 과거 검토 기록값 · 이번 원문 미대조"
+              ],
+              [
+                "Fig.4/6",
+                "용량·모델별 종양 성장 곡선",
+                "Fig.4/6 원본 PNG 확보·시각 검토. T/C56.5·n=6은 과거 검토 기록값 · 이번 원문 미대조"
+              ],
+              [
+                "PDB12FF/12FG",
+                "실험 구조·ligand identity",
+                "과거 기탁 번호 기록만 보유; 원자료 및 compound 매핑 독립 검증 미수행"
+              ]
+            ]
+          },
+          {
+            "type": "links",
+            "items": [
+              {
+                "label": "ACS 원문·보충자료",
+                "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"
+              },
+              {
+                "label": "PDB 12FF",
+                "url": "https://www.rcsb.org/structure/12FF"
+              },
+              {
+                "label": "PDB 12FG",
+                "url": "https://www.rcsb.org/structure/12FG"
+              }
+            ]
+          },
+          {
+            "type": "figure",
+            "title": "Compound12의 결합 그림",
+            "eyebrow": "Figure 3",
+            "image": "/assets/briefs/62c2bdb4c9d4412f9b9685cb2d7ba408/figure-3.png",
+            "alt": "Figure 3: Compound12의 결합 그림",
+            "explanation": [
+              {
+                "label": "그림의 compound 표기",
+                "text": "청록색 ligand는 12로 표시되어 있다. 원본 이미지에서 확인한 번호이며 PDB 매핑을 새로 확정한 것은 아니다."
+              }
+            ],
+            "caption": "원문 caption 미확인. 설명은 확보된 원본 이미지의 시각 검토에 근거한다.",
+            "source": {
+              "label": "출판사 원본 이미지 · Figure 3",
+              "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"
+            }
+          },
+          {
+            "type": "figure",
+            "title": "Compound20으로 표시된 결합 그림",
+            "eyebrow": "Figure 5",
+            "image": "/assets/briefs/62c2bdb4c9d4412f9b9685cb2d7ba408/figure-5.png",
+            "alt": "Figure 5: Compound20으로 표시된 결합 그림",
+            "explanation": [
+              {
+                "label": "20과21 구분",
+                "text": "분홍색 ligand의 원본 표기는 20이다. 이 그림을 compound21의 직접 결정구조로 해석하지 않는다."
+              }
+            ],
+            "caption": "원문 caption 미확인. 설명은 확보된 원본 이미지의 시각 검토에 근거한다.",
+            "source": {
+              "label": "출판사 원본 이미지 · Figure 5",
+              "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"
+            }
+          },
+          {
+            "type": "figure",
+            "title": "세포 효력 비교의 기준 compound12",
+            "eyebrow": "Table 1",
+            "image": "/assets/briefs/62c2bdb4c9d4412f9b9685cb2d7ba408/table-1.png",
+            "alt": "Table 1: 세포 효력 비교의 기준 compound12",
+            "explanation": [
+              {
+                "label": "비교 기준",
+                "text": "Compound12의 RKN/SW1990 세포 IC50 행을 Table3의21과 대조한다. Compound1을 기준으로 삼으면 배수가 달라지므로 비교대상을 명시해야 한다."
+              },
+              {
+                "label": "확인 범위",
+                "text": "표 본문 이미지의 행과 수치는 확인했다. 원문 caption·각주가 없어 절대 농도 단위를 새로 확정하지 않았다."
+              }
+            ],
+            "caption": "원문 caption 미확인. 설명은 확보된 원본 이미지의 시각 검토에 근거한다.",
+            "source": {
+              "label": "출판사 원본 이미지 · Table 1",
+              "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"
+            }
+          },
+          {
+            "type": "figure",
+            "title": "Compound21의 세포 효력 비교",
+            "eyebrow": "Table 3",
+            "image": "/assets/briefs/62c2bdb4c9d4412f9b9685cb2d7ba408/table-3.png",
+            "alt": "Table 3: Compound21의 세포 효력 비교",
+            "explanation": [
+              {
+                "label": "21 대12",
+                "text": "두 표의 RKN 수치 비율은 76/2.0=38, SW1990은 27/0.6=45다. 이는 확보된 표에서 계산한 비교값이며 저자의 별도 통계검정 결과가 아니다."
+              },
+              {
+                "label": "해석",
+                "text": "IC50가 높다는 것은 이 세포 readout에서 효력이 낮다는 뜻이다. 개선된 PK와 구분해 읽는다."
+              }
+            ],
+            "caption": "원문 caption 미확인. 설명은 확보된 원본 이미지의 시각 검토에 근거한다.",
+            "source": {
+              "label": "출판사 원본 이미지 · Table 3",
+              "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"
+            }
+          }
+        ]
+      },
+      {
+        "title": "한계·해석",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "노출과 효력",
+                "text": "21의 PK 개선은 확인된 성과지만 세포 활성 손실과 약한 종양 반응을 함께 제시해야 한다."
+              },
+              {
+                "label": "비교 조건",
+                "text": "21의 차등 용량과 12의 IV 침전은 공정한 효능·PK 비교에 필요한 조건이다."
+              },
+              {
+                "label": "검증 범위",
+                "text": "복수 변이/종양 모델을 평가했지만 새 임상 후보로서의 유효성·안전성이 확정된 것은 아니다."
+              },
+              {
+                "label": "현재 브리핑",
+                "text": "Fig.2–6와 Tables1/3는 확보·검토했지만 본문·SI·PK/MetID 관련 Tables2/4/5는 현재 미확보다. 직접 확인한 그림·표의 내용과 과거 본문 기록값을 구분하며 완전한 원문 검토로 표시하지 않는다."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,662 @@
+{
+  "candidateId": "18561cf87e6e4e7e8d09f713d34b13c3",
+  "evidenceStatus": "fulltext",
+  "evidenceNote": "주요 결합·PK·효능 수치와 원본 Figures 1·3·4를 대조했습니다. 원문의 단위·일정 표기 차이를 표시했으며, 보충자료 전체는 검토하지 않았습니다.",
+  "tabs": {
+    "summary": [
+      {
+        "title": "어떤 ADC 설계 문제를 다루는가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "CRB-701은 nectin-4 항체의 각 heavy chain Q294에 MMAE-linker를 결합한 mean DAR2의 ADC다. 연구 질문은 <strong>항체의 결합·내재화를 유지하면서 혈중 payload 이탈을 줄이고 종양 노출을 확보할 수 있는가</strong>이다. 기존 nectin-4 ADC enfortumab vedotin(EV)과 전임상 효능·PK를 비교했다."
+          },
+          {
+            "type": "paragraph",
+            "text": "결합 affinity 유지와 더 긴 ADC 반감기, 더 낮은 free MMAE 노출을 보였지만 EV보다 모든 모델에서 더 강하지는 않았다. 같은2 mg/kg의 MDA-MB-468 모델에서는 CRB-701 TGI46.9%가 EV66.5%보다 낮았다. Dose·model·analyte를 맞추어 비교해야 하는 논문이다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#fig1\">Figure1 — ADC structure</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-6\">In vivo efficacy</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-7\">PK</a>"
+          }
+        ]
+      },
+      {
+        "title": "연구 흐름",
+        "blocks": [
+          {
+            "type": "image",
+            "src": "/assets/briefs/18561cf87e6e4e7e8d09f713d34b13c3/flow.svg",
+            "alt": "Site-specific ADC의 결합·기능·종양효능·PK를 분리 검증",
+            "caption": "본문의 연구 설계를 정리한 브리핑 도식. 원문 Figure를 재구성한 그림이 아닙니다."
+          }
+        ]
+      },
+      {
+        "title": "핵심 수치와 정확한 비교",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "질문",
+              "관찰",
+              "해석"
+            ],
+            "rows": [
+              [
+                "Conjugation 후 결합",
+                "CRB-701 BLI KD2.06–2.19 nM; parent mAb2.15–2.19 nM",
+                "결합을 유지했음. ELISA EC50·세포독성IC50와 다른 지표. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-2\">Binding activity</a>"
+              ],
+              [
+                "원숭이 ADC PK",
+                "반감기100 h vs EV44.5 h; AUClast11,761 vs4,116 h·μg/mL",
+                "Fig4/Table1의6 mg/kg,n=2 조건. Methods 일반 PK 서술과 표본 수가 다름. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#tbl1\">Table1</a>"
+              ],
+              [
+                "원숭이 free MMAE",
+                "Cmax91 vs413 pg/mL; AUClast13,079 vs43,175 h·pg/mL",
+                "혈중 free payload가 낮음. 임상 안전성 우월성을 직접 입증한 숫자는 아님. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#tbl1\">Table1</a>"
+              ],
+              [
+                "PDX BL0597",
+                "CRB-7014 mg/kg TGI110.7%; EV3 mg/kg69.6%,P=0.0304",
+                "다른 dose 비교이며 weekly×3 설계. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#fig3\">Figure3D</a>"
+              ],
+              [
+                "독성 한계",
+                "Monkey HNSTD7.5 mg/kg; 혈액·피부·점막 등 독성 관찰",
+                "Free MMAE 감소가 독성 부재를 뜻하지 않음. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-8\">Toxicology</a>"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "설계에 적용할 관점",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ADC 비교에서 DAR나 binding KD 하나만 보면 부족하다. 이 논문은 ADC 자체, total antibody(tAb), free MMAE를 나누어 PK를 측정하고, 동일 항체의 비결합체와 target-negative 세포를 대조했다. 내 linker/payload를 비교할 때도 동일 antibody mass가 같은 payload dose인지 확인하고, 종양 uptake·혈중 안정성·기능 potency의 변화가 함께 맞물리는지 보는 구성이 유용하다. 이는 연구 설계에 대한 브리핑의 제안이다."
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "1. 구조가 균질하다는 것과 완전히 단일종이라는 것",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "mTGase로 각 heavy chain Q294에 LND1002를 한 개씩 연결했다. LND1002에는 PEG spacer, valine–citrulline 기반 cathepsin-B cleavable 부분, MMAE가 들어간다. 제조 lot purity는95% 초과, unconjugated antibody는1.2% 이하, 평균 DAR는2였다."
+          },
+          {
+            "type": "paragraph",
+            "text": "본문의 mass-spectrometry 설명은 double-conjugated82.1% 초과, single9.6%, triple8.1%도 보고한다. 따라서 “DAR2의 완전히 단일한 분자만 존재”한다고 표현하지 않는다. Heavy chain mass shift1,296.4 Da는 linker-payload 이론값1,295.6 Da와 부합했다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-1\">Characterization</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#fig1\">Figure1</a>"
+          }
+        ]
+      },
+      {
+        "title": "2. 결합·내재화·세포독성은 순서대로 확인",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "측정",
+              "결과",
+              "판독 수준"
+            ],
+            "rows": [
+              [
+                "정제 단백질 ELISA",
+                "Human/rat/monkey nectin-4 EC50:2.01/2.40/1.58 ng/mL; mouse>5 μg/mL",
+                "항원 결합 dose-response. 종별 차이가 동물 안전성 해석에 중요."
+              ],
+              [
+                "BLI affinity",
+                "CRB-7012.06–2.19 nM; parent2.15–2.19 nM",
+                "Sensor kinetic fit에서 나온 KD."
+              ],
+              [
+                "PC-3-NECTIN4 cell binding",
+                "CRB-701 EC50 67±6.8 ng/mL; parent77±2.9 ng/mL",
+                "Flow cytometry 기반 세포 표면 결합."
+              ],
+              [
+                "세포독성",
+                "Transfected18.2–60.4 ng/mL vs endogenous-expression40,600–56,300 ng/mL",
+                "Expression/model에 따라 큰 차이. 숫자를 모두 같은 IC50 한 개로 요약하지 않음."
+              ],
+              [
+                "EV 비교",
+                "PC-3-NECTIN4에서는 EV가3배 초과 강함; MDA-MB-468에서는 비슷함",
+                "빠른 uptake가 모든 세포의 높은 cytotoxic potency를 보장하지 않음."
+              ],
+              [
+                "Intracellular MMAE",
+                "PC-3-NECTIN4에서6 h0.21,24 h0.55 ng/mL; parent PC-3는LOQ 미만",
+                "2 μg/mL CRB-701 binding/internalization 실험 후 세포 lysate 측정."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-2\">Binding activity</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-3\">Cytotoxicity</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-4\">Internalization and release</a>"
+          }
+        ]
+      },
+      {
+        "title": "3. Payload와 Fc가 각각 할 수 있는 일",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "CRB-701은 G2/M arrest와 apoptosis/caspase3/7 activation을 유도했으며 비결합 parent mAb는 해당 cytotoxicity assay에서 효과가 작거나 없었다. Nectin-4-positive 세포와 luciferase-positive/nectin-4-negative 세포를 함께 배양했을 때 음성 세포 viability도 감소해 bystander 작용과 일치했다."
+          },
+          {
+            "type": "paragraph",
+            "text": "별도의 complement/Fc receptor 조건에서는 parent mAb도 CDC·ADCC reporter 반응을 보였다. CRB-701의 CDC EC50 105.4 ng/mL, ADCC reporter EC50 19.1 ng/mL였다. 이는 “항체 단독은 언제나 아무 기능이 없다”는 뜻이 아니며, Jurkat NFAT reporter를 직접 면역세포의 실제 살상률과 동일시하지 않는다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-4\">MMAE / bystander effects</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-5\">Fc effector activity</a>"
+          }
+        ]
+      },
+      {
+        "title": "4. 모델과 dose에 따라 다른 종양효능",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "모델",
+              "CRB-701 dose와 TGI",
+              "EV dose와 TGI",
+              "설계·해석"
+            ],
+            "rows": [
+              [
+                "PC-3-NECTIN4",
+                "1 mg/kg52.1%;2 mg/kg93.4%",
+                "1 mg/kg44.1%",
+                "단회IV,종료day17,n=7/group."
+              ],
+              [
+                "HT1376",
+                "2 mg/kg76.6%;4 mg/kg80.8%",
+                "3 mg/kg69.9%",
+                "단회IV,종료day14,n=8/group. 다른 dose 비교."
+              ],
+              [
+                "MDA-MB-468",
+                "2 mg/kg46.9%;4 mg/kg121.2%",
+                "2 mg/kg66.5%",
+                "단회IV,종료day28,n=8/group. 같은2 mg/kg에서는 EV효과가 큼."
+              ],
+              [
+                "BL0597 PDX",
+                "2/3/4 mg/kg:101.6/96.5/110.7%",
+                "3 mg/kg69.6%",
+                "Days0,7,14 IV,종료day23,n=8/group.4vs3 mg/kg만 P=0.0304."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "TGI는 시작 시점과 vehicle 성장량을 반영한 상대 억제율이므로100% 초과는 해당 수식에서 종양 퇴축을 뜻한다. 생존율·완치율이 아니다. PDX Results에는 “weekly”와 “every3weeks”가 함께 쓰여 있지만 Methods와 Figure3은 주1회,총3회로 명시하므로 그 근거를 따라 표에 표시했다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-9\">Xenograft Methods</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-6\">Efficacy Results / Figure3</a>"
+          }
+        ]
+      },
+      {
+        "title": "5. ADC 노출과 free payload 노출의 분리",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Analyte / parameter",
+              "Rat CRB-701 / EV",
+              "Monkey CRB-701 / EV"
+            ],
+            "rows": [
+              [
+                "ADC Cmax (μg/mL)",
+                "24.9 /24.5",
+                "210 /112"
+              ],
+              [
+                "ADC AUClast (h·μg/mL)",
+                "931 /274",
+                "11,761 /4,116"
+              ],
+              [
+                "ADC t½ (h)",
+                "58 /14.1",
+                "100 /44.5"
+              ],
+              [
+                "Free MMAE Cmax (pg/mL)",
+                "32.5 /71.4",
+                "91 /413"
+              ],
+              [
+                "Free MMAE AUClast (h·pg/mL)",
+                "2,750 /3,888",
+                "13,079 /43,175"
+              ],
+              [
+                "Free MMAE t½ (h)",
+                "131 /37.8",
+                "266 /61.3"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "위 표는 Figure4/Table1의 rat1 mg/kg,n=5 및 monkey6 mg/kg,n=2를 따른다. ADC가 오래 유지되는 반면 free MMAE의 Cmax/AUC는 낮았다. Free MMAE의 terminal half-life가 더 길다는 사실은 총 노출 증가와 동의어가 아니다."
+          },
+          {
+            "type": "paragraph",
+            "text": "MDA-MB-468 종양분포 실험에서6 mg/kg 단회 CRB-701 후 종양 free MMAE의 Cmax와 AUC는 혈중보다 각각33배·164배 높았다. 이는 <strong>동일 CRB-701의 종양 대 혈중 비교</strong>이며 EV 대비33배·164배라는 수치가 아니다. Tumor MMAE Tmax는96 h,plasma는0.5 h였다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#tbl1\">Table1 — PK</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#fig5\">Figure5 — tumor distribution</a>"
+          },
+          {
+            "type": "callout",
+            "text": "단위 확인: Figure 4C의 축은 ng/mL, Table 1의 ADC 농도는 μg/mL로 표기된다. 표의 값을 그림 축에 그대로 환산해 확정하지 않으며 원문의 표기 차이를 유지한다."
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "항체 제작·결합 측정",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "실험",
+              "조건"
+            ],
+            "rows": [
+              [
+                "항체·접합",
+                "Humanized IgG1; CHOK1SV GS-KO expression, affinity+ion exchange purification. mTGase-catalyzed amide linkage at Q294; LND1002/MMAE,mean DAR2."
+              ],
+              [
+                "ELISA",
+                "Recombinant nectin-4 0.5 μg/mL,4°C overnight coating;1%BSA2 h block;6-fold dilution from5 μg/mL;HRP anti-human IgG F(ab′)₂/TMB;450/650 nm;4PL fit."
+              ],
+              [
+                "BLI",
+                "Octet RED96e;HIS1K sensor immobilized human nectin-4;200→1.6 nM,7two-fold dilutions;global1:1Langmuir fit;KD=koff/kon."
+              ],
+              [
+                "Cell binding",
+                "1×10⁶ cells/mL,100 μL/well;antibody5 μg/mL,4°C60–90 min;Alexa488anti-human IgG1:1,000;Attune NxT flow cytometer,MFI."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-2\">ADC generation</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-3\">Nectin-4 / Fc binding</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-4\">Cell binding</a>"
+          }
+        ]
+      },
+      {
+        "title": "세포 기능의 조건",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "실험",
+              "조건·대조"
+            ],
+            "rows": [
+              [
+                "배양",
+                "37°C,5%CO₂;PC-3 계열 DMEM/F12+10%FBS,293T 및 유방암 세포 DMEM+10%FBS. Transfected cell과 parent negative line을 구분. STR확인·mycoplasma검사."
+              ],
+              [
+                "Viability",
+                "1×10⁵ cells/mL,100 μL/well;약물10/11serial dilutions;63–69 h incubation 후0.03%resazurin20 μL,추가3–4 h;550/610 nm fluorescence."
+              ],
+              [
+                "농도 범위",
+                "Maximum0.833 μg/mL(293T),1.667 μg/mL(PC-3),500 μg/mL(MDA-MB-468),1,000 μg/mL(SK-BR-3). Cell별 범위·dilution factor가 다름."
+              ],
+              [
+                "Internalization",
+                "PC-3-NECTIN4에2 μg/mL antibody,4°C2 h binding;wash후37°C0/3/6/9/24/48 h. 표면 MFI 감소율로 계산."
+              ],
+              [
+                "MMAE release",
+                "같은2 μg/mL·4°C2 h binding후6/24 h incubation;RIPA lysate LC-MS/MS. AB SCIEX LC-30/Triple Quad5500,BEH C18 1.7 μm2.1×50 mm;calibration0.023–50 ng/mL."
+              ],
+              [
+                "Bystander",
+                "Nectin4-positive cells:HEK293-LUC=1:1;72 h 처리;Bright-Glo로 nectin4-negative 세포의 luminescence 측정. Parent mAb 대조."
+              ],
+              [
+                "분석",
+                "GraphPad Prism10.1.1,4PL nonlinear regression. Figure별 n와 오차막대를 구분하며 assay별 반복 수가 본문에 모두 명시된 것은 아님."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-1\">Cell lines</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-5\">Cytotoxicity / bystander assays</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-6\">Endocytosis and MMAE release</a>"
+          }
+        ]
+      },
+      {
+        "title": "종양 모델·PK assay",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "설계",
+              "수행 내용"
+            ],
+            "rows": [
+              [
+                "CDX",
+                "PC-3-NECTIN4와HT1376은5×10⁶cells,NU/NU;MDA-MB-468은1×10⁷cells,NOD/SCID. 초기 종양 약190/90/110 mm³에서 volume기반 무작위배정."
+              ],
+              [
+                "PDX",
+                "BL0597 tumor fragment2–3 mm,BALB/c nude;평균137 mm³,48마리→6군,8/group. IVdays0/7/14."
+              ],
+              [
+                "측정",
+                "Tumor volume와body weight 주2회;volume=0.5×L×W². CDXmean±SD,PDXmean±SEM으로 figure표시."
+              ],
+              [
+                "PK analytes",
+                "ADC/tAb:ELISA;free MMAE:LC-MS/MS. Phoenix WinNonlin8.0 noncompartmental analysis."
+              ],
+              [
+                "혈액채취",
+                "Methods:predose,end infusion,4/24/72/120/168/240/336/504/672 h. Rat2 min,monkey20 min infusion."
+              ],
+              [
+                "Tumor distribution",
+                "MDA-MB-468 model,CRB-7016 mg/kg단회;n=3/timepoint;0.5/24/96/168/384 h serum·tumor수집."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "<strong>PK 조건 상충:</strong> general Methods는 rat·monkey 모두6 mg/kg,n=3/sex/species라고 서술한다. Figure4/Table1은 rat1 mg/kg,n=5,monkey6 mg/kg,n=2로 명시한다. 두 프로토콜을 임의로 합치지 않았고, 표의 숫자는 Figure4/Table1 조건으로 한정했다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-9\">Xenograft studies</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-10\">In vivo PK Methods</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#tbl1\">Table1 footnote</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-12\">Tumor uptake</a>"
+          }
+        ]
+      },
+      {
+        "title": "반복독성·통계",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "설계와 결과 해석"
+            ],
+            "rows": [
+              [
+                "Rat repeat-dose",
+                "0/5/15/30 mg/kgIV,q2w×3.10/sex/group,회복5/sex/group추가;4주recovery. STD10=30 mg/kg."
+              ],
+              [
+                "Monkey repeat-dose",
+                "0/2.5/7.5/15 mg/kgIV,days1/15/29.3/sex/group,회복2/sex/group추가. HNSTD=7.5 mg/kg."
+              ],
+              [
+                "관찰 독성",
+                "Monkey7.5 mg/kg에서혈액세포감소·피부/점막/간/골수 등 병리.15 mg/kg군1마리는day42피부병변 관련감염 진행으로 사망."
+              ],
+              [
+                "회복",
+                "대부분 조직은4주후완전/부분회복,rat일부생식기관병변은 남음."
+              ],
+              [
+                "통계",
+                "CDXone-way ANOVA+multiple comparison correction;PDXTukey/Dunnett 또는Kruskal–Wallis. 임상 독성 감소를 확인한 연구는 아님."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-13\">Toxicology Methods</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s3-8\">Toxicology Results</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s2-14\">Statistical analysis</a>"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "Figure1 · 원문 ADC 구조",
+        "blocks": [
+          {
+            "type": "figure",
+            "eyebrow": "Figure 1 · 원문 그림",
+            "title": "CRB-701의 항체–linker–payload 구조",
+            "description": "원문 그림을 보존하고 아래에 한국어 해설을 덧붙였습니다.",
+            "image": "/assets/briefs/18561cf87e6e4e7e8d09f713d34b13c3/figure-1.webp",
+            "alt": "CRB-701의 항체–linker–payload 구조",
+            "caption": "Structure of CRB-701. CRB-701 is comprised of a novel anti-human nectin-4 mAb conjugated to a molecule of LND1002 at the Q294 position of each heavy chain, yielding a mean DAR of 2. Each LND1002 molecule comprises a PEG moiety, a valine-citrulline p-aminobenzyl carbamate cathepsin B cleavable linker, and MMAE.",
+            "explanation": [
+              {
+                "label": "Q294와 DAR",
+                "text": "각 heavy chain의 Q294에 linker-payload를 연결하므로 평균 DAR 2다. Figure의 구조를 그대로 제시했으며 임의의 chemical structure를 추정하지 않았다."
+              },
+              {
+                "label": "저자 본문의 linker 설명",
+                "text": "저자 본문은 PEG·valine–citrulline 계열 linker·MMAE로 설명한다. 이는 본문 표기를 전달한 것이며 구조식의 화학적 동일성을 독립 검증한 결과는 아니다. 혈중 안정성과 세포 내 release에 관한 결론은 구조 그림만으로 확정하지 않는다."
+              },
+              {
+                "label": "제조물의 분포",
+                "text": "평균 DAR 2라는 표현을 모든 분자의 DAR이 정확히 2라는 뜻으로 읽지 않는다. 본문은 single/triple-conjugated 분획도 보고한다."
+              }
+            ],
+            "source": {
+              "label": "Figure 1 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#fig1"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Figure3 · 같은 효과인가, 같은 dose인가",
+        "blocks": [
+          {
+            "type": "figure",
+            "eyebrow": "Figure 3 · 원문 그림",
+            "title": "CDX·PDX의 모델별 종양 성장 비교",
+            "description": "원문 그림을 보존하고 아래에 한국어 해설을 덧붙였습니다.",
+            "image": "/assets/briefs/18561cf87e6e4e7e8d09f713d34b13c3/figure-3.webp",
+            "alt": "CDX·PDX의 모델별 종양 성장 비교",
+            "caption": "In vivo antitumor activity of CRB-701 in four xenograft mouse models. A, PC-3-NECTIN4 human prostate cancer CDX model (n = 7 per group). B, HT1376 human bladder cancer CDX model (n = 8 per group). C, MDA-MB-468 human triple-negative breast cancer CDX model (n = 8 per group). D, BL0597 human bladder cancer PDX model (n = 8 per group). Treatments were administered as a single intravenous dose on day 0 in CDX models. In the PDX model, treatments were administered once a week for 3 weeks. Tumor size measurements were taken twice a week and used to calculate tumor volumes. Data are presented as mean ± standard deviation (SD) for parts A–C and mean ± standard error of the mean (SEM) for part D; *, P < 0.05; **, P > 0.01; ***, P < 0.001 vs. vehicle. In the PDX model, CRB-701 4 mg/kg was significantly different (P = 0.0304) to EV 3 mg/kg.",
+            "explanation": [
+              {
+                "label": "A–D",
+                "text": "A=PC-3-NECTIN4, B=HT1376, C=MDA-MB-468, D=BL0597. 가로축은 투약 후 시간, 세로축은 종양 volume이다. CDX는 day 0 단회, PDX는 주 1회 총 3회 투여했다."
+              },
+              {
+                "label": "비교의 핵심",
+                "text": "C에서 같은 2 mg/kg CRB-701과 EV를 비교하면 CRB-701이 항상 우월하지 않음이 보인다. D의 유의차 P=0.0304는 CRB-701 4 mg/kg 대 EV 3 mg/kg으로 dose가 다르다."
+              },
+              {
+                "label": "오차와 caption",
+                "text": "A–C는 mean±SD, D는 mean±SEM. 원문 caption은 **에 P>0.01로 기재돼 있어 일반적 별표 관례대로 P<0.01로 자동 수정하지 않았다."
+              },
+              {
+                "label": "일정 표기의 불일치",
+                "text": "Figure 3D는 days 0·7·14를 표시하지만 Results의 관련 문장은 every 3 weeks라고 적고 있다. 브리핑의 일정 설명은 그림 표기를 따른 것이며 원문 내부 불일치를 해소한 것은 아니다."
+              }
+            ],
+            "source": {
+              "label": "Figure 3 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#fig3"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Figure4 · 유지되는 ADC와 유리되는 MMAE",
+        "blocks": [
+          {
+            "type": "figure",
+            "eyebrow": "Figure 4 · 원문 그림",
+            "title": "Rat·monkey의 ADC 및 free MMAE 농도–시간 곡선",
+            "description": "원문 그림을 보존하고 아래에 한국어 해설을 덧붙였습니다.",
+            "image": "/assets/briefs/18561cf87e6e4e7e8d09f713d34b13c3/figure-4.webp",
+            "alt": "Rat·monkey의 ADC 및 free MMAE 농도–시간 곡선",
+            "caption": "PK of CRB-701 and EV analytes, ADC (A and C), and MMAE (B and D) in plasma, following administration of 1 mg/kg CRB-701 or EV in Sprague–Dawley rats (n = 5), and 6 mg/kg CRB-701 or EV to cynomolgus monkeys (n = 2). ADC concentration was determined by ELISA, and MMAE concentration was determined by LC/MS-MS. Data are presented as mean ± standard deviation (SD).",
+            "explanation": [
+              {
+                "label": "A / C",
+                "text": "A는 rat, C는 monkey의 ADC plasma 농도다. 그림의 A와 C 축은 모두 ng/mL로 표기되어 있지만, Table 1은 μg/mL를 사용하며 C의 눈금 규모와 단위 표기가 일치하지 않는 문제가 있다. 원문 차이를 임의로 환산·교정하지 않는다. 보라색 역삼각형이 CRB-701, 주황색 원이 EV다."
+              },
+              {
+                "label": "B / D",
+                "text": "Free MMAE를 LC-MS/MS로 측정하며 B는 rat, D는 monkey, 단위는 pg/mL다. ADC와 단위가 다르므로 선 높이를 서로 직접 비교하지 않는다. 같은 종 내의 CRB-701 대 EV를 보아야 한다."
+              },
+              {
+                "label": "조건",
+                "text": "Figure/Table 기준 rat 1 mg/kg, n=5; monkey 6 mg/kg, n=2. Methods의 일반 PK 조건과 불일치하므로 이 그림의 조건을 명시했다."
+              },
+              {
+                "label": "의미",
+                "text": "ADC 노출은 더 높고 오래 지속되며 free payload Cmax/AUC는 더 낮다. 낮은 혈중 MMAE를 곧바로 임상 안전성 우위나 독성 부재로 읽지 않는다."
+              }
+            ],
+            "source": {
+              "label": "Figure 4 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#fig4"
+            }
+          }
+        ]
+      },
+      {
+        "title": "한계와 다음 확인",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "비교 공정성",
+                "text": "EV와 CRB-701의 항체·DAR·linker가 다르며 mg/kg 항체 기준 비교는 동일 MMAE 투여량 비교가 아니다. 효능은 model/dose에 따라 달랐다."
+              },
+              {
+                "label": "종별 target 차이",
+                "text": "Mouse nectin-4 결합은 낮고 human/rat/monkey와 다르다. 사람 종양 xenograft 효과와 host normal-tissue on-target 독성을 한 모델에서 동시에 다 검증했다고 할 수 없다."
+              },
+              {
+                "label": "수치·프로토콜 상충",
+                "text": "PK dose/n, PDX 주기 표현, Figure3 별표 기준이 본문 내 일치하지 않는다. Parental-cell 대조의 농도도 Results에 ng/mL와 mg/mL 표기가 혼재해 그 문장을 그대로 정량 근거로 재사용하지 않았다."
+              },
+              {
+                "label": "전임상에서 임상으로",
+                "text": "작은 PK군, immune-deficient xenograft, 비교약 문헌 독성 참조가 포함된다. Human comparative efficacy/safety 또는 모든 독성의 예방을 입증한 연구는 아니다."
+              },
+              {
+                "label": "공개 범위",
+                "text": "본문·그림·PK 표를 확인했다. 상세 보조 assay/원자료를 모두 재계산한 것은 아니며 논문 Data Availability는 요청을 통한 제공을 안내한다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s4\">Discussion</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576400/#s5\">Data availability</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "그림: ©2026 The Authors, American Association for Cancer Research, <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY4.0</a>."
+          }
+        ]
+      }
+    ]
+  }
+}

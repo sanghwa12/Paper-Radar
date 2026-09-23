@@ -1,0 +1,565 @@
+{
+  "candidateId": "f73c383248d54b4e8c4b0f76337ffc96",
+  "card": {
+    "purpose": "색·탁도에 영향을 받는 MTS 흡광 판독을 전기화학 신호로 바꿔, 세포와 3D 피부 모델의 생존율을 더 안정적으로 읽을 수 있는지 시험했다.",
+    "pairs": [
+      {
+        "label": "동일 반응을 다른 신호로 측정",
+        "method": "NADH로 MTS-formazan을 만들고, screen-printed carbon electrode의 전류와 기존 흡광값을 비교했다.",
+        "result": "EpiLife 조건의 평균 측정 오차는 전기화학 1.73%, 흡광 4.62%로 보고됐다. 이는 해당 보정 실험의 비교이지 모든 생존율 assay의 정확도는 아니다.",
+        "source": {
+          "label": "Results — Electrochemical characterization; Figure 4",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/"
+        }
+      },
+      {
+        "label": "세포에서 3D 조직으로 확장",
+        "method": "인간 진피 섬유아세포·각질세포와 재구성 인간 표피(RHE)를 사용하고 화학물질 노출 후 두 판독법을 비교했다.",
+        "result": "세포 밀도와 생존율 변화를 전기화학적으로 읽었으며 RHE 적용 가능성도 보였다. 피부 이외 조직이나 자동 연속 측정까지 검증한 것은 아니다.",
+        "source": {
+          "label": "Results — Cell confluency; RHE viability; Figures 5–8",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/"
+        }
+      }
+    ],
+    "significance": "새로운 생물학적 모델을 만들기보다 기존 viability assay의 판독 원리를 바꿔 광학 간섭을 줄이는 방법 개발 사례다.",
+    "application": "색이 진한 화합물이나 탁한 배양계에서 MTS를 쓴다면, 배지·시험물질 자체의 전기화학 배경을 먼저 측정한 뒤 흡광법과 병행 비교하는 실험을 설계할 수 있다.",
+    "limits": "피부 모델의 종말점 측정 사례다. 반응·노출 시간과 RHE 반복 수의 본문 내 상충을 확인한 뒤 재현 조건을 정해야 한다.",
+    "flow": [
+      "MTS-formazan 반응",
+      "전류·흡광 병행 비교",
+      "2D 피부 세포",
+      "3D RHE 생존율"
+    ],
+    "selectionReason": "기존 광학 판독과 직접 비교하되 보고 일관성도 확인하는 사례.",
+    "image": {
+      "src": "/assets/briefs/f73c383248d54b4e8c4b0f76337ffc96/figure-4.webp",
+      "alt": "NADH 농도와 전류·흡광의 관계",
+      "title": "NADH 농도와 전류·흡광의 관계",
+      "caption": "원문 그림은 수정하지 않았습니다. 아래 한국어 설명은 브리핑의 해설입니다.",
+      "source": {
+        "label": "Figure 3 · 원문과 caption",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig3"
+      }
+    },
+    "titleKo": "MTS 생존율 측정: 색 대신 전류로 2D 세포와 3D 피부를 읽기"
+  },
+  "abstract": {
+    "paragraphs": [
+      "독성학과 신약개발에서 동물을 사용하지 않는 시험으로 전환하는 흐름은 복잡한 3D in vitro 모델의 도입을 가속했다. 그러나 표준 비색 세포 생존율 assay는 화학적 간섭으로 인해 심각한 한계를 겪는다. 이 문제를 해결하기 위해 연구진은 screen-printed carbon electrode 기반의 다용도 sensor 플랫폼을 설계했다. MTS-formazan의 전기화학적 환원을 통해 세포 생존율을 정량함으로써 광학 측정의 병목을 극복하려는 접근이다.",
+      "이 전기화학 sensor는 서로 다른 세포 밀도의 2D 인간 진피 섬유아세포와 각질세포에서 검증되었다. 특히 OECD 패널의 자극성 및 비자극성 화학물질에 노출된 2D 세포 단층과 재구성 인간 표피 모두에서 생존율을 성공적으로 평가했다. 전기화학적 접근은 비색 측정의 기존 한계를 극복하면서 생존율 assay의 신뢰성을 높이는, 기술적으로 견고하고 간섭이 없는 도구를 제공한다. 이 방법론은 어떤 조직에도 적용할 수 있는 범용 도구로서 약리학·화장품·생의학 연구의 고처리량 선별을 위한 견고하고 유망한 해결책을 제시한다."
+    ],
+    "source": {
+      "label": "출판 논문 Abstract",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/"
+    }
+  },
+  "tabs": {
+    "summary": [
+      {
+        "title": "무엇을 바꾼 연구인가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "새로운 세포 생존율 표지자를 만든 연구가 아니라, <strong>같은 MTS→formazan 반응을 흡광도 대신 전류로 읽는 방법</strong>을 검증했다. 배양액의 색·탁도에 의한 광학 간섭을 줄이는 것이 목적이다. NADH 표준용액에서 판독 성능을 확인하고, 2D 피부 세포의 밀도·독성 반응, 3D reconstructed human epidermis(RHE)로 검증을 확장했다."
+          },
+          {
+            "type": "paragraph",
+            "text": "읽어야 할 핵심은 “상관성이 높다”와 “어떤 시료에서도 정확하다”를 구분하는 것이다. 두 판독 모두 같은 대사 반응에 의존하므로 세포 수와 대사 상태를 분리해 보여주는 독립 생존율 기준은 아니다. 피부 모델에서의 종말점 분석으로서 유용하지만, 연속 실시간 측정이나 전 조직 검증은 수행하지 않았다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec1\">Introduction</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec3.1\">Limitations of the study</a>"
+          }
+        ]
+      },
+      {
+        "title": "연구 흐름",
+        "blocks": [
+          {
+            "type": "image",
+            "src": "/assets/briefs/f73c383248d54b4e8c4b0f76337ffc96/flow.svg",
+            "alt": "MTS 반응의 판독 변경 → 화학적 검증 → 세포·조직 검증",
+            "caption": "본문의 실험·분석 순서를 정리한 브리핑 도식. 원문 Figure를 재구성한 그림이 아닙니다."
+          }
+        ]
+      },
+      {
+        "title": "핵심 결과를 같은 기준으로 읽기",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "비교",
+              "보고 결과",
+              "해석"
+            ],
+            "rows": [
+              [
+                "NADH 농도→전류",
+                "그림 축 기준 EpiLife R²=0.9486; DMEM R²=0.9667",
+                "Figure3의 실제 C/D 패널 기준. 본문·caption은 EpiLife를0.9493으로 배정해 그림과 상충한다. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig3\">Figure 3</a>"
+              ],
+              [
+                "측정 변동: EpiLife",
+                "전류 1.73±1.19%; 흡광 4.62±3.09%",
+                "저자가 SD 기반으로 계산한 평균 percentage error; 실제 생존율의 정답 대비 오차는 아님. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig4\">Figure 4</a>"
+              ],
+              [
+                "측정 변동: DMEM",
+                "전류 2.63±1.64%; 흡광 5.25±3.44%",
+                "시험한 배지 조건에서 반복 정밀도 개선. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig4\">Figure 4</a>"
+              ],
+              [
+                "세포 밀도→판독",
+                "hDF: 전류 R²=0.9358; 흡광 R²=0.9684",
+                "세포 농도 반응은 양쪽 모두 관찰. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig5\">Figure 5</a>"
+              ],
+              [
+                "2D·3D 독성",
+                "2D hDF의 KOH, RHE의 KOH·SDS에서 판독 차이를 표시",
+                "Figure7의 hDF KOH는 **, Figure8의 KOH·SDS는 ***. 다른 조건의 동등성 및 그림에 없는 조건의 결과는 확정하지 않는다. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig7\">Figure 7</a> · <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig8\">Figure 8</a>"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "내 연구에 가져올 부분",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "색·탁도가 있는 배양계에서 MTS 결과를 읽을 때 비교할 수 있는 대체 판독법이다. 해석의 기준은 광학 간섭이 줄었는지, 해당 시료의 산화환원 신호가 분리되는지, MTS 대사 활성을 세포 수나 생존율과 같은 뜻으로 다루지 않았는지다. 논문의 배지·모델에서 관찰한 정밀도 개선과 다른 시료에 대한 일반화 가능성을 구분해 읽어야 한다. 이는 결과 해석과 비교를 위한 관점이며 새 실험 절차를 제안한 것은 아니다."
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "1. 전류가 MTS 반응을 반영하는가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "PBS·DMEM·EpiLife의 cyclic voltammetry(CV)에서 −0.6~+0.7 V 범위의 배경을 먼저 확인했다. NADH가 MTS를 환원하면 −0.3~−0.1 V 부근에 cathodic peak가 생겼으며 NADH 농도 증가에 따라 절대 전류가 증가했다. Figure 2는 n=7 반복의 평균이다. 배지/MTS/NADH 개별 성분과 혼합 반응을 구분한 대조는 Figure S2로 안내된다."
+          },
+          {
+            "type": "table",
+            "headers": [
+              "배지",
+              "농도–흡광 R² (그림)",
+              "농도–전류 R² (그림)",
+              "전류–흡광 R² (그림)"
+            ],
+            "rows": [
+              [
+                "EpiLife",
+                "0.9522 (A)",
+                "0.9486 (C)",
+                "0.9327 (E)"
+              ],
+              [
+                "DMEM",
+                "0.9493 (B)",
+                "0.9667 (D)",
+                "0.9023 (F)"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "위 표는 실제 Figure3의 패널 제목·축·R² 표기를 따른다. 원문 본문·caption은 B를 EpiLife 전류(0.9493), C를 DMEM 흡광(0.9486)으로 기술해 그림과 서로 다르다. 그림을 설명하는 기준은 분명히 하되, 어느 배정이 실험 원자료의 정답인지는 이 자료만으로 확정하지 않는다."
+          },
+          {
+            "type": "paragraph",
+            "text": "NADH 보정 범위는 0.005–0.1 mg/mL이고 보고된 LoD는 0.0047 mg/mL이다. 이 LoD는 NADH 기준 반응에서 나온 값이지 검출 가능한 세포 수 또는 독성 물질의 농도가 아니다. 전류 절댓값과 흡광의 높은 상관도 생존율의 절대 정확도를 직접 입증하지는 않는다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec2.1\">Electrochemical characterization; Figures 1–4</a>"
+          }
+        ]
+      },
+      {
+        "title": "2. 살아 있는 세포에서도 대사 의존성이 유지되는가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "hDF를10–100% confluence로 늘리자 MTS 흡광과 cathodic current의 절댓값이 증가했다. 그림의 전류는 음수이므로 부호 있는 값은 더 작아지는 방향이다. 두 신호 사이 R²는0.9056이었다. 저자는 NADH 관련 처리와 DMSO 대조를 비교해 대사 반응과 판독의 연관성을 살폈다. 다만 Figure5D/E의 농도 축(mg/mL)과 Methods(μM)가 다르므로 해당 처리 농도를 확정된 공통 조건으로 취급하지 않는다."
+          },
+          {
+            "type": "paragraph",
+            "text": "다만 밀도에 대한 전류 R²=0.9358은 흡광 R²=0.9684보다 높지 않다. 이 논문의 장점은 모든 성능 지표에서 우월하다는 데 있지 않고, 광학계 외의 판독 통로를 제공하면서 적절한 농도 반응과 반복 정밀도를 확보했다는 데 있다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig5\">Figure 5</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.3.3\">NADH production inhibition</a>"
+          }
+        ]
+      },
+      {
+        "title": "3. 독성 처리 후 생존율을 읽는가",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "모델",
+              "시험·대조",
+              "관찰 결과와 주의점"
+            ],
+            "rows": [
+              [
+                "hDF / N/TERT-1",
+                "PBS, 5% SDS, 1-bromo-4-chlorobutane, isopropanol, 1-decanol, 5% KOH",
+                "Figure7에는 hDF KOH만 **p<0.01로 표시되고 다른 비교는 ns다. Caption은 PBS=100%, SDS=0% 기준을 서술하지만 실제 SDS 막대가 모두 정확히0인 것은 아니다."
+              ],
+              [
+                "RHE",
+                "Figure8A에 표시: PBS, 5% SDS, 1-bromo-4-chlorobutane, isopropanol, 1-decanol, 5% KOH",
+                "KOH와 SDS 양쪽에 ***가 표시돼 있다. 본문은 SDS만 유의한 예외로 언급하므로 서로 상충한다. 나머지 비교는 그림에 유의차 기호가 없다는 사실까지만 확인된다."
+              ],
+              [
+                "조직 구조",
+                "Figure 8B H&E",
+                "각질층·과립층·기저층이 형성된 3D 조직임을 확인. 조직 구조가 보인다는 사실과 모든 독성 분류 정확성은 별개."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "RHE Methods·caption은 HCl과 sulfuric acid도 시험 패널에 포함하지만 실제 Figure8A에는 두 물질의 막대가 없다. 이 그림만으로 두 조건의 결과나 판독 간 일치 여부를 확인할 수 없다. 또한 Figure7 caption의 PBS=100%·SDS=0% 설명과 실제 양성대조 막대의 차이는 원자료 없이 임의로 정규화 계산을 추정해 해소하지 않았다."
+          },
+          {
+            "type": "paragraph",
+            "text": "본문은 RHE 두 방식의 “모든 화학물질에서 유의차 없음”을 서술하면서 괄호에는 SDS p<0.001을 기재한다. 실제 Figure8A는 KOH와 SDS 모두에 ***를 표시한다. 브리핑은 이 상충을 보존하며, 확인하지 못한 비교를 “차이 없음”으로 채우지 않는다. 유의차를 발견하지 못했다는 결과 역시 사전에 정한 동등성 한계를 통과했다는 뜻은 아니다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec2.3\">Cell monolayer viability</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec2.4\">RHE viability</a>"
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "측정 장비와 전극",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "실제 사용 조건"
+            ],
+            "rows": [
+              [
+                "Potentiostat / software",
+                "Metrohm DropSens μStat 300; DropView 8400"
+              ],
+              [
+                "전극",
+                "DRP-C110 SPCE: 지름 4 mm carbon working electrode, carbon counter electrode, 내부 silver reference electrode. 표면 개질·활성화 없이 사용."
+              ],
+              [
+                "측정",
+                "상층액 50 μL; 25°C; −0.6→+0.7 V; scan rate 50 mV/s; 안정화를 위해 연속 3 scans. 전위 기준은 내부 Ag 전극."
+              ],
+              [
+                "측정 후",
+                "Dulbecco PBS 1X로 세척하고 흡수지로 건조. 시료는 정제 없이 측정."
+              ],
+              [
+                "광학 비교",
+                "Synergy HTX Multi-Mode Microplate Reader; 490 nm; orbital mixing 200 rpm."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.3.1\">STAR Methods — Electrochemical measurements</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.3.5\">STAR Methods — MTS assay</a>"
+          }
+        ]
+      },
+      {
+        "title": "세포·조직 조건",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "모델",
+              "배양·준비 조건"
+            ],
+            "rows": [
+              [
+                "hDF",
+                "PromoCell C-12300 primary dermal fibroblasts; DMEM +10% FBS +1% Ab/Am; 37°C, 5% CO₂. 80% confluence에서 계대."
+              ],
+              [
+                "N/TERT-1",
+                "Immortalized human keratinocyte; serum-free EpiLife +HKGS +1% Ab/Am; 37°C, 5% CO₂. 50–60% confluence에서 계대."
+              ],
+              [
+                "RHE 제작",
+                "0.4 μm pore insert를 bovine collagen I 0.1 mg/mL로 37°C, 1 h 코팅. N/TERT-1 4,900 cells/mm² 파종. Confluence 후 air–liquid interface로 올림."
+              ],
+              [
+                "RHE 분화",
+                "CnT-Prime 3D Airlift Medium:DMEM=60:40; 10일 분화·각질화; 격일 배지 교체."
+              ],
+              [
+                "세포 밀도 보정",
+                "24-well plate에서 100%를 240,000 cells로 정의; 10% 간격으로 감소해 다음 날 측정."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Results 서두의 배지-세포 대응 문장은 Methods와 반대로 읽힐 수 있다. 이 표는 세부 배양 Methods의 hDF–DMEM, N/TERT-1–EpiLife를 따른다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.2\">Experimental model details</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.3.6\">Cell confluency protocol</a>"
+          }
+        ]
+      },
+      {
+        "title": "실험 순서와 대조군",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "단계",
+              "Methods에 명시된 조건"
+            ],
+            "rows": [
+              [
+                "MTS 반응",
+                "CellTiter 96 aqueous non-radioactive assay (Promega G3582); 해당 배지에 reagent 10%; 빛을 피하여 준비하고 37°C에서 4 h 반응; 상층액 분취."
+              ],
+              [
+                "2D 독성 처리",
+                "96-well에 confluence로 파종, 24 h 배양; 시험물질 50 μL, 60 min 노출; PBS로 5 min씩 3회 세척; 42 h 회복 후 MTS."
+              ],
+              [
+                "RHE 독성 처리",
+                "분화 10일 조직의 apical surface에 50 μL, 60 min 노출; PBS 5 min×3 세척; fresh EpiLife에서 42 h 회복."
+              ],
+              [
+                "음성 / 양성 대조",
+                "PBS / 5% aqueous SDS; 배지+10% MTS blank를 빼고 생존율 정규화."
+              ],
+              [
+                "기전 대조",
+                "NADH 관련 억제제 HY-152026: 0.1, 0.5, 1, 2, 5, 10 μM, 24 h; 5 mM DMSO stock; 각 농도에 맞춘 DMSO 대조. 저자는 NADH-oxidase로 기술한다. 여기의 μM은 Methods의 표기이며 실제 Figure5D/E 농도 축은 mg/mL로 다르다. 같은 조건으로 환산하거나 어느 단위가 옳다고 단정하지 않는다."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "실제 조건 해석에 남는 불일치: MTS assay Methods는4 h이나 Figures5–7 caption은3 h이다. NADH 관련 처리의 Methods와 Figure5D/E는 농도 단위도 다르다. 위 표는 출처별 기재를 보존한 것으로, 확정된 실행용 프로토콜이 아니다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.3\">STAR Methods — Method details</a>"
+          }
+        ]
+      },
+      {
+        "title": "분석·반복·재현 범위",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "보정과 LoD",
+                "text": "NADH 0.005–0.1 mg/mL를 0.005 mg/mL 간격으로 EpiLife와 DMEM에서 측정. LoD=3.3σ/S; σ는 선형 회귀 잔차 SD, S는 slope."
+              },
+              {
+                "label": "통계",
+                "text": "GraphPad Prism v8.0.2; one-way/two-way ANOVA; 유의 수준 0.05. Methods는 일반 n=7, RHE n=4로 쓰지만 Figure 8 caption은 n=3이므로 이 둘을 합쳐 확정 반복 수로 쓰지 않는다."
+              },
+              {
+                "label": "현재 재현 가능한 부분",
+                "text": "장비·전극·배양·반응·판독 조건은 본문에 명시된다. 원자료를 이용한 독립 재계산, SI의 DPV 및 보조 대조 실험 재분석은 이 브리핑에서 수행하지 않았다."
+              },
+              {
+                "label": "그림과 조건의 대응",
+                "text": "RHE Methods/caption의 HCl·sulfuric acid는 Figure8A에 결과 막대가 없다. Figure7의 정규화 설명과 실제 양성대조 막대에도 차이가 있어, 두 부분 모두 원자료 없이 계산·효과를 추정하지 않는다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.3.2\">Validation of MTS signal</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec9.4\">Quantification and statistical analysis</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec4.3\">Data and code availability</a>"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "Figure 3 · 화학 반응과 판독의 대응",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "NADH 농도와 전류·흡광의 관계",
+            "eyebrow": "Figure 3 · 원문 그림",
+            "description": "원문 그림은 수정하지 않았습니다. 아래 한국어 설명은 브리핑의 해설입니다.",
+            "image": "/assets/briefs/f73c383248d54b4e8c4b0f76337ffc96/figure-4.webp",
+            "alt": "NADH 농도와 전류·흡광의 관계",
+            "explanation": [
+              {
+                "label": "A–D: 실제 그림의 축",
+                "text": "가로축은 NADH 농도다. A/B의 세로축은 MTS 흡광, C/D는 current intensity이며 A/C는 EpiLife, B/D는 DMEM이다. 붉은 점선은 회귀선, 검은 점은 측정값이다."
+              },
+              {
+                "label": "본문·caption과 다른 점",
+                "text": "이미지의 B는 DMEM 흡광 R²=0.9493, C는 EpiLife 전류 R²=0.9486이다. 원문 본문·caption은 B/C를 서로 다른 조건으로 설명한다. 이 해설은 보이는 축을 따르되 실험 원자료의 올바른 배정은 미확인으로 남긴다."
+              },
+              {
+                "label": "E–F: 두 판독의 관계",
+                "text": "EpiLife(E) R²=0.9327, DMEM(F) R²=0.9023이다. 흡광이 증가할수록 전류는 더 음수가 되므로 전류의 절댓값이 증가한다. Caption은 각 점을 n=7의 mean±SD로 설명한다."
+              },
+              {
+                "label": "읽을 포인트",
+                "text": "시험한 배지에서 농도 반응을 보였다는 근거다. 높은 R²를 생존율의 절대 정확도나 모든 시험물질에서 간섭이 없다는 결과로 확대하지 않는다."
+              }
+            ],
+            "caption": "Correlation analysis of MTS reduction by NADH in EpiLife and DMEM culture media (A) Mean absorbance (OD) as a function of NADH concentration in EpiLife medium (conventional spectrophotometric method, R2 = 0.9522). (B) Electrochemical current intensity peak as a function of NADH concentration in EpiLife medium (proposed electrochemical method, R2 = 0.9493). (C) Mean absorbance (OD) as a function of NADH concentration in DMEM medium (conventional spectrophotometric method, R2 = 0.9486). (D) Electrochemical current intensity peak as a function of NADH concentration in DMEM medium (proposed electrochemical method, R2 = 0.9667). (E) Correlation between mean absorbance (OD) and electrochemical current intensity peak in EpiLife medium (R2 = 0.9327). (F) Correlation between mean absorbance (OD) and electrochemical current intensity peak in DMEM medium (R2 = 0.9023). Data are represented as mean ± standard deviation (SD) for n = 7 replicates.",
+            "source": {
+              "label": "Figure 3 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig3"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Figure 7 · 실제 2D 세포 독성",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "hDF와 N/TERT-1의 두 판독법 비교",
+            "eyebrow": "Figure 7 · 원문 그림",
+            "description": "원문 그림은 수정하지 않았습니다. 아래 한국어 설명은 브리핑의 해설입니다.",
+            "image": "/assets/briefs/f73c383248d54b4e8c4b0f76337ffc96/figure-8.webp",
+            "alt": "hDF와 N/TERT-1의 두 판독법 비교",
+            "explanation": [
+              {
+                "label": "A / B",
+                "text": "A는 hDF, B는 N/TERT-1이다. 가로축은 처리 물질, 세로축은 viability(%), 진회색은 전류 판독, 연회색은 흡광 판독이다. Caption은 PBS=100%·SDS=0% 기준이라고 서술하지만 실제 SDS 막대가 모두0에 놓인 것은 아니다. 원자료가 없어 정규화 계산의 차이는 확정하지 않는다."
+              },
+              {
+                "label": "오차와 별표",
+                "text": "Mean±SD, n=7. ns는 해당 비교에서 유의차를 발견하지 못했음을 뜻한다. hDF의 5% KOH만 **p<0.01로 차이를 표시한다."
+              },
+              {
+                "label": "조건 표기의 한계",
+                "text": "Caption은 MTS 3 h 반응으로 표기하나 Methods는4 h다. 두 판독의 차이를 해석할 때 이 조건 불일치를 함께 남긴다."
+              }
+            ],
+            "caption": "Percentage cell viability calculated from electrochemical and spectrophotometric MTS measurements following chemical exposure after a 3-h incubation with the MTS reagent (A) Viability in hDFs and (B) viability in N/TERT-1 keratinocytes. Viability was normalized with PBS (negative control) set at 100% and SDS 5% aq. (positive control) at 0%. No statistically significant differences (ns) were observed between the electrochemical and colorimetric methods for most conditions, except for 5% KOH in hDFs, which showed statistical significance (∗∗p < 0.01, as determined by two-way ANOVA). Data are represented as mean ± standard deviation (SD) for n = 7 replicates.",
+            "source": {
+              "label": "Figure 7 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig7"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Figure 8 · 3D 조직으로 확장",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "RHE 생존율과 조직 구조",
+            "eyebrow": "Figure 8 · 원문 그림",
+            "description": "원문 그림은 수정하지 않았습니다. 아래 한국어 설명은 브리핑의 해설입니다.",
+            "image": "/assets/briefs/f73c383248d54b4e8c4b0f76337ffc96/figure-9.webp",
+            "alt": "RHE 생존율과 조직 구조",
+            "explanation": [
+              {
+                "label": "A: 독성 패널",
+                "text": "가로축에는 PBS, 1-bromo-4-chlorobutane, isopropanol, 1-decanol, KOH, SDS가 표시된다. 세로축은 PBS 대비 생존율이고 진회색은 전류, 연회색은 흡광 판독이다. 붉은 점선은50% 기준이며 특정 화합물의 농도–반응 IC₅₀ 측정값이 아니다."
+              },
+              {
+                "label": "A: 반복과 예외",
+                "text": "Caption은 n=3, mean±SD다. 실제 KOH와 SDS 두 비교 모두에 ***가 표시되어 있으며 caption은 이를 p<0.001로 설명한다. 본문은 SDS만 예외로 언급해 상충한다. 다른 막대의 기호 부재만으로 동등성이나 정확한 p값을 추정하지 않는다."
+              },
+              {
+                "label": "그림에 없는 조건",
+                "text": "Methods·caption의 HCl·sulfuric acid는 이 이미지에 막대가 없다. 해당 결과의 방향과 판독 간 차이는 이 그림에서 검증하지 못했다."
+              },
+              {
+                "label": "B: H&E",
+                "text": "Scale bar 50 μm. 각질층과 층화된 표피 구조를 보여주며, 3D barrier model에서 시험했다는 배경을 제공한다."
+              }
+            ],
+            "caption": "Evaluation of the methodology for a complex epithelial tissue (A) Percentage viability of reconstructed human epidermis (RHE) models after chemical exposure, calculated from both electrochemical and spectrophotometric MTS measurements. Viability was normalized to the negative control (PBS), set as 100%. Chemicals tested include PBS (C−), 5% aq. SDS (C+), 1-bromo-4-chlorobutane, 1-decanol, HCl, sulfuric acid, 5% aq. KOH, and isopropanol. Data are represented as mean ± standard deviation (SD) for n = 3 replicates. Red dashed line indicates IC50 as 50% of viability for chemical corrosive and irritation assessment. Statistical significance for comparison between electrochemical and colorimetric methods for each chemical: no significance (ns), p value < 0.001 (∗∗∗). (B) Histological characterization of the RHE model. Representative H&E stained section of the reconstructed human epidermis (RHE) used for electrochemical validation. The image confirms the presence of a fully stratified epithelium, including a prominent stratum corneum (SC), granular layer, and basal layer. This complex architecture demonstrates the robustness of the electrochemical MTS assay in monitoring viability within a highly organized 3D barrier model. Scale bars, 50 μm.",
+            "source": {
+              "label": "Figure 8 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#fig8"
+            }
+          }
+        ]
+      },
+      {
+        "title": "한계와 후속 확인",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "종말점 측정",
+                "text": "상층액을 수동 채취한 뒤 측정한다. 실시간·자동 고처리량은 가능성으로 논의한 내용이며 이 실험의 구현 수준은 아니다."
+              },
+              {
+                "label": "간섭과 일반화",
+                "text": "색에 덜 민감하다는 장점과 산화환원 간섭이 전혀 없다는 주장은 다르다. 특정 피부 패널 외의 조직·시험물질은 검증이 필요하다."
+              },
+              {
+                "label": "본문 내부의 일치 여부",
+                "text": "반응 시간3/4 h, RHE n=3/4 외에도 Figure3 B/C의 배정, Figure5 농도 단위, Figure8 KOH·SDS의 유의차 설명이 일치하지 않는다. 그림과 본문·caption을 각각 표시하고 어느 쪽이 원자료의 정답인지 임의로 통일하지 않았다."
+              },
+              {
+                "label": "남은 자료 검증",
+                "text": "Figure8에서 빠진 조건의 결과, Figure7 정규화 설명과 실제 대조 막대의 차이는 미확인이다. SI는 다운로드 상태일 뿐 이번 검증에서 읽지 않았고 원자료를 재분석하지 않았다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13542507/#sec3.1\">Limitations</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "그림: © 2026 The Author(s), <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\">CC BY-NC 4.0</a>. 원문 그림을 보존하고 한국어 해설을 별도로 작성했다."
+          }
+        ]
+      }
+    ]
+  }
+}

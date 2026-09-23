@@ -1,0 +1,1909 @@
+{
+  "roundId": "20260923-01",
+  "source": "Europe PMC",
+  "records": [
+    {
+      "area": "CADD·AI",
+      "record": {
+        "id": "42741565",
+        "source": "MED",
+        "pmid": "42741565",
+        "pmcid": "PMC13573159",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13573159"
+          ]
+        },
+        "doi": "10.1039/d6sc03365b",
+        "title": "An interpretable framework applying protein words to predict protein-small molecule complementary pairing rules.",
+        "authorString": "Chen J, Zhong J, Tani TH, Su Z, Zhang X, Tian B.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Chen J",
+              "lastName": "Chen",
+              "firstName": "Jingke",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, Beijing Frontier Research Center for Biological Structure, School of Pharmaceutical Sciences, Tsinghua University Beijing 100084 China boxuetian@mail.tsinghua.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhong J",
+              "lastName": "Zhong",
+              "firstName": "Jingrui",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, Beijing Frontier Research Center for Biological Structure, School of Pharmaceutical Sciences, Tsinghua University Beijing 100084 China boxuetian@mail.tsinghua.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tani TH",
+              "lastName": "Tani",
+              "firstName": "Tazneen Hossain",
+              "initials": "TH",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, Beijing Frontier Research Center for Biological Structure, School of Pharmaceutical Sciences, Tsinghua University Beijing 100084 China boxuetian@mail.tsinghua.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Su Z",
+              "lastName": "Su",
+              "firstName": "Zidong",
+              "initials": "Z",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, Beijing Frontier Research Center for Biological Structure, School of Pharmaceutical Sciences, Tsinghua University Beijing 100084 China boxuetian@mail.tsinghua.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang X",
+              "lastName": "Zhang",
+              "firstName": "Xiaochun",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, Beijing Frontier Research Center for Biological Structure, School of Pharmaceutical Sciences, Tsinghua University Beijing 100084 China boxuetian@mail.tsinghua.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tian B",
+              "lastName": "Tian",
+              "firstName": "Boxue",
+              "initials": "B",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-5830-0669"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, Beijing Frontier Research Center for Biological Structure, School of Pharmaceutical Sciences, Tsinghua University Beijing 100084 China boxuetian@mail.tsinghua.edu.cn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-5830-0669"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4253178,
+          "dateOfPublication": "2026 Sep",
+          "monthOfPublication": 9,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Chem Sci",
+            "title": "Chemical science",
+            "essn": "2041-6539",
+            "issn": "2041-6520",
+            "isoabbreviation": "Chem Sci",
+            "nlmid": "101545951"
+          },
+          "printPublicationDate": "2026-09-01"
+        },
+        "pubYear": "2026",
+        "abstractText": "Despite the high accuracy of 'black box' deep learning models, drug discovery still relies on protein-ligand interaction principles and heuristics. To improve interpretability of protein-small molecule binding predictions, we developed the PWRules framework, which applies binding affinity data to identify privileged small molecule fragments and subsequently defines complementary pairing rules between these fragments and protein words (semantic sequence units) through an interpretability module. The resulting word-fragment rules are then used by the PWScore function to prioritize active compounds. Evaluations on benchmark datasets show that PWScore achieves competitive performance comparable to the physics-based model (Glide) and the deep learning model (PSICHIC) and shows broad applicability for protein targets outside the training dataset, <i>e.g.</i>, SARS-CoV-2 main protease. Notably, PWScore captures complementary interaction information, yielding superior enrichment performance when integrated with these established methods. Structural analysis of protein-ligand complexes indicates that learned word-fragment rules are significantly enriched near ligand-binding pockets, despite training without explicit structural guidance. By extracting and applying complementary pairing rules, PWRules provides an interpretable framework for drug discovery.",
+        "affiliation": "MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, Beijing Frontier Research Center for Biological Structure, School of Pharmaceutical Sciences, Tsinghua University Beijing 100084 China boxuetian@mail.tsinghua.edu.cn.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1039/d6sc03365b"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13573159"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13573159?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by-nc",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "pdb",
+            "doi"
+          ]
+        },
+        "dateOfCreation": "2026-09-15",
+        "dateOfRevision": "2026-09-16",
+        "electronicPublicationDate": "2026-09-08",
+        "firstPublicationDate": "2026-09-08",
+        "firstIndexDate": "2026-09-16",
+        "fullTextReceivedDate": "2026-09-15",
+        "hasEvaluations": "N"
+      },
+      "query": "((TITLE_ABS:(\"virtual screening\" OR \"molecular docking\" OR \"structure-based drug design\" OR \"ligand-based drug design\" OR \"molecular generation\" OR \"de novo drug design\" OR \"free energy perturbation\") OR (TITLE_ABS:(\"machine learning\" OR \"deep learning\" OR \"artificial intelligence\" OR \"molecular dynamics\") AND TITLE_ABS:(\"drug discovery\" OR \"drug design\" OR ligand OR \"binding affinity\" OR ADMET))) AND (SRC:MED OR SRC:PMC OR SRC:PPR)) AND FIRST_PDATE:[2026-08-25 TO 2026-09-23] AND NOT SRC:PPR",
+      "queryUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE_ABS%3A%28%22virtual+screening%22+OR+%22molecular+docking%22+OR+%22structure-based+drug+design%22+OR+%22ligand-based+drug+design%22+OR+%22molecular+generation%22+OR+%22de+novo+drug+design%22+OR+%22free+energy+perturbation%22%29+OR+%28TITLE_ABS%3A%28%22machine+learning%22+OR+%22deep+learning%22+OR+%22artificial+intelligence%22+OR+%22molecular+dynamics%22%29+AND+TITLE_ABS%3A%28%22drug+discovery%22+OR+%22drug+design%22+OR+ligand+OR+%22binding+affinity%22+OR+ADMET%29%29%29+AND+%28SRC%3AMED+OR+SRC%3APMC+OR+SRC%3APPR%29%29+AND+FIRST_PDATE%3A%5B2026-08-25+TO+2026-09-23%5D+AND+NOT+SRC%3APPR&format=json&resultType=core&pageSize=40&cursorMark=%2A",
+      "observedAt": "2026-09-23T06:24:12.893074+00:00",
+      "sourceResponseSha256": "d7b5513489c7c1ecaf75394b0c3d60fc9b89edc972bd42e71d4e4fdc37e07e62"
+    },
+    {
+      "area": "Medicinal chemistry",
+      "record": {
+        "id": "42727848",
+        "source": "MED",
+        "pmid": "42727848",
+        "doi": "10.1016/j.jbc.2026.113551",
+        "title": "Genetic and biochemical screens identify MGAT1 as a druggable glycosyltransferase target in STK11-mutant lung cancer.",
+        "authorString": "Vassallo KM, Chen YP, Handing KB, Lu AZ, Meier SR, Liu S, Shen B, Teng T, Yu Y, Ji L, Lazarides K, Huang A, Min C, Haines BB, Mallender WD, Sun S, Liu MS, Amor AJ, Whittington DA, Salerno R, Bruzzese FJ, Maxwell JP, Maynard A, McCarren P, Come JH, Throner S, Andersen JN, Zhang W, Gueroussov S.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Vassallo KM",
+              "lastName": "Vassallo",
+              "firstName": "Kiera M",
+              "initials": "KM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chen YP",
+              "lastName": "Chen",
+              "firstName": "Ying-Nan P",
+              "initials": "YP",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Handing KB",
+              "lastName": "Handing",
+              "firstName": "Katarzyna B",
+              "initials": "KB",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lu AZ",
+              "lastName": "Lu",
+              "firstName": "Alvin Z",
+              "initials": "AZ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Meier SR",
+              "lastName": "Meier",
+              "firstName": "Samuel R",
+              "initials": "SR",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Liu S",
+              "lastName": "Liu",
+              "firstName": "Shangtao",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shen B",
+              "lastName": "Shen",
+              "firstName": "Binzhang",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Teng T",
+              "lastName": "Teng",
+              "firstName": "Teng",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yu Y",
+              "lastName": "Yu",
+              "firstName": "Yi",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ji L",
+              "lastName": "Ji",
+              "firstName": "Lei",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lazarides K",
+              "lastName": "Lazarides",
+              "firstName": "Katherine",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Huang A",
+              "lastName": "Huang",
+              "firstName": "Alan",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Min C",
+              "lastName": "Min",
+              "firstName": "Chengyin",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Haines BB",
+              "lastName": "Haines",
+              "firstName": "Brian B",
+              "initials": "BB",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Mallender WD",
+              "lastName": "Mallender",
+              "firstName": "William D",
+              "initials": "WD",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sun S",
+              "lastName": "Sun",
+              "firstName": "Sining",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Liu MS",
+              "lastName": "Liu",
+              "firstName": "Mu-Sen",
+              "initials": "MS",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Amor AJ",
+              "lastName": "Amor",
+              "firstName": "Alvaro J",
+              "initials": "AJ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Whittington DA",
+              "lastName": "Whittington",
+              "firstName": "Douglas A",
+              "initials": "DA",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Salerno R",
+              "lastName": "Salerno",
+              "firstName": "Rebecca",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Bruzzese FJ",
+              "lastName": "Bruzzese",
+              "firstName": "Frank J",
+              "initials": "FJ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Maxwell JP",
+              "lastName": "Maxwell",
+              "firstName": "John P",
+              "initials": "JP",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Maynard A",
+              "lastName": "Maynard",
+              "firstName": "Andrew",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "McCarren P",
+              "lastName": "McCarren",
+              "firstName": "Patrick",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Come JH",
+              "lastName": "Come",
+              "firstName": "Jon H",
+              "initials": "JH",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Throner S",
+              "lastName": "Throner",
+              "firstName": "Scott",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Andersen JN",
+              "lastName": "Andersen",
+              "firstName": "Jannik N",
+              "initials": "JN",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA. Electronic address: jandersen@tangotx.com."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang W",
+              "lastName": "Zhang",
+              "firstName": "Wenhai",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Gueroussov S",
+              "lastName": "Gueroussov",
+              "firstName": "Serge",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Tango Therapeutics, Boston, MA."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4252454,
+          "dateOfPublication": "2026 Sep",
+          "monthOfPublication": 9,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "J Biol Chem",
+            "title": "The Journal of biological chemistry",
+            "essn": "1083-351X",
+            "issn": "0021-9258",
+            "isoabbreviation": "J Biol Chem",
+            "nlmid": "2985121R"
+          },
+          "printPublicationDate": "2026-09-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "113551",
+        "abstractText": "Checkpoint inhibitors are standard-of-care therapies for non-small cell lung cancer (NSCLC), but their efficacy is limited in tumors with STK11 mutations, highlighting the need for new therapeutic strategies. Here, we performed complementary in vivo and in vitro CRISPR-Cas9 functional genomic screens to identify genes whose loss restores sensitivity to anti-PD-1 therapy. We found that loss of MGAT1, a Golgi glycosyltransferase critical for the maturation of high-mannose N-glycans into hybrid and complex glycan structures, reversed resistance to anti-PD-1 treatment in syngeneic mouse tumor models harboring STK11 mutations. Parallel co-culture screens with antigen-matched CD8<sup>+</sup> T cells further showed that disruption of N-glycosylation strongly sensitized tumor cells to T cell-mediated killing. Genetic rescue studies demonstrated that this immune-evasion phenotype depends on MGAT1 catalytic activity, supporting direct biochemical interrogation of the enzyme. Using purified human MGAT1 and a UDP-Glo™ glycosyltransferase assay, we established a tractable screening platform and performed a 500,000-compound biochemical high-throughput screen, identifying an initial hit (compound 1; IC<sub>50</sub> = 197 μM). Subsequent medicinal chemistry optimization delivered progressively more potent analogs, including TNG-9333 (0.814 μM) and TNG-2673 (0.043 μM) and represented a >1000-fold improvement in biochemical potency from the starting hit. Crystal structures of human MGAT1 in apo, UDP-bound, UDP-GlcNAc-bound, and inhibitor-bound states, together with SPR and DSF analyses, revealed that this chemical series engages a previously unrecognized allosteric pocket and inhibits MGAT1 through a UDP-noncompetitive mechanism. Collectively, our work implicates N-glycosylation as a key mediator of immune evasion and establishes MGAT1 as a ligandable, structurally tractable target for small-molecule drug discovery.",
+        "affiliation": "Tango Therapeutics, Boston, MA.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Lung cancer",
+            "Crystal structure",
+            "enzyme inhibitor",
+            "Medicinal chemistry",
+            "Glycosyltransferase",
+            "High-throughput Screening (Hts)",
+            "Tumor Immune Evasion",
+            "Stk11",
+            "N-glycosylation Pathway",
+            "Crispr/cas9 Target Discovery",
+            "Mgat1 Inhibition",
+            "T Cell–mediated Killing Sensitization",
+            "Allosteric Small-molecule Inhibitor",
+            "Immunotherapy Potentiation",
+            "Immune Checkpoint Inhibitor Resistance"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1016/j.jbc.2026.113551"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "citedByCount": 0,
+        "hasReferences": "N",
+        "hasTextMinedTerms": "N",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-09-11",
+        "dateOfRevision": "2026-09-11",
+        "electronicPublicationDate": "2026-09-12",
+        "firstPublicationDate": "2026-09-12",
+        "firstIndexDate": "2026-09-12",
+        "hasEvaluations": "N"
+      },
+      "query": "((TITLE_ABS:(\"medicinal chemistry\" OR \"lead optimization\" OR \"hit-to-lead\" OR \"structure-activity relationship\" OR \"scaffold hopping\" OR bioisoster*) AND TITLE_ABS:(drug OR ligand OR inhibitor OR therapeutic OR pharmacolog*)) AND (SRC:MED OR SRC:PMC OR SRC:PPR)) AND FIRST_PDATE:[2026-08-25 TO 2026-09-23] AND NOT SRC:PPR sort_date:y",
+      "queryUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE_ABS%3A%28%22medicinal+chemistry%22+OR+%22lead+optimization%22+OR+%22hit-to-lead%22+OR+%22structure-activity+relationship%22+OR+%22scaffold+hopping%22+OR+bioisoster%2A%29+AND+TITLE_ABS%3A%28drug+OR+ligand+OR+inhibitor+OR+therapeutic+OR+pharmacolog%2A%29%29+AND+%28SRC%3AMED+OR+SRC%3APMC+OR+SRC%3APPR%29%29+AND+FIRST_PDATE%3A%5B2026-08-25+TO+2026-09-23%5D+AND+NOT+SRC%3APPR+sort_date%3Ay&format=json&resultType=core&pageSize=40&cursorMark=%2A",
+      "observedAt": "2026-09-23T06:22:52.480589+00:00",
+      "sourceResponseSha256": "2fc911da99a82157b34231af067464fc28e1885565784565fa40d0865ed67a7c"
+    },
+    {
+      "area": "Target·기전",
+      "record": {
+        "id": "42758789",
+        "source": "MED",
+        "pmid": "42758789",
+        "doi": "10.1371/journal.pbio.3003555",
+        "title": "Collagen I promotes cancer cell survival via amino acid import and mTORC1/S6 activation.",
+        "authorString": "Nazemi M, Yanes B, Vancauwenberghe E, Oyelade I, Walker H, Rainero E.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Nazemi M",
+              "lastName": "Nazemi",
+              "firstName": "Mona",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Biosciences, University of Sheffield, Sheffield, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yanes B",
+              "lastName": "Yanes",
+              "firstName": "Bian",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Biosciences, University of Sheffield, Sheffield, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Vancauwenberghe E",
+              "lastName": "Vancauwenberghe",
+              "firstName": "Eric",
+              "initials": "E",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Biosciences, University of Sheffield, Sheffield, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Oyelade I",
+              "lastName": "Oyelade",
+              "firstName": "Ifeoluwa",
+              "initials": "I",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Biosciences, University of Sheffield, Sheffield, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Walker H",
+              "lastName": "Walker",
+              "firstName": "Heather",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Biosciences, University of Sheffield, Sheffield, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Rainero E",
+              "lastName": "Rainero",
+              "firstName": "Elena",
+              "initials": "E",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1402-8701"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Biosciences, University of Sheffield, Sheffield, United Kingdom."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1402-8701"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "9",
+          "volume": "24",
+          "journalIssueId": 4252161,
+          "dateOfPublication": "2026 Sep",
+          "monthOfPublication": 9,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "PLoS Biol",
+            "title": "PLoS biology",
+            "essn": "1545-7885",
+            "issn": "1544-9173",
+            "isoabbreviation": "PLoS Biol",
+            "nlmid": "101183755"
+          },
+          "printPublicationDate": "2026-09-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "e3003555",
+        "abstractText": "Invasive breast and pancreatic cancer cells thrive within a collagen I-rich, poorly perfused extracellular matrix (ECM) network, necessitating robust metabolic adaptation to endure nutrient deficiency, such as glucose starvation. Here we demonstrate that collagen I is critical for the survival and growth of breast and pancreatic cancer cells. Mechanistically, collagen I promotes α2 β1 integrin-dependent S6 phosphorylation by the mammalian target of rapamycin complex 1 (mTORC1) and drives the membrane localisation of the (LAT1)-4F2hc amino acid transporter. This process ensures a sustained intracellular essential amino acid supply, further fuelling mTORC1 signalling and limiting autophagy. This collagen I-driven pathway is essential for cancer cell survival, as inhibiting the activity of α2 β1 integrin or the LAT1-4F2hc transporter significantly reduces cell growth and invasion in both 2D and 3D models. Finally, the clinical relevance of these transporters is underscored by the significant upregulation of LAT1-4F2hc expression in basal-like breast and pancreatic cancer patients, correlating with poor prognosis and drug resistance. Collectively, our findings highlight that targeting the LAT1-4F2hc transporter might represent a highly promising therapeutic strategy to limit cancer cell growth and invasion in highly fibrotic and nutrient-deprived tumours.",
+        "affiliation": "School of Biosciences, University of Sheffield, Sheffield, United Kingdom.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1371/journal.pbio.3003555"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "citedByCount": 0,
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-09-18",
+        "dateOfRevision": "2026-09-18",
+        "electronicPublicationDate": "2026-09-18",
+        "firstPublicationDate": "2026-09-18",
+        "firstIndexDate": "2026-09-19",
+        "hasEvaluations": "N"
+      },
+      "query": "((TITLE_ABS:(\"target validation\" OR \"target engagement\" OR \"chemical probe\" OR \"mechanism of action\" OR \"binding mechanism\" OR \"drug resistance\") AND TITLE_ABS:(drug OR ligand OR inhibitor OR therapeutic OR pharmacolog*)) AND (SRC:MED OR SRC:PMC OR SRC:PPR)) AND FIRST_PDATE:[2026-08-25 TO 2026-09-23] AND NOT SRC:PPR sort_date:y",
+      "queryUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE_ABS%3A%28%22target+validation%22+OR+%22target+engagement%22+OR+%22chemical+probe%22+OR+%22mechanism+of+action%22+OR+%22binding+mechanism%22+OR+%22drug+resistance%22%29+AND+TITLE_ABS%3A%28drug+OR+ligand+OR+inhibitor+OR+therapeutic+OR+pharmacolog%2A%29%29+AND+%28SRC%3AMED+OR+SRC%3APMC+OR+SRC%3APPR%29%29+AND+FIRST_PDATE%3A%5B2026-08-25+TO+2026-09-23%5D+AND+NOT+SRC%3APPR+sort_date%3Ay&format=json&resultType=core&pageSize=40&cursorMark=%2A",
+      "observedAt": "2026-09-23T06:22:56.438439+00:00",
+      "sourceResponseSha256": "a65a52fa2fb5c8c74e900bc0c98c14c20d249dcd9e2aadcc8c9b2f5a9c304266"
+    },
+    {
+      "area": "Drug modality",
+      "record": {
+        "id": "42742967",
+        "source": "MED",
+        "pmid": "42742967",
+        "doi": "10.1172/jci.insight.205218",
+        "title": "Stabilization of the PP2A-B56α complex overcomes venetoclax-azacitidine resistance by impairing OXPHOS in AML.",
+        "authorString": "Romero-Murillo S, Peris I, Lucianò AM, Marcotegui N, Vicente C, Tran B, Barrie K, O'Connor CM, Torres-López A, Mateos MC, Cayuela ML, Mulero V, Fernández-Irigoyen J, Santamaría E, Odero MD, Narla G.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Romero-Murillo S",
+              "lastName": "Romero-Murillo",
+              "firstName": "Silvia",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Clinical Neuroproteomics Unit, Navarrabiomed, Hospital Universitario de Navarra (HUN), UPNA, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Peris I",
+              "lastName": "Peris",
+              "firstName": "Irene",
+              "initials": "I",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Internal Medicine: Division of Genetic Medicine, The University of Michigan Medical School, Ann Arbor, United States of America."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lucianò AM",
+              "lastName": "Lucianò",
+              "firstName": "Anna Maria",
+              "initials": "AM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Biología Celular e Histología, Facultad de Biología, Universidad de Murcia, Murcia, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Marcotegui N",
+              "lastName": "Marcotegui",
+              "firstName": "Nerea",
+              "initials": "N",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Centro de Investigación Médica Aplicada, University of Navarra, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Vicente C",
+              "lastName": "Vicente",
+              "firstName": "Carmen",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Centro de Investigación Médica Aplicada, University of Navarra, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tran B",
+              "lastName": "Tran",
+              "firstName": "Brian",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pharmacology, University of Michigan, Ann Arbor, United States of America."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Barrie K",
+              "lastName": "Barrie",
+              "firstName": "Kelsey",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Internal Medicine: Division of Genetic Medicine, The University of Michigan Medical School, Ann Arbor, United States of America."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "O'Connor CM",
+              "lastName": "O'Connor",
+              "firstName": "Caitlin M",
+              "initials": "CM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Internal Medicine: Division of Genetic Medicine, The University of Michigan Medical School, Ann Arbor, United States of America."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Torres-López A",
+              "lastName": "Torres-López",
+              "firstName": "Andrea",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Hematology Service, Hospital Universitario de Navarra, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Mateos MC",
+              "lastName": "Mateos",
+              "firstName": "Maria C",
+              "initials": "MC",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Instituto de Investigación Sanitaria de Navarra, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cayuela ML",
+              "lastName": "Cayuela",
+              "firstName": "Maria L",
+              "initials": "ML",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Cancer and Aging Group, Hospital Universitario Virgen de la Arrixaca, and Instituto Murciano de Investigación Biosanitaria, Murcia, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Mulero V",
+              "lastName": "Mulero",
+              "firstName": "Victoriano",
+              "initials": "V",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Biología Celular e Histología, Facultad de Biología, Universidad de Murcia, Murcia, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Fernández-Irigoyen J",
+              "lastName": "Fernández-Irigoyen",
+              "firstName": "Joaquín",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Clinical Neuroproteomics Unit, Navarrabiomed, Hospital Universitario de Navarra (HUN), UPNA, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Santamaría E",
+              "lastName": "Santamaría",
+              "firstName": "Enrique",
+              "initials": "E",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Clinical Neuroproteomics Unit, Navarrabiomed, Hospital Universitario de Navarra (HUN), UPNA, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Odero MD",
+              "lastName": "Odero",
+              "firstName": "Maria D",
+              "initials": "MD",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Instituto de Investigación Sanitaria de Navarra, Pamplona, Spain."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Narla G",
+              "lastName": "Narla",
+              "firstName": "Goutham",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Internal Medicine: Division of Genetic Medicine, The University of Michigan Medical School, Ann Arbor, United States of America."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4252095,
+          "dateOfPublication": "2026 Sep",
+          "monthOfPublication": 9,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "JCI Insight",
+            "title": "JCI insight",
+            "essn": "2379-3708",
+            "issn": "2379-3708",
+            "isoabbreviation": "JCI Insight",
+            "nlmid": "101676073"
+          },
+          "printPublicationDate": "2026-09-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "e205218",
+        "abstractText": "Cell metabolic rewiring is associated with resistance to venetoclax-azacitidine (Ven-Aza) combination therapy and relapse in acute myeloid leukemia (AML) patients. Drug-resistant cells exhibit an enhanced reliance on oxidative phosphorylation (OXPHOS) for energy production. Therefore, impairing mitochondrial metabolism represents an exciting strategy to face this unmet clinical need. We recently demonstrated that the specific activation of the phosphatase PP2A-B56α enhances the pro-apoptotic efficacy of venetoclax in AML. Here, through leveraging unbiased multi-omics-based approaches and using both genetic and pharmacological tools, we define key roles for the tumor suppressor PP2A-B56α complex in OXPHOS regulation and treatment response in disease-relevant AML models. From a translational perspective, the specific stabilization of PP2A-B56α heterocomplex with the novel PP2A molecular glue activator, RPT04402, reduces OXPHOS levels in treatment-resistant AML cells and improves treatment response in both Ven-Aza-sensitive and -resistant AML cell lines, primary cells, and in vivo models. Together, our work supports further research on targeted combination therapy approaches based on PP2A-B56α stabilization to counteract OXPHOS-related treatment resistance and improve AML responses in a patient population with historically poor outcomes.",
+        "affiliation": "Clinical Neuroproteomics Unit, Navarrabiomed, Hospital Universitario de Navarra (HUN), UPNA, Pamplona, Spain.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Cell biology",
+            "Hematology",
+            "Drug therapy",
+            "Tumor Suppressors",
+            "Phosphoprotein Phosphatases"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1172/jci.insight.205218"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "citedByCount": 0,
+        "hasReferences": "N",
+        "hasTextMinedTerms": "N",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-09-15",
+        "dateOfRevision": "2026-09-15",
+        "electronicPublicationDate": "2026-09-15",
+        "firstPublicationDate": "2026-09-15",
+        "firstIndexDate": "2026-09-16",
+        "hasEvaluations": "N"
+      },
+      "query": "((TITLE_ABS:(PROTAC* OR \"molecular glue\" OR \"targeted protein degradation\" OR \"covalent inhibitor\" OR \"macrocyclic peptide\" OR \"therapeutic peptide\" OR \"peptide drug\" OR \"small molecule drug\" OR \"antibody-drug conjugate\" OR \"RNA therapeutics\")) AND (SRC:MED OR SRC:PMC OR SRC:PPR)) AND FIRST_PDATE:[2026-08-25 TO 2026-09-23] AND NOT SRC:PPR sort_date:y",
+      "queryUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE_ABS%3A%28PROTAC%2A+OR+%22molecular+glue%22+OR+%22targeted+protein+degradation%22+OR+%22covalent+inhibitor%22+OR+%22macrocyclic+peptide%22+OR+%22therapeutic+peptide%22+OR+%22peptide+drug%22+OR+%22small+molecule+drug%22+OR+%22antibody-drug+conjugate%22+OR+%22RNA+therapeutics%22%29%29+AND+%28SRC%3AMED+OR+SRC%3APMC+OR+SRC%3APPR%29%29+AND+FIRST_PDATE%3A%5B2026-08-25+TO+2026-09-23%5D+AND+NOT+SRC%3APPR+sort_date%3Ay&format=json&resultType=core&pageSize=40&cursorMark=%2A",
+      "observedAt": "2026-09-23T06:23:00.123527+00:00",
+      "sourceResponseSha256": "a05fe67abc432e77b08edd922cdaa619ac398c8991487d2e51c45b8bda4beb2c"
+    },
+    {
+      "area": "실험·평가 기술",
+      "record": {
+        "id": "42658481",
+        "source": "MED",
+        "pmid": "42658481",
+        "pmcid": "PMC13521195",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13521195"
+          ]
+        },
+        "doi": "10.1002/advs.77386",
+        "title": "AS-TLC-Based High-Throughput Screening Integrated with CuAAC Optimization Strategy Facilitates the Rapid Discovery of YTHDC1 Inhibitor.",
+        "authorString": "Wang M, Fu S, Xu Y, Gao J, Ren J, Yang X, Xu H, Sun G, Li Y, Wang Y, Jin L, Chen P, Xu Y, Li J, Lin H, Hu C, Chen K, Xiong H, Luo C, Chen S.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Wang M",
+              "lastName": "Wang",
+              "firstName": "Mingchen",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Pharmaceutical Science and Technology, Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou, China."
+                  },
+                  {
+                    "affiliation": "Precision Medicine Research Institute of Guizhou, and Guizhou Provincial Key Laboratory of Digestive System Diseases, The Affiliated Hospital of Guizhou Medical University, Guizhou Medical University, Guiyang, China."
+                  },
+                  {
+                    "affiliation": "Innovation Center for AI and Drug Discovery, School of Pharmacy, East China Normal University, Shanghai, China."
+                  },
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Fu S",
+              "lastName": "Fu",
+              "firstName": "Shuiping",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  },
+                  {
+                    "affiliation": "University of Chinese Academy of Sciences, Beijing, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xu Y",
+              "lastName": "Xu",
+              "firstName": "Ye",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Pharmaceutical Science and Technology, Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou, China."
+                  },
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Gao J",
+              "lastName": "Gao",
+              "firstName": "Jia",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Zhongshan Institute for Drug Discovery, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Zhongshan, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ren J",
+              "lastName": "Ren",
+              "firstName": "Jiwei",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  },
+                  {
+                    "affiliation": "Zhongshan Institute for Drug Discovery, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Zhongshan, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yang X",
+              "lastName": "Yang",
+              "firstName": "Xu",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Innovation Center for AI and Drug Discovery, School of Pharmacy, East China Normal University, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xu H",
+              "lastName": "Xu",
+              "firstName": "Hesong",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Pharmaceutical Science and Technology, Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sun G",
+              "lastName": "Sun",
+              "firstName": "Ge",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li Y",
+              "lastName": "Li",
+              "firstName": "Yanjie",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Pharmaceutical Science and Technology, Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou, China."
+                  },
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang Y",
+              "lastName": "Wang",
+              "firstName": "Yanlin",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Zhongshan Institute for Drug Discovery, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Zhongshan, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Jin L",
+              "lastName": "Jin",
+              "firstName": "Lu",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Zhongshan Institute for Drug Discovery, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Zhongshan, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chen P",
+              "lastName": "Chen",
+              "firstName": "Peijuan",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Key Laboratory of Microbial Pathogenesis and Interventions of Fujian Province University, the Key Laboratory of Innate Immune Biology of Fujian Province, Biomedical Research Center of South China, College of Life Sciences, Fujian Normal University, Fuzhou, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xu Y",
+              "lastName": "Xu",
+              "firstName": "Ying",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li J",
+              "lastName": "Li",
+              "firstName": "Jianhao",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Pharmaceutical Science and Technology, Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou, China."
+                  },
+                  {
+                    "affiliation": "Innovation Center for AI and Drug Discovery, School of Pharmacy, East China Normal University, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lin H",
+              "lastName": "Lin",
+              "firstName": "Hua",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Key Laboratory of Microbial Pathogenesis and Interventions of Fujian Province University, the Key Laboratory of Innate Immune Biology of Fujian Province, Biomedical Research Center of South China, College of Life Sciences, Fujian Normal University, Fuzhou, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hu C",
+              "lastName": "Hu",
+              "firstName": "Chujiao",
+              "initials": "C",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1529-6329"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Precision Medicine Research Institute of Guizhou, and Guizhou Provincial Key Laboratory of Digestive System Diseases, The Affiliated Hospital of Guizhou Medical University, Guizhou Medical University, Guiyang, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chen K",
+              "lastName": "Chen",
+              "firstName": "Kaixian",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xiong H",
+              "lastName": "Xiong",
+              "firstName": "Huan",
+              "initials": "H",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0002-8920-9355"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Zhongshan Institute for Drug Discovery, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Zhongshan, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Luo C",
+              "lastName": "Luo",
+              "firstName": "Cheng",
+              "initials": "C",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-3864-8382"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Pharmaceutical Science and Technology, Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou, China."
+                  },
+                  {
+                    "affiliation": "Precision Medicine Research Institute of Guizhou, and Guizhou Provincial Key Laboratory of Digestive System Diseases, The Affiliated Hospital of Guizhou Medical University, Guizhou Medical University, Guiyang, China."
+                  },
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  },
+                  {
+                    "affiliation": "Zhongshan Institute for Drug Discovery, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Zhongshan, China."
+                  },
+                  {
+                    "affiliation": "Tianfu Jincheng Laboratory, Chengdu, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chen S",
+              "lastName": "Chen",
+              "firstName": "Shijie",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9724-7453"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Innovation Center for AI and Drug Discovery, School of Pharmacy, East China Normal University, Shanghai, China."
+                  },
+                  {
+                    "affiliation": "State Key Laboratory of Drug Research, Shanghai Institute of Materia Medica, Chinese Academy of Sciences, Shanghai, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9724-7453"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1529-6329"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3864-8382"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0002-8920-9355"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4236699,
+          "dateOfPublication": "2026 Aug",
+          "monthOfPublication": 8,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Adv Sci (Weinh)",
+            "title": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+            "essn": "2198-3844",
+            "issn": "2198-3844",
+            "isoabbreviation": "Adv Sci (Weinh)",
+            "nlmid": "101664569"
+          },
+          "printPublicationDate": "2026-08-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "e77386",
+        "abstractText": "The classical sequential workflow-individual compound screening, followed by stepwise design-synthesis-purification of derivatives-makes lead compound discovery time-consuming and cost-prohibitive. Herein, we developed Affinity Selection Thin-Layer Chromatography (AS-TLC) as a method for high-throughput screening (HTS), enabling efficient and cost-effective screening of compound mixtures. Furthermore, we integrated activity assays with AS-TLC to minimize target protein consumption and lower the false positive rate, through which we identified a YTH domain-containing protein 1 (YTHDC1) inhibitor, fragment YD, with a half-maximal inhibitory concentration (IC<sub>50</sub>) of 20.01 ± 3.30 µm. Building on this hit, we applied copper(I)-catalyzed azide-alkyne cycloaddition (CuAAC) click chemistry for rapid structural modification and compound library construction, ultimately obtaining LC-YD03 with significantly enhanced inhibitory activity (IC<sub>50</sub> = 41.98 ± 6.24 nm). The interaction mode between LC-YD03 and YTHDC1 was further clarified via X-ray crystallographic analysis. This study demonstrates that the AS-TLC-activity assay platform enables efficient hit screening from compound mixtures; subsequent click chemistry-based combinatorial library technology accelerates lead compound optimization. Collectively, this workflow significantly reduces the time and cost associated with lead compound discovery.",
+        "affiliation": "School of Pharmaceutical Science and Technology, Hangzhou Institute for Advanced Study, University of Chinese Academy of Sciences, Hangzhou, China.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "National Key Research and Development Program of China",
+              "grantId": "2022YFC3400500",
+              "orderIn": 0
+            },
+            {
+              "agency": "Zhongshan Municipal Bureau of Science and Technology",
+              "grantId": "CXTD2023010",
+              "orderIn": 0
+            },
+            {
+              "agency": "National Natural Science Foundation of China",
+              "grantId": "U23A20108",
+              "orderIn": 0
+            },
+            {
+              "agency": "National Natural Science Foundation of China",
+              "grantId": "82304301",
+              "orderIn": 0
+            },
+            {
+              "agency": "Tianfu Jincheng Laboratory",
+              "grantId": "TFJCPI20250025",
+              "orderIn": 0
+            },
+            {
+              "agency": "Science and Technology Department of Guizhou Province",
+              "grantId": "[2026]341",
+              "orderIn": 0
+            },
+            {
+              "agency": "China Postdoctoral Science Foundation",
+              "grantId": "2025M783613",
+              "orderIn": 0
+            },
+            {
+              "agency": "National Natural Science Foundation of China",
+              "grantId": "22377013",
+              "orderIn": 0
+            },
+            {
+              "agency": "Science and Technology Department of Guizhou Province",
+              "grantId": "[2024]015",
+              "orderIn": 0
+            },
+            {
+              "agency": "Science and Technology Commission of Shanghai Municipality",
+              "grantId": "24JS2830200",
+              "orderIn": 0
+            },
+            {
+              "agency": "National Natural Science Foundation of China",
+              "grantId": "82473893",
+              "orderIn": 0
+            },
+            {
+              "agency": "Science and Technology Commission of Shanghai Municipality",
+              "grantId": "YDZX20233100004032",
+              "orderIn": 0
+            },
+            {
+              "agency": "Zhongshan Municipal Bureau of Science and Technology",
+              "grantId": "2023B2030",
+              "orderIn": 0
+            },
+            {
+              "agency": "Major Program of Guangzhou National Laboratory",
+              "grantId": "GZNL2023A02012",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "drug discovery",
+            "Click Chemistry",
+            "Rna Recognition",
+            "Ythdc1",
+            "Affinity Selection Thin‐layer Chromatography"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1002/advs.77386"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13521195"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13521195?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "pdb"
+          ]
+        },
+        "dateOfCreation": "2026-08-27",
+        "dateOfRevision": "2026-08-29",
+        "electronicPublicationDate": "2026-08-27",
+        "firstPublicationDate": "2026-08-27",
+        "firstIndexDate": "2026-08-30",
+        "fullTextReceivedDate": "2026-09-10",
+        "hasEvaluations": "N"
+      },
+      "query": "((TITLE_ABS:(\"high-throughput screening\" OR \"phenotypic screening\" OR \"biochemical assay\" OR \"cell-based assay\" OR \"target engagement assay\" OR \"thermal shift assay\" OR \"cryo-EM\" OR \"crystal structure\") AND TITLE_ABS:(drug OR ligand OR inhibitor OR therapeutic OR pharmacolog*)) AND (SRC:MED OR SRC:PMC OR SRC:PPR)) AND FIRST_PDATE:[2026-08-25 TO 2026-09-23] AND NOT SRC:PPR",
+      "queryUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE_ABS%3A%28%22high-throughput+screening%22+OR+%22phenotypic+screening%22+OR+%22biochemical+assay%22+OR+%22cell-based+assay%22+OR+%22target+engagement+assay%22+OR+%22thermal+shift+assay%22+OR+%22cryo-EM%22+OR+%22crystal+structure%22%29+AND+TITLE_ABS%3A%28drug+OR+ligand+OR+inhibitor+OR+therapeutic+OR+pharmacolog%2A%29%29+AND+%28SRC%3AMED+OR+SRC%3APMC+OR+SRC%3APPR%29%29+AND+FIRST_PDATE%3A%5B2026-08-25+TO+2026-09-23%5D+AND+NOT+SRC%3APPR&format=json&resultType=core&pageSize=40&cursorMark=%2A",
+      "observedAt": "2026-09-23T06:24:24.641236+00:00",
+      "sourceResponseSha256": "dcf22a37ccb30fb960736659770639dc681fb2cd87973380bc0136f28a56603e"
+    },
+    {
+      "area": "ADME·PK/PD·개발 전환",
+      "record": {
+        "id": "42747328",
+        "source": "MED",
+        "pmid": "42747328",
+        "doi": "10.1080/13543784.2026.2736007",
+        "title": "Safety, pharmacokinetics, pharmacodynamics and target-mediated drug disposition modeling of TST002, a sclerostin antibody, in men and postmenopausal women with low bone mineral density.",
+        "authorString": "Zhou S, Zhu X, Sheng Y, Wang L, Shao F, Lin H.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Zhou S",
+              "lastName": "Zhou",
+              "firstName": "Sufeng",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Phase I Clinical Trial Unit, The First Affiliated Hospital with Nanjing Medical University, Nanjing, China."
+                  },
+                  {
+                    "affiliation": "Department of Clinical Pharmacology, Pharmacy College, Nanjing Medical University, Nanjing, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhu X",
+              "lastName": "Zhu",
+              "firstName": "Xiufen",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "The Center of Research for Metabolic Bone Disease, Nanjing Drum Tower Hospital, The Affiliated Hospital of Nanjing University Medical School, Nanjing, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sheng Y",
+              "lastName": "Sheng",
+              "firstName": "Yuchen",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Phase I Clinical Trial Unit, The First Affiliated Hospital with Nanjing Medical University, Nanjing, China."
+                  },
+                  {
+                    "affiliation": "Department of Clinical Pharmacology, Pharmacy College, Nanjing Medical University, Nanjing, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang L",
+              "lastName": "Wang",
+              "firstName": "Lu",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Phase I Clinical Trial Unit, The First Affiliated Hospital with Nanjing Medical University, Nanjing, China."
+                  },
+                  {
+                    "affiliation": "Department of Clinical Pharmacology, Pharmacy College, Nanjing Medical University, Nanjing, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shao F",
+              "lastName": "Shao",
+              "firstName": "Feng",
+              "initials": "F",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Phase I Clinical Trial Unit, The First Affiliated Hospital with Nanjing Medical University, Nanjing, China."
+                  },
+                  {
+                    "affiliation": "Department of Clinical Pharmacology, Pharmacy College, Nanjing Medical University, Nanjing, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lin H",
+              "lastName": "Lin",
+              "firstName": "Hua",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "The Center of Research for Metabolic Bone Disease, Nanjing Drum Tower Hospital, The Affiliated Hospital of Nanjing University Medical School, Nanjing, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4253518,
+          "dateOfPublication": "2026 Sep",
+          "monthOfPublication": 9,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Expert Opin Investig Drugs",
+            "title": "Expert opinion on investigational drugs",
+            "essn": "1744-7658",
+            "issn": "1354-3784",
+            "isoabbreviation": "Expert Opin Investig Drugs",
+            "nlmid": "9434197"
+          },
+          "printPublicationDate": "2026-09-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "1-15",
+        "abstractText": "<h4>Background</h4>TST002 is a humanized IgG4 monoclonal antibody targeting sclerostin for osteoporosis treatment. This first-in-human study investigated its safety, tolerability, immunogenicity, pharmacokinetics (PK) and pharmacodynamics (PD) after intravenous infusion in Chinese men and postmenopausal women with low bone mineral density (BMD).<h4>Research design and methods</h4>In a randomized, double-blind, placebo-controlled, dose-escalation trial, 32 subjects were assigned to four dose cohorts (3:1 ratio to receive single TST002 doses of 200, 400, 800, or 1200 mg or placebo) with 85 days of follow-up. PK, PD, safety, and immunogenicity were assessed. An exploratory population PK-PD model incorporating target-mediated drug disposition (TMDD) was developed.<h4>Results</h4>Among TST002 recipients (<i>n</i> = 24), most treatment-related adverse events were grade 1 in severity. Nonlinear PK was observed, with greater-than-dose-proportional exposure and a mean half-life of 4.38-8.06 days. Increases in serum sclerostin and lumbar spine BMD, and decreases in β-CTX were observed. An exploratory population TMDD-PD model was developed to describe the observed time courses of TST002, sclerostin, and β-CTX within the present phase I dataset.<h4>Conclusions</h4>TST002 was well tolerated and showed preliminary PD activity. Exploratory TMDD-based PK/PD modeling provided preliminary insights into exposure-response relationships, limited by the sample size, single-dose design, and unavailable bone formation marker assessment.<h4>Clinical trial registration</h4>This study was registered at Clinicaltrials.gov (NCT05391776).",
+        "affiliation": "Phase I Clinical Trial Unit, The First Affiliated Hospital with Nanjing Medical University, Nanjing, China.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Pharmacokinetics",
+            "Pharmacodynamics",
+            "Tmdd",
+            "Sclerostin Antibody",
+            "Population Pk/pd Model",
+            "Tst002"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1080/13543784.2026.2736007"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "citedByCount": 0,
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "nct"
+          ]
+        },
+        "dateOfCreation": "2026-09-16",
+        "dateOfRevision": "2026-09-22",
+        "electronicPublicationDate": "2026-09-22",
+        "firstPublicationDate": "2026-09-22",
+        "firstIndexDate": "2026-09-17",
+        "hasEvaluations": "N"
+      },
+      "query": "(TITLE_ABS:(pharmacokinetics OR pharmacokinetic OR ADMET OR \"drug metabolism\" OR \"PK/PD\") AND (SRC:MED OR SRC:PMC)) AND FIRST_PDATE:[2026-08-25 TO 2026-09-23] AND NOT SRC:PPR sort_date:y",
+      "queryUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3A%28pharmacokinetics+OR+pharmacokinetic+OR+ADMET+OR+%22drug+metabolism%22+OR+%22PK%2FPD%22%29+AND+%28SRC%3AMED+OR+SRC%3APMC%29%29+AND+FIRST_PDATE%3A%5B2026-08-25+TO+2026-09-23%5D+AND+NOT+SRC%3APPR+sort_date%3Ay&format=json&resultType=core&pageSize=40&cursorMark=%2A",
+      "observedAt": "2026-09-23T06:24:27.834146+00:00",
+      "sourceResponseSha256": "3bf31e9307e93b3a84a6d05375a024c2ee3992f972c146526453260bb1686ec1"
+    }
+  ]
+}

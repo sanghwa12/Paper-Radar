@@ -172,6 +172,21 @@ class CollectorTests(unittest.TestCase):
         third_run = self.run_collection()
         self.assertEqual((third_run["added"], third_run["updated"]), (0, 1))
 
+    def test_merged_candidate_id_remains_resolvable_for_saved_sources(self):
+        self.fixtures = {(0, "*"): page([article(doi="")]),
+                         (1, "*"): page([article("PMC777", source="PMC")])}
+        self.run_collection()
+        old_ids = {paper["id"] for paper in self.client.candidates()}
+        self.assertEqual(len(old_ids), 2)
+        self.fixtures = {(0, "*"): page([article(pmcid="PMC777")])}
+        self.run_collection()
+        surviving_id = self.client.candidates()[0]["id"]
+        removed_id = (old_ids - {surviving_id}).pop()
+        with closing(sqlite3.connect(self.db_path)) as db:
+            alias = db.execute("SELECT candidate_id FROM collection_aliases WHERE alias=?",
+                               ("candidate:" + removed_id,)).fetchone()
+        self.assertEqual(alias, (surviving_id,))
+
     def test_partial_failure_keeps_pages_and_other_areas_continue(self):
         self.fixtures = {
             (0, "*"): page([article()], total=2, cursor="later"),

@@ -1,0 +1,1248 @@
+{
+  "candidateId": "b6585588759e4eee883f24d82603f2b1",
+  "card": {
+    "titleKo": "Zavegepant 비강제의 DDI: CYP3A보다 간 유입 수송체가 중요한 이유",
+    "purpose": "경구 zavegepant에서 rifampin·itraconazole 병용 시 노출이 증가하지만 비강제에서는 itraconazole 영향이 작은 이유를 PBPK로 분해하고, 시험하지 않은 비강제 DDI를 예측했다.",
+    "significance": "투여경로와 제거의 속도결정단계를 함께 보면 CYP3A/P-gp 기질이라는 분류만으로 DDI를 설명하기 어렵다. 이 연구는 경구 DDI로 수송체 기여도를 보정하고 비강 PK로 평가한, 간 유입 중심 약물의 사례다.",
+    "application": "개발 단계에서 관찰 DDI를 장 흡수·간 유입·대사로 나누고 라벨 근거의 강도를 평가하는 데 유용하다. 비강 rifampin AUCR 2.11–2.39는 임상 관찰값이 아닌 미시험 시나리오의 모형 예측이다.",
+    "limits": "P-gp:미확인 efflux 1:2와 능동:수동 간 유입 80:20은 임상 DDI에 맞춘 값이다. 선택적 OATP1B3 검증자료가 부족하고, 비강 itraconazole AUCR는 관찰 1.02에 비해 1.36으로 예측됐다.",
+    "flow": [
+      "IV 질량수지·in vitro·경구 PK로 기본 모형 구성",
+      "경구 itraconazole·rifampin DDI와 비강 20 mg PK로 보정",
+      "다른 용량의 PK 및 비강 itraconazole DDI로 평가",
+      "미시험 비강 병용상황에서 간 유입 억제와 유도를 분리 예측"
+    ],
+    "sourceIds": [
+      "zavegepant-cpt70460-sec-0007",
+      "zavegepant-cpt70460-sec-0008",
+      "zavegepant-cpt70460-sec-0017",
+      "zavegepant-cpt70460-sec-0023",
+      "zavegepant-cpt70460-sec-0026",
+      "zavegepant-si-page-15"
+    ],
+    "pairs": [
+      {
+        "label": "경로를 바꿔 비교한 임상자료",
+        "method": "Itraconazole 병용/단독 노출비를 경구 50 mg과 비강 10 mg에서 비교했다.",
+        "result": "관찰 AUC₀–∞ 비는 경구 1.59, 비강 1.02였다. 경구 흡수 장벽의 기여를 시사하지만, 수송체별 분율을 직접 측정한 결과는 아니다.",
+        "sourceIds": [
+          "zavegepant-si-page-10",
+          "zavegepant-si-page-15",
+          "zavegepant-cpt70460-sec-0026"
+        ],
+        "source": {
+          "label": "Table S6 · 경구 DDI",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13545016.1/CPT-9999-0-s001.pdf?md5=7242bd2871cf984756f4963e3aa83850#page=10"
+        }
+      },
+      {
+        "label": "보정과 독립 평가의 구분",
+        "method": "경구 DDI로 efflux·유입 기여도를 맞춘 뒤 비강 itraconazole 자료를 검증에 사용했다.",
+        "result": "비강 AUCR 예측 1.36 대 관찰 1.02. 큰 상호작용이 없다는 해석을 지지하나, 약 34%의 비율 과대예측이 남는다.",
+        "sourceIds": [
+          "zavegepant-cpt70460-sec-0008",
+          "zavegepant-si-page-15"
+        ],
+        "source": {
+          "label": "Table S11 · 비강 검증",
+          "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13545016.1/CPT-9999-0-s001.pdf?md5=7242bd2871cf984756f4963e3aa83850#page=15"
+        }
+      },
+      {
+        "label": "시험하지 않은 DDI의 기전 분해",
+        "method": "비강 rifampin 병용에서 간 유입 억제를 포함한 모형과 CYP3A/P-gp 유도만 남긴 모형을 비교했다.",
+        "result": "다회 rifampin AUCR는 전체 기전 2.11, 유도만 0.89였다. 해당 모형에서는 간 유입 억제가 순노출 증가를 설명한다.",
+        "sourceIds": [
+          "zavegepant-cpt70460-sec-0023"
+        ],
+        "source": {
+          "label": "Table 2 · PBPK 예측",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0023"
+        }
+      }
+    ]
+  },
+  "abstract": {
+    "paragraphs": [
+      "성인의 전조 유무와 관계없는 편두통 급성 치료에 사용되는 칼시토닌 유전자 관련 펩타이드 수용체 길항제 zavegepant 비강 스프레이는 유기 음이온 수송 폴리펩타이드 1B3(OATP1B3), Na⁺/타우로콜산 공동수송 폴리펩타이드(NTCP), P-당단백질(P-gp), 시토크롬 P450 3A4(CYP3A4)의 기질이다. 임상 약물–약물 상호작용(DDI) 연구에서 다회 투여(MD) rifampin 또는 itraconazole 존재 시 경구 zavegepant 노출이 증가했다. 그러나 비강 투여(IN) zavegepant와 itraconazole 사이에서는 상호작용이 관찰되지 않았다.",
+      "In vitro 자료, 사람 질량수지 자료 및 관찰된 zavegepant 임상 약동학 자료를 이용해 생리학 기반 약동학(PBPK) 모형을 개발·검증했으며, 이를 임상 DDI 기전을 평가하고 zavegepant 비강 스프레이의 허가사항 권고를 추가로 뒷받침하는 데 사용했다. PBPK 모델링은 itraconazole과 경구 zavegepant 사이에서 관찰된 DDI가 주로 장 P-gp 억제에 의해 발생하며, 다회 rifampin에서 관찰된 DDI는 주로 간 유입 억제에 기인함을 나타냈다.",
+      "모델링에서는 단회 투여(SD) rifampin과 함께 사용한 비강 zavegepant의 혈장 노출 증가를 예측했다(AUC 비[AUCR] = 2.39). 다회 rifampin에서도 비강 zavegepant 혈장 노출이 증가할 것으로 예측됐다(AUCR = 2.11). 간 유입에 대한 OATP1B3:NTCP 기여도를 90:10으로 가정했을 때, 단회 cyclosporine A에 따른 비강 zavegepant 노출 변화의 예측값은 1.58배(AUCR)였다. CYP3A 유도제인 carbamazepine과 efavirenz는 비강 zavegepant 약동학에 미치는 영향이 미미할 것으로 예측됐다.",
+      "종합하면, PBPK 모델링과 관찰된 약동학 자료는 CYP3A/P-gp 억제제 및 유도제가 비강 zavegepant 혈장 노출을 임상적으로 의미 있게 변화시키지 않는다는 점을 지지한다. 그러나 OATP1B3/NTCP 억제제는 비강 zavegepant 노출을 크게 증가시킬 수 있으므로 병용을 피해야 한다."
+    ],
+    "source": {
+      "label": "원문 초록 전문",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-abs-0001"
+    }
+  },
+  "tabs": {
+    "summary": [
+      {
+        "title": "핵심 결론과 그 근거의 강도",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Zavegepant의 DDI를 결정하는 것은 ‘CYP3A 기질인가’만이 아니라, 약물이 어느 경로로 흡수되고 간으로 들어가는 과정이 제거를 얼마나 제한하는가이다. 저자들은 경구 itraconazole DDI를 주로 장 P-gp 억제, 경구 rifampin DDI를 주로 간 OATP1B3 유입 억제로 설명한다. 비강제에 대한 CYP3A/P-gp 조절의 작은 영향과 간 유입 억제의 상대적으로 큰 영향은 관찰자료를 결합한 모형의 해석이며, 모든 병용약에 대해 직접 확인된 임상 사실은 아니다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0007",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          },
+          {
+            "type": "table",
+            "headers": [
+              "근거 단계",
+              "핵심 결과",
+              "읽을 때의 경계"
+            ],
+            "rows": [
+              [
+                "임상 관찰",
+                "Itraconazole AUC₀–∞ 병용/단독비: 경구 1.59, 비강 1.02. 경구 rifampin 다회 병용비 2.33.",
+                "경구와 비강 연구는 용량·대상 자료가 다르며, 한 환자에서 경로만 교체한 직접 비교라고 제시되지는 않는다."
+              ],
+              [
+                "모형 보정",
+                "P-gp:기타 efflux 1:2; 능동:수동 간 유입 80:20; 비강 모형의 inhaled:swallowed 10:90.",
+                "임상 PK/DDI를 재현하도록 추정한 기여도이다. 수송체 양이나 실제 비강 침착률의 직접 측정값이 아니다."
+              ],
+              [
+                "별도 조건의 검증",
+                "비강 itraconazole AUCR 관찰 1.02(90% CI 0.82–1.26), 예측 1.36(1.34–1.37).",
+                "큰 DDI가 없다는 방향은 맞지만 정확한 무영향을 재현하지 못했다. 경구 DDI 적합을 독립 검증으로 다시 세지 않는다."
+              ],
+              [
+                "미시험 예측",
+                "비강 rifampin AUCR 2.39(단회), 2.11(다회); cyclosporine A 1.37 또는 1.58.",
+                "가상 건강인에서 정해진 구조·파라미터로 산출했다. 해당 비강 병용 임상시험 결과가 아니다."
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-si-page-10",
+              "zavegepant-si-page-11",
+              "zavegepant-si-page-12",
+              "zavegepant-si-page-13",
+              "zavegepant-si-page-15",
+              "zavegepant-cpt70460-sec-0023"
+            ]
+          },
+          {
+            "type": "callout",
+            "text": "이 표의 AUCR는 병용 시 AUC를 단독 시 AUC로 나눈 기하평균비이다. 반면 검증표의 Pred:Obs는 예측치를 관찰치로 나눈 정확도 지표다. ‘AUCR 1.36’과 ‘예측/관찰 1.34’는 서로 다른 분모를 사용한다.",
+            "sourceIds": [
+              "zavegepant-si-page-15",
+              "zavegepant-cpt70460-sec-0023"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "연구에서 얻는 실질적인 통찰",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "경구 절대 생체이용률은 0.6%, 비강은 5%로 보고됐다. 장을 통한 유입 자체가 작은 약물이므로, 경구에서는 장 efflux를 억제하면 노출이 증가할 수 있다. 비강 투여는 장에 의존하는 흡수의 비중을 바꾸지만, 전신순환에 도달한 뒤의 간 유입·담즙 배설은 여전히 중요하다. 따라서 경구에서 확인한 DDI의 크기를 비강 제형에 그대로 옮길 수 없다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0007",
+              "zavegepant-cpt70460-sec-0010",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "강한 CYP3A/P-gp 유도제인 rifampin을 다회 투여했는데 경구 노출이 감소하지 않고 증가했다는 관찰이 핵심 단서다. 모형 안에서 간 유입 억제 효과를 제거하면 비강 AUCR는 0.89가 된다. 이는 유도와 억제가 함께 작용하는 약물에서 순효과만 보고 기전을 정하면 안 된다는 사례다. 다만 이 기전 제거 비교는 새로운 임상 대조군이 아니라 계산상 대조조건이다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0007",
+              "zavegepant-cpt70460-sec-0023",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "개발 관점의 적용은 관찰자료로 뒷받침된 경로 차이, 모형이 추정한 수송체 기여도, 아직 시험하지 않은 조합의 예측을 구분하는 것이다. 저자들은 이 결과를 허가사항의 병용 회피 권고를 뒷받침하는 근거로 제시한다. 여기서 노출비를 개인별 용량 조정, 이상반응 확률 또는 편두통 치료효과의 변화량으로 환산하지 않는다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0004",
+              "zavegepant-cpt70460-sec-0006",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "검토 범위",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "제공된 원문 51구간을 모두 읽었다: 초록 1, 본문 25(Methods·Discussion·자료공유·이해상충 포함), 본문 그림 caption 4, SI 21쪽. 본문 그림 1–4의 실제 이미지와 SI 1–21쪽의 렌더링을 모두 시각 확인했다. SI에서는 Table S1–S11과 Figure S1–S6의 표 정렬, 축, 패널, 범례를 본문과 대조했다.",
+            "sourceIds": [
+              "zavegepant-abstract-1",
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0026",
+              "zavegepant-cpt70460-sec-0031",
+              "zavegepant-cpt70460-fig-0001",
+              "zavegepant-cpt70460-fig-0002",
+              "zavegepant-cpt70460-fig-0003",
+              "zavegepant-cpt70460-fig-0004",
+              "zavegepant-si-page-1",
+              "zavegepant-si-page-2",
+              "zavegepant-si-page-3",
+              "zavegepant-si-page-4",
+              "zavegepant-si-page-5",
+              "zavegepant-si-page-6",
+              "zavegepant-si-page-7",
+              "zavegepant-si-page-8",
+              "zavegepant-si-page-9",
+              "zavegepant-si-page-10",
+              "zavegepant-si-page-11",
+              "zavegepant-si-page-12",
+              "zavegepant-si-page-13",
+              "zavegepant-si-page-14",
+              "zavegepant-si-page-15",
+              "zavegepant-si-page-16",
+              "zavegepant-si-page-17",
+              "zavegepant-si-page-18",
+              "zavegepant-si-page-19",
+              "zavegepant-si-page-20",
+              "zavegepant-si-page-21"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "이는 제공된 논문·SI의 검토 범위다. 개별 참가자 원자료, Simcyp 실행 파일, data on file 자료, 인용된 선행 임상시험과 규제 문서의 원문은 제공 입력에 없으므로 직접 재분석·재실행·대조하지 않았다. 회사 자료공유 절에는 요청 후 검토와 조건에 따라 자료를 제공한다고 되어 있다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0031",
+              "zavegepant-cpt70460-sec-0007",
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "왜 이 약물은 전형적인 CYP 중심 DDI와 다른가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Zavegepant는 CGRP 수용체 길항제다. 본 연구는 수용체 효능을 새로 입증하는 시험이 아니라, 비강 제형의 혈중 노출이 병용약에 의해 얼마나 변하는지를 설명하는 약동학 연구다. IV 질량수지에서 대부분이 미변화체로 분변에 회수됐고 대사와 미변화체 신장 배설은 소수 경로였다. 출판된 IV 청소율은 13.2 L/h, Vss는 41.6 L, 말단 반감기는 6.8 h다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0007"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "In vitro에서는 OATP1B3·NTCP가 간 유입, P-gp가 efflux에 관여하는 기질 특성이 확인됐다. 산화대사의 95%를 CYP3A4, 5%를 CYP2D6에 배정했지만, 이 95%의 분모는 전체 투여량이나 총 제거량이 아니라 대사 경로 내부의 분율이다. 대사 자체가 작은 약물이므로 ‘CYP3A4 95%’를 총청소율의 95%로 읽으면 유도·억제의 영향을 크게 잘못 예상한다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0007",
+              "zavegepant-cpt70460-sec-0011",
+              "zavegepant-si-page-16"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "논문의 기전 해석은 간 유입이 청소율의 속도결정단계가 될 수 있다는 데 있다. 낮은 수동 투과성 때문에 약물이 간세포 안으로 들어가는 과정이 제한되면, 세포 안 대사효소나 담즙 방향 efflux의 변화가 혈장 노출에 미치는 영향은 작아질 수 있다. 이 해석은 관찰된 경로 차이와 모형에 부합하지만, 간 내 농도를 직접 측정해 입증한 결과는 아니다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "어떤 자료가 무엇을 결정했는가",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "자료",
+              "모형에서의 역할",
+              "관찰과 계산의 구별"
+            ],
+            "rows": [
+              [
+                "물성·in vitro, IV 질량수지",
+                "수동 투과, 결합, 분포 및 신장·대사·담즙 제거의 기본 구조 설정",
+                "일부 값은 측정값, 일부는 역산·가정·조정값이며 Table 1에 구분되어 있다."
+              ],
+              [
+                "경구 단회 100 mg PK, 경구 itraconazole·rifampin DDI",
+                "기본 PK와 efflux·간 유입 기여도 보정",
+                "Figure 2와 Table S6의 좋은 적합도는 개발자료에 대한 재현성이다."
+              ],
+              [
+                "비강 20 mg 반복 PK",
+                "비강 직접 흡수 경로와 삼킨 경구 경로의 비율 보정",
+                "Figure S4·Table S9는 개발자료다."
+              ],
+              [
+                "경구 50–300 mg 및 비강 5·10 mg 단회/반복 PK",
+                "다른 용량·반복투여 조건으로 예측 성능 평가",
+                "Table S10·S11의 각 AUC·Cmax Pred:Obs를 본다."
+              ],
+              [
+                "비강 10 mg + itraconazole",
+                "비강제 DDI 검증",
+                "관찰 대상 18명, 가상 대상 총 180명. 실제와 가상의 n을 합치지 않는다."
+              ],
+              [
+                "비강 10 mg + rifampin·cyclosporine A·carbamazepine·efavirenz",
+                "임상적으로 시험하지 않은 시나리오에 적용",
+                "10명×10개 가상시험이며 해당 조합의 새 임상 측정은 없다."
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0014",
+              "zavegepant-cpt70460-sec-0015",
+              "zavegepant-cpt70460-fig-0001",
+              "zavegepant-cpt70460-fig-0002",
+              "zavegepant-cpt70460-fig-0003",
+              "zavegepant-si-page-2"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "여기서 ‘검증’은 저자가 개발용으로 사용한 조건과 구분해 평가한 임상자료를 뜻한다. 다른 용량과 비강 DDI로의 확장은 유용하지만, 외부 연구팀의 전향적 재현이나 OATP1B3만을 선택적으로 교란한 독립 검증까지 수행했다는 뜻은 아니다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0014",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "관찰한 크기와 미시험 예측의 크기",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "조건",
+              "관찰 AUC₀–∞ 비 / Cmax 비",
+              "예측 AUC₀–∞ 비 / Cmax 비",
+              "용도"
+            ],
+            "rows": [
+              [
+                "경구 50 mg + itraconazole",
+                "1.59 / 1.77",
+                "1.90 / 1.57",
+                "보정"
+              ],
+              [
+                "경구 100 mg + 다회 rifampin",
+                "2.33 / 2.17",
+                "2.34 / 1.94",
+                "보정"
+              ],
+              [
+                "비강 10 mg + itraconazole",
+                "1.02 / 0.88",
+                "1.36 / 1.14",
+                "검증"
+              ],
+              [
+                "비강 10 mg + 단회 rifampin",
+                "미시험",
+                "2.39 / 1.70",
+                "예측"
+              ],
+              [
+                "비강 10 mg + 다회 rifampin",
+                "미시험",
+                "2.11 / 1.67",
+                "예측"
+              ],
+              [
+                "비강 10 mg + cyclosporine A",
+                "미시험",
+                "1.37 / 1.13 (OATP1B3:NTCP 50:50); 1.58 / 1.23 (90:10)",
+                "기여도 가정에 따른 예측"
+              ],
+              [
+                "비강 10 mg + carbamazepine",
+                "미시험",
+                "0.94 / 0.98 (CYP3A4+P-gp 유도)",
+                "예측"
+              ],
+              [
+                "비강 10 mg + efavirenz",
+                "미시험",
+                "0.94 / 0.99",
+                "예측"
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-si-page-10",
+              "zavegepant-si-page-15",
+              "zavegepant-cpt70460-sec-0023"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "모든 DDI 비율의 분모는 같은 zavegepant 경로·용량에서 병용약이 없는 조건이다. AUC₀–∞는 무한대까지 외삽한 누적 노출, Cmax는 최고 혈장농도다. S7의 itraconazole 관찰 1.74는 AUC₀–last 비이므로 위 표의 AUC₀–∞ 1.59와 바꾸어 쓰지 않았다.",
+            "sourceIds": [
+              "zavegepant-si-page-10",
+              "zavegepant-si-page-11",
+              "zavegepant-si-page-15"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "새로움과 일반화 가능한 범위",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "저자들이 강조하는 차별점은 OATP1B1 기여가 거의 없는 OATP1B3 중심 유입 약물에서, 극히 낮은 경구 흡수·비강 전달·작은 대사 분율·담즙 배설을 하나의 모형으로 연결했다는 점이다. 단순히 AUC를 맞추는 것보다, 제형을 바꾸었을 때 장 efflux와 간 유입의 영향이 어떻게 달라지는지를 설명한 것이 가치다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0005",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "분석자의 해석으로는 이 사례가 전달하는 일반 원리는 ‘기질 판정 → 임상 DDI 크기’ 사이에 경로별 기여도와 속도결정단계를 넣어야 한다는 것이다. 반면 이 약물의 1:2·80:20·10:90을 다른 화합물의 기본값으로 옮기는 근거는 없다. 선택적 OATP1B3 probe 부재와 NTCP 기여도 불확실성 때문에 정확한 수송체별 효과 크기의 일반화는 제한된다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0012",
+              "zavegepant-cpt70460-sec-0024",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "PBPK 구조와 입력값의 출처",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Simcyp v20에서 장 흡수·efflux·대사를 포함하는 ADAM, 전신 분포, 투과 제한 간 모형(PerL), 신장 청소율을 연결했다. In vitro 값만으로 전체를 예측하지 못해 임상 PK/DDI로 일부 파라미터를 보정하는 middle-out 접근을 사용했다. 개발·검증은 원 임상시험의 인구학적 특성과 표본 크기를 맞춘 가상시험 10개로 수행하고, 농도–시간 곡선과 AUC·Cmax를 관찰자료와 비교했다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0009"
+            ]
+          },
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "입력 또는 산출값",
+              "왜 필요한가 / 어떻게 얻었는가"
+            ],
+            "rows": [
+              [
+                "혈장 비결합분율·혈액/혈장비",
+                "0.1045 / 1.0",
+                "측정값. 혈중 농도에서 수송·대사에 이용 가능한 농도를 연결한다."
+              ],
+              [
+                "수동 투과·장 이용률",
+                "Caco-2 Papp 0.174×10⁻⁶ cm/s; 예측 공장 Peff 0.0836×10⁻⁴ cm/s; Fg 0.99",
+                "낮은 수동 투과와 작은 장 대사를 반영한다. Peff는 예측값, Fg는 모형 추정값이다."
+              ],
+              [
+                "분포",
+                "Kp1 scalar 0.03, 추가 구획 Kp2 50; Vss 0.75 L/kg",
+                "IV 곡선의 최고농도 및 말단상을 재현하도록 조정했다. 추가 구획이 특정 실측 장기임을 입증하지 않는다."
+              ],
+              [
+                "전신·신장·담즙 청소율",
+                "모형 CLiv 15.78 L/h; CLR 1.22 L/h; CLbile 12.72 L/h",
+                "CLiv는 잠정 임상값, CLR는 임상 관찰값, CLbile은 청소율과 담즙 배설분율 80.5%로 계산했다."
+              ],
+              [
+                "대사 배분",
+                "대사 경로 내부 CYP3A4 95%, CYP2D6 5%",
+                "질량수지로 정한 작은 총 대사 성분을 in vitro phenotyping에 따라 분할했다."
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0009",
+              "zavegepant-cpt70460-sec-0010",
+              "zavegepant-cpt70460-sec-0011"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "경구 흡수에서는 용액 상태 유지, 장내 비결합분율 1을 가정하고 관찰 Tmax·Cmax에 맞추어 지역 투과도와 공장 흡수 속도를 조정했다. 따라서 최종 흡수 모형의 적합도를 모두 in vitro–in vivo 외삽의 성공으로 해석하면 안 된다. Figure S2는 P-gp efflux CLint가 커질수록 Fa가 낮아지는 민감도를 보여주며, 약 1%의 Fa를 맞추는 단계에 사용됐다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0010",
+              "zavegepant-si-page-17"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "장·간 efflux: 알려진 P-gp와 미확인 성분을 분리한 이유",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Itraconazole은 CYP3A와 P-gp를 억제한다. 그러나 zavegepant 대사 기여가 작고 비강 임상 DDI가 작았기 때문에, 저자들은 경구 노출 증가의 주된 후보를 efflux 억제로 두었다. P-gp만으로 efflux를 설명한 초기 모형은 경구 itraconazole의 AUC₀–last 비를 6.5로 과대예측했다(관찰 1.74).",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0012",
+              "zavegepant-cpt70460-sec-0017",
+              "zavegepant-si-page-11"
+            ]
+          },
+          {
+            "type": "table",
+            "headers": [
+              "민감도 조건",
+              "예측 AUC₀–last 비",
+              "예측 Cmax 비",
+              "해석"
+            ],
+            "rows": [
+              [
+                "장 P-gp:기타 efflux = 1:0",
+                "6.5",
+                "3.4",
+                "P-gp만 억제되면 노출 증가가 관찰보다 훨씬 크다."
+              ],
+              [
+                "장만 1:2",
+                "3.1",
+                "1.7",
+                "장 기여도 분할만으로 AUC 과대예측을 해소하지 못했다."
+              ],
+              [
+                "장만 1:5",
+                "2.8",
+                "1.5",
+                "P-gp 기여도를 더 낮춰도 잔차가 남는다."
+              ],
+              [
+                "장과 간 모두 1:2",
+                "1.67",
+                "1.40",
+                "선택된 기여도. 관찰은 각각 1.74와 1.77이다."
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-si-page-11"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "최종 장 CLint는 P-gp 20, 기타 efflux 40 μL/min, 간 efflux는 5.23 및 10.47 μL/min/10⁶ cells로 두었다. 앞의 장 단위에는 세포 수 분모가 없으므로 간 값과 수치만 직접 비교할 수 없다. 1:2는 총 efflux의 모형상 기여도이며 특정 미확인 수송체의 발현비가 아니다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0009",
+              "zavegepant-cpt70460-sec-0012"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "저자들은 ‘기타 efflux’의 존재를 현재 in vitro 자료로 확인할 수 없고, itraconazole의 장 P-gp 억제 강도를 과대평가했을 가능성도 배제하지 못한다고 인정한다. 분석자의 판단으로는 1:2가 유용한 보정 해법임은 보였지만, 이 적합만으로 실제 수송체 구성이나 유일한 파라미터 조합이 결정되지는 않는다. Itraconazole 용액의 cyclodextrin에 따른 흡수 저하 가능성은 저자들이 투여 간격을 근거로 작다고 논의했으며, 본 분석에서 별도로 검증하지 않았다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "간 유입: 80:20과 90:10은 서로 다른 비율이다",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "능동 OATP1B3 : 수동 유입",
+              "CLint,OATP1B3 / CLPD (μL/min/10⁶ cells)",
+              "Rifampin 예측 AUC 비 / Cmax 비"
+            ],
+            "rows": [
+              [
+                "50:50",
+                "20 / 19.4",
+                "1.25 / 1.35"
+              ],
+              [
+                "90:10",
+                "36 / 4",
+                "3.30 / 2.41"
+              ],
+              [
+                "80:20, 초기 총 유입 40",
+                "32 / 8",
+                "2.34 / 2.00"
+              ],
+              [
+                "80:20, 최종 총 유입 35",
+                "28 / 7",
+                "2.32 / 1.94"
+              ],
+              [
+                "임상 관찰",
+                "직접 분율 측정 없음",
+                "2.33 / 2.17"
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-si-page-12"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Table S8에서 능동:수동 50:50은 rifampin DDI를 과소예측하고 90:10은 과대예측했다. 최종 80:20을 선택한 뒤, 경구 겉보기 청소율(CL/F) 과대예측을 줄이기 위해 총 유입 청소율도 40에서 35 μL/min/10⁶ cells로 낮췄다. 그때 예측 CL/F는 2,950에서 2,700 L/h로 바뀐다. CL/F는 경구 이용률 F로 나눈 겉보기 값이며 IV 청소율 13.2 또는 15.78 L/h와 같은 양이 아니다.",
+            "sourceIds": [
+              "zavegepant-si-page-12",
+              "zavegepant-cpt70460-sec-0009",
+              "zavegepant-cpt70460-sec-0007"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "이 80:20은 전체 간 유입의 능동 운반 대 수동 확산이다. 뒤의 cyclosporine 민감도에서 사용한 OATP1B3:NTCP = 50:50 또는 90:10은 능동 간 유입을 두 수송체에 배정하는 가정이다. 두 비율의 분모가 다르며 서로 대체할 수 없다. Rifampin은 NTCP에 대한 억제가 약하다는 이유로 초기 rifampin 모형에 NTCP를 넣지 않았고, OATP1B3 유도 역시 명확한 임상 근거가 부족해 포함하지 않았다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0012",
+              "zavegepant-cpt70460-sec-0015",
+              "zavegepant-cpt70460-sec-0024",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Rifampin의 OATP1B3 Ki는 0.088 μM, NTCP Ki는 본문 118–188 μM 범위다. Cyclosporine A에서는 OATP1B3 Ki 0.032 μM와 NTCP Ki 0.37 μM를 사용하고, 대사체 AM1의 OATP1B3 Ki 0.059 μM도 반영했다. 이 억제 파라미터와 간 유입 분율이 함께 예측을 결정한다. 임상 DDI 하나를 재현했다고 각 파라미터가 독립적으로 식별됐다고 볼 수는 없다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0012",
+              "zavegepant-cpt70460-sec-0015",
+              "zavegepant-si-page-5",
+              "zavegepant-si-page-7",
+              "zavegepant-si-page-9"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "비강 흡수와 검증 대상",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "비강 흡수는 빠른 1차 흡수 모형으로 표현하고 ‘inhaled’ 경로의 생체이용률을 100%로 가정했다. 20 mg 비강 반복 PK에 가장 잘 맞는 inhaled:swallowed 분율은 10:90이었다. 이는 투여량을 모형의 두 경로에 배정하는 유효 파라미터이며, 실제 비강에 남은 비율이나 폐로 들어간 비율을 직접 측정했다는 의미는 아니다. 비강 점막 P-gp의 기능과 국소 억제제 농도가 불확실해 비강 efflux는 모형에 포함하지 않았다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0013",
+              "zavegepant-cpt70460-sec-0018",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Table S9에서 10:90 조건의 AUC₀–₂₄,ss는 예측 101 대 관찰 95.0 ng·h/mL, Cmax,ss는 32 대 40.9 ng/mL였다. 각각 예측/관찰 약 1.06과 0.78이다. 본문은 두 지표가 0.8–1.25배 이내라고 요약하지만 공개된 Cmax 표값으로는 약간 벗어난다. 관찰 곡선의 대략적인 형태를 맞춘 것과 모든 최고농도를 정확히 맞춘 것은 구분해야 한다.",
+            "sourceIds": [
+              "zavegepant-si-page-13",
+              "zavegepant-cpt70460-sec-0018",
+              "zavegepant-si-page-19"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "별도 평가에 쓴 경구 반복 PK는 50·100·200·300 mg의 Day 1/10, 비강은 5·10 mg의 Day 1/14다. 비강 itraconazole DDI에서는 임상 관찰 18명에 대응해 18명씩 10개 가상시험을 구성했다. 농도–시간 곡선의 회색 선들은 가상시험별 평균이며, 개별 참가자의 예측구간이나 실측 오차막대가 아니다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0014",
+              "zavegepant-cpt70460-fig-0003",
+              "zavegepant-si-page-14",
+              "zavegepant-si-page-15",
+              "zavegepant-si-page-20"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "미시험 상황에서의 기전 대조와 불확실성",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "모형 적용은 가상 건강인 20–50세, 여성 50%, 10명×10개 시험으로 수행했다. 논문은 단회·다회 rifampin, 단회 cyclosporine A, 반복 carbamazepine·efavirenz 조건을 비교했다. Rifampin에서는 간 유입 억제를 끈 유도 단독 조건, carbamazepine에서는 CYP3A4 유도 단독과 CYP3A4+P-gp 유도를 비교하여 기전별 기여를 분리했다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0015",
+              "zavegepant-si-page-2"
+            ]
+          },
+          {
+            "type": "table",
+            "headers": [
+              "계산상 대조조건",
+              "예측 AUCR (90% CI)",
+              "이 비교가 말하는 것"
+            ],
+            "rows": [
+              [
+                "다회 rifampin: 간 유입 억제+유도",
+                "2.11 (2.03–2.20)",
+                "최종 모형에서는 순노출 증가."
+              ],
+              [
+                "다회 rifampin: CYP3A4+P-gp 유도만",
+                "0.89 (0.89–0.89)",
+                "유도 자체의 노출 감소는 약 11%. 동일 모형 안에서의 기전 제거 비교."
+              ],
+              [
+                "Carbamazepine: CYP3A4 유도만",
+                "0.98 (0.97–0.98)",
+                "대사 유도만으로는 변화가 작다."
+              ],
+              [
+                "Carbamazepine: CYP3A4+P-gp 유도",
+                "0.94 (0.93–0.94)",
+                "P-gp 유도를 추가해도 해당 조건의 감소는 10% 미만."
+              ],
+              [
+                "Cyclosporine A: OATP1B3:NTCP 50:50 / 90:10",
+                "1.37 (1.34–1.39) / 1.58 (1.55–1.61)",
+                "알려지지 않은 능동 유입 분배에 따른 두 시나리오. 1.37–1.58은 통계적 신뢰구간이 아니다."
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0023",
+              "zavegepant-cpt70460-sec-0024"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "표의 90% CI는 정해진 모형에서 산출한 GMR의 구간이다. 수송체 기여도·억제상수·모형 구조의 불확실성을 모두 포괄하는 임상 예측구간이라고 제시되지 않았다. 0.89–0.89처럼 같은 숫자로 보이는 구간도 보고 정밀도로 반올림된 값이므로, 생물학적 불확실성이 0이라는 뜻은 아니다. 건강인 설정에서 얻은 값만으로 간·신장 기능 저하나 복합 병용의 결과를 확정할 수 없다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0023",
+              "zavegepant-cpt70460-sec-0026"
+            ]
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "Figure 1 · 자료의 역할을 구분해야 검증 강도가 보인다",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 1. 개발·검증·적용에 배정한 임상자료",
+            "image": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/figure-1.webp",
+            "alt": "Figure 1. 개발·검증·적용에 배정한 임상자료",
+            "description": "그림은 위에서부터 모형 개발, 검증, 적용의 세 단계로 나뉜다. 왼쪽은 모형 구성요소, 오른쪽 파란 글씨 상자는 대응하는 임상자료이며, 아래 적용 영역은 비강제의 미시험 병용 시나리오다.",
+            "explanation": [
+              {
+                "label": "직접 읽은 구조",
+                "text": "상단에는 IV 질량수지, 경구 50 mg–itraconazole, 경구 100 mg–rifampin, 비강 20 mg 반복투여가 배치되어 있다. 개발 영역의 화살표는 임상 DDI와 모형 추정 사이의 반복 보정을 보여준다."
+              },
+              {
+                "label": "대조군과 데이터 분리",
+                "text": "경구 DDI는 efflux와 능동 간 유입 기여도를 맞추는 자료다. 중간 검증 영역은 경구 50–300 mg·비강 5–10 mg PK와 비강 10 mg–itraconazole을 별도로 배치한다. 그러므로 경구 DDI를 맞춘 Figure 2를 새 독립 검증으로 세면 근거를 중복 계산하게 된다."
+              },
+              {
+                "label": "그림이 말하지 않는 것",
+                "text": "하단의 rifampin·cyclosporine A·carbamazepine·efavirenz 조합은 실제 임상시험을 새로 시행했다는 의미가 아니다. Caption에 명시되듯 모든 임상자료와 가상시험의 대상은 건강인이다."
+              }
+            ],
+            "caption": "Key steps and clinical studies used in PBPK model building, validation, and application. All clinical studies and simulations were done in healthy participants. CL iv, intravenous clearance; CsA, cyclosporine A; DDI, drug–drug interaction; fe, fraction of drug excreted; f m, fraction of drug metabolized; f m,CYP3A4, fraction of drug metabolized by cytochrome P450 3A4; HLM, human liver microsomes; IN, intranasal; IV, intravenous; MD, multiple dose; OATP1B3, organic anion transporting polypeptide 1B3; PBPK, physiologically based pharmacokinetic; P‐gp, P‐glycoprotein; QD, once daily; rCYP, recombinant cytochrome P450; SD, single dose; V ss, volume of distribution at steady state.",
+            "source": {
+              "label": "Figure 1",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-fig-0001"
+            },
+            "sourceIds": [
+              "zavegepant-cpt70460-fig-0001",
+              "zavegepant-cpt70460-sec-0008",
+              "zavegepant-cpt70460-sec-0014",
+              "zavegepant-si-page-2"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Figure 2 · 경구 DDI의 재현은 보정 단계의 성과다",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 2. 경구 itraconazole·rifampin DDI의 농도–시간 곡선",
+            "image": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/figure-2.webp",
+            "alt": "Figure 2. 경구 itraconazole·rifampin DDI의 농도–시간 곡선",
+            "description": "a는 경구 50 mg zavegepant±itraconazole, b는 경구 100 mg±rifampin이다. 세로축은 ng/mL의 로그 농도, 가로축은 h이며 병용약 투여 일정상 a는 약 168 h, b는 약 216 h부터 그려져 있다.",
+            "explanation": [
+              {
+                "label": "축·기호·표본",
+                "text": "실선/원은 병용약 없음, 점선/삼각형은 있음이다. 검은 선은 가상집단 평균, 회색 선은 10개 가상시험 각각의 평균이다. a의 관찰 n=18와 가상 n=180, b의 관찰 n=15와 가상 n=150은 서로 다른 수다."
+              },
+              {
+                "label": "관찰과 적합",
+                "text": "병용 조건의 곡선이 단독보다 높고, rifampin에서는 최고농도뿐 아니라 하강 구간의 증가도 보인다. Table S6의 AUC₀–∞/Cmax DDI 비는 itraconazole 관찰 1.59/1.77 대 예측 1.90/1.57, rifampin 관찰 2.33/2.17 대 예측 2.34/1.94다."
+              },
+              {
+                "label": "보정 잔차",
+                "text": "비율을 맞춘 것과 절대 농도를 맞춘 것은 다르다. Itraconazole 병용 Cmax는 예측 8.38 대 관찰 12.81 ng/mL로 Pred:Obs 0.65다. 로그 축의 전체 곡선 유사성만으로 최고농도 정확성을 판단하면 이 잔차를 놓칠 수 있다."
+              },
+              {
+                "label": "인과 해석",
+                "text": "두 DDI의 관찰값을 사용해 P-gp:기타 efflux와 능동:수동 유입을 추정했다. 이 그림은 선택된 파라미터의 적합도를 보여주며, 미확인 efflux 수송체가 실제로 존재하거나 유입 80:20이 유일한 해답임을 직접 증명하지 않는다."
+              }
+            ],
+            "caption": "Simulated and observed zavegepant concentration–time profiles (model development) following a single oral dose of zavegepant administered alone and with MD itraconazole (a) or MD rifampin (b). Gray lines represent mean zavegepant concentrations of the simulated individual trials, and black lines represent mean concentration for the simulated population (n = 180 for a; n = 150 for b). Circles and triangles represent observed mean zavegepant concentrations (n = 18 for a; n = 15 for b). Solid lines/circles represent zavegepant concentration in the absence of the specified concomitant medication, and dashed lines/triangles represent concentrations in the presence of the concomitant medication. In a, 50 mg zavegepant was administered on the eighth day of 9 days of dosing with 200 mg itraconazole QD (simulations considered the inhibitory effect on CYP3A4, P‐gp, and OATP1B3 by itraconazole and OH‐itraconazole). In b, 100 mg zavegepant was administered on the 10th day of 10 days of dosing with 600 mg rifampin QD. CYP3A4, cytochrome P450 3A4; MD, multiple dose; OATP1B3, organic anion transporting polypeptide 1B3; P‐gp, P‐glycoprotein; QD, once daily.",
+            "source": {
+              "label": "Figure 2",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-fig-0002"
+            },
+            "sourceIds": [
+              "zavegepant-cpt70460-fig-0002",
+              "zavegepant-si-page-10",
+              "zavegepant-si-page-11",
+              "zavegepant-si-page-12",
+              "zavegepant-cpt70460-sec-0017"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Figure 3 · 비강 검증은 방향뿐 아니라 오차도 읽어야 한다",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 3. 비강 단회·반복 PK 및 itraconazole DDI 검증",
+            "image": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/figure-3.webp",
+            "alt": "Figure 3. 비강 단회·반복 PK 및 itraconazole DDI 검증",
+            "description": "a·b는 비강 5·10 mg의 반복투여 곡선, c는 비강 10 mg의 itraconazole 병용 비교다. 세로축은 로그 농도(ng/mL), 가로축은 시간(h)이며, a·b에는 첫날과 마지막 날의 집중 채혈 및 중간 저농도 관찰점이 표시되어 있다.",
+            "explanation": [
+              {
+                "label": "축·범례와 표본",
+                "text": "a·b는 임상 n=9, 가상 n=90이고 c는 임상 n=18, 가상 n=180이다. 검은 선/회색 선의 구분은 Figure 2와 같다. c의 원·실선은 단독, 삼각형·점선은 병용이다. 회색 선 범위는 개인별 PK 변동 전체를 나타내는 띠가 아니다."
+              },
+              {
+                "label": "반복 PK 검증",
+                "text": "Table S11에서 비강 5 mg Day 1 Cmax는 7.81 대 11.37 ng/mL(Pred:Obs 0.69), 비강 10 mg Day 1 AUC₀–₂₄는 46.09 대 32.10 ng·h/mL(1.44)다. 평균 곡선은 대체로 재현하지만 일부 지표는 30–40%대 편차가 남는다."
+              },
+              {
+                "label": "DDI 검증의 핵심",
+                "text": "c의 관찰 AUCR는 1.02(90% CI 0.82–1.26), Cmax 비는 0.88(0.64–1.20)로 큰 변화가 관찰되지 않았다. 예측은 각각 1.36(1.34–1.37), 1.14(1.13–1.15)다. 특히 AUC의 증가를 과대예측하므로 ‘임상 무영향을 정밀하게 재현했다’는 표현은 과하다."
+              },
+              {
+                "label": "절대 노출과 비율의 구별",
+                "text": "DDI 시험 단독 AUC₀–∞는 예측 47.81 대 관찰 48.01 ng·h/mL로 잘 맞지만, Cmax는 14.87 대 23.93 ng/mL로 낮다(Pred:Obs 0.62). GMR의 예측/관찰 비는 AUC 1.34·Cmax 1.30이며, 0.62는 GMR 정확도가 아니라 단독 Cmax 정확도다."
+              }
+            ],
+            "caption": "Simulated and observed zavegepant plasma concentration–time profiles (model validation) following 5 mg IN zavegepant (a), 10 mg IN zavegepant (b), and 10 mg IN zavegepant administered with MD itraconazole (c). Gray lines represent mean zavegepant concentrations of the simulated individual trials, and black lines represent mean concentration for the simulated population (n = 90 for a and b; n = 180 for c). Circles and triangles represent observed mean zavegepant concentrations (n = 9 for a and b; n = 18 for c). In c, solid lines/circles represent zavegepant concentration in the absence of the specified concomitant medication, and dashed lines/triangles represent concentrations in the presence of the concomitant medication. In c, 10 mg IN zavegepant was administered on the fourth day of 9 days of dosing with 200 mg itraconazole QD. IN, intranasal; MD, multiple dose; QD, once daily.",
+            "source": {
+              "label": "Figure 3",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-fig-0003"
+            },
+            "sourceIds": [
+              "zavegepant-cpt70460-fig-0003",
+              "zavegepant-si-page-15",
+              "zavegepant-cpt70460-sec-0020",
+              "zavegepant-cpt70460-sec-0021"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Figure 4 · 관찰치가 있는 행과 없는 행을 분리해서 읽기",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 4. 경구·비강 DDI의 관찰값과 예측값 비교",
+            "image": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/figure-4.webp",
+            "alt": "Figure 4. 경구·비강 DDI의 관찰값과 예측값 비교",
+            "description": "a는 AUC 비, b는 Cmax 비다. 사각형은 관찰, 원은 예측이며 가로 오차막대는 GMR의 90% CI다. 기준 1과 0.8·1.25의 세로선이 그려져 있다. 상단 여러 비강 병용 행에는 예측 원만 있다.",
+            "explanation": [
+              {
+                "label": "관찰이 뒷받침하는 부분",
+                "text": "경구 itraconazole·다회 rifampin 및 비강 itraconazole 행에는 사각형과 원이 함께 있다. 다만 앞의 경구 두 조합은 보정자료, 비강 itraconazole은 검증자료다. 동일 그림에 놓였다고 근거 단계가 같아지는 것은 아니다."
+              },
+              {
+                "label": "미시험 예측의 크기",
+                "text": "비강 단회·다회 rifampin AUCR는 2.39·2.11로 CYP3A/P-gp 유도제들의 약 0.94보다 크다. Cyclosporine A의 그림 점은 AUCR 1.37인 50:50 시나리오에 해당한다. 초록의 1.58은 OATP1B3:NTCP 90:10이라는 다른 가정이므로 Table 2와 함께 읽어야 한다."
+              },
+              {
+                "label": "판단 기준의 한계",
+                "text": "0.8–1.25선은 caption에서 생물학적 동등성 범위로 설명한 시각적 기준이다. 이 선 밖이라는 사실만으로 위해가 입증되거나, 안이라는 사실만으로 모든 상황의 안전성이 확정되지는 않는다. 특히 가상시험의 좁은 CI는 수송체별 기여도의 구조적 불확실성을 제거하지 않는다."
+              },
+              {
+                "label": "원문 표기 확인",
+                "text": "원문 caption은 Cmax를 ‘time to maximum plasma concentration’으로 풀어 썼다. 이는 Tmax의 정의에 해당하는 표기 오류로 보인다. 실제 b축과 Table 2·S11에서 Cmax는 최고 혈장농도이며 시간비가 아니다. 원문 caption은 수정하지 않고 그대로 보존했다."
+              }
+            ],
+            "caption": "Observed and predicted DDI effects of CYP3A/P‐gp and OATP1B/NTCP perpetrator drugs on IN and oral zavegepant AUC 0‐inf (a) and C max (b). Datapoints present GMR (90% CI). Dashed vertical lines represent bioequivalence limits of 0.8–1.25. AUC, area under the curve; CI, confidence interval; C max, time to maximum plasma concentration; CYP3A, cytochrome P450 3A; DDI, drug–drug interaction; GMR, geometric mean ratio; IN, intranasal; MD, multiple dose; NTCP, Na+/taurocholate cotransporting polypeptide; OATP1B3, organic anion transporting polypeptide 1B3; P‐gp, P‐glycoprotein.",
+            "source": {
+              "label": "Figure 4",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-fig-0004"
+            },
+            "sourceIds": [
+              "zavegepant-cpt70460-fig-0004",
+              "zavegepant-cpt70460-sec-0023",
+              "zavegepant-cpt70460-sec-0024",
+              "zavegepant-si-page-10",
+              "zavegepant-si-page-15"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "SI까지 대조했을 때 남는 한계와 표기 차이",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "점검 항목",
+              "확인된 내용",
+              "해석에 미치는 영향"
+            ],
+            "rows": [
+              [
+                "독립 검증의 범위",
+                "비강 rifampin·cyclosporine A 등의 실제 DDI 자료는 없다. Figure S6 A–F에는 가상집단 평균선만 있다.",
+                "미시험 예측을 임상 입증 결과로 표현하지 않는다."
+              ],
+              [
+                "OATP1B3 선택성",
+                "Rifampin 파일의 주요 검증 기질 rosuvastatin은 OATP1B1/1B3 및 다른 수송 경로가 관여한다. Cyclosporine 파일의 주요 검증 기질 repaglinide는 OATP1B1 기질이다.",
+                "저자들은 유사한 억제 potency를 사용 적합성의 근거로 제시하지만 OATP1B3 특이 번역을 직접 검증한 것은 아니다."
+              ],
+              [
+                "잠정 질량수지 입력",
+                "Table 1의 CLiv 15.78 L/h와 출판값 13.2 L/h가 다르다. S1 caption에는 최종 요 배설 6.2%와 대사 잔여량 계산에 사용한 6.4%가 함께 적혀 있다.",
+                "저자들은 결론 영향이 작다고 하나 본 분석에서 재실행하지 않았다. 원문 내부의 6.2/6.4를 임의로 통일하지 않는다."
+              ],
+              [
+                "본문의 범위 요약",
+                "S10의 경구 PK Pred:Obs 범위는 표상 0.73–1.34, S11의 비강 단독 PK는 0.69–1.44다. 본문은 각각 약 0.7–1.3, 0.7–1.4로 요약한다.",
+                "정확한 비교에는 반올림한 본문 범위 대신 표값을 사용한다."
+              ],
+              [
+                "비강 개발 PK",
+                "S9에서 Cmax,ss 32/40.9 ≈ 0.78로 본문의 0.8–1.25배 범위와 약간 다르다.",
+                "양호한 전반적 적합과 엄격한 모든 지표 통과를 구분한다."
+              ],
+              [
+                "표·caption 간 대상 수",
+                "S1의 경구 100 mg 단회 개발 행은 18×10, S3 caption은 관찰 15·가상 150이다. S1의 경구 반복 검증은 9–12×10, S5 caption은 관찰 12·가상 120으로 요약한다.",
+                "제공 원문만으로 이 차이를 해결할 수 없다. 개별 그림을 설명할 때 해당 caption의 n을 사용했다."
+              ],
+              [
+                "지표·기전 표기의 차이",
+                "S7은 AUC₀–last와 CYP3A4/P-gp 억제만 명시한다. S6은 AUC₀–∞, Figure 2a caption은 OATP1B3 억제도 언급한다. S8 최종 AUC 비 2.32와 S6 2.34도 약간 다르다.",
+                "지표가 다른 값을 혼합하지 않았다. 각 단계의 실행 설정·작은 수치 차이는 원 실행 파일 없이 확정적으로 해소하지 않는다."
+              ]
+            ],
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0009",
+              "zavegepant-cpt70460-sec-0020",
+              "zavegepant-cpt70460-sec-0021",
+              "zavegepant-cpt70460-sec-0026",
+              "zavegepant-cpt70460-fig-0002",
+              "zavegepant-si-page-2",
+              "zavegepant-si-page-10",
+              "zavegepant-si-page-11",
+              "zavegepant-si-page-12",
+              "zavegepant-si-page-13",
+              "zavegepant-si-page-14",
+              "zavegepant-si-page-15",
+              "zavegepant-si-page-16",
+              "zavegepant-si-page-18",
+              "zavegepant-si-page-20",
+              "zavegepant-si-page-21"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "지원은 Biohaven(2022년 Pfizer 인수)에서 받았으며, 저자들은 Pfizer·Certara·Biohaven의 고용 및 주식/옵션 이해관계를 공개했다. 이것이 결과 오류를 뜻하지는 않지만, 회사 보유 임상자료와 상용 모형의 재현 가능성을 평가할 때 함께 고려해야 한다. 자료공유는 요청·검토와 조건에 따른다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0028",
+              "zavegepant-cpt70460-sec-0029",
+              "zavegepant-cpt70460-sec-0031"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "종합 판단: 관찰된 제형 차이와 작은 대사 기여도는 CYP3A만으로 DDI를 설명하기 어렵다는 결론을 뒷받침한다. 간 유입 억제가 비강 노출 증가의 주요 후보라는 모형 해석도 일관된다. 다만 수송체별 정확한 기여도, cyclosporine A 예측의 강건성, 그리고 미시험 비강 DDI의 실제 크기는 남은 불확실성이다. 본 브리핑은 저자의 허가사항 논리를 평가하며, 규제기관의 현행 라벨을 별도로 확인한 결과는 아니다.",
+            "sourceIds": [
+              "zavegepant-cpt70460-sec-0024",
+              "zavegepant-cpt70460-sec-0026",
+              "zavegepant-si-page-15"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": "zavegepant-claim-01",
+      "kind": "author",
+      "text": "저자들은 임상적으로 시험하지 않은 비강 DDI에 PBPK를 적용해 허가사항을 뒷받침하고자 했다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0007",
+          "quote": "simulate IN zavegepant exposure in clinically untested DDI scenarios"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-02",
+      "kind": "data",
+      "text": "보고된 절대 생체이용률은 경구 0.6%, 비강 5%다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0007",
+          "quote": "absolute bioavailability of zavegepant is 0.6% 4 and 5%"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-03",
+      "kind": "data",
+      "text": "Table S6의 경구 itraconazole AUC₀–∞ GMR는 관찰 1.59, Cmax GMR는 1.77이며, AUC₀–last GMR 1.74와 구분된다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-si-page-10",
+          "quote": "Geometric mean                            25.18                          7.24                             39.92                         12.81                            1.59a                    1.77"
+        },
+        {
+          "sourceId": "zavegepant-si-page-10",
+          "quote": "Reported AUC0-last ratio is 1.74"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-04",
+      "kind": "inference",
+      "text": "경구 itraconazole·rifampin DDI를 사용해 수송체 기여도를 추정했으므로 이 자료에 대한 적합을 독립 DDI 검증으로 중복 계산할 수 없다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0008",
+          "quote": "Observed clinical DDI data for oral zavegepant and itraconazole were used to estimate the contribution of P‐gp"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0008",
+          "quote": "the contribution of OATP1B3 to hepatic uptake was estimated from observed DDI data for oral zavegepant and rifampin"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-05",
+      "kind": "data",
+      "text": "초기 P-gp 중심 모형은 경구 itraconazole AUC₀–last GMR 6.5를 예측했지만 관찰은 1.74였다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0017",
+          "quote": "GMR) values of 6.5 and 3.4, respectively, in comparison with observed values (1.74 and 1.77)"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-06",
+      "kind": "inference",
+      "text": "P-gp:기타 efflux 1:2는 보정된 기여도이며 미확인 수송체의 분자적 존재를 확인한 값이 아니다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0017",
+          "quote": "a 1:2 ratio of P‐gp vs. other efflux transporters in both the intestine and liver was needed"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0026",
+          "quote": "Potential for other efflux transporters cannot be confirmed with available in vitro experimental data."
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-07",
+      "kind": "data",
+      "text": "최종 능동:수동 간 유입은 80:20, CLint,OATP1B3와 CLPD는 각각 28 및 7 μL/min/10⁶ cells로 보정됐다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0017",
+          "quote": "Overall hepatic uptake clearance was split 80:20 between active transport and passive diffusion"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0017",
+          "quote": "CL PD and CL int,OATP1B3 were 7 and 28 μL/min/million cells"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-08",
+      "kind": "inference",
+      "text": "CYP3A4 95%는 작은 총 대사 성분 안에서의 배분이며 전체 청소율의 95%로 읽을 수 없다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0011",
+          "quote": "Hepatic metabolic CL Int was based on CL iv and total fraction metabolized, and was further split between CYP3A4 (95%) and CYP2D6 (5%)"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-09",
+      "kind": "inference",
+      "text": "비강 모형의 inhaled:swallowed 10:90은 PK 적합으로 정한 유효분율이며 실제 비강 침착률을 직접 측정한 결과는 아니다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0018",
+          "quote": "A 10% dose inhaled vs. 90% swallowed orally following IN dosing model best described steady‐state drug exposure"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0026",
+          "quote": "fraction of dose inhaled vs. fraction swallowed orally was parametrized by fitting"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-10",
+      "kind": "data",
+      "text": "비강 itraconazole DDI에서 AUCR 관찰은 1.02, 예측은 1.36이었고 Cmax 비 관찰은 0.88, 예측은 1.14였다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-si-page-15",
+          "quote": "47.81              14.87                  65.02                16.95                  1.36            1.14"
+        },
+        {
+          "sourceId": "zavegepant-si-page-15",
+          "quote": "48.01              23.93                  48.81                20.99                  1.02            0.88"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-11",
+      "kind": "author",
+      "text": "비강 rifampin의 미시험 시나리오에서 단회·다회 AUCR는 각각 2.39·2.11로 예측됐고 유도만 남기면 노출 감소는 약 11%였다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0023",
+          "quote": "Predicted zavegepant AUC GMRs were 2.39 and 2.11"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0023",
+          "quote": "only a small (11%) reduction in zavegepant exposure due to P‐gp/CYP3A4 induction"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-12",
+      "kind": "author",
+      "text": "Cyclosporine A AUCR 1.37과 1.58은 OATP1B3:NTCP 기여도 50:50과 90:10의 서로 다른 가정에서 나온 예측이다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0024",
+          "quote": "split 90:10 between OATP1B3 and NTCP predicted an AUC 0‐inf GMR of 1.58"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0024",
+          "quote": "GMR of 1.37 when assuming 50:50 contribution"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-13",
+      "kind": "author",
+      "text": "Carbamazepine과 efavirenz가 비강 zavegepant 노출을 변화시키는 정도는 해당 시나리오에서 10% 미만으로 예측됐다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0025",
+          "quote": "Predicted induction effects of carbamazepine on IN zavegepant were < 10%"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0025",
+          "quote": "predicted CYP3A4 induction effects of efavirenz (600 mg QD) on IN zavegepant were < 10%"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-14",
+      "kind": "inference",
+      "text": "선택적 OATP1B3 probe의 부재 때문에 사용한 병용약 모형의 기존 검증을 OATP1B3 특이 검증과 동일시할 수 없다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0026",
+          "quote": "lack of selective and sensitive clinical OATP1B3 probe substrates"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0026",
+          "quote": "OATP1B3‐specific DDI translation is not directly validated"
+        }
+      ]
+    },
+    {
+      "id": "zavegepant-claim-15",
+      "kind": "inference",
+      "text": "미시험 예측의 좁은 90% CI가 모든 파라미터·구조 불확실성을 포함한다고 볼 수 없으며, 건강인 가상시험의 조건부 결과로 읽어야 한다.",
+      "support": [
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0008",
+          "quote": "10 virtual trials in 10 healthy participants (50% female) ages 20–50 years"
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0024",
+          "quote": "The exact contribution of OATP1B3 and NTCP to active hepatic uptake is unknown."
+        },
+        {
+          "sourceId": "zavegepant-cpt70460-sec-0026",
+          "quote": "the robustness of the cyclosporine A model in predicting OATP1B3/NTCP substrates cannot be fully validated"
+        }
+      ]
+    }
+  ],
+  "readSourceIds": [
+    "zavegepant-abstract-1",
+    "zavegepant-cpt70460-sec-0003",
+    "zavegepant-cpt70460-sec-0004",
+    "zavegepant-cpt70460-sec-0005",
+    "zavegepant-cpt70460-sec-0006",
+    "zavegepant-cpt70460-sec-0007",
+    "zavegepant-cpt70460-sec-0008",
+    "zavegepant-cpt70460-sec-0009",
+    "zavegepant-cpt70460-sec-0010",
+    "zavegepant-cpt70460-sec-0011",
+    "zavegepant-cpt70460-sec-0012",
+    "zavegepant-cpt70460-sec-0013",
+    "zavegepant-cpt70460-sec-0014",
+    "zavegepant-cpt70460-sec-0015",
+    "zavegepant-cpt70460-sec-0017",
+    "zavegepant-cpt70460-sec-0018",
+    "zavegepant-cpt70460-sec-0020",
+    "zavegepant-cpt70460-sec-0021",
+    "zavegepant-cpt70460-sec-0023",
+    "zavegepant-cpt70460-sec-0024",
+    "zavegepant-cpt70460-sec-0025",
+    "zavegepant-cpt70460-sec-0026",
+    "zavegepant-cpt70460-sec-0028",
+    "zavegepant-cpt70460-sec-0029",
+    "zavegepant-cpt70460-sec-0032",
+    "zavegepant-cpt70460-sec-0031",
+    "zavegepant-cpt70460-fig-0001",
+    "zavegepant-cpt70460-fig-0002",
+    "zavegepant-cpt70460-fig-0003",
+    "zavegepant-cpt70460-fig-0004",
+    "zavegepant-si-page-1",
+    "zavegepant-si-page-2",
+    "zavegepant-si-page-3",
+    "zavegepant-si-page-4",
+    "zavegepant-si-page-5",
+    "zavegepant-si-page-6",
+    "zavegepant-si-page-7",
+    "zavegepant-si-page-8",
+    "zavegepant-si-page-9",
+    "zavegepant-si-page-10",
+    "zavegepant-si-page-11",
+    "zavegepant-si-page-12",
+    "zavegepant-si-page-13",
+    "zavegepant-si-page-14",
+    "zavegepant-si-page-15",
+    "zavegepant-si-page-16",
+    "zavegepant-si-page-17",
+    "zavegepant-si-page-18",
+    "zavegepant-si-page-19",
+    "zavegepant-si-page-20",
+    "zavegepant-si-page-21"
+  ],
+  "viewedFigureIds": [
+    "zavegepant-cpt70460-fig-0001",
+    "zavegepant-cpt70460-fig-0002",
+    "zavegepant-cpt70460-fig-0003",
+    "zavegepant-cpt70460-fig-0004"
+  ],
+  "limitations": [
+    "실제 검토: 입력 51구간(초록1·본문25·본문그림caption4·SI21)을 모두 읽고, 본문 그림1–4 및 SI1–21쪽의 원본 렌더링을 모두 시각 확인했다. 확보만 하고 읽지 않은 입력 구간은 없다.",
+    "제공된 원논문·SI 밖의 개별 참가자 데이터, 회사 data on file, Simcyp 모델·실행 파일, 인용된 선행 연구 및 규제평가 원문은 직접 확인하지 않았다. 새 PBPK 시뮬레이션을 실행하지 않았으며 현행 처방 라벨을 별도 검증하지 않았다.",
+    "경구 itraconazole·rifampin DDI와 비강20 mg PK는 모형 보정자료다. 별도 조건에서의 PK와 비강 itraconazole DDI 검증은 있으나, 미시험 비강 rifampin·cyclosporine A·carbamazepine·efavirenz 예측에 대응하는 임상 관찰은 없다.",
+    "P-gp:기타 efflux 1:2, 능동:수동 간 유입80:20, inhaled:swallowed10:90은 추정 파라미터다. 미확인 efflux의 실체와 OATP1B3·NTCP의 정확한 상대 기여도는 확정되지 않았고, 선택적 OATP1B3 probe를 통한 직접 검증도 부족하다.",
+    "비강 itraconazole AUCR 관찰1.02 대 예측1.36, 단독 Cmax 예측/관찰0.62 등 잔차가 남는다. 그림의 곡선 유사성이나 GMR 적합을 모든 절대 PK 지표의 정확성으로 확대하지 않았다.",
+    "본 분석은 본문·SI 내부 표기 차이(S9의 Cmax 비 약0.78, 잠정/출판 CLiv, S1의 요배설6.2%/계산식6.4%, S1/S3의 표본 수, Figure4 caption의 Cmax 정의, S7/S6의 AUC 지표와 기전 표기)를 표시했고 임의로 원문을 교정하거나 실행 설정을 추정하지 않았다.",
+    "예측 GMR의 90% CI는 가상 건강인·고정 모형 조건의 구간이며 전체 모형 불확실성 또는 개인별 임상 결과의 예측구간으로 확인되지 않았다. 1.37–1.58 같은 시나리오 차이는 통계적 CI가 아니다.",
+    "개인별 투약·용량 조정이나 새 임상·실험 실행 절차를 구성하지 않았다. 본 과학 브리핑에서 안전상 보류한 원문 항목은 없으며, 미확인 사항은 자료 접근·재현 범위의 한계다."
+  ]
+}

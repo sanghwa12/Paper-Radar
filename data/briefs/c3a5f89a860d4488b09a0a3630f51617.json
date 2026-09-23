@@ -1,0 +1,463 @@
+{
+  "candidateId": "c3a5f89a860d4488b09a0a3630f51617",
+  "evidenceStatus": "fulltext",
+  "evidenceNote": "주요 활성·PK 결과와 원본 Figures 1–3을 대조했습니다. 독성 관찰 농도를 CC50로 잘못 표시한 부분을 수정했으며, 전체 Methods·보충자료 검증은 미완료입니다.",
+  "reviewedAt": "2026-09-23",
+  "tabs": {
+    "summary": [
+      {
+        "title": "무엇을 새로 확인했나",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "이미 알려진 chromene 계열 compound 5를 T. cruzi에 적용해, <b>감염 세포에서의 활성 → 경구 노출과 급성 모델 효과 → 정제 LysRS 억제와 실제 결합 구조</b>를 연결했다. 새 화합물을 처음 발굴한 논문으로 읽기보다, 다른 기생충에서 알려진 chemotype의 적용 범위와 기전을 검증한 연구로 읽는 것이 정확하다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec1\">Introduction; Results 2.1–2.5</a>."
+          }
+        ]
+      },
+      {
+        "title": "연구 흐름",
+        "blocks": [
+          {
+            "type": "image",
+            "src": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/flow.svg",
+            "alt": "논문 실험 설계와 해석을 연결한 연구 흐름",
+            "caption": "본문 내용을 바탕으로 재구성한 연구 흐름. 원논문의 실험 Figure와 구분합니다."
+          }
+        ]
+      },
+      {
+        "title": "핵심 수치와 읽는 기준",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "관찰",
+              "저자 보고값",
+              "의미"
+            ],
+            "rows": [
+              [
+                "세포 활성",
+                "EC50 0.9 μM; 40 μM에서 host-cell 독성 관찰",
+                "효능과 host-cell 생존을 분리 측정했다. 독성이 관찰된 농도를 fitted CC50로 해석하지 않는다."
+              ],
+              [
+                "정제 효소",
+                "TcLysRS IC50 2.7 μM",
+                "ATP 500 μM, lysine 1 mM 조건의 AMP 생성 반응"
+              ],
+              [
+                "경구 PK",
+                "20 mg/kg: Tmax 6 h, AUC0–24 10,853.4 ng·h/mL, F 83.7%",
+                "2 mg/kg IV와 용량·적분 구간이 달라 AUC 원값의 직접 우열 비교는 부적절"
+              ],
+              [
+                "급성 모델",
+                "20 mg/kg 1일 1회 10일; 혈중 parasitemia는 관찰 기간 검출 한계 아래",
+                "조직 qPCR 잔여값과 급성 실험 기간을 고려해야 하며 완치 증거는 아님"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#tbl1\">Table 1; Figures 1–3</a>."
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "세포 활성에서 무엇을 구분했나",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "H9c2 cardiomyoblast에서 감염 세포 수와 전체 host-cell 수를 함께 세어, 약물 때문에 세포가 죽어 기생충 신호가 줄어드는 효과를 구분했다. 72 h 결과에서 EC50는 0.9 μM이고 host-cell 독성은 약 40 μM에서 나타났다. 12 μM 처리 영상의 parasite 감소는 농도–반응 곡선과 함께 읽어야 한다."
+          },
+          {
+            "type": "paragraph",
+            "text": "저자는 selectivity index >40을 제시한다. 이 값은 이 세포 모델 안에서의 간격이며, 노출 시간이나 다른 조직의 독성, 사람 LysRS에 대한 직접 선택성을 대신하지 않는다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec2.1\">Results 2.1; Figure 1</a>."
+          }
+        ]
+      },
+      {
+        "title": "PK: 높은 경구 AUC와 생체이용률의 구별",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "지표",
+              "IV 2 mg/kg",
+              "PO 20 mg/kg"
+            ],
+            "rows": [
+              [
+                "Cmax (ng/mL)",
+                "838.7",
+                "892.5"
+              ],
+              [
+                "Tmax (h)",
+                "0.08",
+                "6.0"
+              ],
+              [
+                "terminal t½ (h)",
+                "4.0",
+                "9.0"
+              ],
+              [
+                "관측 AUC (ng·h/mL)",
+                "1,296.1 (0–8 h)",
+                "10,853.4 (0–24 h)"
+              ],
+              [
+                "CL 또는 CL/F (mL/kg/h)",
+                "1,543.0 (CL)",
+                "1,842.7 (CL/F)"
+              ],
+              [
+                "Vd 또는 Vd/F (mL/kg)",
+                "2,384.6 (Vd)",
+                "22,408.3 (Vd/F)"
+              ],
+              [
+                "저자 계산 F (%)",
+                "—",
+                "83.7"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "경구군의 용량은 IV의 10배다. 따라서 경구 AUC가 더 크다는 것 자체로 흡수가 더 좋다고 결론 내리지 않는다. 저자의 F 83.7%는 용량을 보정한 계산값이지만 적분 종료 시점이 달라, 표의 관측구간과 말단 추정의 한계도 함께 남긴다. PO의 CL/F와 Vd/F를 IV CL·Vd처럼 직접 해석하지 않는다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#tbl1\">Table 1; Methods 5.3–5.4</a>."
+          }
+        ]
+      },
+      {
+        "title": "생체 효과: 혈액과 조직이 말하는 것이 다르다",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "혈액",
+                "text": "compound 5 20 mg/kg와 benznidazole 50 mg/kg를 1일 1회 10일 비교했다. compound 5군에서 투여 3일째부터 관찰 기간 혈중 parasitemia가 검출되지 않았다. 용량이 다른 전임상 비교이며 두 약물의 임상적 동등성을 뜻하지 않는다."
+              },
+              {
+                "label": "조직",
+                "text": "종료 시점의 heart·spleen·colon qPCR은 무처리군 대비 감소했지만 benznidazole군보다 잔여 부하가 조금 높았다. 혈액 검출 음성이 조직 내 제거를 의미하지 않는다는 점이 중요하다."
+              },
+              {
+                "label": "조직학",
+                "text": "심장 H&E에서 inflammatory foci가 줄고 amastigote nests는 관찰되지 않았다. 반정량 등급을 사용한 특정 절편의 결과로, 만성기 재발이나 완치를 판정한 연구는 아니다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec2.3\">Results 2.3; Figure 2; Table 2</a>."
+          }
+        ]
+      },
+      {
+        "title": "표적 결합: enzyme inhibition과 crystal evidence의 결합",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "실험",
+              "관찰",
+              "해석 범위"
+            ],
+            "rows": [
+              [
+                "lysine titration",
+                "KM 96.8 μM; Vmax 3.9 pmol/min",
+                "tRNA가 없는 aminoacylation 첫 단계의 AMP 생성"
+              ],
+              [
+                "ATP titration",
+                "K1/2 522.8 μM; Hill slope 2.3; Vmax 3.5 pmol/min",
+                "ATP 쪽은 sigmoidal 곡선으로 별도 Hill fitting"
+              ],
+              [
+                "compound 5 inhibition",
+                "IC50 2.7 μM",
+                "정해진 ATP/lysine 조건에서 효소 활성을 낮춤"
+              ],
+              [
+                "X-ray",
+                "9YJN: lysine complex; 9YJR: lysine + compound 5",
+                "ATP pocket에 실제 ligand density. Lysine 자리와 공존"
+              ],
+              [
+                "결합 상호작용",
+                "F317 π-stacking; N314 backbone과 carbonyl H-bond; E477과 cyclohexyl-OH",
+                "예측 docking pose가 아닌 co-crystal 구조의 해석"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "사람과 기생충 ATP pocket의 높은 보존성은 선택성 최적화가 여전히 필요하다는 이유다. 직접 enzyme selectivity panel과 세포 내 target engagement가 추가되면 이 결합이 세포 효과의 주요 원인인지 더 강하게 판단할 수 있다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec2.4\">Results 2.4–2.5; Figures 3–4</a>."
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "실험별 입력·대조군·읽는 값",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "분석",
+              "입력/조건",
+              "대조·출력"
+            ],
+            "rows": [
+              [
+                "세포 기반 활성",
+                "H9c2 (ATCC CRL-1446) 감염 모델; 약물 노출 72 h",
+                "전체 host-cell와 감염 세포 수를 분리. Figure 1: 독립 실험 3회, 각 기술 반복 3회"
+              ],
+              [
+                "효소 억제",
+                "정제 TcLysRS; lysine 1 mM, ATP 500 μM",
+                "무억제제+DMSO를 100% 활성, lysine 없는 반응을 0%로 정규화. 기술 반복4·생물 반복2"
+              ],
+              [
+                "결합 보조 근거",
+                "DSF: apo, lysine, compound 5, 병용 비교",
+                "단일 Tm 이동으로 단정하지 않고 biphasic/추가 inflection profile 해석"
+              ],
+              [
+                "생체 효과",
+                "급성 마우스 모델에서 치료군·양성대조·비처리군 비교",
+                "혈액 parasitemia, 조직 qPCR, 심장 H&E를 각각 읽음. Figure 2 n=5/군"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec5.2\">Methods 5.2, 5.5–5.7, 5.10–5.11; Figures 1–2</a>."
+          }
+        ]
+      },
+      {
+        "title": "AMP 생성 assay와 구조 분석 장비",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "검출 원리",
+                "text": "tRNA가 없는 반응에서 생성되는 AMP를 효소 결합 반응의 resazurin→resorufin 형광으로 읽었다. 완전한 tRNA charging을 직접 측정하는 assay와 구분한다. CLARIOStar plate reader, AMP standard curve로 형광을 생성량으로 환산했다."
+              },
+              {
+                "label": "분석 프로그램",
+                "text": "효소 동역학과 농도–반응 fitting은 GraphPad Prism v10. lysine에는 Michaelis–Menten, ATP에는 Hill 식을 적용했다. IC50는 이 substrate 조건에 의존하므로 다른 논문의 값과 바로 비교하지 않는다."
+              },
+              {
+                "label": "DSF",
+                "text": "CFX Real Time 장비와 SYPRO Orange로 열변성 profile을 측정했다. apo/각 ligand/병용을 비교해 추가 inflection을 관찰했다. 단일 열안정화 수치만으로 affinity를 대체하지 않았다."
+              },
+              {
+                "label": "실제 X-ray 처리",
+                "text": "Sirius MANACÁ beamline의 diffraction 자료를 XDS→AIMLESS(CCP4i2)로 처리하고, PHASER molecular replacement와 Coot model building, Refmac 또는 PHENIX refinement를 사용했다. 이 프로그램들의 버전은 본문에서 명확히 제시하지 않았다. 구조 그림은 PyMOL 2.5.0."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec5.10\">Methods 5.10–5.12</a>."
+          }
+        ]
+      },
+      {
+        "title": "PK 정량과 NCA의 구체적 설정",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "표본·제형",
+                "text": "female BALB/c, IV·PO 각 n=6. IV 2 mg/kg: 10% DMSO/40% PEG400/50% water; PO 20 mg/kg: 2% DMSO/5% Tween80/43% PEG400/50% PBS. 제형이 달라 이전 LysRS 연구의 노출값을 그대로 옮기면 안 된다."
+              },
+              {
+                "label": "LC–MS/MS",
+                "text": "ACQUITY UPLC + Xevo TQ-XS, C18 column 40°C, positive ESI/MRM. Quantifier 355.7→108.5, qualifier 355.7→164.9; MassLynx 사용(버전 미기재). 외부 검량선 3.125–200 nM, R² 0.9938, 추출 회수율 97%를 보고했다."
+              },
+              {
+                "label": "시간·계산",
+                "text": "5 min부터 24 h까지 분할 채혈하며 각 시점 n=3. Cmax/Tmax는 관측값, AUC0–t는 linear trapezoidal, terminal half-life는 말단 log-linear regression. PO CL/F = Dose/AUC0–t, Vd/F = (CL/F)/Kel. 측정 시간·모델 추정량을 표와 함께 확인해야 한다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec5.3\">Methods 5.3–5.4; Table 1</a>."
+          }
+        ]
+      },
+      {
+        "title": "결과 비교의 기준과 한계",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "세포 EC50, 정제 효소 IC50, host-cell 독성은 서로 다른 지표다. 이 결과만으로 human LysRS에 대한 선택성까지 확인된 것은 아니다. 결합 구조는 표적 상호작용을 지지하지만 종간 선택성·장기 안전성의 대체 근거가 아니며, 급성 혈중 억제를 만성 질환의 완치로 일반화할 수 없다. 이는 브리핑의 해석이며 새 실험 절차를 제안한 것이 아니다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec3\">Discussion; Methods 5.10–5.12</a>."
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "원본 그림과 패널 해설",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "Figure 1 · 구조식, 세포 활성, host-cell 독성",
+            "eyebrow": "1",
+            "description": "Compound 5의 실제 구조와 효능–독성 간격을 같은 그림에서 비교한다.",
+            "image": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/figure-1.webp",
+            "alt": "Figure 1 · 구조식, 세포 활성, host-cell 독성",
+            "explanation": [
+              {
+                "label": "A · 구조",
+                "text": "원문에 제시된 compound 5의 구조식이다. 유사 chemotype를 새로 그린 것이 아니며, 세포 활성 결과와 동일한 화합물 번호를 사용한다."
+              },
+              {
+                "label": "B · 곡선",
+                "text": "농도 증가에 따른 전체 host cell(검정)과 감염 세포(파랑)의 수를 함께 본다. 두 곡선 사이의 간격이 이 모델에서의 선택성 근거이며, 낮은 parasite signal만으로 효능을 판정하지 않는다."
+              },
+              {
+                "label": "C · 영상",
+                "text": "Hoechst로 host nuclei와 parasite kinetoplast를 관찰했다. vehicle(0.4% DMSO)과 12 μM 처리 72 h 영상을 비교한다. 대표 영상만이 아니라 B의 반복 측정과 같이 읽는다."
+              }
+            ],
+            "caption": "Antiparasitic effects of compound 5 on Trypanosoma\ncruzi. (A) Chemical formula of compound 5. (B) Concentration–response\ncurves illustrating the impact of compound 5 on H9c2 cardiomyoblasts\ninfected with T. cruzi. The total counts\nof host cells (black) and infected cells (blue) were measured after\n72 h of exposure to compound 5. (C) Fluorescence microscopy images\nof H9c2 cells harboring intracellular amastigotes following 72 h of\ncompound 5 treatment. Representative microscopy image of untreated\ninfected cells (UIC, 0.4% dimethyl sulfoxide, DMSO) and compound 5-treated\ncells (12 μM) is shown. Host cell nuclei and parasite kinetoplasts\nwere stained using Hoechst 33342. Data are presented as means ±\nstandard deviations (SD) from three independent experiments, each\nwith three technical replicates.",
+            "source": {
+              "label": "PMC13576447 · 1 · 원본 그림",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#fig1"
+            }
+          },
+          {
+            "type": "figure",
+            "title": "Figure 2 · 노출, 혈액, 조직을 연결한 생체 결과",
+            "eyebrow": "2",
+            "description": "검출되지 않은 혈중 기생충과 낮아진 조직 부하를 구별한다.",
+            "image": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/figure-2.webp",
+            "alt": "Figure 2 · 노출, 혈액, 조직을 연결한 생체 결과",
+            "explanation": [
+              {
+                "label": "A–B · 설계",
+                "text": "A의 IV와 PO 농도–시간 곡선은 용량이 2 대20 mg/kg로 다르다. B는 급성 모델의 평가 시간표로, 약물 투여 시점과 종료 시점을 함께 읽는다."
+              },
+              {
+                "label": "C · 혈액",
+                "text": "처리군과 비처리군의 시간에 따른 parasitemia를 비교한다. 이 관찰 기간의 검출 음성이 장기 완치와 동일하지 않다."
+              },
+              {
+                "label": "D–E · 조직",
+                "text": "D는 heart/spleen/colon의 종료 시점 qPCR, E는 심장 조직학이다. 검은 화살표는 inflammatory foci, 붉은 화살표는 amastigote nests. qPCR 잔여값과 조직학적 감소를 함께 판단한다."
+              }
+            ],
+            "caption": "\nIn vivo efficacy of compound 5 in a mouse model\nof acute Trypanosoma cruzi infection.\n(A) Pharmacokinetic profile of compound 5 following administration\nin BALB/c mice. IV (intravenous administration; in venam), PO (oral administration; per os). (B) Scheme\nof experimental design. Female BALB/c mice were infected intraperitoneally\nwith 1 × 105 trypomastigotes of the T. cruzi Dm28c strain. (C) Parasitemia curves of\nanimals randomly assigned to groups (n = 5): UUI\n(untreated, uninfected), UTI (untreated, infected), BNZ (infected,\ntreated with benznidazole, 50 mg·kg–1, SID, semel in die), PO, compound 5 (infected treated with compound\n5, 20 mg·kg–1 SID, PO). (D) Tissue parasite\nburden assessed by quantitative real-time PCR (qPCR) in heart, spleen,\nand colon from infected mice at 20 days postinfection (dpi). Bars\nrepresent mean ± standard deviation (SD). Statistical analysis\nwas performed using one-way ANOVA followed by Dunnett’s multiple\ncomparison test. Adjusted p-values are indicated\nby asterisks (****p ≤ 0.0001). (E) Representative\nhematoxylin and eosin-stained tissue (heart) sections collected after\neuthanasia. Black arrows indicate inflammatory foci, while red arrows\nhighlight nests of intracellular amastigotes. Images were captured\nusing a bright-field microscope, and the magnifications are indicated\nin the figure.",
+            "source": {
+              "label": "PMC13576447 · 2 · 원본 그림",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#fig2"
+            }
+          },
+          {
+            "type": "figure",
+            "title": "Figure 3 · 효소 억제와 실제 결합 구조",
+            "eyebrow": "3",
+            "description": "생화학 반응의 억제와 ATP pocket의 ligand density가 서로 보완한다.",
+            "image": "/assets/briefs/c3a5f89a860d4488b09a0a3630f51617/figure-3.webp",
+            "alt": "Figure 3 · 효소 억제와 실제 결합 구조",
+            "explanation": [
+              {
+                "label": "A–C · 반응",
+                "text": "A lysine은 Michaelis–Menten, B ATP는 sigmoidal이며 C는 compound5 농도에 따른 억제 곡선이다. A/B는 substrate dependence, C는 inhibitor response로 서로 다른 x축을 가진다."
+              },
+              {
+                "label": "D–E · X-ray",
+                "text": "D는 lysine 단독, E는 lysine+compound5 복합체다. 초록 ligand와 노란 점선 상호작용, 파란 OMIT map을 확인한다. Caption의 contour는 lysine3σ, compound5 2σ로 다르다."
+              },
+              {
+                "label": "결론의 범위",
+                "text": "실측 구조는 target binding mode를 지지한다. 세포 내 선택적 target engagement나 human LysRS에 대한 선택성을 이 그림 하나로 확정하지 않는다."
+              }
+            ],
+            "caption": "Kinetic properties of Trypanosoma\ncruzi LysRScyt and validation of enzyme\ninteraction with compound\n5. Michaelis–Menten curves obtained for substrates l-lysine (A) and ATP (B), without tRNA in the reaction mixture. The\nkinetics parameters K\nM, K\n1/2, h, and V\nmax were calculated\nby nonlinear regression of the data. Concentration–response\nassay with TcLysRScyt confirmed the inhibitory\neffect of compound 5 over the enzyme activity (C). Crystallographic\nstructures TcLysRScyt depicting the interactions\n(yellow dash) and Fo-Fc OMIT maps (blue meshes) for l-lysine\nalone (D) or in combination with compound 5 (E). Ligands are shown\nas sticks, with carbons colored green. OMIT maps were prepared without\nligands in the model and a sigma level of 3 for l-lysine\nand 2 sigma level for compound 5. Structures were deposited in the\nprotein data bank, under the accession codes 9YJN and 9YJR.",
+            "source": {
+              "label": "PMC13576447 · 3 · 원본 그림",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#fig3"
+            }
+          }
+        ]
+      },
+      {
+        "title": "한계와 후속 질문",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "기존 compound5의 재적용 연구다. 새로운 scaffold 발굴이나 clinical validation으로 표현하지 않는다.",
+              "세포 EC50와 정제 enzyme IC50는 단위가 같아도 실험 계가 달라 직접적인 순위 비교가 아니다.",
+              "급성 모델의 짧은 관찰 기간과 조직 잔여값 때문에 만성기·재발·sterile cure는 남아 있다.",
+              "ATP pocket은 human LysRS와도 유사하다. 세포 선택성지수>40이 human enzyme selectivity를 증명하지 않는다.",
+              "IV/PO의 용량·AUC구간·제형이 다르며 CL과 CL/F도 분리해서 해석한다."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/#sec3\">Discussion; Table 1; Figures 1–4</a>."
+          }
+        ]
+      },
+      {
+        "title": "원자료",
+        "blocks": [
+          {
+            "type": "links",
+            "items": [
+              {
+                "label": "출판 원문",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13576447/"
+              },
+              {
+                "label": "복합체 9YJR",
+                "url": "https://www.rcsb.org/structure/9YJR"
+              },
+              {
+                "label": "lysine 복합체 9YJN",
+                "url": "https://www.rcsb.org/structure/9YJN"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

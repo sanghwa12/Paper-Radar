@@ -7,6 +7,7 @@ import sqlite3
 import threading
 import time
 import uuid
+from collections import Counter
 from contextlib import contextmanager
 from datetime import date, datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -16,6 +17,8 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote, unquote, urlencode
 from urllib.request import Request, urlopen
+
+from classification import classify_candidate
 
 
 API_URL = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
@@ -188,6 +191,7 @@ class Collector:
             papers = [json.loads(row[0]) for row in db.execute("SELECT data FROM collection_candidates")]
         for paper in papers:
             paper["inLibrary"] = paper["doi"] in self.library_dois
+            paper["classification"] = classify_candidate(paper)
         return sorted(papers, key=lambda paper: (paper["date"], paper["firstSeenAt"], paper["id"]), reverse=True)
 
     def status(self):
@@ -195,8 +199,11 @@ class Collector:
         with self._db() as db:
             latest = db.execute("SELECT data FROM collection_runs ORDER BY rowid DESC LIMIT 1").fetchone()
             papers = [json.loads(row[0]) for row in db.execute("SELECT data FROM collection_candidates")]
+        kinds = Counter(classify_candidate(paper)["kind"] for paper in papers)
         return {"areas": [dict(area) for area in AREAS], "run": json.loads(latest[0]) if latest else None,
-                "counts": {"total": len(papers), "areas": {
+                "counts": {"total": len(papers), "types": {
+                    kind: kinds[kind]
+                    for kind in ("original", "review", "preprint", "other", "uncertain")}, "areas": {
                     area["name"]: sum(area["name"] in paper["categories"] for paper in papers) for area in AREAS}}}
 
     def start(self, from_date, to_date):
@@ -212,6 +219,65 @@ class Collector:
         if not isinstance(run_id, str) or not run_id:
             raise ValueError("다시 시도할 수집 기록을 지정하세요.")
         return self._start(None, None, retry_of=run_id)
+
+    def import_selection_round(self, records, from_date, to_date, round_id):
+        """Atomically register six already selected NEW originals, without a network search."""
+        if not isinstance(round_id, str) or not re.fullmatch(r"[a-z0-9-]{1,64}", round_id):
+            raise ValueError("선정 회차 ID를 확인하세요.")
+        try:
+            begin, end = date.fromisoformat(from_date), date.fromisoformat(to_date)
+            if begin.isoformat() != from_date or end.isoformat() != to_date or begin > end:
+                raise ValueError
+        except (TypeError, ValueError):
+            raise ValueError("선정 기간을 YYYY-MM-DD로 확인하세요.") from None
+        area_names = {area["name"] for area in AREAS}
+        if (not isinstance(records, list) or len(records) != len(AREAS) or
+                any(not isinstance(item, dict) for item in records) or
+                {item.get("area") for item in records} != area_names):
+            raise ValueError("6개 분야별 원저 1편을 지정하세요.")
+        aliases_seen, prepared = set(), []
+        for item in records:
+            paper = metadata(item["record"])
+            if (classify_candidate(paper)["kind"] != "original" or not paper["abstract"] or
+                    not from_date <= paper["date"] <= to_date):
+                raise ValueError("선정 기간 내 초록이 있는 원저만 등록할 수 있습니다.")
+            aliases = {f"{field}:{paper[field]}" for field in ("doi", "pmid", "pmcid") if paper[field]}
+            aliases.add(f"source:{paper['source']}:{paper['sourceId']}")
+            if aliases & aliases_seen or paper["doi"] in self.library_dois:
+                raise ValueError("이미 보관 중이거나 회차 안에 중복된 논문입니다.")
+            aliases_seen.update(aliases)
+            prepared.append((item, paper, aliases))
+        with self._lock:
+            worker_lock = self._acquire_worker_lock()
+            if worker_lock is None:
+                raise RuntimeError("이미 논문 수집이 진행 중입니다.")
+            try:
+                with self._db() as db:
+                    db.execute("BEGIN IMMEDIATE")
+                    run_id = "selection-" + round_id
+                    if db.execute("SELECT 1 FROM collection_runs WHERE id=?", (run_id,)).fetchone():
+                        raise ValueError("이미 등록한 선정 회차입니다.")
+                    # Check the entire batch before calling the helper that can merge old records.
+                    for alias in aliases_seen:
+                        if db.execute("SELECT 1 FROM collection_aliases WHERE alias=?", (alias,)).fetchone():
+                            raise ValueError("기존 후보와 중복되어 회차 전체 등록을 취소했습니다.")
+                    stamp = now()
+                    run = {"id": run_id, "mode": "selected_round", "roundId": round_id,
+                           "status": "completed", "from": from_date, "to": to_date,
+                           "startedAt": stamp, "finishedAt": stamp, "added": 0, "updated": 0,
+                           "areas": [{"name": area["name"], "status": "completed", "pages": 0,
+                                      "matched": 1, "processed": 1, "error": ""} for area in AREAS]}
+                    selected = []
+                    for item, paper, _ in prepared:
+                        self._store_candidate(db, item["record"], item["area"], run_id)
+                        row = db.execute("SELECT candidate_id FROM collection_aliases WHERE alias=?",
+                                         (f"source:{paper['source']}:{paper['sourceId']}",)).fetchone()
+                        selected.append({"area": item["area"], "candidateId": row[0],
+                                         "sourceId": paper["sourceId"]})
+                    self._save_run(db, run)
+                return {"run": run, "items": selected}
+            finally:
+                self._release_worker_lock(worker_lock)
 
     def _start(self, from_date, to_date, retry_of=None):
         with self._lock:
@@ -331,6 +397,8 @@ class Collector:
                 paper = merge_metadata(old, paper)
             for old_id in matches[1:]:
                 db.execute("UPDATE collection_aliases SET candidate_id=? WHERE candidate_id=?", (candidate_id, old_id))
+                db.execute("INSERT OR REPLACE INTO collection_aliases VALUES (?, ?)",
+                           (f"candidate:{old_id}", candidate_id))
                 for item in db.execute("SELECT run_id, was_new FROM collection_run_items WHERE candidate_id=?", (old_id,)).fetchall():
                     db.execute("""INSERT INTO collection_run_items VALUES (?, ?, ?)
                         ON CONFLICT(run_id, candidate_id) DO UPDATE SET was_new=MIN(was_new, excluded.was_new)""",

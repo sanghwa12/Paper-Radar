@@ -1,0 +1,152 @@
+{
+  "candidateId": "0f6663d4752b4459855dfd8b133db44f",
+  "pmcid": "PMC13576390",
+  "title": "The Discovery of GSK3227634: A Potent Inhaled Inhibitor of the KEAP1/NRF2 Protein–Protein Interaction for the Treatment of Chronic Obstructive Pulmonary Disease",
+  "doi": "10.1021/acs.jmedchem.6c01820",
+  "license": "CC BY-NC-ND",
+  "licenseText": "https://creativecommons.org/licenses/by-nc-nd/4.0/This article is licensed under CC-BY-NC-ND 4.0",
+  "figures": [
+    {
+      "figureId": "fig1",
+      "label": "1",
+      "caption": "Examples of NRF2 activators that (a) covalently or (b) noncovalently interact with KEAP1.",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-1.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0001.webp?md5=2bd15c78cf00eacca26a9a68ee438a38",
+      "sha256": "d7507382262e1022924c83781d1cb36072d811695f8a552dbfcf6a9cd581fbea",
+      "bytes": 44606,
+      "sourceMd5Verified": true,
+      "width": 2000,
+      "height": 1108,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig2",
+      "label": "2",
+      "caption": "Lead optimization design strategy for bis-aryl compounds in the context of the previously determined structure of 4 bound to the Kelch domain of KEAP1 (PDB 5FNU).",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-2.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0002.webp?md5=e0bb911b62d6e34bbdaa19a036a1f864",
+      "sha256": "00a1aea0d655158b6f591c272383df5361a6fbbd3aaeeead2c4f4626018191dd",
+      "bytes": 71774,
+      "sourceMd5Verified": true,
+      "width": 1367,
+      "height": 780,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig3",
+      "label": "3",
+      "caption": "X-ray structures of bis-aryl series compounds bound to Kelch domain of KEAP1. (a) Compound 5; (b) compound 5 bound to KEAP1. Hydrogen bonds and electrostatic interactions are denoted as dashed lines (PDB 30HE); (c) key interactions of compound 5 with KEAP1; and (d) overlay of compounds 4 (yellow, PDB 5FNU) and 5 (green) bound to KEAP1.",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-3.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0003.webp?md5=f1eb09f092b8bba69c4a73d9a0c9b848",
+      "sha256": "f842878b20bf5ec33934dc8a907476b2fc590f1a846f495d90ad1ec223e5e04b",
+      "bytes": 125576,
+      "sourceMd5Verified": true,
+      "width": 1450,
+      "height": 1284,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig4",
+      "label": "4",
+      "caption": "Conformation of 5 in the small molecule and protein–ligand crystal structures. (a) Conformation for 5 in the small molecule crystal structure. Anisotropic atomic displacement ellipsoids for the nonhydrogen atoms are shown at the 50% probability level. Hydrogen atoms are displayed with an arbitrarily small radius. (b) Overlay of KEAP1-bound 5 (green) and small molecule structure (orange). Superposition was based on atoms in the tolyl system. Hydrogens have been omitted for clarity.",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-4.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0004.webp?md5=e8751144bc83c8e40a483199a3cdb4d2",
+      "sha256": "e947226a39ef1d961dea171b4582851c77adb955b61054960255e05c0788459d",
+      "bytes": 74832,
+      "sourceMd5Verified": true,
+      "width": 1599,
+      "height": 819,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig5",
+      "label": "5",
+      "caption": "Solution-phase NMR study of free 5. (a) Chemical structure of 5. Hydrogens 25′ and 25″ on the methylene linker are highlighted in red, and regions showing significant upfield shifts in aqueous solution are highlighted in blue. (b) Conformation of 5 as observed in the small molecule crystal structure. Key ROEs consistent with this conformation are depicted as blue arrows, and regions showing significant upfield shifts consistent with shielding in aqueous solution are highlighted in blue. (c) 1H NMR spectra for 5 in aqueous solution (top) and DMSO (bottom). Key resonances referred to in text are highlighted, and those undergoing significant (>0.1 ppm) upfield shifts between the two media are highlighted with red arrows.",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-5.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0005.webp?md5=790bb8d3b3974680848bda102ca7c0b1",
+      "sha256": "ec230d90614b28e20c2c991364b1e17e424225de88321726a093c3f946116b1f",
+      "bytes": 103220,
+      "sourceMd5Verified": true,
+      "width": 1475,
+      "height": 1451,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig6",
+      "label": "6",
+      "caption": "In vivo activation of the NRF2 pathway by compound 5 (IV infusion, 6 h). Compound 5 induces dose-dependent increases in the expression of NRF2-regulated genes in rat lung (a) and kidney (b) tissues in vivo (mean ± SEM). Statistical analysis: one-way ANOVA with Dunnett’s correction; *P < 0.05; **P < 0.01; ***P < 0.001 versus vehicle.",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-6.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0006.webp?md5=4529c624a709b96f614f064e509c84a2",
+      "sha256": "37fb4513548c0f4f5e0918772f824774e627bdecd8909b7fa6c5bbfe97428f97",
+      "bytes": 74580,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1005,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "fig7",
+      "label": "7",
+      "caption": "Intratracheal delivery of a wet suspension of micronized 5 (0.3–10 μmol/kg), 24 h prior to challenge with PQ (0.05 mg/mL given IT, approximate EC80), lung homogenate evaluated 48 h post PQ challenge. Target engagement was demonstrated by a dose-dependent increase in NQO1 gene expression (a) and NQO1 enzyme activity (b) in the lung. Efficacy was demonstrated by a corresponding increase in total lung glutathione (c). Statistical analysis: (b) one way ANOVA w/Dunnett’s correction and ***p < 0.001, ****p < 0.0001; (c) students t-test unpaired **p < 0.01.",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-7.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0007.webp?md5=8191d8aa3ee0882785ac78f59282d3b8",
+      "sha256": "30510bcc0c943ea645f9a2cb66db7a0f1464e5255862278b500a45e548732c42",
+      "bytes": 52546,
+      "sourceMd5Verified": true,
+      "width": 1600,
+      "height": 1454,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "sch1",
+      "label": "1",
+      "caption": "",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-8.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0008.webp?md5=f23301e8d56cc72fd3a9379fceea4c92",
+      "sha256": "cff14b89e8c52a76373b0f59ae8aa5836fcc17374409761bb1128d292e5d3a6c",
+      "bytes": 90228,
+      "sourceMd5Verified": true,
+      "width": 2000,
+      "height": 1773,
+      "format": "WEBP"
+    },
+    {
+      "figureId": "sch2",
+      "label": "2",
+      "caption": "",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/figure-9.webp",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_0009.webp?md5=1e4141250f0731bf995668611843d2be",
+      "sha256": "f64e57c5e9b0856ef1fcda69e1625260e581227ed284d5e27e3a2a8ca4c391de",
+      "bytes": 23596,
+      "sourceMd5Verified": true,
+      "width": 1945,
+      "height": 447,
+      "format": "WEBP"
+    }
+  ],
+  "pdfUrl": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/paper.pdf",
+  "pdf": {
+    "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/paper.pdf",
+    "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/PMC13576390.1.pdf?md5=364d61a0dd9bff73ffef247d9bb47464",
+    "sha256": "ab1a3abf59390c9be2478e4d588c417aa33932844591274db3e4212521d5f39c",
+    "bytes": 7002083,
+    "sourceMd5Verified": true
+  },
+  "supplements": [
+    {
+      "filename": "jm6c01820_si_001.pdf",
+      "label": "",
+      "caption": "",
+      "path": "/assets/briefs/0f6663d4752b4459855dfd8b133db44f/supplement.pdf",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/jm6c01820_si_001.pdf?md5=017e8fdacbdd28929c0cc6dae87db510",
+      "sha256": "5832f29984da696ffe7513e13a89c01621ef80d94ba5b8cefaed00eaf48b8855",
+      "bytes": 1998964,
+      "sourceMd5Verified": true
+    }
+  ],
+  "source": "NIH NLM NCBI PMC Article Datasets",
+  "metadataUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/PMC13576390.1.json",
+  "xmlUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13576390.1/PMC13576390.1.xml?md5=ae7f7a242fdefca07293d93ff6a89605",
+  "retrievedAt": "2026-09-23T00:52:33.429938+00:00",
+  "errors": []
+}

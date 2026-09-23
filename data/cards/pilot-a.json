@@ -1,0 +1,203 @@
+[
+  {
+    "candidateId": "dd6010ad6b2843cd956439aeb5e43554",
+    "titleKo": "Dockformer: 대규모 가상 탐색을 위한 Transformer 기반 분자 도킹",
+    "abstractKo": [
+      "분자 도킹은 특정 치료 표적 단백질에 결합할 가능성이 있는 리간드를 찾기 위해 화합물 라이브러리를 가상 탐색하는 신약 개발의 핵심 단계다. 그러나 전통적인 도킹 방법의 계산 비용은 화합물 라이브러리의 크기에 비례해 증가하므로, 대규모 탐색에 필요한 계산 부담이 매우 커진다. 최근 딥러닝(DL)은 도킹을 가속하는 데이터 기반 모델 개발을 가능하게 했지만, 높은 처리량과 전통적인 도킹보다 우수한 탐색 성능을 동시에 제공하는 방법은 드물다.",
+      "이 간극을 해결하기 위해 본 연구는 새로운 DL 기반 도킹 방법인 Dockformer를 제안한다. Dockformer는 2차원 그래프 위상과 3차원 구조 특징을 포함한 다중 모달 분자 표현을 통합해 위상 및 기하 정보를 인코딩하고, end-to-end 체계에서 결합 구조와 신뢰도 점수를 함께 예측한다. 실험 결과, Dockformer는 PDBbind core set과 PoseBusters 벤치마크에서 각각 90.53%와 82.71%의 도킹 성공률(RMSD < 2 Å)을 달성했다. AutoDock Vina 및 Glide와 같은 전통적인 도킹 방법과 비교하면 추론 속도가 100배 이상 빨랐다. 또한 PoseBusters 벤치마크에서는 가장 성능이 좋은 DL 비교 방법보다 성공률이 절대값 기준 7.01%포인트 높았다.",
+      "추가로 SARS-CoV-2 main protease 억제제 탐색을 표적으로 하는 실제 가상 탐색 사례에서 Dockformer의 활용성을 평가했다. 저자들은 우수한 도킹 정확도와 계산 효율을 바탕으로 Dockformer를 컴퓨터 기반 신약 설계에 활용할 수 있는 견고하고 일반화 가능한 체계로 제시한다."
+    ],
+    "purpose": "대규모 화합물 탐색에서 도킹 속도를 높이면서 결합 자세의 정확도도 확보할 수 있는지 평가했다.",
+    "pairs": [
+      {
+        "label": "결합 자세 예측",
+        "method": "리간드의 2D 그래프·3D 구조와 단백질 pocket 정보를 통합하고, 예측 자세를 실험 구조와 RMSD로 비교했다.",
+        "result": "RMSD < 2 Å 성공률은 PDBbind core 90.53%, PoseBusters 82.71%였다. 이 수치는 결합 자세 재현율이며 실제 결합 활성 적중률은 아니다.",
+        "source": {"label": "Abstract; PDF §IV-A/B, Fig.5", "url": "https://ieeexplore.ieee.org/document/11670250"}
+      },
+      {
+        "label": "속도와 실제 탐색 적용",
+        "method": "전통 도킹·DL 방법과 추론 속도를 비교하고, SARS-CoV-2 Mpro에 대한 ChEMBL 가상 탐색에 적용했다.",
+        "result": "저자는 AutoDock Vina·Glide 대비 100배 이상의 추론 가속을 보고했다. Mpro 사례는 가상 탐색·상호작용 분석이며 새로운 후보의 생화학 효능 확인까지 수행한 결과는 아니다.",
+        "source": {"label": "Abstract; PDF Fig.6, §IV-E", "url": "https://ieeexplore.ieee.org/document/11670250"}
+      }
+    ],
+    "significance": "도킹 모델을 볼 때 정확도·속도뿐 아니라 입력 pocket, 구조의 물리적 타당성, 실험 hit 확인 여부를 함께 읽는 사례다.",
+    "application": "내 표적에 적용한다면 알려진 pocket을 동일하게 지정한 baseline과 비교하고, 상위 후보를 기존 도킹·실험으로 확인하는 절차를 설계해볼 수 있다.",
+    "limits": "비교 모델마다 탐색 공간이 다르다. 정적 단백질 구조와 비물리적 예측 자세의 한계가 있어 성공률을 실제 신약 후보 발굴 성능으로 바로 해석할 수 없다.",
+    "briefSummary": [
+      "Dockformer는 결합 자세와 신뢰도를 함께 예측해 대규모 라이브러리 도킹을 가속하는 방법이다. 핵심 결과는 PDBbind와 PoseBusters에서의 자세 재현 및 추론 속도다. 전체 단백질을 탐색하는 blind docking과 알려진 pocket을 입력으로 받는 방법이 섞여 있으므로 순위 자체보다 평가 조건을 먼저 볼 필요가 있다.",
+      "학습 시기 이후 구조를 이용한 PoseBusters와 구조적으로 분리한 DockGen 평가를 포함하지만, 별도 벤치마크 성능이 곧 새 화합물의 활성 검증은 아니다. Mpro 가상 탐색 사례 역시 계산적 후보 탐색 범위다. 내 연구에서는 pocket 크기, 유연한 리간드, 에너지 최소화 후처리의 효과를 확인할 질문으로 연결할 수 있다."
+    ],
+    "methods": [
+      {"label": "학습·평가 자료", "text": "PDBbind v2020을 훈련 자료로 사용하고 CASF2016/PDBbind core 285개, PoseBusters 428개 복합체 및 DockGen-full을 평가에 사용했다. PoseBusters는 2021년 이후 구조를 사용한 평가로 구분된다.", "source": {"label": "PDF §IV-A", "url": "https://ieeexplore.ieee.org/document/11670250"}},
+      {"label": "성공 판정", "text": "예측 리간드 자세와 실험 구조 사이 RMSD < 2 Å를 도킹 성공 기준으로 사용했다. 자세 정확도와 결합 활성은 다른 평가 항목이다.", "source": {"label": "Abstract; PDF §IV-B", "url": "https://ieeexplore.ieee.org/document/11670250"}},
+      {"label": "비교 조건", "text": "5개 전통 도킹과 9개 DL 방법을 비교했다. 일부는 전체 단백질 탐색이고 Dockformer 등은 알려진 리간드 주변 pocket을 입력으로 사용하므로 동일 탐색 공간의 비교는 아니다.", "source": {"label": "PDF §IV-B, Table I", "url": "https://ieeexplore.ieee.org/document/11670250"}},
+      {"label": "후처리와 적용", "text": "에너지 최소화 후처리가 구조 타당성과 비용에 미치는 영향을 분석하고, 120만 개 이상 ChEMBL 화합물의 Mpro 가상 탐색 사례를 제시했다.", "source": {"label": "PDF §IV-C/E/F", "url": "https://ieeexplore.ieee.org/document/11670250"}}
+    ],
+    "caveats": ["동일 pocket·동일 후처리·전체 실행 시간을 맞춘 비교는 사용자가 추가로 확인할 항목이다.", "코드·가중치·세부 hyperparameter와 SI를 실제 확보해 재현한 것은 아니다.", "정적인 단백질 구조, 용매·pH 미반영 및 비물리적 자세를 저자가 한계로 제시한다."],
+    "references": [{"label": "Dockformer 출판사 원문", "url": "https://ieeexplore.ieee.org/document/11670250"}, {"label": "Europe PMC 초록", "url": "https://europepmc.org/article/MED/42664088"}],
+    "basis": "prior_fulltext_review",
+    "evidenceNote": "이전 교내 출판사 본문 검토 기록과 출판 초록을 바탕으로 작성했다. 현재 앱에는 자동 확보한 본문이 없으며 SI는 미검토다.",
+    "flow": ["2D·3D 분자 입력", "자세·신뢰도 예측", "구조 벤치마크 비교", "Mpro 가상 탐색"]
+  },
+  {
+    "candidateId": "196c61d3c3ed44c6baa4e201eda0799d",
+    "titleKo": "ML 예측 단백질 구조는 FEP에 바로 사용할 수 있는가?",
+    "abstractKo": [
+      "AlphaFold2로 대표되고 AlphaFold3와 Boltz-2 같은 새 모델로 확장된 머신러닝(ML) 기반 단백질 구조 예측의 빠른 발전은 구조 기반 신약 개발에 큰 기대를 불러왔다. 특히 리간드와 단백질의 공동접힘(cofolding) 접근법은 물리 기반 자유에너지 섭동(FEP) 계산의 시작 구조를 만드는 데 따르는 제약을 해결할 가능성이 있다. 하지만 ML 예측 구조가 실제 FEP에 사용할 준비가 되었는지는 충분히 평가되지 않았다.",
+      "본 연구는 잘 알려진 tyrosine kinase cSrc를 표적으로 하는 유사 화합물 계열을 사용해, 실험으로 결정한 결정 구조·상동성 모델·ML 예측 단백질 구조를 FEP 입력으로 체계적으로 평가했다. 별도 조정 없이 바로 사용하는 'out-of-the-box' 성능에 가깝도록 최적화를 최소화한 조건에서 133개 화합물의 데이터 세트에 대해 1,400회 이상의 FEP 계산을 수행했다. 일관된 준비 절차를 유지해 구조의 출처가 예측 정확도에 미치는 영향을 분리하고자 했다.",
+      "실험 구조와 ML 예측 구조 모두에서 성능이 달랐으며, 이러한 이상화된 벤치마크 상황에서도 신뢰할 수 있는 예측용 단백질–리간드 복합체를 만들고 다듬는 데 상당한 어려움이 남아 있음을 보여준다. 이 연구는 예측 신뢰도를 좌우하는 요인이 구조 출처 자체보다 미시적·거시적 입체구조 상태의 차이라는 점을 제시하며, ML 유래 구조를 FEP 작업 흐름에 통합할 때 신중한 검증이 필요함을 강조한다."
+    ],
+    "purpose": "결정 구조가 없을 때 ML 예측 구조를 FEP 입력으로 바로 사용해도 되는지, 같은 준비 조건에서 비교했다.",
+    "pairs": [
+      {"label": "출처별 입력 구조 비교", "method": "cSrc의 133개 화합물에 대해 결정 구조, 상동성 모델, AF3 apo/holo와 Boltz-2를 입력으로 1,400회 이상 FEP를 수행했다.", "result": "전체 RMSE는 상동성 모델 1.41 ± 0.10, 결정 구조 3EN4 1.66 ± 0.11, AF3-apo 3.18 ± 0.27 kcal/mol이었다. 예측 구조라고 항상 나쁘거나 결정 구조라고 항상 좋은 것은 아니었다.", "source": {"label": "Results · FEP Calculations and Performance", "url": "https://doi.org/10.1021/acs.jcim.6c01024"}},
+      {"label": "구조 유사도와 FEP 정확도", "method": "전체 구조의 차이뿐 아니라 입력 복합체의 세부 입체구조 상태와 FEP 결과를 함께 비교했다.", "result": "전체 RMSD가 유사해도 AF3-apo는 부진했고 AF3-holo·상동성 모델은 3EN4에 가까운 성능을 보였다. 입력 구조의 출처만으로 FEP 적합성을 판단하기 어려웠다.", "source": {"label": "Fig.2–3; Discussion", "url": "https://doi.org/10.1021/acs.jcim.6c01024"}}
+    ],
+    "significance": "구조 예측 모델의 발전을 실제 계산 신약 개발에 연결할 때, 구조가 그럴듯한지와 자유에너지 예측이 맞는지를 분리해 검증해야 함을 보여준다.",
+    "application": "내 계열의 활성값이 알려진 작은 검증 세트로 여러 입력 복합체를 비교하고, 검증을 통과한 구조를 후속 FEP에 사용하는 방안을 검토할 수 있다.",
+    "limits": "cSrc와 관련 scaffold에 한정된 이상화된 비교다. 구조 예측 모델이 이미 접한 구조·활성 자료를 포함하므로 미지 표적에서의 성능으로 일반화할 수 없다.",
+    "briefSummary": [
+      "이 연구의 질문은 가장 새로운 예측 모델이 무엇인지가 아니라, 준비된 단백질–리간드 복합체를 FEP에 넣었을 때 실제 활성 차이를 얼마나 잘 예측하는지다. 같은 준비 절차를 적용한 비교에서도 입력 구조마다 성능 차이가 컸으며, AF3 apo와 holo처럼 같은 모델에서 시작해도 결과가 달랐다.",
+      "상동성 모델과 AF3-holo가 유용한 결과를 보였다는 사실은 예측 구조를 배제할 필요가 없음을 보여준다. 동시에 특정 구조의 낮은 오차만 보고 전체 모델의 우위를 선언해서도 안 된다. 단일 표적·관련 계열에서 관찰한 결과이며, 실험값을 가진 소규모 검증과 복합체 상태 점검이 후속 적용의 핵심이다."
+    ],
+    "methods": [
+      {"label": "화합물·입력 구조", "text": "cSrc의 133개 화합물과 세 관련 scaffold를 사용했다. 결정 구조 3EN4·3EN5, FYN 기반 상동성 모델, AF3 apo/holo 및 Boltz-2 구조를 비교했다.", "source": {"label": "Table 1; Results", "url": "https://doi.org/10.1021/acs.jcim.6c01024"}},
+      {"label": "계산 조건 통일", "text": "공통 단백질 준비 절차, 1.2 ns frame 선택 단계와 5 ns FEP 조건을 사용해 최소 최적화 성능을 비교했다. 공동접힘 입력의 리간드 배치에는 별도 예외가 남아 있다.", "source": {"label": "Results; Methods · FEP Protocol", "url": "https://doi.org/10.1021/acs.jcim.6c01024"}},
+      {"label": "후속 ML 평가", "text": "ML 분할을 100회 반복하고 ROC 평균·95% 신뢰구간 및 세 가지 분류 threshold를 평가했다. 학습에 포함된 활성 자료를 사용한 Boltz-2 affinity 결과는 별도 성능 근거에서 제외했다.", "source": {"label": "Data Augmentation and ML Performance", "url": "https://doi.org/10.1021/acs.jcim.6c01024"}},
+      {"label": "재현 자료", "text": "SI에 화합물 ID·SMILES, 입력 복합체와 FEP·ML 입출력 접근 경로를 제공하고 KNIME workflow를 안내한다. 이 카드 작성 과정에서 파일 전체를 다시 계산하지는 않았다.", "source": {"label": "Data Availability; Supporting Information", "url": "https://doi.org/10.1021/acs.jcim.6c01024"}}
+    ],
+    "caveats": ["독립 표적·새 chemotype에서의 일반화는 추가 확인이 필요하다.", "최소 최적화 비교이므로 각 구조를 전문가가 충분히 다듬었을 때 가능한 최고 성능을 뜻하지 않는다.", "FEP–ML 비용 절감의 실제 벽시계 시간과 계산 자원 비용은 기존 검토에서 확인하지 못했다."],
+    "references": [{"label": "출판사 논문·보충자료", "url": "https://doi.org/10.1021/acs.jcim.6c01024"}, {"label": "Europe PMC 초록", "url": "https://europepmc.org/article/MED/42734520"}],
+    "basis": "prior_fulltext_review",
+    "evidenceNote": "이전 교내 출판사 본문 검토 기록과 출판 초록을 바탕으로 작성했다. SI 파일 전체와 계산 결과를 독립 재현한 것은 아니다.",
+    "flow": ["출처별 복합체 준비", "공통 조건 FEP", "실험 활성과 비교", "입력 상태·오차 해석"]
+  },
+  {
+    "candidateId": "0f6663d4752b4459855dfd8b133db44f",
+    "titleKo": "흡입용 KEAP1–NRF2 PPI 억제제 GSK3227634의 발견",
+    "abstractKo": [
+      "KEAP1은 NRF2 매개 세포 보호 반응의 핵심 조절자이며 산화 스트레스와 관련된 질환의 표적이다. KEAP1을 공유결합으로 변형해 NRF2를 활성화하는 화합물은 임상적으로 검증되었지만, 화학적 반응성 때문에 표적 이외의 작용이 증가할 수 있다. 더 선택적인 접근은 기존 bis-aryl 선도물질 KI-696(4)처럼 KEAP1–NRF2 단백질–단백질 상호작용을 억제하는 것이다.",
+      "본 연구는 자유 리간드가 생물학적 활성 입체구조를 취하는 비율을 높여 효력을 개선하면서 전반적인 물리화학적 특성을 최적화하는 데 초점을 맞춘 bis-aryl 계열의 선도물질 최적화를 설명한다. 그 결과 KEAP1–NRF2의 초고친화도 비공유결합 억제제 GSK3227634(5)를 발견했다(SPR pKd = 10.9). 이 화합물은 폐에 직접 전달했을 때 산화 스트레스 전임상 모델에서 표적 작용과 효능을 보여준 최초의 NRF2 활성화제로 보고되었다. 따라서 화합물 5는 COPD와 같이 산화 스트레스가 관여하는 폐 질환의 새로운 잠재적 치료 물질이다."
+    ],
+    "purpose": "KEAP1–NRF2 결합을 비공유적으로 차단하는 선도물질을 흡입 투여에 맞게 최적화하고, 폐에서 NRF2 경로가 실제로 활성화되는지 확인했다.",
+    "pairs": [
+      {"label": "구조와 친화도 최적화", "method": "bis-aryl 치환기·입체화학을 조정하고 결합 결정 구조, 자유 리간드 결정 구조 및 수용액 NMR을 비교했다.", "result": "GSK3227634는 결합 자세와 유사한 자유 리간드 구조를 지지하는 결과를 보였다. SPR에서 pKd 10.9 ± 0.6의 높은 친화도를 보였으며 매우 느리지만 가역적으로 해리됐다.", "source": {"label": "SPR Characterization; Conformational Studies", "url": "https://europepmc.org/articles/PMC13576390"}},
+      {"label": "폐 전달 후 경로 활성화", "method": "Lewis rat에 미세화 화합물을 기관내 투여한 뒤 paraquat 산화 스트레스 모델에서 폐 NQO1과 glutathione을 측정했다.", "result": "0.3–10 μmol/kg 범위에서 NQO1 유전자·효소 활성과 총 폐 glutathione이 용량에 따라 증가했다. 사람 COPD에서의 임상 효능을 평가한 실험은 아니다.", "source": {"label": "In Vivo Pharmacological Profiling · Intratracheal Administration", "url": "https://europepmc.org/articles/PMC13576390"}}
+    ],
+    "significance": "높은 친화도만 추구하는 대신 투여 경로에 맞춰 낮은 투과성과 높은 전신 제거를 활용한 의약화학 사례다.",
+    "application": "국소 투여 후보를 다룬다면 세포 효력뿐 아니라 표적 장기 노출·전신 노출·제형을 함께 비교하고, 자유 리간드의 구조 선호도가 결합에 기여하는지 검토할 수 있다.",
+    "limits": "기관내 투여는 실제 사람 흡입 분포를 그대로 재현하지 않는다. 매우 느린 SPR 해리 때문에 정확한 체류 시간을 확정하기도 어렵다.",
+    "briefSummary": [
+      "KI-696에서 출발한 최적화는 단백질과의 주요 상호작용을 유지하면서 자유 리간드가 결합에 유리한 입체구조를 취하도록 설계하는 데 초점을 두었다. 결정학과 용액 NMR은 이러한 사전 구조화 가설을 지지하지만, 이것만이 효력 개선의 유일한 원인이라고 분리해 증명한 것은 아니다.",
+      "선택된 GSK3227634는 경구 투여에 유리한 전형적 특성과 다르게 낮은 투과성·낮은 경구 노출·높은 전신 제거를 보였다. 연구에서는 이를 폐 국소 전달이라는 목적과 연결했다. 기관내 투여 후 NRF2 경로와 산화 스트레스 관련 지표의 변화를 확인했으며, 임상적 COPD 개선 여부는 후속 검증 범위다."
+    ],
+    "methods": [
+      {"label": "효력 측정의 범위", "text": "초기 FP assay는 고친화도 유도체에서 측정 상한에 도달해 full-length KEAP1–NRF2의 저단백질 LP TR-FRET assay로 비교했다. 더 강한 결합은 SPR로 추가 평가했다.", "source": {"label": "Structure–Activity Studies; SPR Characterization", "url": "https://europepmc.org/articles/PMC13576390"}},
+      {"label": "세포 경로 활성", "text": "BEAS-2B 기관지 상피세포에서 48시간 처리 후 NRF2 하위 효과기인 NQO1의 효소 활성을 측정했다. 이는 단순 결합 affinity와 구분되는 세포 경로 readout이다.", "source": {"label": "Structure–Activity Studies", "url": "https://europepmc.org/articles/PMC13576390"}},
+      {"label": "SPR와 구조 확인", "text": "SPR 해리를 4시간 관찰하고 세 번 측정했다. 단백질 결합 구조·소분자 결정 구조·수용액 1H NMR/ROESY를 비교해 자유 리간드의 입체구조 선호도를 조사했다.", "source": {"label": "SPR Characterization; Conformational Studies", "url": "https://europepmc.org/articles/PMC13576390"}},
+      {"label": "폐 국소 투여 조건", "text": "Lewis rat에 미세화 화합물 5를 0.3–10 μmol/kg 기관내 투여하고 24시간 뒤 paraquat를 처리했다. paraquat 처리 48시간 후 폐 균질액에서 NQO1 및 총 glutathione을 평가했다.", "source": {"label": "In Vivo Pharmacological Profiling · Intratracheal Administration", "url": "https://europepmc.org/articles/PMC13576390"}}
+    ],
+    "caveats": ["SPR 해리 곡선의 제한 때문에 약 4시간이라는 해리 반감기는 정밀하게 결정된 값으로 취급하지 않는다.", "낮은 전신 노출과 세포 선택성 결과가 장기 안전성을 확정하지는 않는다.", "수용액에서 선호되는 구조와 효력 사이의 기여는 다른 물성 변화와 함께 해석해야 한다."],
+    "references": [{"label": "Europe PMC 본문", "url": "https://europepmc.org/articles/PMC13576390"}, {"label": "출판사 논문·보충자료", "url": "https://doi.org/10.1021/acs.jmedchem.6c01820"}],
+    "basis": "fulltext",
+    "evidenceNote": "앱에서 확보한 Europe PMC 본문과 출판 초록을 바탕으로 작성했다. 전임상 결과이며 SI 전체 원자료를 독립 재분석하지 않았다.",
+    "flow": ["bis-aryl SAR 설계", "구조·친화도 확인", "세포 NRF2 평가", "폐 국소 투여 평가"]
+  },
+  {
+    "candidateId": "62c2bdb4c9d4412f9b9685cb2d7ba408",
+    "titleKo": "KRAS 거대고리 억제제의 bioisostere 치환: 경구 노출과 활성의 균형",
+    "abstractKo": [
+      "자체 발견한 강력한 panKRAS 억제제 BRSD-143(1)에서 출발해, KRAS에 대한 광범위한 억제 효력을 유지하거나 높이면서 DMPK/ADME상의 문제를 개선하기 위해 naphthol과 fluoropyrrolizidine 부분을 표적으로 한 bioisostere 최적화를 수행했다.",
+      "이 연구를 통해 매우 강력하고 효능이 있는 선도물질 12(BRSD-212)를 얻었으며, 여기서는 (2-azabicyclo[4.2.0]octan-6-yl)methanol(ABO)이 널리 사용되는 2-fluoropyrrolizidine 치환기의 bioisostere 역할을 한다. 병행한 다른 접근에서는 naphthol 부분을 indazole로 바꾸어 화합물 21을 얻었다. 화합물 21은 주요 대사 경로인 glucuronidation에 의한 제거를 줄여 약동학적 성능과 ADME 특성이 개선되었다."
+    ],
+    "purpose": "KRAS switch-II pocket 억제제의 두 치환기를 바꾸어 활성을 유지하면서 대사·경구 노출 문제를 해결할 수 있는지 평가했다.",
+    "pairs": [
+      {"label": "Fluoropyrrolizidine 대체", "method": "BRSD-143의 2-fluoropyrrolizidine을 ABO 골격으로 치환하고 결합·세포 활성과 구조를 비교했다.", "result": "화합물 12(BRSD-212)는 강한 KRAS 억제와 종양 모델 활성을 유지했다. 다만 대사·PK 문제까지 모두 해결된 후보는 아니었다.", "source": {"label": "Results; Fig.3–4, Table 2", "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"}},
+      {"label": "Glucuronidation 경로 조정", "method": "naphthol을 indazole로 치환한 21을 만들고 hepatocyte 대사체·UDPGA 유무 S9 평가와 PK를 비교했다.", "result": "Glucuronidation과 경구 노출은 개선됐지만 세포 활성은 30–50배 약해졌다. 노출 증가가 종양 반응 개선으로 그대로 이어지지 않는 상충 관계를 보였다.", "source": {"label": "Results; Tables 4–5, Fig.6", "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"}}
+    ],
+    "significance": "Bioisostere를 도입할 때 물성·대사 개선과 세포 활성 손실을 함께 읽어야 한다는 구체적인 lead optimization 사례다.",
+    "application": "내 화합물의 제거 경로가 특정 작용기와 연결된다면 치환체를 비교하되, 대사 안정성·노출과 함께 세포 효력 및 유효 노출을 확인하는 설계를 검토할 수 있다.",
+    "limits": "21은 PK가 좋아져도 활성이 낮아졌다. 12의 rat 정맥 투여에서는 침전 문제가 있어 경로별 PK를 동등한 자료로 비교하면 안 된다.",
+    "briefSummary": [
+      "이 연구는 한 번의 치환으로 모든 특성이 개선되는 성공 사례라기보다, 두 bioisostere 전략이 서로 다른 장단점을 만드는 과정이다. ABO 치환은 널리 쓰이는 2-fluoropyrrolizidine을 대체할 설계 가능성을 보여주고, indazole 치환은 naphthol과 연결된 glucuronidation 문제를 줄였다.",
+      "화합물 21의 초록은 개선된 PK·ADME를 강조하지만 본문에는 세포 활성 손실과 제한적인 종양 반응도 함께 있다. 따라서 초록의 '노출 개선'을 곧 '더 우수한 약물 후보'로 읽기보다, 활성 회복을 위한 다음 최적화 질문으로 연결하는 것이 적절하다."
+    ],
+    "methods": [
+      {"label": "치환 전략", "text": "BRSD-143을 기준으로 2-fluoropyrrolizidine→ABO와 naphthol→indazole의 두 치환 축을 비교했다. 후속체 12와 21의 구조·입체화학 및 분석 자료를 제공한다.", "source": {"label": "Chemistry; Results", "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"}},
+      {"label": "표적·세포 평가", "text": "KRAS G12V·G12D 및 GDP/GMPPNP 상태의 평가와 TR-FRET·pERK readout을 사용했다. 단백질 결합과 세포 신호 억제를 별개 단계로 비교한다.", "source": {"label": "Results; Tables 1–5", "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"}},
+      {"label": "대사 경로 확인", "text": "Hepatocyte 대사체 분석과 UDPGA가 있거나 없는 S9 실험을 연결해 glucuronidation의 기여를 조사했다. 단순한 총 clearance 감소만으로 경로를 추정하지 않았다.", "source": {"label": "Table 4; Results", "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"}},
+      {"label": "동물 효능 비교", "text": "RKN·SW1990 종양 모델을 평가하고 RKN 그룹은 n=6이었다. 화합물 21의 낮은 세포 활성을 고려해 투여량이 달랐으므로 동일 용량에서의 우열로 해석하지 않는다.", "source": {"label": "Fig.4,6; In Vivo Efficacy Studies", "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"}}
+    ],
+    "caveats": ["Rat 정맥 투여에서 12의 침전으로 신뢰할 수 있는 노출을 얻기 어려워 복강 투여의 apparent PK 값을 대체 제시했다.", "핵심 ADME·PK 개선값의 반복 수·불확실성과 동물 무작위화·눈가림은 기존 검토에서 확인하지 못했다.", "SI의 HTRF·대사체 상세 프로토콜은 미검토다. 다음 단계에서는 21의 활성 회복 가능성을 확인할 필요가 있다."],
+    "references": [{"label": "출판사 논문·보충자료", "url": "https://doi.org/10.1021/acs.jmedchem.6c01454"}, {"label": "Europe PMC 초록", "url": "https://europepmc.org/article/MED/42720494"}],
+    "basis": "prior_fulltext_review",
+    "evidenceNote": "이전 교내 출판사 본문 검토 기록과 출판 초록을 바탕으로 작성했다. 현재 앱에는 자동 확보한 본문이 없으며 SI 상세 프로토콜은 미검토다.",
+    "flow": ["BRSD-143 대사 문제", "두 bioisostere 치환", "구조·ADME·PK 비교", "활성과 노출의 균형"]
+  },
+  {
+    "candidateId": "3303517f651d4cd5b59a8b62c3f4ffb6",
+    "titleKo": "구조·자동 합성·직접 결합 평가를 연결한 NCS-1 fragment-to-hit 개발",
+    "abstractKo": [
+      "효율적인 신약 탐색 작업 흐름은 빠르고 자원 효율적인 실험 주기 안에서 표적 결합과 결합 자세의 확인, 구조–활성 관계(SAR), 생물학적 관련성 등 개발 전환의 핵심 이정표를 직접 다루는 데이터를 생성하는 것이 이상적이다. 본 연구는 synchrotron의 고처리량 결정학을 활용해 빠른 SAR 탐색에 바로 사용할 수 있는 구조적으로 검증된 hit 계열을 제공하는, 데이터 기반·자동화 보조·맞춤형 fragment-to-hit 체계를 설명한다.",
+      "최근 발전한 이 direct-to-biology 접근은 X선 결정학 기반 fragment screening, 알고리즘으로 안내하는 fragment merging 및 시약 우선순위 결정, 저비용 로봇 병렬 합성과 LC-MS를 통한 반응 생성물 평가를 결합한다. 마지막으로 정제하지 않은 반응 혼합물을 서로 다른 원리의 생물물리 기법으로 평가하며, grating-coupled interferometry(GCI)는 결합을, 결정학은 3차원 결합 자세를 확인하는 데 사용한다.",
+      "합성적으로 다양한 250개 이상의 화합물을 포함한 단일 DMTA 주기에서 많은 fragment hit를 함께 발전시켜, 까다로운 표적군에 대한 이 전략의 효과를 입증했다. 이를 통해 상용 목록에 없는 화학 공간을 빠르고 자원·비용 효율적으로 탐색했다. 그 결과 중추신경계의 핵심 조절자이자 치료 관련성이 있는 Neuronal Calcium Sensor 1(NCS-1)의 단백질–단백질 상호작용 조절물질을 발견했다. NCS-1은 여러 단백질 파트너를 수용할 수 있는 큰 상호작용 pocket을 가진다.",
+      "Fragment를 생물학적으로 검증된 subpocket에 선택적으로 결합하는 scaffold 계열로 발전시켰으며, 표적 조절의 선택성과 후속 hit-to-lead 개발에 중요한 allosteric 및 cryptic 결합 부위도 밝혀냈다. 저자들은 이 접근이 일반적으로 적용 가능하고 개선·확장할 수 있으며, fragment 기반 hit 탐색의 범위를 넓히는 개념 검증을 제공한다고 제시한다."
+    ],
+    "purpose": "NCS-1의 넓은 PPI 결합 공간에서 fragment를 후속 hit로 빠르게 발전시키고, 결합 구조와 세포 기능을 연결할 수 있는지 평가했다.",
+    "pairs": [
+      {"label": "정제 전 결합·구조 확인", "method": "Fragment merging·로봇 합성·LC-MS를 거친 조반응액 252개를 GCI와 crystal soaking으로 평가했다.", "result": "15개 조반응액에서 반복 가능한 결합 응답을 얻었고, 8–18시간 soaking을 통해 조반응액에서 13개 ligand-bound 구조를 얻었다. 농도가 불명확해 조반응액의 절대 친화도를 직접 결정한 것은 아니다.", "source": {"label": "GCI; Crystallographic Evaluation of Crude Mixtures", "url": "https://europepmc.org/articles/PMC13575873"}},
+      {"label": "세포 PPI 조절 확인", "method": "구조·결합 자료가 있는 E14를 선택해 HEK 세포에서 co-IP와 proximity ligation assay(PLA)로 NCS-1/Ric-8A 상호작용을 평가했다.", "result": "독립적인 PLA 3회에서 E14 처리군의 평균 형광이 DMSO 대조보다 35% 증가했다. 이는 해당 조건에서의 PPI 안정화 근거이며 신경질환 치료 효능 자체는 아니다.", "source": {"label": "PPI Modulatory Activity; Fig.8", "url": "https://europepmc.org/articles/PMC13575873"}},
+      {"label": "예측 자세 검증", "method": "알고리즘이 제안한 결합 자세와 실제 결정 구조의 RMSD 및 상호작용 패턴을 비교했다.", "result": "예측 대비 실험 자세의 중앙 RMSD는 4.60 Å였다. 설계 단계의 그럴듯한 구조를 실험 결합 자세로 다시 확인할 필요성을 보여준다.", "source": {"label": "Pose Divergence; Discussion", "url": "https://europepmc.org/articles/PMC13575873"}}
+    ],
+    "significance": "계산 설계에서 나온 후보를 곧바로 정답으로 취급하지 않고, 합성·결합·구조·세포 PPI를 한 주기 안에서 연결하는 사례다.",
+    "application": "Fragment 구조가 있다면 겹치는 결합 부위와 합성 가능성을 함께 고려해 후속체를 고르고, 초기 조반응액 선별 뒤 순물질의 친화도·기능을 확인하는 흐름을 참고할 수 있다.",
+    "limits": "단일 NCS-1 표적의 개념 검증이다. 결정학 hit rate와 처리량 사이에 상충 관계가 있으며, 모든 scaffold의 PPI 조절 기능을 입증한 것은 아니다.",
+    "briefSummary": [
+      "이 연구의 중심은 새로운 결합 예측 알고리즘 하나보다 설계·합성·측정·분석을 연결하는 실행 흐름이다. X선 fragment hit를 출발점으로 합성 가능한 조합을 고르고, 정제 전 혼합물에서도 결합과 자세를 선별해 다음 최적화의 출발 구조를 확보했다.",
+      "처리량을 높이는 대가도 분명하다. 조반응액의 실제 생성물 농도를 모르므로 절대 친화도 대신 해리 응답을 선별에 사용하며, 예측 자세와 실험 자세가 크게 다른 경우도 많았다. E14에서는 세포 PPI 안정화까지 연결했지만 다른 후속체의 기능은 순물질로 추가 검증해야 한다."
+    ],
+    "methods": [
+      {"label": "설계·합성 연계", "text": "Fragmenstein으로 scaffold를 설계하고 Syndirella로 합성 가능한 계열을 열거하며 HIPPO로 우선순위를 정한 뒤 CAR 자동 합성에 연결했다. LC-MS로 반응 생성물을 평가했다.", "source": {"label": "Introduction; Algorithmic Methods and Automated Synthesis", "url": "https://europepmc.org/articles/PMC13575873"}},
+      {"label": "조반응액 결합 선별", "text": "정확한 농도를 모르는 조반응액은 GCI 해리속도 중심으로 평가했다. E17을 반복 양성 기준으로 사용하고 blank channel 비특이 결합을 확인했으며 off-rate screening을 두 번 수행했다.", "source": {"label": "SI Methods p.9 · GCI", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13575873/supplementaryFiles"}},
+      {"label": "Crystal soaking", "text": "조반응액을 명목 농도 100 mM의 DMSO 시료로 바꾸고 최종 DMSO 10%로 soaking했다. 이론적 최대 리간드 농도 10 mM는 완전한 생성·용해를 가정한 값이며, 초기 2시간에서 8–18시간으로 연장했다.", "source": {"label": "Crystallographic Evaluation of Crude Reaction Mixtures", "url": "https://europepmc.org/articles/PMC13575873"}},
+      {"label": "세포 기능 확인", "text": "Co-IP에서는 hNCS-1과 V5-hRic-8A를 HEK293에 발현한 뒤 E14 20 μM 또는 DMSO로 24시간 처리했다. PLA는 독립 실험 3회에서 세포당 형광을 비교하는 별도 확인으로 사용했다.", "source": {"label": "SI Methods p.10; 본문 Fig.8", "url": "https://europepmc.org/articles/PMC13575873"}}
+    ],
+    "caveats": ["조반응액에서 얻은 off-rate는 순물질의 확정 KD와 다르며 경쟁 결합·불순물의 영향을 고려해야 한다.", "다른 연구와의 비용·hit rate 비교는 표적·조건이 달라 방법의 일반적 우열을 뜻하지 않는다.", "E14의 세포 PPI 결과와 다른 질환 모델에 관한 선행연구를 구분해야 한다. 이 논문이 신경퇴행성 질환 치료 효과를 새로 입증한 것은 아니다."],
+    "references": [{"label": "Europe PMC 본문", "url": "https://europepmc.org/articles/PMC13575873"}, {"label": "공개 보충자료", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13575873/supplementaryFiles"}, {"label": "출판사 논문", "url": "https://doi.org/10.1039/d6sc02031c"}],
+    "basis": "fulltext",
+    "evidenceNote": "앱에서 확보한 Europe PMC 본문과 이전에 확인한 공개 SI 방법을 바탕으로 작성했다. 공개 코드·데이터를 독립 실행한 결과는 아니다.",
+    "flow": ["Fragment 구조·병합", "자동 합성·LC-MS", "GCI·결합 구조", "E14 세포 PPI 검증"]
+  },
+  {
+    "candidateId": "c3a5f89a860d4488b09a0a3630f51617",
+    "titleKo": "Chromene 억제제로 T. cruzi LysRS의 결합·세포·동물 효과를 연결한 검증",
+    "abstractKo": [
+      "Aminoacyl-tRNA synthetase(aaRS)는 필수적이면서 매력적인 항기생충 표적으로 주목받고 있다. Trypanosoma cruzi에서 lysyl-tRNA synthetase(LysRS)가 유효한 표적이라는 생체 내 근거는 지금까지 하나의 chemotype에 제한되어 있었다. 본 연구는 Plasmodium falciparum과 Cryptosporidium parvum을 대상으로 개발한 chromene 기반 LysRS 억제제의 용도 전환을 보고하며, T. cruzi의 LysRS를 독립적인 화학 골격과 구조로 검증한다.",
+      "화합물 5는 세포 내 T. cruzi amastigote에 강한 활성(EC50 = 0.9 μM), 낮은 숙주 세포 독성, 그리고 급성 Chagas병 마우스 모델에서의 경구 효능을 보였으며, 혈중 기생충을 억제하고 조직 기생충 부담을 줄였다. 약동학(PK) 분석에서는 흡수가 지연되면서도 양호한 경구 생체이용률을 보였고, 이는 효능 평가에서 PK 조건을 함께 고려해야 함을 강조한다. 생화학적 억제와 결정 구조는 T. cruzi LysRS에 대한 표적 결합 근거를 제공한다. 이 결과는 T. cruzi LysRS가 개발 가능한 표적이라는 근거를 강화하고 Chagas병 신약 개발을 위한 새로운 화학 골격을 제시한다."
+    ],
+    "purpose": "다른 기생충에서 개발된 chromene 억제제로 T. cruzi LysRS를 다시 검증하고, 효소 결합이 세포·동물 효과와 연결되는지 평가했다.",
+    "pairs": [
+      {"label": "세포와 효소의 교차 확인", "method": "화합물 5의 세포 내 amastigote 억제, 정제 TcLysRS 효소 억제 및 결합 결정 구조를 측정했다.", "result": "세포 EC50는 0.9 μM, 효소 IC50는 2.7 μM이었다. 결정 구조에서 ATP pocket 결합을 확인해 단순 세포 독성과 구분되는 표적 결합 근거를 추가했다.", "source": {"label": "Results · In Vitro Activity; Kinetics and Structural Studies", "url": "https://europepmc.org/articles/PMC13576447"}},
+      {"label": "경구 노출과 급성 감염 효과", "method": "급성 Dm28c 감염 마우스에 20 mg/kg을 하루 한 번 10일간 경구 투여하고 혈중·조직 기생충을 평가했다.", "result": "관찰 기간 중 혈중 기생충을 억제하고 조직 부담을 줄였다. 별도 PK에서 경구 흡수는 지연됐지만 노출은 유지돼, 사용 제형에서의 PK가 효능 해석에 중요했다.", "source": {"label": "In Vivo PK Characterization; In Vivo Efficacy; Methods", "url": "https://europepmc.org/articles/PMC13576447"}}
+    ],
+    "significance": "동일 표적을 다른 chemotype으로 검증하고 효소·구조·세포·동물 결과를 연결하는 방법을 보여준다. PK를 표적 검증의 해석 조건으로 함께 다룬다는 점도 유용하다.",
+    "application": "표적 검증 연구를 설계할 때 다른 골격의 억제제를 사용하고, 효소 활성·직접 결합·세포 선택성·실제 투여 제형의 노출을 함께 확인하는 구성을 참고할 수 있다.",
+    "limits": "단일 균주의 급성 마우스 감염 결과다. 혈중 기생충 억제가 만성 감염의 완전 제거를 의미하지 않으며 사람 치료 효과를 평가한 연구도 아니다.",
+    "briefSummary": [
+      "이미 다른 기생충의 LysRS를 억제하는 것으로 알려진 chromene 화합물을 T. cruzi에 적용해, 기존의 한 chemotype에 치우친 표적 근거를 보강했다. 효소 억제와 ATP pocket 결정 구조, 세포 내 기생충 억제를 연결한 것이 중심 기여다. 논문이 인용한 유전학적 저항성 근거는 새로운 유전학 실험과 구분해야 한다.",
+      "급성 마우스 모델에서 경구 효능을 보였지만 기존 문헌과 흡수 속도·노출이 달랐다. 제형과 분석 matrix가 달라질 수 있다는 점을 함께 논의하며, 전임상 효능을 해석할 때 해당 실험 조건의 PK를 직접 확인해야 함을 보여준다."
+    ],
+    "methods": [
+      {"label": "세포 내 기생충 평가", "text": "T. cruzi Dm28c로 H9c2 세포를 감염시키고 화합물을 72시간 처리했다. Hoechst 염색과 high-content imaging으로 감염 세포를 정량했으며 생물학적 반복 3회를 수행했다.", "source": {"label": "Methods · Parasite Inhibition Assay; Discussion", "url": "https://europepmc.org/articles/PMC13576447"}},
+      {"label": "효소와 결합 자세", "text": "정제 TcLysRS에서 tRNA 없이 AMP 생성에 기반한 효소 반응을 평가하고, lysine 단독 및 lysine·화합물 5 복합체 구조를 얻었다. 구조는 PDB 9YJN·9YJR로 기탁했다.", "source": {"label": "Kinetics and Structural Studies; Fig.3", "url": "https://europepmc.org/articles/PMC13576447"}},
+      {"label": "경구·정맥 PK", "text": "암컷 Balb/c mouse에 정맥 2 mg/kg 또는 경구 20 mg/kg을 투여하고 plasma LC-MS/MS와 비구획 분석을 사용했다. 경구 제형은 DMSO·Tween 80·PEG400·PBS 조성이었다.", "source": {"label": "Methods · Pharmacokinetic Profiling and Analysis", "url": "https://europepmc.org/articles/PMC13576447"}},
+      {"label": "급성 감염 모델", "text": "암컷 Balb/c mouse를 그룹당 5마리 사용했다. 감염 4일 후부터 화합물 5를 20 mg/kg, benznidazole 대조를 50 mg/kg으로 하루 한 번 10일 투여하고 조직 qPCR·심장 조직학을 평가했다.", "source": {"label": "Methods · In Vivo Murine Model; Results", "url": "https://europepmc.org/articles/PMC13576447"}}
+    ],
+    "caveats": ["다른 균주·만성 감염·재발 여부에 대한 효능은 별도 검증이 필요하다.", "인간 LysRS와 ATP pocket이 유사하므로 낮은 숙주 세포 독성만으로 장기 안전성을 확정할 수 없다.", "경구 생체이용률 추정은 IV와 PO의 서로 다른 AUC 관찰 구간에 기반한다. 선행연구의 다른 제형·whole blood 결과와 현재 plasma 값을 직접 동등 비교하지 않는다."],
+    "references": [{"label": "Europe PMC 본문", "url": "https://europepmc.org/articles/PMC13576447"}, {"label": "출판사 논문·보충자료", "url": "https://doi.org/10.1021/acs.jmedchem.6c00764"}],
+    "basis": "fulltext",
+    "evidenceNote": "앱에서 확보한 Europe PMC 본문과 출판 초록을 바탕으로 작성했다. 원농도 자료를 재계산하거나 동물 실험을 독립 재현한 결과는 아니다.",
+    "flow": ["다른 chemotype 적용", "효소·결합 구조", "세포 활성·PK", "급성 감염 경구 평가"]
+  }
+]

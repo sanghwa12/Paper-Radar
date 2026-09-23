@@ -1,0 +1,529 @@
+{
+  "candidateId": "b6585588759e4eee883f24d82603f2b1",
+  "evidenceStatus": "fulltext",
+  "evidenceNote": "본문·입력 매개변수·DDI 표·원문 Figure를 대조했습니다. 모델에 맞춘 임상 자료, 검증 자료, 미시험 DDI 예측을 구분합니다. 비공개 data-on-file 및 실행 파일은 재계산하지 않았습니다.",
+  "tabs": {
+    "summary": [
+      {
+        "title": "같은 약물인데 왜 투여 경로에 따라 DDI가 달라지는가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Zavegepant는 경구로 투여하면 itraconazole·rifampin 병용 시 노출이 증가하지만, 비강 투여와 itraconazole 사이에서는 같은 변화가 관찰되지 않았다. 이 연구는 <strong>장 efflux, 간 uptake, 대사, 비강/경구 흡수</strong>를 구분한 PBPK로 이 차이를 설명하고 미시험 비강 DDI를 예측했다."
+          },
+          {
+            "type": "paragraph",
+            "text": "가장 중요한 학습 지점은 “CYP3A 기질”이라는 이름만으로 DDI를 정하지 않는 것이다. 대사 경로 중 CYP3A4 비중이 높아도 전체 제거가 주로 담즙 배설·수송에 의해 결정되면 CYP 억제의 영향은 작을 수 있다. 반대로 간으로 들어가는 OATP1B3 유입이 제한되면 혈장 노출이 증가할 수 있다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0008\">Methods</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0026\">Discussion</a>"
+          }
+        ]
+      },
+      {
+        "title": "연구 흐름",
+        "blocks": [
+          {
+            "type": "image",
+            "src": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/flow.svg",
+            "alt": "PBPK의 구축 → 독립 조건 검증 → 미시험 병용 예측",
+            "caption": "본문의 실험·분석 순서를 정리한 브리핑 도식. 원문 Figure를 재구성한 그림이 아닙니다."
+          }
+        ]
+      },
+      {
+        "title": "핵심 결과: 관측과 예측을 구분",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "분류",
+              "조건",
+              "결과"
+            ],
+            "rows": [
+              [
+                "개발에 사용한 임상 관측",
+                "경구 50 mg +itraconazole",
+                "관측 AUC ratio 1.74; 초기 P-gp 중심 모델은 6.5로 과대예측. 기타 efflux를 포함해 조정. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0017\">Model refinement</a>"
+              ],
+              [
+                "검증",
+                "비강 5/10 mg 단회·14일 반복",
+                "AUC/Cmax 예측 대비 관측의 비는 0.7–1.4 범위. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0020\">Validation / Figure 3</a>"
+              ],
+              [
+                "미시험 예측",
+                "비강 10 mg +rifampin 600 mg 단회 / 반복",
+                "AUC ratio 2.39 /2.11. 비강 rifampin 임상시험의 관측값이 아님. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-tbl-0002\">Table 2</a>"
+              ],
+              [
+                "민감도 분석",
+                "Cyclosporine A 600 mg; OATP1B3:NTCP=50:50 또는90:10",
+                "AUC ratio 1.37 또는1.58. 입력 가정에 따라 달라지는 조건부 예측. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-tbl-0002\">Table 2</a>"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "title": "내 연구에 적용할 관점",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "PBPK 결과를 정리할 때 실측 입력, 자료에 맞춰 조정한 입력, 검증에 사용한 조건, 아직 시험하지 않은 예측을 네 칸으로 분리하는 구조가 유용하다. 이 논문에서 unknown efflux와 active/passive uptake 비율은 측정으로 확정한 상수가 아니라 임상 DDI를 재현하도록 조정한 값이다. 내 화합물에 적용한다면 서로 다른 가정도 같은 임상 곡선을 설명하는지 민감도·식별성 분석을 추가할 수 있다. 이는 브리핑의 제안이다."
+          }
+        ]
+      }
+    ],
+    "overview": [
+      {
+        "title": "1. 기본 모델이 맞추지 못한 결과가 기전 조정의 출발점",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "기본 가정",
+              "초기 예측",
+              "임상 관측",
+              "수정"
+            ],
+            "rows": [
+              [
+                "장·담즙 efflux를 P-gp 중심으로 설정",
+                "Itraconazole+경구50 mg: AUC₀-last ratio 6.5; Cmax ratio3.4",
+                "AUC ratio1.74; Cmax ratio1.77",
+                "장과 간에서 P-gp:unknown efflux=1:2로 조정."
+              ],
+              [
+                "간 active uptake:passive diffusion=50:50",
+                "Rifampin+경구100 mg: AUC₀-last ratio≈1.25; Cmax ratio≈1.35",
+                "AUC ratio2.32; Cmax ratio2.17",
+                "Active:passive=80:20; OATP1B3 CLint28, passive CL7 μL/min/million cells."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "수정 후 경구 DDI의 AUC₀-inf·Cmax ratio 예측은 관측의 0.8–1.25배 범위로 들어왔다. 하지만 이것은 해당 DDI를 <strong>모델 조정에 사용한 결과</strong>다. 같은 곡선을 다시 잘 맞췄다는 사실을 미사용 자료에서의 검증과 구분해야 한다. Unknown efflux transporter의 정체를 직접 규명한 실험도 아니다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0017\">Model development and refinement; Figure 2</a>"
+          }
+        ]
+      },
+      {
+        "title": "2. 비강 흡수와 별도 조건의 검증",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "20 mg 비강 14일 반복 노출을 맞추기 위해 투여량의 10%를 빠른 inhaled 경로, 90%를 삼켜지는 경구 경로로 설정했다. Inhaled 부분의 bioavailability를 100%로 놓는 모델 구조이므로 “비강 투여 전량이 100% 흡수된다”는 뜻이 아니다. 본문은 실제 절대 bioavailability를 경구 약0.6%, 비강 약5%로 설명한다."
+          },
+          {
+            "type": "table",
+            "headers": [
+              "검증 조건",
+              "보고 성능"
+            ],
+            "rows": [
+              [
+                "경구50/100/200/300 mg, 단회·10일 반복",
+                "AUC₀-24와 Cmax 예측/관측0.7–1.3; 일부 임상 자료는 data on file."
+              ],
+              [
+                "비강5/10 mg, 단회·14일 반복",
+                "AUC₀-24와 Cmax 예측/관측0.7–1.4."
+              ],
+              [
+                "비강10 mg +itraconazole200 mg QD",
+                "AUC₀-inf·Cmax DDI GMR 예측/관측0.6–1.3. Itraconazole9일 중4일째 비강 투여."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0018\">Intranasal parameters</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0019\">Model validation / Figure 3</a>"
+          }
+        ]
+      },
+      {
+        "title": "3. 시험하지 않은 비강 DDI의 모델 예측",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "아래는 모두 <strong>단회 비강 zavegepant 10 mg</strong>에 대한 simulation 결과다. GMR은 병용/비병용 노출 비이며 괄호는 Table 2의90% CI다. 가상시험에서의 범위로, 모델 구조의 모든 불확실성을 포함한 임상 신뢰구간으로 읽지 않는다."
+          },
+          {
+            "type": "table",
+            "headers": [
+              "병용·가정",
+              "AUC₀-inf GMR (90%CI)",
+              "Cmax GMR (90%CI)"
+            ],
+            "rows": [
+              [
+                "Rifampin600 mg 단회; OATP1B3 억제",
+                "2.39 (2.30–2.48)",
+                "1.70 (1.65–1.75)"
+              ],
+              [
+                "Rifampin600 mg 반복; uptake 억제+CYP3A4/P-gp 유도",
+                "2.11 (2.03–2.20)",
+                "1.67 (1.63–1.72)"
+              ],
+              [
+                "Rifampin 반복; CYP3A4/P-gp 유도만 남김",
+                "0.89 (0.89–0.89)",
+                "0.99 (0.98–0.99)"
+              ],
+              [
+                "Cyclosporine A600 mg; uptake OATP1B3:NTCP=50:50",
+                "1.37 (1.34–1.39)",
+                "1.13 (1.11–1.15)"
+              ],
+              [
+                "Cyclosporine A600 mg; uptake90:10",
+                "1.58 (1.55–1.61)",
+                "1.23 (1.20–1.25)"
+              ],
+              [
+                "Carbamazepine300 mg BID; CYP3A4+P-gp 유도",
+                "0.94 (0.93–0.94)",
+                "0.98 (0.98–0.99)"
+              ],
+              [
+                "Carbamazepine; CYP3A4 유도만",
+                "0.98 (0.97–0.98)",
+                "1.00 (1.00–1.00)"
+              ],
+              [
+                "Efavirenz600 mg QD; CYP3A4 유도",
+                "0.94 (0.94–0.95)",
+                "0.99 (0.99–0.99)"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Rifampin의 억제와 유도를 분리하자 유도만 남긴 AUC 변화는 −11%였다. 이 대비는 해당 모델에서 uptake 억제가 노출 증가를 주도한다는 설명을 뒷받침한다. Cyclosporine의 두 행은 서로 다른 임상시험이 아니라 수송체 기여율을 바꾼 민감도 분석이다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0022\">Model application / Table 2</a>"
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "title": "도구·구조·가상시험 설계",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "항목",
+              "실제 설정"
+            ],
+            "rows": [
+              [
+                "도구",
+                "Simcyp Population-Based Simulator version20 (Certara)."
+              ],
+              [
+                "흡수·분포",
+                "ADAM absorption with intestinal efflux; full-body distribution; Rodgers–Rowland 기반 분포 후 partition scalar 조정."
+              ],
+              [
+                "간·신장",
+                "Permeability-limited liver (PerL)로 uptake/efflux/metabolism 분리; renal clearance를 별도 입력."
+              ],
+              [
+                "개발·검증 가상시험",
+                "각 실제 시험의 키·체중·나이·성별·표본 수를 맞춘 10개 virtual trials."
+              ],
+              [
+                "DDI 응용 가상시험",
+                "20–50세 건강인, 여성50%, trial당10명×10 trials; Sim-healthy volunteers library."
+              ],
+              [
+                "비교",
+                "농도–시간 곡선의 시각적 비교와 AUC/Cmax 및 DDI geometric mean ratio 비교."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0008\">Methods / Figure 1</a>"
+          }
+        ]
+      },
+      {
+        "title": "측정 입력과 조정 입력",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "종류",
+              "매개변수와 출처"
+            ],
+            "rows": [
+              [
+                "측정된 physicochemistry",
+                "MW638.82; diprotic base; pKa4.8/8.8; blood:plasma1.0; unbound fraction0.1045. LogP2.6은 계산값."
+              ],
+              [
+                "측정 permeability",
+                "Caco-2 apparent permeability0.174×10⁻⁶ cm/s; atenolol calibrator0.17×10⁻⁶ cm/s."
+              ],
+              [
+                "모델 예측·조정 흡수",
+                "Jejunum Peff0.0836×10⁻⁴ cm/s; Jejunum I absorption scalar3.0; simulated oral Fa0.01, Fg0.99."
+              ],
+              [
+                "측정/계산 제거",
+                "Renal CL1.22 L/h; Table1 IV CL15.78 L/h는 preliminary값이며 footnote의 출판값은13.2 L/h. Biliary CL12.72 L/h는 계산값."
+              ],
+              [
+                "대사 내 분율",
+                "대사된 분획 안에서 CYP3A4=95%, CYP2D6=5%. 이것을 전신 제거의95%가 CYP3A4라고 해석하지 않음."
+              ],
+              [
+                "조정된 intestinal efflux",
+                "P-gp CLint20 μL/min; unknown efflux40 μL/min. Oral bioavailability와 itraconazole DDI에 맞춤."
+              ],
+              [
+                "조정된 hepatic transport",
+                "Passive7; OATP1B3 28; P-gp5.23; unknown efflux10.47 μL/min/million cells."
+              ],
+              [
+                "분포 조정",
+                "Global Kp scalar0.03; terminal profile을 맞출 additional organ Kp50; 예측 Vss0.75 L/kg."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "본문의 intermediate intestinal P-gp CLint60은 최종 표의20과 충돌하는 최종값이 아니다. 초기에는 전체 efflux를 P-gp로 놓았다가1:2 분할로20+40으로 조정한 과정이다. 반면 IV clearance15.78/13.2는 Table1 footnote가 명시한 preliminary/published 차이를 그대로 보존한다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-tbl-0001\">Table 1 — final inputs</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0010\">Oral absorption modeling</a>"
+          }
+        ]
+      },
+      {
+        "title": "주요 DDI 시나리오와 입력",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Perpetrator",
+              "설정"
+            ],
+            "rows": [
+              [
+                "Itraconazole",
+                "SV-Itraconazole_Fasted Soln +SV-OH-Itraconazole. P-gp Ki0.00939/0.096 μM. 경구50 mg zavegepant와 병용 자료로 efflux 조정."
+              ],
+              [
+                "Rifampin",
+                "600 mg 단회 또는600 mg QD10일. OATP1B3 Ki0.088 μM; P-gp Ki4.3 μM; P-gp Indmax3.5; CYP3A4 Indmax16, IndC50 0.32 μM."
+              ],
+              [
+                "Cyclosporine A",
+                "600 mg 단회; Cyclosporine_Neoral +M17/AM1. NTCP Ki0.37 μM; OATP1B3 Ki0.032 (parent)/0.059 μM (AM1). Uptake분할50:50/90:10 비교."
+              ],
+              [
+                "Carbamazepine",
+                "300 mg BID11일 중10일째 비강 zavegepant. CYP3A4 유도 단독 또는P-gp 유도도 포함(Indmax1.75)."
+              ],
+              [
+                "Efavirenz",
+                "600 mg QD11일 중10일째 비강 zavegepant; CYP3A4 Indmax9.9, IndC50 3.8 μM."
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Rifampin 모델에서 NTCP를 초기 uptake 경로로 넣지 않은 것은 rifampin의 약한 NTCP 억제 때문이라는 저자 설명이다. Cyclosporine 시나리오의 NTCP 분할은 별도 가정이다. OATP1B3 induction은 근거 불충분으로 반영하지 않았다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0012\">Transporter incorporation</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0015\">Model application</a>"
+          }
+        ]
+      },
+      {
+        "title": "어디까지 재현할 수 있는가",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "본문은 핵심 입력·model library·version·투약 설계를 제공한다. 그러나 일부 in vitro·clinical PK는 data on file이고, 논문 자료는 요청 심사 대상이다. Simcyp 실행 파일과 SI를 이용한 동일 simulation 재실행은 이 브리핑에서 완료하지 않았다. 현재 제공하는 것은 결과 재현 인증이 아니라, 어떤 입력과 가정이 결과를 결정하는지 추적 가능한 연구 해설이다."
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0008\">Methods</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0026\">Discussion / model limits</a>"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "title": "Figure 1 · 구축과 검증을 나누어 보기",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "PBPK development · validation · application",
+            "eyebrow": "Figure 1 · 원문 그림",
+            "description": "원문 그림은 수정하지 않았습니다. 아래 한국어 설명은 브리핑의 해설입니다.",
+            "image": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/figure-1.webp",
+            "alt": "PBPK development · validation · application",
+            "explanation": [
+              {
+                "label": "단계 구분",
+                "text": "개발에 사용한 IV·oral PK 및 oral DDI, 검증에 사용한 별도 PK·intranasal itraconazole, 미시험 DDI 응용을 단계별로 읽는다."
+              },
+              {
+                "label": "투여 경로",
+                "text": "Oral과 IN을 섞어서 “같은 DDI를 확인했다”고 요약하지 않는다. IN은 별도 흡수 경로와 swallowed fraction을 사용한다."
+              },
+              {
+                "label": "연구 설계의 핵심",
+                "text": "원자료에 맞춘 조건과 새로 예측한 조건이 어느 단계에 있는지 찾아야 모델의 예측력을 판단할 수 있다."
+              }
+            ],
+            "caption": "Key steps and clinical studies used in PBPK model building, validation, and application. All clinical studies and simulations were done in healthy participants. CL iv, intravenous clearance; CsA, cyclosporine A; DDI, drug–drug interaction; fe, fraction of drug excreted; f m, fraction of drug metabolized; f m,CYP3A4, fraction of drug metabolized by cytochrome P450 3A4; HLM, human liver microsomes; IN, intranasal; IV, intravenous; MD, multiple dose; OATP1B3, organic anion transporting polypeptide 1B3; PBPK, physiologically based pharmacokinetic; P‐gp, P‐glycoprotein; QD, once daily; rCYP, recombinant cytochrome P450; SD, single dose; V ss, volume of distribution at steady state.",
+            "source": {
+              "label": "Figure 1 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-fig-0001"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Figure 3 · 실제 비강 자료와 비교",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "비강 농도–시간 곡선의 관측과 simulation",
+            "eyebrow": "Figure 3 · 원문 그림",
+            "description": "원문 그림은 수정하지 않았습니다. 아래 한국어 설명은 브리핑의 해설입니다.",
+            "image": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/figure-3.webp",
+            "alt": "비강 농도–시간 곡선의 관측과 simulation",
+            "explanation": [
+              {
+                "label": "A / B",
+                "text": "A=비강5 mg, B=10 mg. 가로축은 시간, 세로축은 zavegepant 혈장 농도. 검은 선은 전체 가상집단 평균, 회색 선은 각 가상시험 평균, 점은 관측 평균이다."
+              },
+              {
+                "label": "C: 병용 비교",
+                "text": "10 mg 비강과 itraconazole200 mg QD 병용. 실선·원은 비병용, 점선·삼각형은 병용이다. 큰 노출 차이가 나타나지 않는 임상 패턴을 모델과 비교한다."
+              },
+              {
+                "label": "표본 수",
+                "text": "A/B의 관측n=9, simulatedn=90; C의 관측n=18, simulatedn=180. Simulation의 사람 수를 임상 참가자 수로 읽지 않는다."
+              }
+            ],
+            "caption": "Simulated and observed zavegepant plasma concentration–time profiles (model validation) following 5 mg IN zavegepant (a), 10 mg IN zavegepant (b), and 10 mg IN zavegepant administered with MD itraconazole (c). Gray lines represent mean zavegepant concentrations of the simulated individual trials, and black lines represent mean concentration for the simulated population (n = 90 for a and b; n = 180 for c). Circles and triangles represent observed mean zavegepant concentrations (n = 9 for a and b; n = 18 for c). In c, solid lines/circles represent zavegepant concentration in the absence of the specified concomitant medication, and dashed lines/triangles represent concentrations in the presence of the concomitant medication. In c, 10 mg IN zavegepant was administered on the fourth day of 9 days of dosing with 200 mg itraconazole QD. IN, intranasal; MD, multiple dose; QD, once daily.",
+            "source": {
+              "label": "Figure 3 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-fig-0003"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Figure 4 · 전체 DDI 결론",
+        "blocks": [
+          {
+            "type": "figure",
+            "title": "노출 변화: 관측과 예측의 범위를 함께 표시",
+            "eyebrow": "Figure 4 · 원문 그림",
+            "description": "원문 그림은 수정하지 않았습니다. 아래 한국어 설명은 브리핑의 해설입니다.",
+            "image": "/assets/briefs/b6585588759e4eee883f24d82603f2b1/figure-4.webp",
+            "alt": "노출 변화: 관측과 예측의 범위를 함께 표시",
+            "explanation": [
+              {
+                "label": "A / B와 기준선",
+                "text": "A는 AUC₀-inf, B는 Cmax ratio. 수평 위치는 병용/비병용 GMR이고 오차선은90% CI이다. 세로 점선0.8–1.25는 그림에 표시한 비교 범위다."
+              },
+              {
+                "label": "행의 경로·증거 수준",
+                "text": "Oral/IN, observed/predicted와 병용 약물·단회/반복 투여를 함께 읽는다. 미시험 IN rifampin·cyclosporine 결과는 predicted다."
+              },
+              {
+                "label": "핵심 대비",
+                "text": "IN에서는 CYP3A/P-gp 유도만의 효과가 작게 예측되지만 uptake 억제를 포함하면 AUC가 증가한다. 특정 점의 좁은 CI가 수송체 기여율 가정까지 확정한다는 뜻은 아니다."
+              },
+              {
+                "label": "원문 약어 표기 주의",
+                "text": "원문 caption은 Cmax를 time to maximum plasma concentration으로 풀어 적었지만, 본문·Table 2와 Figure 4B의 비교 지표는 최대 혈장 농도(Cmax)다. 원문 caption을 보존하고 이 차이를 구분한다."
+              }
+            ],
+            "caption": "Observed and predicted DDI effects of CYP3A/P‐gp and OATP1B/NTCP perpetrator drugs on IN and oral zavegepant AUC 0‐inf (a) and C max (b). Datapoints present GMR (90% CI). Dashed vertical lines represent bioequivalence limits of 0.8–1.25. AUC, area under the curve; CI, confidence interval; C max, time to maximum plasma concentration; CYP3A, cytochrome P450 3A; DDI, drug–drug interaction; GMR, geometric mean ratio; IN, intranasal; MD, multiple dose; NTCP, Na+/taurocholate cotransporting polypeptide; OATP1B3, organic anion transporting polypeptide 1B3; P‐gp, P‐glycoprotein.",
+            "source": {
+              "label": "Figure 4 · 원문과 caption",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-fig-0004"
+            }
+          }
+        ]
+      },
+      {
+        "title": "남는 불확실성과 후속 연구",
+        "blocks": [
+          {
+            "type": "pairs",
+            "items": [
+              {
+                "label": "OATP1B3 검증의 특이성",
+                "text": "Rifampin은 rosuvastatin 등 OATP1B1/1B3 관련 자료, cyclosporine library는 주로 OATP1B1 관련 repaglinide 자료로 검증됐다. OATP1B3만 선택적으로 검증하는 임상 probe가 부족하다."
+              },
+              {
+                "label": "Unknown efflux",
+                "text": "임상 DDI를 맞추기 위해 추가 efflux가 필요했지만 어떤 transporter인지 직접 확인하지 못했다. P-gp 억제 입력의 장내 번역 정확도도 불확실하다."
+              },
+              {
+                "label": "비강 구조",
+                "text": "First-order inhalation 모델로 IN 흡수를 대리했고, 비강 P-gp efflux를 별도로 포함하지 않았다. 비강 조직에서의 실제 기여율을 측정한 결과는 아니다."
+              },
+              {
+                "label": "외삽 범위",
+                "text": "건강인 기반 model이다. 특정 질환·장기 기능 변화까지 동일 정확도로 검증했다고 할 수 없다. 선택적 transporter probe 및 서로 다른 흡수/efflux 가정의 검증이 후속 과제다."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "근거: <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC13545016/#cpt70460-sec-0026\">Discussion — limitations</a>"
+          },
+          {
+            "type": "paragraph",
+            "text": "그림: © 2026 Pfizer Inc., <a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">CC BY-NC-ND 4.0</a>. 원문 그림은 변경 없이 제공하며 한국어 해설을 별도로 작성했다."
+          }
+        ]
+      }
+    ]
+  }
+}
