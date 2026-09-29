@@ -138,7 +138,7 @@ function navigate(hash, changes = {}) {
 }
 
 function backButton() {
-  const canGoBack = history.state?.paperRadar?.index > 0 || /^#\/(paper|card|review-radar)(\/|$)/.test(location.hash) || ['#/library','#/collection','#/evaluation','#/generation-pilot','#/rounds'].includes(location.hash);
+  const canGoBack = history.state?.paperRadar?.index > 0 || /^#\/(paper|card)(\/|$)/.test(location.hash) || ['#/library','#/collection','#/evaluation','#/generation-pilot','#/rounds'].includes(location.hash);
   return `<nav class="page-navigation" aria-label="페이지 이동"><button type="button" class="button" data-back${canGoBack ? '' : ' disabled'}>← 뒤로가기</button></nav>`;
 }
 
@@ -259,13 +259,7 @@ function renderSidebar() {
   const evaluating = location.hash === '#/evaluation';
   const comparing = location.hash === '#/generation-pilot';
   const inRound = location.hash === '#/rounds';
-  const inReviewRadar = /^#\/review-radar(?:\/|$)/.test(location.hash);
-  const inLibrary = !discovering && !collecting && !evaluating && !comparing && !inRound && !inReviewRadar;
-  const reviewLink = $('#review-radar-link');
-  reviewLink.innerHTML = `${icon('library')}<span>리뷰 Radar</span>`;
-  reviewLink.classList.toggle('selected',inReviewRadar);
-  if (inReviewRadar) reviewLink.setAttribute('aria-current','page');
-  else reviewLink.removeAttribute('aria-current');
+  const inLibrary = !discovering && !collecting && !evaluating && !comparing && !inRound;
   const roundsLink = $('#rounds-link');
   roundsLink.innerHTML = `${icon('check')}<span>이번 회차</span>`;
   roundsLink.classList.toggle('selected',inRound);
@@ -1224,11 +1218,6 @@ function route() {
   Object.assign(discovery,view.discovery || {});
   Object.assign(evaluation,view.evaluation || {});
   Object.assign(generationPilotView,view.generationPilot || {});
-  if (/^#\/review-radar(?:\/[^/]+)?$/.test(location.hash)) {
-    reviewRadar.open();
-    window.scrollTo({top:view.scrollY,behavior:'instant'});
-    return;
-  }
   if (location.hash === '#/rounds') {
     renderRounds();
     window.scrollTo({top:view.scrollY,behavior:'instant'});

@@ -7,15 +7,13 @@
   <title>Paper Radar</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23194e47'/%3E%3Ccircle cx='20' cy='20' r='12' fill='none' stroke='%23e4eece'/%3E%3Cpath d='M20 8v12l8-8' fill='none' stroke='%23e4eece' stroke-width='2'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="/styles.css">
-  <script src="/review-radar.js" defer></script>
   <script src="/app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 이동</a>
   <aside class="sidebar">
     <a class="brand" href="#/discover" aria-label="Paper Radar 논문 카드"><span class="radar-mark" aria-hidden="true"><i></i></span><span>Paper Radar</span></a>
-    <nav class="review-navigation" aria-label="리뷰 탐색"><a id="review-radar-link" class="nav-item" href="#/review-radar">리뷰 Radar</a></nav>
-    <details class="original-work-nav"><summary>기존 원저 작업 <span>보류</span></summary><nav id="discovery-nav" aria-label="기존 원저 탐색"><a id="rounds-link" class="nav-item" href="#/rounds">이번 회차</a><a id="discover-link" class="nav-item" href="#/discover">논문 카드</a><a id="collection-link" class="nav-item" href="#/collection">수집 관리</a><a id="evaluation-link" class="nav-item" href="#/evaluation">시범 평가</a><a id="generation-pilot-link" class="nav-item" href="#/generation-pilot">생성 비교</a></nav></details>
+    <nav id="discovery-nav" aria-label="논문 탐색"><a id="rounds-link" class="nav-item" href="#/rounds">이번 회차</a><a id="discover-link" class="nav-item" href="#/discover">논문 카드</a><a id="collection-link" class="nav-item" href="#/collection">수집 관리</a><a id="evaluation-link" class="nav-item" href="#/evaluation">시범 평가</a><a id="generation-pilot-link" class="nav-item" href="#/generation-pilot">생성 비교</a></nav>
     <div class="sidebar-label">LIBRARY</div>
     <nav id="collection-nav" aria-label="라이브러리"></nav>
     <div class="sidebar-label field-label">RESEARCH AREAS <button type="button" class="area-guide-link" data-area-help="" aria-haspopup="dialog">설명</button></div>

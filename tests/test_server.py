@@ -96,6 +96,14 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(status, 200, body)
         return json.loads(body)["state"]
 
+    def test_removed_review_radar_routes_are_unavailable(self):
+        for path in ("/api/review-radar", "/review-radar.js",
+                     "/assets/review-radar/binding-energy-kinetics-2024/kinetics-map.svg"):
+            with self.subTest(path=path):
+                self.assertEqual(self.request("GET", path)[0], 404)
+        self.assertEqual(self.request("POST", "/api/review-radar/search", {})[0], 404)
+        self.assertEqual(self.request("GET", "/api/papers")[0], 200)
+
     def test_state_survives_server_restart(self):
         self.assertEqual(self.state(), {"read": False, "saved": False, "notes": "", "updatedAt": ""})
         notes = "내 target: FSP1\n조건: 10 μM · <assay> & 재확인"

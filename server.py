@@ -18,7 +18,6 @@ from generation import load_runs
 from generated import load_generated
 from preparation import Preparation
 from rounds import RoundDataError, load_rounds
-from review_radar import ReviewRadarError, load_radar, search_reviews
 
 ROOT = Path(__file__).resolve().parent
 
@@ -83,11 +82,6 @@ class Handler(BaseHTTPRequestHandler):
             return self.json_response(200, {"papers": papers})
         if path == "/api/health":
             return self.json_response(200, {"status": "ok", "papers": len(self.server.papers)})
-        if path == "/api/review-radar":
-            try:
-                return self.json_response(200, load_radar())
-            except ReviewRadarError as error:
-                return self.json_response(503, {"error": str(error)})
         if path == "/api/rounds":
             try:
                 rounds = load_rounds(self.server.collector.candidates(), self.server.preparation.summaries(), self.server.papers)
@@ -159,7 +153,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.json_response(200, load_evaluation())
             except EvaluationDataError as error:
                 return self.json_response(503, {"error": str(error)})
-        if path in ("/", "/index.html", "/app.js", "/review-radar.js", "/styles.css"):
+        if path in ("/", "/index.html", "/app.js", "/styles.css"):
             file_path = ROOT / "public" / ("index.html" if path == "/" else path[1:])
             allowed_root = ROOT / "public"
         elif path.startswith("/assets/prepared/"):
@@ -238,16 +232,14 @@ class Handler(BaseHTTPRequestHandler):
         if not self.local_write_allowed():
             return self.json_response(403, {"error": "로컬 앱에서만 수집할 수 있습니다."})
         path = urlsplit(self.path).path
-        if path not in ("/api/collection", "/api/collection/retry", "/api/acquisition", "/api/preparation", "/api/review-radar/search"):
+        if path not in ("/api/collection", "/api/collection/retry", "/api/acquisition", "/api/preparation"):
             return self.json_response(404, {"error": "요청을 찾을 수 없습니다."})
         try:
             length = int(self.headers.get("Content-Length", "0"))
             if not 0 < length <= 2048 or self.headers.get_content_type() != "application/json":
                 raise ValueError("올바르지 않은 수집 요청입니다.")
             data = json.loads(self.rfile.read(length))
-            if path == "/api/review-radar/search":
-                return self.json_response(200, search_reviews(data))
-            elif path in ("/api/acquisition", "/api/preparation"):
+            if path in ("/api/acquisition", "/api/preparation"):
                 if not isinstance(data, dict) or set(data) != {"candidateIds"}:
                     raise ValueError("원문을 가져올 논문을 선택해 주세요.")
                 worker = self.server.preparation if path == "/api/preparation" else self.server.acquisition
@@ -260,8 +252,6 @@ class Handler(BaseHTTPRequestHandler):
                 if not isinstance(data, dict) or set(data) != {"from", "to"}:
                     raise ValueError("수집할 발행일 시작과 종료를 입력해 주세요.")
                 run = self.server.collector.start(data["from"], data["to"])
-        except ReviewRadarError as error:
-            return self.json_response(503, {"error": str(error)})
         except (ValueError, UnicodeDecodeError) as error:
             return self.json_response(400, {"error": str(error)})
         except RuntimeError as error:
