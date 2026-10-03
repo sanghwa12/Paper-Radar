@@ -93,7 +93,7 @@
             "src": "/reference/evidence-map.svg",
             "alt": "구조 예측부터 가상 스크리닝, 결합과 수송, 대사, 세포, 동물 실험으로 이어지는 연구 흐름도",
             "caption": "구조 예측 → 후보 선별 → 결합·수송 → 대사 → 세포·동물 반응",
-            "source": "제공된 수동 검토 브리핑의 연구 흐름도"
+            "source": "제공된 수동 검토 심층 분석의 연구 흐름도"
           }
         ]
       },
@@ -1157,11 +1157,11 @@
         "blocks": [
           {
             "type": "paragraph",
-            "text": "제공 PDF 기반 · 기존 브리핑 검토 2026-09-14 · 접수 2025-06-03 / 게재 승인 2025-09-22. 별도 Supplementary Figures·SI·Source Data는 확보되지 않아 독립 검토하지 않았다."
+            "text": "제공 PDF 기반 · 기존 심층 분석 검토 2026-09-14 · 접수 2025-06-03 / 게재 승인 2025-09-22. 별도 Supplementary Figures·SI·Source Data는 확보되지 않아 독립 검토하지 않았다."
           },
           {
             "type": "paragraph",
-            "text": "원문 및 그림: Sung et al., Nature Communications 16, 9690 (2025). © The Author(s) 2025 · <a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">CC BY-NC-ND 4.0</a>. 한글 해설과 연구 적용 제안은 브리핑의 해석이다."
+            "text": "원문 및 그림: Sung et al., Nature Communications 16, 9690 (2025). © The Author(s) 2025 · <a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">CC BY-NC-ND 4.0</a>. 한글 해설과 연구 적용 제안은 심층 분석의 해석이다."
           },
           {
             "type": "paragraph",

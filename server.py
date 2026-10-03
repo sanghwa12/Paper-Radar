@@ -9,15 +9,11 @@ from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+from workflow import load_workflows, public_workflows, source_file
+import pdf_links
+import generation_requests
+import codex_generation
 
-from collector import Collector
-from acquisition import Acquisition
-from cards import load_cards
-from evaluation import EvaluationDataError, load_evaluation
-from generation import load_runs
-from generated import load_generated
-from preparation import Preparation
-from rounds import RoundDataError, load_rounds
 
 ROOT = Path(__file__).resolve().parent
 
@@ -75,6 +71,15 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = unquote(urlsplit(self.path).path)
+        if path in ('/api/papers','/api/generation-requests'):
+            self.server.papers = {**load_papers(), **codex_generation.completed_papers(self.server.db_path)}
+        if path == '/api/generation-requests':
+            return self.json_response(200, {'targets': [{k:v for k,v in t.items() if k in ('key','title','origin','groupId','groupName','section')} for t in generation_requests.targets(self.server.papers,self.server.db_path)], 'requests': generation_requests.list_requests(self.server.db_path)})
+        if path == "/api/workflows":
+            records = public_workflows(self.server.papers)
+            for record in records:
+                record['pdfLinks'] = pdf_links.load_report(self.server.db_path, record['id'])
+            return self.json_response(200, {"workflows": records})
         if path == "/api/papers":
             with connect(self.server.db_path) as db:
                 papers = [{**paper, "state": read_state(db, key)}
@@ -82,83 +87,39 @@ class Handler(BaseHTTPRequestHandler):
             return self.json_response(200, {"papers": papers})
         if path == "/api/health":
             return self.json_response(200, {"status": "ok", "papers": len(self.server.papers)})
-        if path == "/api/rounds":
+        generated_asset = re.fullmatch(r'/api/generated/(\d+)/(source\.pdf|page-(\d+)\.png|figure-\d+\.png)',path)
+        workflow_source = re.fullmatch(r"/api/workflows/([a-z0-9-]+)/source\.pdf", path)
+        linked_pdf = re.fullmatch(r"/api/workflows/([a-z0-9-]+)/pdf/(\d+)/(\d+)", path)
+        if generated_asset:
+            item = next((r for r in generation_requests.list_requests(self.server.db_path) if r['id']==int(generated_asset[1]) and r['status']=='complete'),None)
+            if not item:
+                return self.json_response(404,{'error':'완료된 결과가 없습니다.'})
+            import hashlib
+            original = Path(item['path'])
+            if not original.is_file() or hashlib.sha256(original.read_bytes()).hexdigest()!=item['sha256']:
+                return self.json_response(409,{'error':'원문이 변경되거나 이동되었습니다.'})
+            file_path = original if generated_asset[2]=='source.pdf' else ROOT/'.runtime'/'generation'/generated_asset[1]/generated_asset[2]
+            allowed_root = file_path.parent
+        elif linked_pdf:
             try:
-                rounds = load_rounds(self.server.collector.candidates(), self.server.preparation.summaries(), self.server.papers)
-                return self.json_response(200, {"rounds": rounds})
-            except (RoundDataError, sqlite3.Error) as error:
-                return self.json_response(503, {"error": str(error)})
-        if path == "/api/generation-pilot":
-            try:
-                return self.json_response(200, {"runs": load_runs()})
-            except (ValueError, OSError, KeyError, TypeError):
-                return self.json_response(503, {"error": "시범 생성 자료의 입력·출처·검증 기록을 확인해 주세요."})
-        if path == "/api/collection":
-            return self.json_response(200, self.server.collector.status())
-        if path == "/api/candidates":
-            summaries = self.server.acquisition.summaries()
-            prepared = self.server.preparation.summaries()
-            candidates = self.server.collector.candidates()
-            for candidate in candidates:
-                paper = self.server.papers.get(candidate["id"])
-                if paper and paper.get("generationOrigin"):
-                    candidate["generatedCard"] = {
-                        "paperId": paper["id"], "reviewStatus": paper["briefOrigin"]["review"]["status"],
-                        "publishedAt": paper["generationOrigin"]["publishedAt"],
-                    }
-                document = summaries.get(candidate["id"])
-                candidate["preparation"] = prepared.get(candidate["id"])
-                if candidate["preparation"] and (not document or document["status"] != "fulltext"):
-                    material = self.server.preparation.text_document(candidate["id"])
-                    if material:
-                        document = {key: material[key] for key in ("status", "provider", "sourceUrl", "fetchedAt", "reason", "format", "license", "sectionCount", "textLength")}
-                candidate["sourceDocument"] = document
-                candidate["fullTextStatus"] = document["status"] if document else "not_retrieved"
-            return self.json_response(200, {"candidates": candidates})
-        if path == "/api/acquisition":
-            return self.json_response(200, self.server.acquisition.status())
-        if path == "/api/preparation":
-            return self.json_response(200, self.server.preparation.status())
-        if path.startswith(("/api/preparations/", "/api/preparation-input/")):
-            prefix = "/api/preparation-input/" if path.startswith("/api/preparation-input/") else "/api/preparations/"
-            candidate_id = path.removeprefix(prefix)
-            if not re.fullmatch(r"[A-Za-z0-9_-]{1,80}", candidate_id):
-                return self.json_response(404, {"error": "논문을 찾을 수 없습니다."})
-            try:
-                if path.startswith("/api/preparation-input/"):
-                    return self.json_response(200, self.server.preparation.input(candidate_id))
-                document = self.server.preparation.get(candidate_id)
-                if document is None:
-                    raise KeyError(candidate_id)
-                return self.json_response(200, {"preparation": document})
-            except KeyError:
-                return self.json_response(404, {"error": "아직 준비된 자료가 없습니다."})
-            except (ValueError, OSError) as error:
-                return self.json_response(409, {"error": str(error)})
-        if path.startswith("/api/sources/"):
-            candidate_id = path.removeprefix("/api/sources/")
-            if not re.fullmatch(r"[A-Za-z0-9_-]{1,80}", candidate_id):
-                return self.json_response(404, {"error": "논문을 찾을 수 없습니다."})
-            try:
-                document = self.server.acquisition.get(candidate_id)
-                if not document or document["status"] != "fulltext":
-                    document = self.server.preparation.text_document(candidate_id) or document
-            except KeyError:
-                document = None
-            if document is None:
-                return self.json_response(404, {"error": "아직 가져온 원문이 없습니다."})
-            return self.json_response(200, {"source": document})
-        if path == "/api/evaluation":
-            try:
-                return self.json_response(200, load_evaluation())
-            except EvaluationDataError as error:
-                return self.json_response(503, {"error": str(error)})
-        if path in ("/", "/index.html", "/app.js", "/styles.css"):
+                record = load_workflows()[linked_pdf[1]]
+                doi = record['papers'][int(linked_pdf[2])]['doi']
+                file_path = pdf_links.candidate_file(self.server.db_path, record['id'], doi, int(linked_pdf[3]))
+                allowed_root = file_path.parent
+            except (KeyError, IndexError, ValueError, OSError):
+                return self.json_response(404, {"error": "PDF 연결을 확인할 수 없습니다. 다시 검사하세요."})
+        elif workflow_source:
+            record = load_workflows().get(workflow_source[1])
+            file_path = source_file(record) if record else None
+            if file_path is None:
+                return self.json_response(404, {"error": "등록된 원본 파일을 확인하지 못했습니다."})
+            allowed_root = file_path.parent
+        elif path in ("/", "/index.html", "/app.js", "/workflow.js", "/generators.js", "/generated-results.js", "/styles.css"):
             file_path = ROOT / "public" / ("index.html" if path == "/" else path[1:])
             allowed_root = ROOT / "public"
-        elif path.startswith("/assets/prepared/"):
-            file_path = self.server.preparation.asset_root / path.removeprefix("/assets/prepared/")
-            allowed_root = self.server.preparation.asset_root
+        elif path.startswith("/exports/choi-2025-aiml-special-issue/"):
+            file_path = ROOT / path[1:]
+            allowed_root = ROOT / "exports" / "choi-2025-aiml-special-issue"
         elif path.startswith("/assets/"):
             file_path = ROOT / "public" / path[1:]
             allowed_root = ROOT / "public" / "assets"
@@ -229,38 +190,55 @@ class Handler(BaseHTTPRequestHandler):
         return host in valid_hosts and (not origin or origin == f"http://{host}")
 
     def do_POST(self):
-        if not self.local_write_allowed():
-            return self.json_response(403, {"error": "로컬 앱에서만 수집할 수 있습니다."})
-        path = urlsplit(self.path).path
-        if path not in ("/api/collection", "/api/collection/retry", "/api/acquisition", "/api/preparation"):
+        if urlsplit(self.path).path == '/api/generation-requests':
+            if not self.local_write_allowed():
+                return self.json_response(403, {'error': '로컬 앱에서만 요청할 수 있습니다.'})
+            try:
+                length = int(self.headers.get('Content-Length','0'))
+                if not 0 < length <= 16000 or self.headers.get_content_type() != 'application/json':
+                    raise ValueError('요청 형식을 확인하세요.')
+                data = json.loads(self.rfile.read(length))
+                if not isinstance(data,dict) or set(data) != {'kind','keys'}:
+                    raise ValueError('요청 형식을 확인하세요.')
+                result = generation_requests.create_requests(self.server.db_path,self.server.papers,data['kind'],data['keys'])
+                if self.server.generator:
+                    self.server.generator.start(data['keys'],data['kind'])
+                    result['requests'] = generation_requests.list_requests(self.server.db_path)
+                return self.json_response(200,result)
+            except (ValueError,UnicodeDecodeError) as error:
+                return self.json_response(400,{'error':str(error)})
+            except (OSError,sqlite3.Error):
+                return self.json_response(500,{'error':'요청을 저장하지 못했습니다. PDF 연결을 확인하세요.'})
+        match = re.fullmatch(r"/api/workflows/([a-z0-9-]+)/(scan|confirm)", urlsplit(self.path).path)
+        if not match:
             return self.json_response(404, {"error": "요청을 찾을 수 없습니다."})
+        if not self.local_write_allowed():
+            return self.json_response(403, {"error": "로컬 앱에서만 실행할 수 있습니다."})
         try:
-            length = int(self.headers.get("Content-Length", "0"))
-            if not 0 < length <= 2048 or self.headers.get_content_type() != "application/json":
-                raise ValueError("올바르지 않은 수집 요청입니다.")
+            record = load_workflows()[match[1]]
+            length = int(self.headers.get('Content-Length', '0'))
+            if not 0 < length <= 4096 or self.headers.get_content_type() != 'application/json':
+                raise ValueError('요청 형식을 확인하세요.')
             data = json.loads(self.rfile.read(length))
-            if path in ("/api/acquisition", "/api/preparation"):
-                if not isinstance(data, dict) or set(data) != {"candidateIds"}:
-                    raise ValueError("원문을 가져올 논문을 선택해 주세요.")
-                worker = self.server.preparation if path == "/api/preparation" else self.server.acquisition
-                run = worker.start(data["candidateIds"])
-            elif path == "/api/collection/retry":
-                if not isinstance(data, dict) or set(data) != {"runId"} or not isinstance(data["runId"], str):
-                    raise ValueError("다시 시도할 수집 기록을 확인해 주세요.")
-                run = self.server.collector.retry(data["runId"])
+            if not isinstance(data, dict):
+                raise ValueError('요청 형식을 확인하세요.')
+            if match[2] == 'scan':
+                if data:
+                    raise ValueError('등록된 폴더만 검사할 수 있습니다.')
+                result = pdf_links.scan(self.server.db_path, record)
             else:
-                if not isinstance(data, dict) or set(data) != {"from", "to"}:
-                    raise ValueError("수집할 발행일 시작과 종료를 입력해 주세요.")
-                run = self.server.collector.start(data["from"], data["to"])
+                if set(data) != {'doi', 'index'} or not isinstance(data['doi'], str) or data['doi'] not in {p['doi'] for p in record['papers']}:
+                    raise ValueError('작업에 등록된 논문을 선택하세요.')
+                result = pdf_links.confirm(self.server.db_path, record['id'], data['doi'], data['index'])
+            return self.json_response(200, result)
+        except KeyError:
+            return self.json_response(404, {"error": "작업을 찾을 수 없습니다."})
         except (ValueError, UnicodeDecodeError) as error:
             return self.json_response(400, {"error": str(error)})
         except RuntimeError as error:
             return self.json_response(409, {"error": str(error)})
-        except KeyError:
-            return self.json_response(404, {"error": "선택한 논문을 찾을 수 없습니다."})
-        except sqlite3.Error:
-            return self.json_response(500, {"error": "수집 기록을 저장하지 못했습니다."})
-        return self.json_response(202, {"run": run})
+        except (OSError, sqlite3.Error):
+            return self.json_response(500, {"error": "PDF 연결 정보를 읽거나 저장하지 못했습니다."})
 
     def do_PATCH(self):
         if not self.local_write_allowed():
@@ -298,17 +276,13 @@ class Handler(BaseHTTPRequestHandler):
             return self.json_response(500, {"error": "DB 저장에 실패했습니다. 다시 시도해 주세요."})
 
 
-def create_server(port=8765, db_path=None):
+def create_server(port=8765, db_path=None, enable_generation=False):
     db_path = Path(db_path) if db_path else ROOT / "data" / "paper-radar.sqlite3"
     initialize(db_path)
     server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     server.db_path = db_path
     server.papers = load_papers()
-    server.papers.update(load_cards())
-    server.papers.update(load_generated(existing_ids=server.papers))
-    server.collector = Collector(db_path, server.papers)
-    server.acquisition = Acquisition(db_path)
-    server.preparation = Preparation(db_path, server.acquisition)
+    server.generator = codex_generation.Worker(db_path) if enable_generation else None
     return server
 
 
@@ -318,7 +292,7 @@ if __name__ == "__main__":
     parser.add_argument("--db", type=Path, help="별도 DB 경로 (기본: data/paper-radar.sqlite3)")
     args = parser.parse_args()
     try:
-        server = create_server(args.port, args.db)
+        server = create_server(args.port, args.db, enable_generation=True)
     except OSError as error:
         parser.exit(1, f"서버를 시작하지 못했습니다: {error}\n다른 포트: python server.py --port 8766\n")
     print(f"Paper Radar  http://127.0.0.1:{server.server_port}", flush=True)

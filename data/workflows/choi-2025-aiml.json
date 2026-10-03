@@ -1,0 +1,169 @@
+{
+  "id": "choi-2025-aiml",
+  "name": "Choi 2025 · AI/ML 특집",
+  "source": {
+    "title": "Special Issue: Exploring the Use of AI/ML Technologies in Medicinal Chemistry and Drug Discovery",
+    "doi": "10.1021/acsmedchemlett.5c00003",
+    "year": 2025,
+    "type": "Editorial · 특집 소개",
+    "path": "C:\\Users\\USER\\Dropbox\\Zotero_PDF\\Choi 등 - 2025 - Special Issue Exploring the Use of AIML Technologies in Medicinal Chemistry and Drug Discovery.pdf",
+    "sha256": "b488fa6089cc19a658e447905784badf488d5d5317237787a84dc2bbbfaa6bc7"
+  },
+  "summary": null,
+  "relationNote": "제공 논문은 1쪽짜리 Editorial입니다. 아래 14편은 본문의 번호가 붙은 참고문헌이 아니라 ACS 공식 특집에 수록된 문헌입니다.",
+  "provenance": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+  "groups": [
+    {
+      "name": "원저 목록",
+      "file": "research-papers.ris",
+      "url": "/exports/choi-2025-aiml-special-issue/research-papers.ris"
+    },
+    {
+      "name": "추가 읽기",
+      "file": "additional-reading.ris",
+      "url": "/exports/choi-2025-aiml-special-issue/additional-reading.ris"
+    }
+  ],
+  "papers": [
+    {
+      "title": "Allostery Illuminated: Harnessing AI and Machine Learning for Drug Discovery.",
+      "doi": "10.1021/acsmedchemlett.4c00260",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Microperspective",
+      "risFile": "additional-reading.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Highly Selective Novel Heme Oxygenase-1 Hits Found by DNA-Encoded Library Machine Learning beyond the DEL Chemical Space.",
+      "doi": "10.1021/acsmedchemlett.4c00121",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Letter",
+      "risFile": "research-papers.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Open Source Code Contributions to Global Health: The Case of Antimalarial Drug Discovery.",
+      "doi": "10.1021/acsmedchemlett.4c00131",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Note",
+      "risFile": "research-papers.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Machine Learning ADME Models in Practice: Four Guidelines from a Successful Lead Optimization Case Study.",
+      "doi": "10.1021/acsmedchemlett.4c00290",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Viewpoint",
+      "risFile": "additional-reading.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Introducing CRAFT: The Center for Research and Advancement in Fragments and molecular Targets.",
+      "doi": "10.1021/acsmedchemlett.4c00296",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Viewpoint",
+      "risFile": "additional-reading.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Innovative Multistage ML-QSAR Models for Malaria: From Data to Discovery.",
+      "doi": "10.1021/acsmedchemlett.4c00323",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Letter",
+      "risFile": "research-papers.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Predictions of Chromatography Methods by Chemical Structure Similarity to Accelerate High-Throughput Medicinal Chemistry.",
+      "doi": "10.1021/acsmedchemlett.4c00145",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Note",
+      "risFile": "research-papers.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "AI Based Discovery of a New AKR1C3 Inhibitor for Anticancer Applications.",
+      "doi": "10.1021/acsmedchemlett.4c00150",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Letter",
+      "risFile": "research-papers.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Synthesis and Evaluation of 1,3-Disubstituted Imidazolidine-2,4,5-triones as Inhibitors of Pyruvate Carboxylase.",
+      "doi": "10.1021/acsmedchemlett.4c00183",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Letter",
+      "risFile": "research-papers.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Ongoing Implementation and Prospective Validation of Artificial Intelligence/Machine Learning Tools at an African Drug Discovery Center.",
+      "doi": "10.1021/acsmedchemlett.4c00243",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Viewpoint",
+      "risFile": "additional-reading.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "FOCUS on NOD2: Advancing IBD Drug Discovery with a User-Informed Machine Learning Framework.",
+      "doi": "10.1021/acsmedchemlett.4c00148",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Letter",
+      "risFile": "research-papers.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Pioneering Methods in Brain Optimization and Mental Health Treatment.",
+      "doi": "10.1021/acsmedchemlett.4c00058",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Patent Highlight",
+      "risFile": "additional-reading.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "Advancements in Predictive Medicine: NLRP3 Inflammasome Inhibitors and AI-Driven Predictive Health Analytics.",
+      "doi": "10.1021/acsmedchemlett.4c00056",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Patent Highlight",
+      "risFile": "additional-reading.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    },
+    {
+      "title": "AI in Pharma: Transforming Drug Discovery and Strategic Management with MYC-Modulating Compounds and BET Protein Inhibitors.",
+      "doi": "10.1021/acsmedchemlett.4c00057",
+      "year": "2024",
+      "journal": "ACS medicinal chemistry letters",
+      "type": "Patent Highlight",
+      "risFile": "additional-reading.ris",
+      "summaryPaperId": null,
+      "analysisPaperId": null
+    }
+  ]
+}

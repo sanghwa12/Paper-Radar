@@ -1,0 +1,20 @@
+{
+  "counts": {
+    "research-papers.ris": 7,
+    "additional-reading.ris": 7
+  },
+  "unique_dois": 14,
+  "shared_dois_between_files": 0,
+  "editorial_included": false,
+  "source_pdf_unchanged": true,
+  "checks_passed": [
+    "RIS syntax and record boundaries",
+    "required bibliographic fields",
+    "DOI and URL consistency",
+    "all article years 2024",
+    "complete membership correspondence",
+    "no linked PDF tags",
+    "file hashes match audit"
+  ],
+  "actual_zotero_import_tested": false
+}

@@ -12,7 +12,6 @@ from unittest.mock import patch
 from urllib.parse import unquote, urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-import cards
 import server
 
 
@@ -85,6 +84,67 @@ class ServerTests(unittest.TestCase):
         finally:
             connection.close()
 
+    def test_retired_apis_and_preserved_ris(self):
+        for path in ('/api/collection','/api/evaluation','/api/rounds','/api/fulltext','/api/generation-pilot'):
+            self.assertEqual(self.request('GET',path)[0],404,path)
+        for filename in ('research-papers.ris','additional-reading.ris'):
+            status, _, body = self.request('GET','/exports/choi-2025-aiml-special-issue/'+filename)
+            self.assertEqual(status,200)
+            self.assertIn(b'TY  -',body)
+        self.assertEqual(set(self.httpd.papers), {'adaptiveflow-2026','sung-2025'})
+
+    def test_workflow_records_and_source_access(self):
+        status, _, body = self.request('GET','/api/workflows')
+        self.assertEqual(status,200)
+        record = json.loads(body)['workflows'][0]
+        self.assertEqual(record['id'],'choi-2025-aiml')
+        self.assertEqual(len(record['papers']),14)
+        self.assertEqual(len({p['doi'] for p in record['papers']}),14)
+        self.assertIsNone(record['summary'])
+        self.assertTrue(all(p['summaryPaperId'] is None for p in record['papers']))
+        self.assertEqual(self.request('GET','/api/workflows/unknown/source.pdf')[0],404)
+        source = self.temporary / 'source.pdf'
+        source.write_bytes(b'%PDF-test')
+        import hashlib
+        fixture = {'id':'test','source':{'path':str(source),'sha256':hashlib.sha256(source.read_bytes()).hexdigest()}}
+        with patch('server.load_workflows',return_value={'test':fixture}):
+            self.assertEqual(self.request('GET','/api/workflows/test/source.pdf')[2],b'%PDF-test')
+            source.write_bytes(b'changed')
+            self.assertEqual(self.request('GET','/api/workflows/test/source.pdf')[0],404)
+
+    def test_pdf_scan_is_explicit_and_local(self):
+        with patch('server.pdf_links.scan',return_value={'papers':{},'errors':[]}) as scan:
+            self.request('GET','/api/workflows')
+            scan.assert_not_called()
+            path='/api/workflows/choi-2025-aiml/scan'
+            self.assertEqual(self.request('POST',path,{},headers={'Origin':'https://example.com'})[0],403)
+            self.assertEqual(self.request('POST',path,{'folder':'C:/'})[0],400)
+            self.assertEqual(self.request('POST',path,{})[0],200)
+            scan.assert_called_once()
+        self.assertEqual(self.request('GET','/api/workflows/choi-2025-aiml/pdf/0/99')[0],404)
+        self.assertEqual(self.request('POST','/api/workflows/choi-2025-aiml/confirm',{'doi':[], 'index':0})[0],400)
+
+    def test_generation_requests_persist_deduplicate_and_validate(self):
+        endpoint='/api/generation-requests'
+        status, _, body = self.request('GET',endpoint)
+        self.assertEqual(status,200)
+        data=json.loads(body)
+        self.assertEqual(data['requests'],[])
+        key=next(t['key'] for t in data['targets'] if t['key'].startswith('library:'))
+        payload={'kind':'summary','keys':[key]}
+        self.assertEqual(self.request('POST',endpoint,payload,headers={'Origin':'https://example.com'})[0],403)
+        self.assertEqual(self.request('POST',endpoint,{'kind':'summary','keys':['not-real']})[0],400)
+        self.assertEqual(self.request('POST',endpoint,{'kind':'summary','keys':[]})[0],400)
+        first=json.loads(self.request('POST',endpoint,payload)[2])
+        self.assertEqual(first['added'],1)
+        self.assertEqual(first['requests'][0]['status'],'requested')
+        again=json.loads(self.request('POST',endpoint,payload)[2])
+        self.assertEqual(again['existing'],1)
+        analysis=json.loads(self.request('POST',endpoint,{'kind':'analysis','keys':[key]})[2])
+        self.assertEqual(analysis['added'],1)
+        self.stop_server(); self.start_server()
+        self.assertEqual(len(json.loads(self.request('GET',endpoint)[2])['requests']),2)
+
     def state(self):
         status, _, body = self.request("GET", "/api/papers")
         self.assertEqual(status, 200)
@@ -113,70 +173,7 @@ class ServerTests(unittest.TestCase):
         self.start_server()
         self.assertEqual(self.state(), expected)
 
-    def test_discovery_card_is_readable_and_has_independent_durable_notes(self):
-        before = self.state()
-        status, _, body = self.request("GET", "/api/papers")
-        self.assertEqual(status, 200)
-        cards = [paper for paper in json.loads(body)["papers"]
-                 if paper.get("kind") == "discovery" and not paper.get("generationOrigin")]
-        self.assertEqual(len(cards), 12)
-        self.assertEqual({paper["id"] for paper in cards},
-                         {paper["id"] for paper in server.load_evaluation()["papers"]})
-        saved = {}
-        for index, chosen in enumerate(cards):
-            with self.subTest(paper=chosen["id"]):
-                self.assertEqual(chosen["candidateId"], chosen["id"])
-                self.assertTrue(chosen["abstract"]["paragraphs"])
-                self.assertGreaterEqual(len(chosen["card"]["pairs"]), 2)
-                self.assertTrue({"summary", "overview", "methods", "evidence", "memo"}
-                                .issubset(chosen["tabs"]))
-                for tab in ("summary", "overview", "methods", "evidence"):
-                    self.assertTrue(chosen["tabs"][tab])
-                changes = {"read": index % 2 == 0, "saved": index % 3 == 0,
-                           "notes": f"논문 {index + 1} 메모\n한글 · <tag> & 보존"}
-                status, _, body = self.request("PATCH", "/api/state/" + chosen["id"], changes)
-                self.assertEqual(status, 200)
-                saved[chosen["id"]] = json.loads(body)["state"]
-                self.assertTrue(saved[chosen["id"]]["updatedAt"])
-        self.stop_server()
-        self.start_server()
-        _, _, body = self.request("GET", "/api/papers")
-        resumed = {paper["id"]: paper["state"] for paper in json.loads(body)["papers"]
-                   if paper.get("kind") == "discovery" and not paper.get("generationOrigin")}
-        self.assertEqual(resumed, saved)
-        self.assertEqual(self.state(), before)
 
-    def test_review_hold_does_not_erase_discovery_read_saved_or_notes(self):
-        chosen = next(paper for paper in self.httpd.papers.values() if paper.get("kind") == "discovery")
-        paper_id = chosen["id"]
-        status, _, body = self.request("PATCH", "/api/state/" + paper_id,
-                                      {"read": True, "saved": True, "notes": "보류 전 저장한 메모"})
-        self.assertEqual(status, 200)
-        expected = json.loads(body)["state"]
-        original_load_review = cards.load_review
-
-        def held_review(candidate_id):
-            review = original_load_review(candidate_id)
-            if candidate_id == paper_id:
-                review = {**review, "status": "held", "note": "검토 대기",
-                          "holds": [{"scope": "brief", "reason": "source", "note": "자료 확인 대기"}]}
-            return review
-
-        self.stop_server()
-        with patch("cards.load_review", side_effect=held_review):
-            self.start_server()
-            status, _, body = self.request("GET", "/api/papers")
-            self.assertEqual(status, 200)
-            held = next(paper for paper in json.loads(body)["papers"] if paper["id"] == paper_id)
-            self.assertEqual(held["briefOrigin"]["review"]["status"], "held")
-            self.assertEqual(held["state"], expected)
-            self.assertTrue(held["card"]["purpose"])
-            self.assertEqual(held["tabs"]["memo"], [])
-            self.stop_server()
-        self.start_server()
-        _, _, body = self.request("GET", "/api/papers")
-        resumed = next(paper for paper in json.loads(body)["papers"] if paper["id"] == paper_id)
-        self.assertEqual(resumed["state"], expected)
 
     def test_partial_updates_preserve_other_fields_and_other_papers(self):
         self.update({"read": True, "saved": True, "notes": "기존 메모"})
@@ -217,156 +214,13 @@ class ServerTests(unittest.TestCase):
                 self.assertEqual(status, 403)
         self.assertFalse(self.state()["saved"])
 
-    def test_collection_endpoints_and_job_conflict(self):
-        status, _, body = self.request("GET", "/api/collection")
-        self.assertEqual(status, 200)
-        overview = json.loads(body)
-        self.assertEqual(len(overview["areas"]), 6)
-        self.assertEqual(overview["counts"]["total"], 0)
-        self.assertIsNone(overview["run"])
-        status, _, body = self.request("GET", "/api/candidates")
-        self.assertEqual((status, json.loads(body)), (200, {"candidates": []}))
-        dates = {"from": "2026-09-01", "to": "2026-09-21"}
-        with patch.object(self.httpd.collector, "start", return_value={"id": 1, "status": "running"}) as start:
-            status, _, body = self.request("POST", "/api/collection", dates)
-            self.assertEqual(status, 202)
-            self.assertEqual(json.loads(body)["run"]["status"], "running")
-            start.assert_called_once_with(dates["from"], dates["to"])
-        with patch.object(self.httpd.collector, "start", side_effect=RuntimeError("이미 수집 중입니다.")):
-            status, _, body = self.request("POST", "/api/collection", dates)
-            self.assertEqual(status, 409)
-            self.assertIn("이미 수집 중", json.loads(body)["error"])
 
-    def test_evaluation_endpoint_is_read_only_and_reports_incomplete_snapshot(self):
-        before = self.state()
-        snapshot = {"id": "test-pilot", "papers": [{"id": "fixture", "score": {"total": None}}]}
-        with patch.object(server, "load_evaluation", return_value=snapshot):
-            status, headers, body = self.request("GET", "/api/evaluation")
-            self.assertEqual((status, json.loads(body)), (200, snapshot))
-            self.assertEqual(headers["Cache-Control"], "no-store")
-            status, _, body = self.request("HEAD", "/api/evaluation")
-            self.assertEqual((status, body), (200, b""))
-        with patch.object(server, "load_evaluation", side_effect=server.EvaluationDataError("평가 준비 중")):
-            status, _, body = self.request("GET", "/api/evaluation")
-            self.assertEqual((status, json.loads(body)["error"]), (503, "평가 준비 중"))
-        status, _, _ = self.request("POST", "/api/evaluation", {"score": 100})
-        self.assertEqual(status, 404)
-        self.assertEqual(self.state(), before)
 
-    def test_generation_pilot_is_read_only_and_separate_from_library_state(self):
-        expected_state = self.update({"read": True, "saved": True, "notes": "시범 비교와 독립된 기존 메모"})
-        _, _, before = self.request("GET", "/api/papers")
-        self.assertEqual(len(json.loads(before)["papers"]), 14 + len(server.load_generated()))
-        runs = [{"runId": "fixture-run", "candidateId": "fixture-paper",
-                 "validation": {"status": "unverified"}}]
-        with patch.object(server, "load_runs", return_value=runs):
-            status, headers, body = self.request("GET", "/api/generation-pilot")
-            self.assertEqual((status, json.loads(body)), (200, {"runs": runs}))
-            self.assertEqual(headers["Cache-Control"], "no-store")
-            status, _, body = self.request("HEAD", "/api/generation-pilot")
-            self.assertEqual((status, body), (200, b""))
-        for method in ("POST", "PATCH"):
-            with self.subTest(method=method):
-                status, _, _ = self.request(method, "/api/generation-pilot", {"status": "reviewed"})
-                self.assertEqual(status, 404)
-        for pilot_id in ("fixture-run", "fixture-paper"):
-            status, _, _ = self.request("PATCH", "/api/state/" + pilot_id, {"saved": True})
-            self.assertEqual(status, 404)
-        _, _, after = self.request("GET", "/api/papers")
-        self.assertEqual(json.loads(after), json.loads(before))
-        self.stop_server()
-        self.start_server()
-        self.assertEqual(self.state(), expected_state)
-        _, _, restarted = self.request("GET", "/api/papers")
-        self.assertEqual(json.loads(restarted), json.loads(before))
 
-    def test_generation_pilot_validation_failure_returns_unavailable(self):
-        before = self.state()
-        with patch.object(server, "load_runs", side_effect=ValueError("invalid fixture")):
-            status, _, body = self.request("GET", "/api/generation-pilot")
-            self.assertEqual(status, 503)
-            self.assertIn("입력·출처·검증 기록", json.loads(body)["error"])
-        self.assertEqual(self.state(), before)
 
-    def test_acquisition_endpoints_and_source_document(self):
-        before = self.update({"saved": True, "notes": "보존할 메모"})
-        status, _, body = self.request("GET", "/api/acquisition")
-        self.assertEqual(status, 200)
-        self.assertIsNone(json.loads(body)["run"])
-        self.assertEqual(json.loads(body)["counts"], {"fulltext": 0, "abstract": 0, "failed": 0})
-        with patch.object(self.httpd.acquisition, "start", return_value={"id": "fetch", "status": "running"}) as start:
-            status, _, body = self.request("POST", "/api/acquisition", {"candidateIds": ["paper1"]})
-            self.assertEqual((status, json.loads(body)["run"]["status"]), (202, "running"))
-            start.assert_called_once_with(["paper1"])
-        for error, expected in [(RuntimeError("이미 진행 중"), 409), (ValueError("잘못된 후보"), 400),
-                                (KeyError("unknown"), 404)]:
-            with patch.object(self.httpd.acquisition, "start", side_effect=error):
-                status, _, _ = self.request("POST", "/api/acquisition", {"candidateIds": ["paper1"]})
-                self.assertEqual(status, expected)
-        document = {"candidateId": "paper1", "status": "fulltext", "sections": [
-            {"heading": "Results", "text": "안전한 본문 <script> & 결과"}]}
-        with patch.object(self.httpd.acquisition, "get", return_value=document) as get:
-            status, headers, body = self.request("GET", "/api/sources/paper1")
-            self.assertEqual((status, json.loads(body)), (200, {"source": document}))
-            self.assertEqual(headers["Content-Type"], "application/json; charset=utf-8")
-            get.assert_called_once_with("paper1")
-            status, _, body = self.request("HEAD", "/api/sources/paper1")
-            self.assertEqual((status, body), (200, b""))
-        for result in [None, KeyError("missing")]:
-            with patch.object(self.httpd.acquisition, "get", **(
-                    {"side_effect": result} if isinstance(result, Exception) else {"return_value": result})):
-                status, _, _ = self.request("GET", "/api/sources/unknown")
-                self.assertEqual(status, 404)
-        self.assertEqual(self.state(), before)
 
-    def test_acquisition_validation_and_candidate_enrichment(self):
-        for payload in [{}, [], {"candidateIds": []}, {"candidateIds": None},
-                        {"candidateIds": ["unknown"]}, {"candidateIds": [], "extra": 1}]:
-            status, _, _ = self.request("POST", "/api/acquisition", payload)
-            self.assertIn(status, (400, 404))
-        for headers in [{"Origin": "https://example.com"}, {"Host": "example.com"}]:
-            status, _, _ = self.request("POST", "/api/acquisition", {"candidateIds": ["x"]}, headers=headers)
-            self.assertEqual(status, 403)
-        for path in ["/api/sources/../server.py", "/api/sources/%2e%2e", "/api/sources/a%2fb"]:
-            status, _, _ = self.request("GET", path)
-            self.assertEqual(status, 404)
-        summary = {"status": "fulltext", "provider": "Europe PMC", "format": "xml"}
-        with patch.object(self.httpd.collector, "candidates", return_value=[{"id": "a"}, {"id": "b"}]), \
-                patch.object(self.httpd.acquisition, "summaries", return_value={"a": summary}):
-            status, _, body = self.request("GET", "/api/candidates")
-            self.assertEqual(status, 200)
-            papers = json.loads(body)["candidates"]
-            self.assertEqual(papers[0]["sourceDocument"], summary)
-            self.assertEqual(papers[0]["fullTextStatus"], "fulltext")
-            self.assertEqual(papers[1]["fullTextStatus"], "not_retrieved")
-            self.assertIsNone(papers[1]["sourceDocument"])
-        self.assertIsNone(self.httpd.acquisition.status()["run"])
 
-    def test_collection_rejects_invalid_and_cross_origin_requests(self):
-        for data in [{}, [], {"from": "2026-09-01"},
-                     {"from": "2026-09-21", "to": "2026-09-01"},
-                     {"from": "bad", "to": "2026-09-21"},
-                     {"from": None, "to": "2026-09-21"},
-                     {"from": "2026-09-01", "to": "2026-09-21", "query": "anything"}]:
-            with self.subTest(data=data):
-                status, _, _ = self.request("POST", "/api/collection", data)
-                self.assertEqual(status, 400)
-        for headers in [{"Origin": "https://example.com"}, {"Host": "example.com"}]:
-            status, _, _ = self.request("POST", "/api/collection",
-                                        {"from": "2026-09-01", "to": "2026-09-21"}, headers=headers)
-            self.assertEqual(status, 403)
-        self.assertIsNone(self.httpd.collector.status()["run"])
 
-    def test_retry_collection_endpoint(self):
-        with patch.object(self.httpd.collector, "retry", return_value={"id": "new", "status": "running"}) as retry:
-            status, _, body = self.request("POST", "/api/collection/retry", {"runId": "previous"})
-            self.assertEqual((status, json.loads(body)["run"]["id"]), (202, "new"))
-            retry.assert_called_once_with("previous")
-        for payload in [{}, {"from": "2026-09-01"}, {"runId": None}]:
-            status, _, _ = self.request("POST", "/api/collection/retry", payload)
-            self.assertEqual(status, 400)
-        status, _, _ = self.request("POST", "/api/collection/retry", {"runId": "old"}, headers={"Origin": "https://example.com"})
-        self.assertEqual(status, 403)
 
     def test_source_path_traversal_is_blocked(self):
         for path in ["/reference/../server.py", "/reference/%2e%2e/server.py",
@@ -406,7 +260,7 @@ class ServerTests(unittest.TestCase):
         references = server.load_papers()
         self.assertEqual(set(references), {"adaptiveflow-2026", "sung-2025"})
         papers = self.httpd.papers
-        self.assertEqual(len(papers), 14 + len(server.load_generated()))
+        self.assertEqual(len(papers), 2)
         status, headers, body = self.request("GET", "/assets/documents/manifest.json")
         self.assertEqual(status, 200)
         self.assertEqual(headers["Content-Type"], "application/json")
@@ -438,36 +292,7 @@ class ServerTests(unittest.TestCase):
                     if suffix in expected_mime:
                         self.assertEqual(headers["Content-Type"], expected_mime[suffix])
 
-    def test_discovery_documents_serve_original_pdf_bytes_and_ranges(self):
-        paths = {path for paper in self.httpd.papers.values() if paper.get("kind") == "discovery"
-                 for path in local_asset_urls(paper) if path.endswith(".pdf")}
-        self.assertTrue(paths, "Acquired discovery PDFs must be included in the HTTP checks")
-        for path in sorted(paths):
-            with self.subTest(path=path):
-                original = (server.ROOT / "public" / unquote(path).lstrip("/")).read_bytes()
-                self.assertTrue(original.startswith(b"%PDF-"))
-                status, headers, body = self.request("GET", path, headers={"Range": "bytes=0-63"})
-                self.assertEqual(status, 206)
-                self.assertEqual(headers["Content-Type"], "application/pdf")
-                self.assertEqual(headers["Content-Disposition"], "inline")
-                self.assertEqual(headers["Content-Range"], f"bytes 0-63/{len(original)}")
-                self.assertEqual(body, original[:64])
-                status, headers, body = self.request("GET", path, headers={"Range": "bytes=-32"})
-                self.assertEqual(status, 206)
-                self.assertEqual(body, original[-32:])
 
-    def test_discovery_card_images_serve_original_image_bytes(self):
-        images = {paper["card"]["image"]["src"] for paper in self.httpd.papers.values()
-                  if paper.get("kind") == "discovery" and paper["card"].get("image")}
-        self.assertTrue(images)
-        for path in sorted(images):
-            with self.subTest(path=path):
-                original = (server.ROOT / "public" / unquote(path).lstrip("/")).read_bytes()
-                status, headers, body = self.request("GET", path)
-                self.assertEqual(status, 200)
-                self.assertTrue(headers["Content-Type"].startswith("image/"))
-                self.assertEqual(int(headers["Content-Length"]), len(original))
-                self.assertEqual(body, original)
 
 
 if __name__ == "__main__":

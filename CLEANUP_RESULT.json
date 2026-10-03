@@ -1,0 +1,39 @@
+{
+  "before_mib": 1336.1,
+  "after_mib": 417.4,
+  "groups_mib": {
+    ".git": 252.37,
+    "reference": 93.48,
+    ".venv": 37.54,
+    "public": 33.57,
+    "data": 0.19,
+    "CLEANUP_MANIFEST.json": 0.07,
+    "tools": 0.06,
+    "exports": 0.05,
+    ".runtime": 0.04,
+    "tests": 0.03,
+    "__pycache__": 0.02,
+    "server.py": 0.01,
+    "BRIEFING_GUIDELINES.md": 0.01,
+    "launch.py": 0.0,
+    "README.md": 0.0,
+    "PROJECT_HANDOFF.md": 0.0,
+    "VALIDATION.md": 0.0,
+    "BRIEF_VERIFICATION.md": 0.0,
+    "Paper Radar.cmd": 0.0,
+    "start.ps1": 0.0,
+    ".gitignore": 0.0,
+    "requirements.txt": 0.0,
+    ".gitattributes": 0.0,
+    "CLEANUP_FAILURES.json": 0.0
+  },
+  "errors": [],
+  "tests_passed": 9,
+  "browser_checks": [
+    "two core summaries",
+    "AdaptiveFlow analysis tabs and PDF viewer",
+    "Sung analysis",
+    "Choi RIS workflow"
+  ],
+  "external_files_changed": false
+}

@@ -175,7 +175,7 @@ data = {
         "sourceUrl": "https://www.nature.com/articles/s41587-026-03217-x",
         "pdfUrl": "/reference/adaptiveflow-assets/paper.pdf", "siUrl": "/reference/adaptiveflow-assets/supplement.pdf",
         "availability": "본문·SI·Figure·구조식 로컬 확보",
-        "license": '© The Author(s) 2026 · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. 한국어 해설·연구 적용은 브리핑의 해석과 제안.'
+        "license": '© The Author(s) 2026 · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. 한국어 해설·연구 적용은 심층 분석의 해석과 제안.'
     },
     "abstract": {"paragraphs": [inline(p) for p in abstract_node.find_all("p", recursive=False)],
                  "source": {"label": "p.1 · Abstract 원문", "url": "/reference/adaptiveflow-assets/paper.pdf#page=1"},

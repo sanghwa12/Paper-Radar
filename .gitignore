@@ -8,3 +8,4 @@ tmp/
 !.env.example
 .venv/
 public/assets/prepared/
+public/assets/fulltext/

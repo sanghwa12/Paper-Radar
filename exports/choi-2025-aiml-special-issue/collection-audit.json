@@ -1,0 +1,913 @@
+{
+  "created_at": "2026-10-01T06:56:44.049157+00:00",
+  "source_pdf_path": "C:\\Users\\USER\\Dropbox\\Zotero_PDF\\Choi 등 - 2025 - Special Issue Exploring the Use of AIML Technologies in Medicinal Chemistry and Drug Discovery.pdf",
+  "source_pdf_sha256": "b488fa6089cc19a658e447905784badf488d5d5317237787a84dc2bbbfaa6bc7",
+  "source_pages": 1,
+  "source_type": "Editorial",
+  "source_doi": "10.1021/acsmedchemlett.5c00003",
+  "source_title": "Special Issue: Exploring the Use of AI/ML Technologies in Medicinal Chemistry and Drug Discovery",
+  "source_citation_year": 2025,
+  "formal_numbered_references_in_pdf": 0,
+  "collection_membership_source": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+  "collection_source_access": "ACS collection text returned by web search on 2026-10-01; direct page open returned 403",
+  "metadata_lookup_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A%2210.1021%2Facsmedchemlett.4c00260%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00121%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00131%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00290%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00296%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00323%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00145%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00150%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00183%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00243%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00148%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00058%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00056%22+OR+DOI%3A%2210.1021%2Facsmedchemlett.4c00057%22&format=json&resultType=core&pageSize=100",
+  "metadata_retrieved_at": "2026-10-01T06:55:03.993040+00:00",
+  "source_editorial_in_ris": false,
+  "collection_contributions": 14,
+  "publication_years_of_contributions": [
+    "2024"
+  ],
+  "starter_selection_basis": "ACS publisher type Letter (5) and Note (2); no quality ranking or topic exclusion",
+  "files": {
+    "research-papers.ris": {
+      "records": 7,
+      "sha256": "00774857959b0557cfefa6628559354f0a90efc7e77bfe53afb66b2c9f664127"
+    },
+    "additional-reading.ris": {
+      "records": 7,
+      "sha256": "b0882e5eccdd5c09e7ac478169ae7159d83e219d8fa6745cd9114e5a8b025ed2"
+    }
+  },
+  "full_text_retrieval_performed": false,
+  "scientific_full_text_review_performed": false,
+  "zotero_import_performed": false,
+  "zotero_existing_items_deduplicated": false,
+  "app_or_database_modified": false,
+  "previous_niazi_exports_preserved": true,
+  "articles": [
+    {
+      "collection_position": 1,
+      "collection_title": "Allostery Illuminated: Harnessing AI and Machine Learning for Drug Discovery",
+      "publisher_type": "Microperspective",
+      "title": "Allostery Illuminated: Harnessing AI and Machine Learning for Drug Discovery.",
+      "authors": [
+        {
+          "family": "Blanco",
+          "given": "Maria-Jesus",
+          "literal": "Blanco MJ"
+        },
+        {
+          "family": "Buskes",
+          "given": "Melissa J",
+          "literal": "Buskes MJ"
+        },
+        {
+          "family": "Govindaraj",
+          "given": "Rajiv G",
+          "literal": "Govindaraj RG"
+        },
+        {
+          "family": "Ipsaro",
+          "given": "Jonathan J",
+          "literal": "Ipsaro JJ"
+        },
+        {
+          "family": "Prescott-Roy",
+          "given": "Joann E",
+          "literal": "Prescott-Roy JE"
+        },
+        {
+          "family": "Padyana",
+          "given": "Anil K",
+          "literal": "Padyana AK"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00260",
+      "pmid": "39291033",
+      "pmcid": "PMC11403745",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "9",
+      "pages": "1449-1455",
+      "online_publication_date": "2024-08-30",
+      "metadata_publication_types": [
+        "review-article",
+        "Review",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39291033/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "추가 읽기",
+      "ris_file": "additional-reading.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 2,
+      "collection_title": "Highly Selective Novel Heme Oxygenase-1 Hits Found by DNA-Encoded Library Machine Learning beyond the DEL Chemical Space",
+      "publisher_type": "Letter",
+      "title": "Highly Selective Novel Heme Oxygenase-1 Hits Found by DNA-Encoded Library Machine Learning beyond the DEL Chemical Space.",
+      "authors": [
+        {
+          "family": "Han",
+          "given": "Shuai",
+          "literal": "Han S"
+        },
+        {
+          "family": "Guo",
+          "given": "Xinyun",
+          "literal": "Guo X"
+        },
+        {
+          "family": "Wang",
+          "given": "Min",
+          "literal": "Wang M"
+        },
+        {
+          "family": "Liu",
+          "given": "Huan",
+          "literal": "Liu H"
+        },
+        {
+          "family": "Song",
+          "given": "Yidan",
+          "literal": "Song Y"
+        },
+        {
+          "family": "He",
+          "given": "Yunyun",
+          "literal": "He Y"
+        },
+        {
+          "family": "Hsueh",
+          "given": "Kuang-Lung",
+          "literal": "Hsueh KL"
+        },
+        {
+          "family": "Cui",
+          "given": "Weiren",
+          "literal": "Cui W"
+        },
+        {
+          "family": "Su",
+          "given": "Wenji",
+          "literal": "Su W"
+        },
+        {
+          "family": "Kuai",
+          "given": "Letian",
+          "literal": "Kuai L"
+        },
+        {
+          "family": "Deng",
+          "given": "Jason",
+          "literal": "Deng J"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00121",
+      "pmid": "39291011",
+      "pmcid": "PMC11403747",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "9",
+      "pages": "1456-1466",
+      "online_publication_date": "2024-08-21",
+      "metadata_publication_types": [
+        "rapid-communication",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39291011/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "연구·방법 시작목록",
+      "ris_file": "research-papers.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 3,
+      "collection_title": "Open Source Code Contributions to Global Health: The Case of Antimalarial Drug Discovery",
+      "publisher_type": "Note",
+      "title": "Open Source Code Contributions to Global Health: The Case of Antimalarial Drug Discovery.",
+      "authors": [
+        {
+          "family": "Turon",
+          "given": "Gemma",
+          "literal": "Turon G"
+        },
+        {
+          "family": "Tse",
+          "given": "Edwin",
+          "literal": "Tse E"
+        },
+        {
+          "family": "Qiu",
+          "given": "Xin",
+          "literal": "Qiu X"
+        },
+        {
+          "family": "Todd",
+          "given": "Matthew",
+          "literal": "Todd M"
+        },
+        {
+          "family": "Duran-Frigola",
+          "given": "Miquel",
+          "literal": "Duran-Frigola M"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00131",
+      "pmid": "39291016",
+      "pmcid": "PMC11403727",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "9",
+      "pages": "1645-1650",
+      "online_publication_date": "2024-08-01",
+      "metadata_publication_types": [
+        "brief-report",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39291016/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "연구·방법 시작목록",
+      "ris_file": "research-papers.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 4,
+      "collection_title": "Machine Learning ADME Models in Practice: Four Guidelines from a Successful Lead Optimization Case Study",
+      "publisher_type": "Viewpoint",
+      "title": "Machine Learning ADME Models in Practice: Four Guidelines from a Successful Lead Optimization Case Study.",
+      "authors": [
+        {
+          "family": "Rich",
+          "given": "Alexander S",
+          "literal": "Rich AS"
+        },
+        {
+          "family": "Chan",
+          "given": "Yvonne H",
+          "literal": "Chan YH"
+        },
+        {
+          "family": "Birnbaum",
+          "given": "Benjamin",
+          "literal": "Birnbaum B"
+        },
+        {
+          "family": "Haider",
+          "given": "Kamran",
+          "literal": "Haider K"
+        },
+        {
+          "family": "Haimson",
+          "given": "Joshua",
+          "literal": "Haimson J"
+        },
+        {
+          "family": "Hale",
+          "given": "Michael",
+          "literal": "Hale M"
+        },
+        {
+          "family": "Han",
+          "given": "Yongxin",
+          "literal": "Han Y"
+        },
+        {
+          "family": "Hickman",
+          "given": "William",
+          "literal": "Hickman W"
+        },
+        {
+          "family": "Hoeflich",
+          "given": "Klaus P",
+          "literal": "Hoeflich KP"
+        },
+        {
+          "family": "Ortwine",
+          "given": "Daniel",
+          "literal": "Ortwine D"
+        },
+        {
+          "family": "Özen",
+          "given": "Ayşegül",
+          "literal": "Özen A"
+        },
+        {
+          "family": "Belanger",
+          "given": "David B",
+          "literal": "Belanger DB"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00290",
+      "pmid": "39140048",
+      "pmcid": "PMC11318014",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "8",
+      "pages": "1169-1173",
+      "online_publication_date": "2024-07-25",
+      "metadata_publication_types": [
+        "article-commentary",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39140048/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "추가 읽기",
+      "ris_file": "additional-reading.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 5,
+      "collection_title": "Introducing CRAFT: The Center for Research and Advancement in Fragments and molecular Targets",
+      "publisher_type": "Viewpoint",
+      "title": "Introducing CRAFT: The Center for Research and Advancement in Fragments and molecular Targets.",
+      "authors": [
+        {
+          "family": "Andrade",
+          "given": "Carolina Horta",
+          "literal": "Andrade CH"
+        },
+        {
+          "family": "Nonato",
+          "given": "Maria Cristina",
+          "literal": "Nonato MC"
+        },
+        {
+          "family": "da Silva Emery",
+          "given": "Flavio",
+          "literal": "da Silva Emery F"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00296",
+      "pmid": "39140068",
+      "pmcid": "PMC11318094",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "8",
+      "pages": "1174-1177",
+      "online_publication_date": "2024-07-23",
+      "metadata_publication_types": [
+        "article-commentary",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39140068/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "추가 읽기",
+      "ris_file": "additional-reading.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 6,
+      "collection_title": "Innovative Multistage ML-QSAR Models for Malaria: From Data to Discovery",
+      "publisher_type": "Letter",
+      "title": "Innovative Multistage ML-QSAR Models for Malaria: From Data to Discovery.",
+      "authors": [
+        {
+          "family": "Borba",
+          "given": "Joyce V B",
+          "literal": "Borba JVB"
+        },
+        {
+          "family": "Salazar-Alvarez",
+          "given": "Luis Carlos",
+          "literal": "Salazar-Alvarez LC"
+        },
+        {
+          "family": "Ferreira",
+          "given": "Letícia Tiburcio",
+          "literal": "Ferreira LT"
+        },
+        {
+          "family": "Silva-Mendonça",
+          "given": "Sabrina",
+          "literal": "Silva-Mendonça S"
+        },
+        {
+          "family": "Silva",
+          "given": "Meryck Felipe Brito da",
+          "literal": "Silva MFBD"
+        },
+        {
+          "family": "Sanches",
+          "given": "Igor H",
+          "literal": "Sanches IH"
+        },
+        {
+          "family": "Clementino",
+          "given": "Leandro da Costa",
+          "literal": "Clementino LDC"
+        },
+        {
+          "family": "Magalhães",
+          "given": "Marcela Lucas",
+          "literal": "Magalhães ML"
+        },
+        {
+          "family": "Rimoldi",
+          "given": "Aline",
+          "literal": "Rimoldi A"
+        },
+        {
+          "family": "Calit",
+          "given": "Juliana",
+          "literal": "Calit J"
+        },
+        {
+          "family": "Santana",
+          "given": "Sofia",
+          "literal": "Santana S"
+        },
+        {
+          "family": "Prudêncio",
+          "given": "Miguel",
+          "literal": "Prudêncio M"
+        },
+        {
+          "family": "Cravo",
+          "given": "Pedro V",
+          "literal": "Cravo PV"
+        },
+        {
+          "family": "Bargieri",
+          "given": "Daniel Y",
+          "literal": "Bargieri DY"
+        },
+        {
+          "family": "Cassiano",
+          "given": "Gustavo C",
+          "literal": "Cassiano GC"
+        },
+        {
+          "family": "Costa",
+          "given": "Fabio T M",
+          "literal": "Costa FTM"
+        },
+        {
+          "family": "Andrade",
+          "given": "Carolina Horta",
+          "literal": "Andrade CH"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00323",
+      "pmid": "39140064",
+      "pmcid": "PMC11318017",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "8",
+      "pages": "1386-1395",
+      "online_publication_date": "2024-07-18",
+      "metadata_publication_types": [
+        "rapid-communication",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39140064/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "연구·방법 시작목록",
+      "ris_file": "research-papers.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 7,
+      "collection_title": "Predictions of Chromatography Methods by Chemical Structure Similarity to Accelerate High-Throughput Medicinal Chemistry",
+      "publisher_type": "Note",
+      "title": "Predictions of Chromatography Methods by Chemical Structure Similarity to Accelerate High-Throughput Medicinal Chemistry.",
+      "authors": [
+        {
+          "family": "Wang",
+          "given": "Jun",
+          "literal": "Wang J"
+        },
+        {
+          "family": "Yen",
+          "given": "Rose",
+          "literal": "Yen R"
+        },
+        {
+          "family": "Beck",
+          "given": "Armen G",
+          "literal": "Beck AG"
+        },
+        {
+          "family": "Aggarwal",
+          "given": "Pankaj",
+          "literal": "Aggarwal P"
+        },
+        {
+          "family": "Kong",
+          "given": "May",
+          "literal": "Kong M"
+        },
+        {
+          "family": "Hayes",
+          "given": "Michael",
+          "literal": "Hayes M"
+        },
+        {
+          "family": "Jabri",
+          "given": "Salman",
+          "literal": "Jabri S"
+        },
+        {
+          "family": "Greshock",
+          "given": "Thomas J",
+          "literal": "Greshock TJ"
+        },
+        {
+          "family": "Hettiarachchi",
+          "given": "Kanaka",
+          "literal": "Hettiarachchi K"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00145",
+      "pmid": "39140053",
+      "pmcid": "PMC11318006",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "8",
+      "pages": "1396-1401",
+      "online_publication_date": "2024-07-12",
+      "metadata_publication_types": [
+        "brief-report",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39140053/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "연구·방법 시작목록",
+      "ris_file": "research-papers.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 8,
+      "collection_title": "AI Based Discovery of a New AKR1C3 Inhibitor for Anticancer Applications",
+      "publisher_type": "Letter",
+      "title": "AI Based Discovery of a New AKR1C3 Inhibitor for Anticancer Applications.",
+      "authors": [
+        {
+          "family": "Pippione",
+          "given": "Agnese C",
+          "literal": "Pippione AC"
+        },
+        {
+          "family": "Vigato",
+          "given": "Chiara",
+          "literal": "Vigato C"
+        },
+        {
+          "family": "Tucciarello",
+          "given": "Cristina",
+          "literal": "Tucciarello C"
+        },
+        {
+          "family": "Hussain",
+          "given": "Samrina",
+          "literal": "Hussain S"
+        },
+        {
+          "family": "Salladini",
+          "given": "Edoardo",
+          "literal": "Salladini E"
+        },
+        {
+          "family": "Truong",
+          "given": "Ha H",
+          "literal": "Truong HH"
+        },
+        {
+          "family": "Henriksen",
+          "given": "Niel M",
+          "literal": "Henriksen NM"
+        },
+        {
+          "family": "Vanzetti",
+          "given": "Gaia",
+          "literal": "Vanzetti G"
+        },
+        {
+          "family": "Giordano",
+          "given": "Giorgia",
+          "literal": "Giordano G"
+        },
+        {
+          "family": "Zonari",
+          "given": "Daniele",
+          "literal": "Zonari D"
+        },
+        {
+          "family": "Mirza",
+          "given": "Osman Asghar",
+          "literal": "Mirza OA"
+        },
+        {
+          "family": "Frydenvang",
+          "given": "Karla",
+          "literal": "Frydenvang K"
+        },
+        {
+          "family": "Pignochino",
+          "given": "Ymera",
+          "literal": "Pignochino Y"
+        },
+        {
+          "family": "Oliaro-Bosso",
+          "given": "Simonetta",
+          "literal": "Oliaro-Bosso S"
+        },
+        {
+          "family": "Boschi",
+          "given": "Donatella",
+          "literal": "Boschi D"
+        },
+        {
+          "family": "Lolli",
+          "given": "Marco L",
+          "literal": "Lolli ML"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00150",
+      "pmid": "39140045",
+      "pmcid": "PMC11318022",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "8",
+      "pages": "1269-1278",
+      "online_publication_date": "2024-07-03",
+      "metadata_publication_types": [
+        "rapid-communication",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39140045/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "연구·방법 시작목록",
+      "ris_file": "research-papers.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 9,
+      "collection_title": "Synthesis and Evaluation of 1,3-Disubstituted Imidazolidine-2,4,5-triones as Inhibitors of Pyruvate Carboxylase",
+      "publisher_type": "Letter",
+      "title": "Synthesis and Evaluation of 1,3-Disubstituted Imidazolidine-2,4,5-triones as Inhibitors of Pyruvate Carboxylase.",
+      "authors": [
+        {
+          "family": "Schneider",
+          "given": "Nicholas O",
+          "literal": "Schneider NO"
+        },
+        {
+          "family": "Gilreath",
+          "given": "Kendra",
+          "literal": "Gilreath K"
+        },
+        {
+          "family": "Henriksen",
+          "given": "Niel M",
+          "literal": "Henriksen NM"
+        },
+        {
+          "family": "Donaldson",
+          "given": "William A",
+          "literal": "Donaldson WA"
+        },
+        {
+          "family": "Chaudhury",
+          "given": "Subhabrata",
+          "literal": "Chaudhury S"
+        },
+        {
+          "family": "St Maurice",
+          "given": "Martin",
+          "literal": "St Maurice M"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00183",
+      "pmid": "39015262",
+      "pmcid": "PMC11247459",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "7",
+      "pages": "1088-1093",
+      "online_publication_date": "2024-06-26",
+      "metadata_publication_types": [
+        "rapid-communication",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39015262/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "연구·방법 시작목록",
+      "ris_file": "research-papers.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 10,
+      "collection_title": "Ongoing Implementation and Prospective Validation of Artificial Intelligence/Machine Learning Tools at an African Drug Discovery Center",
+      "publisher_type": "Viewpoint",
+      "title": "Ongoing Implementation and Prospective Validation of Artificial Intelligence/Machine Learning Tools at an African Drug Discovery Center.",
+      "authors": [
+        {
+          "family": "Hlozek",
+          "given": "Jason",
+          "literal": "Hlozek J"
+        },
+        {
+          "family": "Chibale",
+          "given": "Kelly",
+          "literal": "Chibale K"
+        },
+        {
+          "family": "Chibale",
+          "given": "Kelly",
+          "literal": "Chibale K"
+        },
+        {
+          "family": "Woodland",
+          "given": "John G",
+          "literal": "Woodland JG"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00243",
+      "pmid": "39015279",
+      "pmcid": "PMC11247640",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "7",
+      "pages": "989-993",
+      "online_publication_date": "2024-06-21",
+      "metadata_publication_types": [
+        "article-commentary",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39015279/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "추가 읽기",
+      "ris_file": "additional-reading.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 11,
+      "collection_title": "FOCUS on NOD2: Advancing IBD Drug Discovery with a User-Informed Machine Learning Framework",
+      "publisher_type": "Letter",
+      "title": "FOCUS on NOD2: Advancing IBD Drug Discovery with a User-Informed Machine Learning Framework.",
+      "authors": [
+        {
+          "family": "Choudhary",
+          "given": "Ruhi",
+          "literal": "Choudhary R"
+        },
+        {
+          "family": "Mahadevan",
+          "given": "Radhakrishnan",
+          "literal": "Mahadevan R"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00148",
+      "pmid": "39015268",
+      "pmcid": "PMC11247655",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "7",
+      "pages": "1057-1070",
+      "online_publication_date": "2024-06-06",
+      "metadata_publication_types": [
+        "rapid-communication",
+        "Journal Article"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/39015268/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "연구·방법 시작목록",
+      "ris_file": "research-papers.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 12,
+      "collection_title": "Pioneering Methods in Brain Optimization and Mental Health Treatment",
+      "publisher_type": "Patent Highlight",
+      "title": "Pioneering Methods in Brain Optimization and Mental Health Treatment.",
+      "authors": [
+        {
+          "family": "Kargbo",
+          "given": "Robert B",
+          "literal": "Kargbo RB"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00058",
+      "pmid": "38505858",
+      "pmcid": "PMC10945793",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "3",
+      "pages": "337-339",
+      "online_publication_date": "2024-02-13",
+      "metadata_publication_types": [
+        "Editorial"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/38505858/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "추가 읽기",
+      "ris_file": "additional-reading.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 13,
+      "collection_title": "Advancements in Predictive Medicine: NLRP3 Inflammasome Inhibitors and AI-Driven Predictive Health Analytics",
+      "publisher_type": "Patent Highlight",
+      "title": "Advancements in Predictive Medicine: NLRP3 Inflammasome Inhibitors and AI-Driven Predictive Health Analytics.",
+      "authors": [
+        {
+          "family": "Kargbo",
+          "given": "Robert B",
+          "literal": "Kargbo RB"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00056",
+      "pmid": "38505847",
+      "pmcid": "PMC10945530",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "3",
+      "pages": "331-333",
+      "online_publication_date": "2024-02-13",
+      "metadata_publication_types": [
+        "Editorial"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/38505847/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "추가 읽기",
+      "ris_file": "additional-reading.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    },
+    {
+      "collection_position": 14,
+      "collection_title": "AI in Pharma: Transforming Drug Discovery and Strategic Management with MYC-Modulating Compounds and BET Protein Inhibitors",
+      "publisher_type": "Patent Highlight",
+      "title": "AI in Pharma: Transforming Drug Discovery and Strategic Management with MYC-Modulating Compounds and BET Protein Inhibitors.",
+      "authors": [
+        {
+          "family": "Kargbo",
+          "given": "Robert B",
+          "literal": "Kargbo RB"
+        }
+      ],
+      "doi": "10.1021/acsmedchemlett.4c00057",
+      "pmid": "38505845",
+      "pmcid": "PMC10945536",
+      "journal": "ACS medicinal chemistry letters",
+      "year": "2024",
+      "volume": "15",
+      "issue": "3",
+      "pages": "334-336",
+      "online_publication_date": "2024-02-13",
+      "metadata_publication_types": [
+        "Editorial"
+      ],
+      "collection_source_url": "https://pubs.acs.org/collection/111/Exploring-the-Use-of-AI-ML-Technologies-in",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/38505845/",
+      "pdf_context": "특집 소개 Editorial에 연결된 특집 수록 문헌. PDF 안의 번호가 붙은 참고문헌이 아님.",
+      "group": "추가 읽기",
+      "ris_file": "additional-reading.ris",
+      "verification": "ACS 공식 특집 목록과 MED 서지정보의 제목·DOI 일치 확인",
+      "full_text_status": "미확보·미검토",
+      "briefing_status": "핵심 요약·심층 분석 미작성"
+    }
+  ]
+}

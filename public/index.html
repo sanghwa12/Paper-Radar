@@ -7,25 +7,27 @@
   <title>Paper Radar</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23194e47'/%3E%3Ccircle cx='20' cy='20' r='12' fill='none' stroke='%23e4eece'/%3E%3Cpath d='M20 8v12l8-8' fill='none' stroke='%23e4eece' stroke-width='2'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/workflow.js" defer></script>
+  <script src="/generators.js" defer></script>
+  <script src="/generated-results.js" defer></script>
   <script src="/app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 이동</a>
   <aside class="sidebar">
-    <a class="brand" href="#/discover" aria-label="Paper Radar 논문 카드"><span class="radar-mark" aria-hidden="true"><i></i></span><span>Paper Radar</span></a>
-    <nav id="discovery-nav" aria-label="논문 탐색"><a id="rounds-link" class="nav-item" href="#/rounds">이번 회차</a><a id="discover-link" class="nav-item" href="#/discover">논문 카드</a><a id="collection-link" class="nav-item" href="#/collection">수집 관리</a><a id="evaluation-link" class="nav-item" href="#/evaluation">시범 평가</a><a id="generation-pilot-link" class="nav-item" href="#/generation-pilot">생성 비교</a></nav>
-    <div class="sidebar-label">LIBRARY</div>
-    <nav id="collection-nav" aria-label="라이브러리"></nav>
+    <a class="brand" href="#/discover" aria-label="Paper Radar 핵심 요약"><span class="radar-mark" aria-hidden="true"><i></i></span><span>Paper Radar</span></a>
+    <div class="sidebar-label">생성 도구</div>
+    <nav id="discovery-nav" aria-label="생성 도구"><a class="nav-item" href="#/workflow">Review 추출기</a><a class="nav-item" href="#/generate-summary">핵심 요약 생성기</a><a class="nav-item" href="#/generate-analysis">심층 분석 생성기</a></nav>
+    <div class="sidebar-label">라이브러리</div>
+    <nav id="library-nav" aria-label="라이브러리"><a id="discover-link" class="nav-item" href="#/discover">핵심 요약 라이브러리</a><a id="analysis-library-link" class="nav-item" href="#/library">심층 분석 라이브러리</a><div id="collection-nav" class="library-subnav"></div></nav>
     <div class="sidebar-label field-label">RESEARCH AREAS <button type="button" class="area-guide-link" data-area-help="" aria-haspopup="dialog">설명</button></div>
     <nav id="area-nav" aria-label="연구 분야"></nav>
   </aside>
   <div class="workspace">
-    <main id="main" tabindex="-1"><div class="loading">논문 카드를 불러오고 있습니다…</div></main>
+    <main id="main" tabindex="-1"><div class="loading">핵심 요약을 불러오고 있습니다…</div></main>
   </div>
   <dialog id="viewer" aria-labelledby="viewer-title"><div class="viewer-toolbar"><strong id="viewer-title"></strong><div id="page-controls" hidden><button type="button" id="page-previous" aria-label="이전 페이지">←</button><input type="number" id="page-number" min="1" aria-label="원문 페이지 번호"><span id="page-total"></span><button type="button" id="page-next" aria-label="다음 페이지">→</button></div><div><button type="button" id="zoom-toggle">원본 크기</button><a id="viewer-original" target="_blank" rel="noopener">원본 이미지 ↗</a><button type="button" id="viewer-close" aria-label="자료 닫기">닫기 ×</button></div></div><div id="viewer-body"></div></dialog>
   <dialog id="area-guide" aria-labelledby="area-guide-title"><div class="area-guide-header"><h2 id="area-guide-title">연구 분야 안내</h2><button type="button" id="area-guide-close" aria-label="분야 설명 닫기">닫기 ×</button></div><div id="area-guide-content"></div></dialog>
-  <dialog id="source-reader" aria-labelledby="source-reader-title"><div class="source-reader-header"><h2 id="source-reader-title">확보한 원문</h2><button type="button" id="source-reader-close" aria-label="확보한 원문 닫기">닫기 ×</button></div><div id="source-reader-body"></div></dialog>
-  <dialog id="preparation-reader" aria-labelledby="preparation-reader-title"><div class="source-reader-header"><h2 id="preparation-reader-title">브리핑 준비 자료</h2><button type="button" id="preparation-reader-close" aria-label="브리핑 준비 자료 닫기">닫기 ×</button></div><div id="preparation-reader-body"></div></dialog>
   <div id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

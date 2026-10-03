@@ -14,8 +14,6 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "assets" / "documents"
 REPORT = ROOT / ".runtime" / "document-render-results.json"
 sys.path.insert(0, str(ROOT))
-from cards import load_cards
-from generated import load_generated
 
 DOCUMENTS = [
     ("adaptiveflow-paper", "AdaptiveFlow · 본문", "/reference/adaptiveflow-assets/paper.pdf"),
@@ -25,19 +23,7 @@ DOCUMENTS = [
 
 
 def documents():
-    result = list(DOCUMENTS)
-    urls = {item[2] for item in result}
-    cards = load_cards()
-    cards.update(load_generated(existing_ids=cards))
-    for identifier, card in cards.items():
-        metadata = card["metadata"]
-        for key, suffix, label in (("pdfUrl", "paper", "본문"),
-                                   ("siUrl", "si", "Supplementary Information")):
-            url = metadata.get(key, "")
-            if url.startswith("/assets/") and url.lower().endswith(".pdf") and url not in urls:
-                result.append((f"{identifier}-{suffix}", f'{metadata["title"]} · {label}', url))
-                urls.add(url)
-    return result
+    return list(DOCUMENTS)
 
 
 def valid_image(path):

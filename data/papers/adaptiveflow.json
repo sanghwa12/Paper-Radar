@@ -24,7 +24,7 @@
     "pdfUrl": "/reference/adaptiveflow-assets/paper.pdf",
     "siUrl": "/reference/adaptiveflow-assets/supplement.pdf",
     "availability": "본문·SI·Figure·구조식 로컬 확보",
-    "license": "© The Author(s) 2026 · <a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">CC BY-NC-ND 4.0</a>. 한국어 해설·연구 적용은 브리핑의 해석과 제안."
+    "license": "© The Author(s) 2026 · <a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">CC BY-NC-ND 4.0</a>. 한국어 해설·연구 적용은 심층 분석의 해석과 제안."
   },
   "abstract": {
     "paragraphs": [
@@ -69,7 +69,7 @@
         "url": "/reference/adaptiveflow-assets/paper.pdf#page=8"
       }
     },
-    "selectionReason": "screening 효율 비교와 실제 hit 검증을 함께 제시 · ‘동향상 의미·연구 적용’은 브리핑의 해석과 제안"
+    "selectionReason": "screening 효율 비교와 실제 hit 검증을 함께 제시 · ‘동향상 의미·연구 적용’은 심층 분석의 해석과 제안"
   },
   "tabs": {
     "summary": [
@@ -336,7 +336,7 @@
               },
               {
                 "type": "paragraph",
-                "text": "<b>연구 적용</b><br>내 target의 known actives/decoys와 동일한 docking budget에서 random subset 대비 enrichment를 먼저 비교하는 방식으로 적용 가능. 이는 브리핑의 적용 제안이며 본 논문의 추가 실험 결과는 아니다."
+                "text": "<b>연구 적용</b><br>내 target의 known actives/decoys와 동일한 docking budget에서 random subset 대비 enrichment를 먼저 비교하는 방식으로 적용 가능. 이는 심층 분석의 적용 제안이며 본 논문의 추가 실험 결과는 아니다."
               }
             ]
           }
@@ -604,7 +604,7 @@
               ],
               [
                 "RDKit 2023.03.1 · PyTorch 2.0.1",
-                "Morgan fingerprints와 neural-network classifier; architecture·training 조건은 방법과 결과의 ATG 카드.",
+                "Morgan fingerprints와 neural-network classifier; architecture·training 조건은 방법과 결과의 ATG 항목.",
                 "Optional ML benchmark",
                 "<a href=\"/reference/adaptiveflow-assets/paper.pdf#page=15\">p.15 ↗</a>"
               ],
@@ -1267,7 +1267,7 @@
             "blocks": [
               {
                 "type": "paragraph",
-                "text": "이 브리핑의 실험 설명과 연결되는 7개를 표시했다. 나머지는 <a href=\"/reference/adaptiveflow-assets/supplement.pdf\">전체 Supplementary Information (110쪽)</a>에서 볼 수 있다."
+                "text": "이 심층 분석의 실험 설명과 연결되는 7개를 표시했다. 나머지는 <a href=\"/reference/adaptiveflow-assets/supplement.pdf\">전체 Supplementary Information (110쪽)</a>에서 볼 수 있다."
               },
               {
                 "type": "figure",
@@ -1555,7 +1555,7 @@
               },
               {
                 "type": "paragraph",
-                "text": "SI의 crystallization protein concentration은 “13 g/mL”로 표기되어 있어 단위 확인이 필요하다. 이 브리핑에서는 임의로 수정하지 않았다."
+                "text": "SI의 crystallization protein concentration은 “13 g/mL”로 표기되어 있어 단위 확인이 필요하다. 이 심층 분석에서는 임의로 수정하지 않았다."
               },
               {
                 "type": "paragraph",
