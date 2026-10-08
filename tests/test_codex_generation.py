@@ -38,6 +38,17 @@ class GenerationTests(unittest.TestCase):
         self.assertIn('필수 그림 해석 부족',cg.validate(broken,'summary',self.pages))
         self.assertTrue(cg.validate(self.report,'analysis',self.pages))
 
+    def test_editorial_without_figures_requires_source_and_full_visual_review(self):
+        report=copy.deepcopy(self.report)
+        report.update(documentType='editorial',figureAbsence='전체 페이지를 확인한 Editorial이며 과학적 결과 그림은 없고 저널 로고만 있다.',figures=[])
+        self.assertEqual(cg.validate(report,'summary',[self.pages[0]+' Editorial']),[])
+        self.assertIn('필수 그림 해석 부족',cg.validate(report,'summary',self.pages))
+        report['visualPages']=[]
+        self.assertIn('필수 그림 해석 부족',cg.validate(report,'summary',[self.pages[0]+' Editorial']))
+        report['visualPages']=[1]
+        report['documentType']='research'
+        self.assertIn('필수 그림 해석 부족',cg.validate(report,'summary',[self.pages[0]+' Editorial']))
+
     def put_request(self,status):
         item={'key':'test','kind':'summary','sha256':'hash','title':'test','status':status}
         with gr.connect(self.db) as db:
