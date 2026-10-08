@@ -7,9 +7,13 @@ function generatedCard(paper) {
     const points=title=>sections.find(s=>s.title===title)?.points || [];
     const text=title=>points(title).map(p=>escape(p.text)).join('<br>');
     const figure=figures[0];
+    const g=r.glance;
+    const glance=g && {type:escape(g.type),oneLiner:escape(g.oneLiner),problem:escape(g.problem),conclusion:escape(g.conclusion),
+      steps:g.steps.map(s=>({label:escape(s.label),text:escape(s.text)})),
+      keyResults:g.keyResults.map(k=>({value:escape(k.value),label:escape(k.label),context:escape(k.context),source:{label:`PDF ${k.page}쪽 ↗`,url:`${base}/source.pdf#page=${k.page}`}}))};
     return renderCard({...paper,
       metadata:{...paper.metadata,pdfUrl:`${base}/source.pdf`,peerReview:'원문 기반'},
-      card:{purpose:text('연구 질문'),
+      card:{glance,purpose:text('연구 질문'),
         pairs:points('방법과 핵심 결과').map(p=>{
           const separator=p.text.indexOf(': ');
           const hasLabel=separator>0 && separator<45;

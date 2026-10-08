@@ -18,12 +18,16 @@ class GenerationTests(unittest.TestCase):
         self.folder=Path(__file__).parent/('generation-test-'+uuid.uuid4().hex)
         self.folder.mkdir()
         self.db=self.folder/'test.sqlite3'
-        self.pages=['Evidence text for exact citation.']
+        self.pages=['Evidence text for exact citation. Accuracy was 92.5% over 10 runs.']
         self.report={'translation':'시험 제목','authors':'Author','journal':'Journal','doi':'10.1/example',
                      'readPages':[1],'visualPages':[1],'unverified':['SI 미검토'],'blockers':[],
                      'sections':[{'title':t,'points':[{'text':'과학적 근거와 비교 기준을 구체적으로 설명하는 시험용 문장입니다. '*5,
                                   'basis':'데이터 관찰','page':1,'quote':self.pages[0]}]} for t in cg.SECTIONS['summary']],
-                     'figures':[{'page':1,'label':'Figure 1','interpretation':'그림에서 관찰되는 비교와 해석의 한계를 설명하는 시험용 문장입니다. '*4}]}
+                     'figures':[{'page':1,'label':'Figure 1','interpretation':'그림에서 관찰되는 비교와 해석의 한계를 설명하는 시험용 문장입니다. '*4}],
+                     'glance':{'type':'방법 개발','oneLiner':'시험용 한 줄 정의입니다.','problem':'기존 방식의 한계','conclusion':'개선을 확인',
+                               'steps':[{'label':'모델 설계','text':'입력과 출력을 정의'},{'label':'검증','text':'기존 방식과 비교'}],
+                               'keyResults':[{'value':'92.5%','label':'정확도','context':'기존 방식 대비','page':1},
+                                             {'value':'10회','label':'반복 실행','context':'동일 조건','page':1}]}}
 
     def tearDown(self):
         assert self.folder.resolve().is_relative_to(cg.ROOT/'tests')
@@ -37,6 +41,19 @@ class GenerationTests(unittest.TestCase):
         self.assertIn('출처 발췌·페이지 불일치',cg.validate(broken,'summary',self.pages))
         self.assertIn('필수 그림 해석 부족',cg.validate(broken,'summary',self.pages))
         self.assertTrue(cg.validate(self.report,'analysis',self.pages))
+
+    def test_glance_must_stay_short_and_cite_real_numbers(self):
+        missing=copy.deepcopy(self.report); del missing['glance']
+        self.assertIn('한눈에 보기 도식 누락',cg.validate(missing,'summary',self.pages))
+        self.assertEqual(cg.validate(missing,'analysis',self.pages)[-1:],cg.validate(self.report,'analysis',self.pages)[-1:])
+        long=copy.deepcopy(self.report); long['glance']['oneLiner']='줄글'*60
+        self.assertIn('한눈에 보기의 유형·한 줄 정의·문제·결론 누락 또는 과도한 길이',cg.validate(long,'summary',self.pages))
+        steps=copy.deepcopy(self.report); steps['glance']['steps']=steps['glance']['steps'][:1]
+        self.assertIn('한눈에 보기 흐름 단계는 2~4개, 단계 제목 16자·설명 60자 이내',cg.validate(steps,'summary',self.pages))
+        invented=copy.deepcopy(self.report); invented['glance']['keyResults'][0]['value']='87.1%'
+        self.assertIn('한눈에 보기 수치가 해당 페이지 원문에 없음',cg.validate(invented,'summary',self.pages))
+        page=copy.deepcopy(self.report); page['glance']['keyResults'][0]['page']=5
+        self.assertIn('한눈에 보기 수치의 페이지 오류',cg.validate(page,'summary',self.pages))
 
     def put_request(self,status):
         item={'key':'test','kind':'summary','sha256':'hash','title':'test','status':status}
